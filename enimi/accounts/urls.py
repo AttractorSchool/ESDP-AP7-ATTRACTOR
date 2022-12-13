@@ -1,10 +1,8 @@
-from django.conf import settings
-from django.conf.urls.static import static
 from django.urls import path
 
-from accounts.views import IndexView
+from accounts.views.accounts import AccountCreateView, logout_view
 
 urlpatterns = [
-    path('', IndexView.as_view(), name='index'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
-              + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('register/account/<str:type>/', AccountCreateView.as_view(), name='account_register'),
+    path('logout/', logout_view, name='logout'),
+]
