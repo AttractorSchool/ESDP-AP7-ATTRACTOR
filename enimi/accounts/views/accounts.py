@@ -19,8 +19,8 @@ class AccountCreateView(CreateView):
             account.type = kwargs['type']
             account.save()
             login(request, account)
-            # if account.type == 'tutor':
-            #     return redirect('tutor_module_register', pk=account.pk)
+            if account.type == 'tutor':
+                return redirect('tutor_module_creation', pk=account.pk)
             # if account.type == 'study_center':
             #     return redirect('study_center_module_register', pk=account.pk)
             return redirect('index')
