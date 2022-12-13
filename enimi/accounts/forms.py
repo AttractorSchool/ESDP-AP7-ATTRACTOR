@@ -32,3 +32,9 @@ class AccountForm(forms.ModelForm):
             # group = Group.objects.get(name=group_name)
             # user.groups.add(group)
         return user
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(required=True, label='Login')
+    password = forms.CharField(required=True, label='Password', widget=forms.PasswordInput)
+    next = forms.CharField(required=False, widget=forms.HiddenInput)
