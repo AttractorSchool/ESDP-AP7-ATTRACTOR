@@ -33,7 +33,6 @@ class Account(AbstractUser):
         blank=False
     )
     phone = PhoneNumberField(
-        unique=True,
         null=False,
         blank=False
     )
@@ -44,6 +43,12 @@ class Account(AbstractUser):
         verbose_name='Аватар',
         default='default_avatar/default-user.png'
     )
+    birthday = models.DateField(null=True, blank=True)
+    parent = models.ForeignKey('accounts.Account',
+                               verbose_name=('Родитель'),
+                               on_delete=models.CASCADE,
+                               related_name='children',
+                               null=True)
     created_at = models.DateTimeField(
         verbose_name='Дата создания',
         auto_now_add=True

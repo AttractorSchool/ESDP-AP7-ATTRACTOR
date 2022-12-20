@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <div id="myModal" class="modal" style="display: block; width: 100%; height: 100%; background-color: #bbbbbb; z-index: 1; overflow: auto">
+        <div class="modal-content" style="background-color: white; margin: 10% auto; padding: 20px; width: 80%; border: 1px solid#888">
+            <h2 style="margin: 30px auto">Регистрация ребенка</h2>
+            <div>
+                <form action="" method="POST" enctype="multipart/form-data">
+                 {% csrf_token %}
+                    <div class="form" >
+                        {% bootstrap_form form %}
+                        {% bootstrap_button button_type="submit" content='Зарегистрировать ребенка' %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
