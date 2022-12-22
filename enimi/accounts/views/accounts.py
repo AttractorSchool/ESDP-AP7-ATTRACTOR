@@ -1,7 +1,6 @@
 from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import redirect
 from django.views.generic import CreateView, TemplateView
-
 from accounts.forms import AccountForm, LoginForm
 from accounts.models.accounts import Account
 
@@ -13,12 +12,19 @@ class AccountCreateView(CreateView):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
+        user = request.user
+
         if form.is_valid():
             account = form.save(commit=False)
-            account.username = account.email
-            account.type = kwargs['type']
-            account.save()
-            login(request, account)
+            if user.type == 'parents':
+                account.email = user.email.split("@")[0]+account.first_name+user.email.split("@")[1]
+                print("KKKKKKKKKKK")
+                print(account.email)
+                account.username = account.email
+                account.type = kwargs['type']
+                account.parent = user
+                account.save()
+                login(request, account)
             if account.type == 'tutor':
                 return redirect('tutor_module_creation', pk=account.pk)
             # if account.type == 'study_center':
