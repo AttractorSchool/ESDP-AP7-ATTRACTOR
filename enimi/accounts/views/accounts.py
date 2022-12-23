@@ -16,20 +16,19 @@ class AccountCreateView(CreateView):
 
         if form.is_valid():
             account = form.save(commit=False)
-            if user.type == 'parents':
-                account.email = user.email.split("@")[0]+account.first_name+user.email.split("@")[1]
-                print("KKKKKKKKKKK")
-                print(account.email)
-                account.username = account.email
-                account.type = kwargs['type']
-                account.parent = user
-                account.save()
-                login(request, account)
+            account.type = kwargs['type']
+            account.save()
+            login(request, account)
+            if account.type == 'parents':
+                # account.email = user.email.split("@")[0]+account.first_name+user.email.split("@")[1]
+                # account.username = account.email
+                # account.type = kwargs['type']
+                # account.parent = user
+                return redirect('index')          # после создания страницы кабинета установите свой редирект
             if account.type == 'tutor':
-                return redirect('tutor_module_creation', pk=account.pk)
-            # if account.type == 'study_center':
-            #     return redirect('study_center_module_register', pk=account.pk)
-            return redirect('index')
+                return redirect('index')          # после создания страницы кабинета установите свой редирект
+            if account.type == 'parents':
+                return redirect('index')          # после создания страницы кабинета установите свой редирект
         context = {}
         context['form'] = form
         return self.render_to_response(context)
