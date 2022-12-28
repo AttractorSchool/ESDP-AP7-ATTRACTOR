@@ -24,5 +24,6 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('auth/', include('accounts.urls')),
                   path('', IndexView.as_view(), name='index'),
+                  path('cabinet_parents/', include('cabinet_parents.urls')),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
