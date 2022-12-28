@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <div class="text-center mt-3 pb-3" style="padding-top: 100px;">
+        <h5>Создание блока образование</h5>
+        <div style="width: 370px; margin: 0 auto;">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form">
+                    {% bootstrap_form form %}
+                    <button type="submit" class="btn btn-primary">Создать</button>
+                    <a class="btn btn-primary mx-1" href="{% url 'tutor_cabinet' user.tutor.pk %}">Назад</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

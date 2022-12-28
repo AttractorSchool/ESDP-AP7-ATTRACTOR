@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'accounts',
     'phonenumber_field',
     'django_bootstrap5',
-    'cabinet_parents'
+    'cabinet_parents',
+    'cabinet_tutors',
 
 ]
 

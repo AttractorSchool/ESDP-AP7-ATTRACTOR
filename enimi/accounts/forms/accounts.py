@@ -12,11 +12,13 @@ class AccountForm(forms.ModelForm):
     password_confirm = forms.CharField(label='Подтвердите пароль', strip=False, required=True,
                                        widget=forms.PasswordInput)
     phone = forms.CharField(label='Номер телефона')
+
     class Meta:
         model = Account
 
         fields = (
-            'first_name', 'last_name', 'father_name', 'email', 'phone', 'birthday', 'avatar', 'password', 'password_confirm'
+            'first_name', 'last_name', 'father_name', 'email', 'phone', 'birthday', 'avatar', 'password',
+            'password_confirm'
         )
         widgets = {
             'birthday': TextInput(attrs={
@@ -25,7 +27,6 @@ class AccountForm(forms.ModelForm):
                 'type': 'date'
             }),
         }
-
 
     def clean(self):
         cleaned_data = super().clean()
@@ -42,6 +43,33 @@ class AccountForm(forms.ModelForm):
             # group_name = 'basic_users'
             # group = Group.objects.get(name=group_name)
             # user.groups.add(group)
+        return user
+
+
+class PasswordChangeForm(forms.ModelForm):
+    password = forms.CharField(label="Новый пароль", strip=False, widget=forms.PasswordInput)
+    password_confirm = forms.CharField(label="Подтвердите пароль", widget=forms.PasswordInput, strip=False)
+    old_password = forms.CharField(label="Старый пароль", strip=False, widget=forms.PasswordInput)
+
+    class Meta:
+        model = get_user_model()
+        fields = ['password', 'password_confirm', 'old_password']
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get('password')
+        password_confirm = cleaned_data.get('password_confirm')
+        if password and password_confirm and password != password_confirm:
+            raise ValidationError('Пароли не совпадают')
+        old_password = self.cleaned_data.get('old_password')
+        if not self.instance.check_password(old_password):
+            raise forms.ValidationError('Старый пароль неправильный!')
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data.get('password'))
+        if commit:
+            user.save()
         return user
 
 

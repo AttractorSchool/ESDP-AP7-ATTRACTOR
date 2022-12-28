@@ -1,0 +1,27 @@
+{% load django_bootstrap5 %}
+
+<div class="border-bottom">
+    <h5 class="fw-bold">Основной блок <a href="{% url 'tutor_main_update' tutor.pk %}"><i
+            class="bi bi-pencil-square ms-3"></i></a></h5>
+
+    <span class="fw-bold">Пол: </span>
+    <span>{% if tutor.gender %} {{ tutor.get_gender_display }} {% else %} - {% endif %}
+        <br></span>
+
+    <span class="fw-bold">Языки: </span>
+    <span>{% if tutor.languages.all %}
+        {% for language in tutor.languages.all %}
+            <span>{{ language.name }} </span>
+        {% endfor %}
+    {% else %} - {% endif %}
+        <br></span>
+
+    <span class="fw-bold">Обо мне: </span>
+    <span>
+        {% if tutor.about %}
+            <span style="word-wrap: break-word;">{{ tutor.about | linebreaks }}</span>
+        {% else %} - {% endif %}
+    </span>
+</div>
+
+
