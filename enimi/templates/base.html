@@ -83,6 +83,9 @@
                             <a class="nav-link" href="about-us.html">Как это работает</a>
                         </li>
                         {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'parents_cabinet_detail' user.pk %}">Личный кабинет</a>
+                        </li>
                         {% else %}
                         <li class="nav-item submenu dropdown">
                             <a
@@ -153,7 +156,7 @@
                             </li>
                             {% if user.is_authenticated %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">Личный кабинет</a>
+                                    <a class="nav-link" href="{% url 'logout' %}">Выход</a>
                                 </li>
                             {% else %}
                             <li class="nav-item active">
