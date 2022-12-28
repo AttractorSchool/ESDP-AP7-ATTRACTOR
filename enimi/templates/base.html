@@ -83,9 +83,19 @@
                             <a class="nav-link" href="about-us.html">Как это работает</a>
                         </li>
                         {% if user.is_authenticated %}
+                        {% if user.type == 'parents' %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'parents_cabinet_detail' user.pk %}">Личный кабинет</a>
                         </li>
+                        {% elif user.type == 'tutor' %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Личный кабинет репетитора</a>
+                        </li>
+                        {% elif user.type == 'student' %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Личный кабинет студента</a>
+                        </li>
+                        {% endif %}
                         {% else %}
                         <li class="nav-item submenu dropdown">
                             <a
