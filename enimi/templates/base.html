@@ -82,6 +82,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about-us.html">Как это работает</a>
                         </li>
+                        {% if user.is_authenticated %}
+                        {% else %}
                         <li class="nav-item submenu dropdown">
                             <a
                                     href="#"
@@ -100,6 +102,7 @@
                             {% endfor %}
                             </ul>
                         </li>
+                        {% endif %}
                         <li class="nav-item submenu dropdown">
                             <a
                                     href="#"
@@ -148,9 +151,15 @@
                                     </li>
                                 </ul>
                             </li>
+                            {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">Личный кабинет</a>
+                                </li>
+                            {% else %}
                             <li class="nav-item active">
                                 <a class="nav-link" href="{% url 'login' %}">Вход</a>
                             </li>
+                            {% endif %}
                         </div>
                     </ul>
                 </div>
