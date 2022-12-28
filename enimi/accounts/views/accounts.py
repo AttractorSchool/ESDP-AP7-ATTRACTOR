@@ -17,6 +17,7 @@ class AccountCreateView(CreateView):
         if form.is_valid():
             account = form.save(commit=False)
             account.type = kwargs['type']
+            account.username = account.email
             account.save()
             login(request, account)
             if account.type == 'parents':
@@ -24,7 +25,7 @@ class AccountCreateView(CreateView):
                 # account.username = account.email
                 # account.type = kwargs['type']
                 # account.parent = user
-                return redirect('index')          # после создания страницы кабинета установите свой редирект
+                return redirect('parents_cabinet_detail', pk=account.pk)         # после создания страницы кабинета установите свой редирект
             if account.type == 'tutor':
                 return redirect('index')          # после создания страницы кабинета установите свой редирект
             if account.type == 'parents':
@@ -63,4 +64,8 @@ class LoginView(TemplateView):
         login(request, user)
         if next:
             return redirect(next)
+        if user.type == 'tutor':
+            return redirect('tutor_cabinet', pk=user.pk)
+        if user.type == 'parents':
+            return redirect('parents_cabinet_detail', pk=user.pk)
         return redirect('index')

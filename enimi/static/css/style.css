@@ -3694,10 +3694,11 @@ h6 {
 }
 
 .blog_btn {
+  box-shadow: #0c5460;
   border: 1px solid #eeeeee;
-  background: #f1f9ff;
+  background: #c8e4fa;
   padding: 0px 32px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   color: #5680e9;

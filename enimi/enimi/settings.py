@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'phonenumber_field',
-    'django_bootstrap5'
+    'django_bootstrap5',
+    'cabinet_parents'
+
 ]
 
 MIDDLEWARE = [

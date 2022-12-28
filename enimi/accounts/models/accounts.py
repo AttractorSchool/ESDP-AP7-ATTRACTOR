@@ -43,7 +43,7 @@ class Account(AbstractUser):
         verbose_name='Аватар',
         default='default_avatar/default-user.png'
     )
-    birthday = models.DateField(null=True, blank=True)
+    birthday = models.CharField(verbose_name='Дата рождения', null=True, blank=True, max_length=30)
     parent = models.ForeignKey('accounts.Account',
                                verbose_name=('Родитель'),
                                on_delete=models.CASCADE,
@@ -59,6 +59,11 @@ class Account(AbstractUser):
     )
     is_deleted = models.BooleanField(
         verbose_name='Удалено',
+        default=False,
+        null=False
+    )
+    with_survey = models.BooleanField(
+        verbose_name='Анкета есть',
         default=False,
         null=False
     )
