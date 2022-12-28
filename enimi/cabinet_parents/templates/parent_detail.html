@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load django_bootstrap5 %}
-
+{% block search_btn %}
+{% endblock %}
 {% block content %}
 <div class="box" style="width:auto; background-color:white; border-radius: 15px; margin: -30px; min-height: 300px">
         <section class="blog_area section_gap">
             <div class="container">
                 <div class="row">
-
                     <div class="col-lg-3">
                         <div class="blog_right_sidebar">
-
                             <aside class="single_sidebar_widget author_widget">
                                 <img class="author_img rounded-circle" style="width: 60%; border-radius: 100px;" src="{{ user_obj.avatar.url }}" alt="">
                                 <h4>{{ user_obj.first_name}}</h4>

@@ -31,6 +31,10 @@ body {
   color: #7b838a;
 }
 
+* {
+    transition: all ease 0.3s;
+}
+
 h1,
 h2,
 h3,
@@ -746,7 +750,7 @@ button:focus {
   top: -34px;
   right: 15px;
   z-index: 2;
-  color: #5680e9;
+  color: #ffffff;
   display: inline-block;
   height: 65px;
   line-height: 65px;
@@ -824,7 +828,7 @@ button:focus {
 }
 .single_course:hover .price {
   background: #5680e9;
-  color: #8860d0;
+  color: #ffffff;
 }
 .single_course:hover h4 a {
   color: #8860d0;
@@ -3709,7 +3713,7 @@ h6 {
 .blog_btn:hover {
   background: #8860d0;
   border-color: #8860d0;
-  color: #5680e9;
+  color: #ffffff;
 }
 
 /* End Main Button Area css

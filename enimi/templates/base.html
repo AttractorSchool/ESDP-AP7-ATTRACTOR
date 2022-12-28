@@ -82,6 +82,27 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about-us.html">Как это работает</a>
                         </li>
+                        <li class="nav-item submenu dropdown">
+                            <a
+                                    href="#"
+                                    class="nav-link dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    role="button"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                            >Больше</a
+                            >
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="blog.html">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="single-blog.html"
+                                    >Blog Details</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
                         {% if user.is_authenticated %}
                         {% if user.type == 'parents' %}
                         <li class="nav-item">
@@ -116,32 +137,13 @@
                             </ul>
                         </li>
                         {% endif %}
-                        <li class="nav-item submenu dropdown">
-                            <a
-                                    href="#"
-                                    class="nav-link dropdown-toggle"
-                                    data-toggle="dropdown"
-                                    role="button"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                            >Больше</a
-                            >
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="blog.html">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="single-blog.html"
-                                    >Blog Details</a
-                                    >
-                                </li>
-                            </ul>
-                        </li>
+                        {% block search_btn %}
                         <li class="nav-item">
                             <a href="#" class="nav-link search" id="search">
                                 <i class="ti-search"></i>
                             </a>
                         </li>
+                        {% endblock %}
                         <div class="lang-log-block">
                             <li class="nav-item submenu dropdown">
                                 <a
@@ -166,6 +168,7 @@
                             </li>
                             {% if user.is_authenticated %}
                                 <li class="nav-item">
+                                    <span>{{ user.username }}</span>
                                     <a class="nav-link" href="{% url 'logout' %}">Выход</a>
                                 </li>
                             {% else %}
