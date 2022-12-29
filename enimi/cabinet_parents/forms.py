@@ -35,6 +35,11 @@ class SurveyForm(forms.ModelForm):
         model = Survey
         fields = ('subjects', 'programs', 'tests', 'education_time', 'min_cost', 'max_cost', 'online')
 
+        widgets = {
+            'min_cost': forms.NumberInput(attrs={'step': '500'}),
+            'max_cost': forms.NumberInput(attrs={'step': '500'}),
+        }
+
 
 class TutorRegionForm(forms.ModelForm):
     region = forms.ModelChoiceField(
