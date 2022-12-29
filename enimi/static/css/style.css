@@ -31,6 +31,10 @@ body {
   color: #7b838a;
 }
 
+* {
+    transition: all ease 0.3s;
+}
+
 h1,
 h2,
 h3,
@@ -199,6 +203,7 @@ button:focus {
 .header_area {
   position: absolute;
   width: 100%;
+  top: 0;
   z-index: 99;
   transition: background 0.4s, all 0.3s linear;
 }
@@ -230,7 +235,7 @@ button:focus {
 }
 .header_area .navbar .nav .nav-item:hover .nav-link,
 .header_area .navbar .nav .nav-item.active .nav-link {
-  color: #fdc632;
+  color: #8860d0;
 }
 .header_area .navbar .nav .nav-item.submenu {
   position: relative;
@@ -318,7 +323,7 @@ button:focus {
 }
 .header_area.white-header .navbar .nav .nav-item.active .nav-link,
 .header_area.white-header .navbar .nav .nav-item:hover .nav-link {
-  color: #fdc632;
+  color: #8860d0;
 }
 .header_area.white-header .navbar .nav .nav-item .nav-link {
   color: #ffffff;
@@ -369,11 +374,11 @@ button:focus {
   .nav
   .nav-item:hover
   .nav-link {
-  color: #fdc632;
+  color: #8860d0;
 }
 
 #search_input_box {
-  background: #fdc632;
+  background: #5680e9;
   text-align: center;
   padding: 5px 20px;
 }
@@ -745,14 +750,14 @@ button:focus {
   top: -34px;
   right: 15px;
   z-index: 2;
-  color: #5680e9;
+  color: #ffffff;
   display: inline-block;
   height: 65px;
   line-height: 65px;
   width: 65px;
   text-align: center;
   border-radius: 50px;
-  background: #fdc632;
+  background: #8860d0;
   font-family: "Rubik", sans-serif;
   font-weight: 500;
   font-size: 20px;
@@ -823,10 +828,10 @@ button:focus {
 }
 .single_course:hover .price {
   background: #5680e9;
-  color: #fdc632;
+  color: #ffffff;
 }
 .single_course:hover h4 a {
-  color: #fdc632;
+  color: #8860d0;
 }
 
 /* End Popular Courses Area css
@@ -850,7 +855,7 @@ button:focus {
   bottom: -1px;
   height: 1px;
   width: 74px;
-  background: #fdc632;
+  background: #8860d0;
 }
 
 .course_details_left .course_list {
@@ -873,7 +878,7 @@ button:focus {
   border-radius: 0px;
 }
 .course_details_left .course_list li .primary-btn:hover {
-  background: #fdc632;
+  background: #8860d0;
   color: #ffffff;
 }
 @media (max-width: 575px) {
@@ -931,7 +936,7 @@ button:focus {
 }
 .right-contents .avg-review span {
   font-size: 18px;
-  color: #fdc632;
+  color: #8860d0;
 }
 @media (max-width: 991px) {
   .right-contents .avg-review {
@@ -971,7 +976,7 @@ button:focus {
   box-shadow: none;
 }
 .right-contents .star .checked {
-  color: #fdc632;
+  color: #8860d0;
 }
 .right-contents .comments-area {
   padding: 0;
@@ -1230,7 +1235,7 @@ button:focus {
 }
 .single_event .event_details .date span {
   display: block;
-  color: #fdc632;
+  color: #8860d0;
   font-size: 28px;
   font-weight: 500;
 }
@@ -1250,7 +1255,7 @@ button:focus {
   transform: scale(1.1);
 }
 .single_event:hover h4 a {
-  color: #fdc632;
+  color: #8860d0;
 }
 
 /* End Event Area css
@@ -1378,7 +1383,7 @@ button:focus {
   color: #5680e9;
 }
 .tags .tag_btn:before {
-  background: #fdc632;
+  background: #8860d0;
 }
 .tags .tag_btn + .tag_btn {
   margin-left: 2px;
@@ -1432,7 +1437,7 @@ button:focus {
   height: 1px;
 }
 .categories_post:hover .categories_details {
-  background: #fdc632;
+  background: #8860d0;
   background-color: transparent;
   opacity: 0.6;
 }
@@ -1456,7 +1461,7 @@ button:focus {
   color: #7b838a;
 }
 .blog_info .post_tag a.active {
-  color: #fdc632;
+  color: #8860d0;
 }
 .blog_info .blog_meta li a {
   font: 300 14px/20px "Roboto", sans-serif;
@@ -1474,7 +1479,7 @@ button:focus {
   vertical-align: middle;
 }
 .blog_info .blog_meta li a:hover {
-  color: #fdc632;
+  color: #8860d0;
 }
 
 .blog_post img {
@@ -1495,7 +1500,7 @@ button:focus {
   transition: all 0.3s linear;
 }
 .blog_details h2:hover {
-  color: #fdc632;
+  color: #8860d0;
 }
 .blog_details p {
   margin-bottom: 26px;
@@ -1600,7 +1605,7 @@ button:focus {
   margin-left: 20px;
 }
 .blog_right_sidebar .author_widget .social_icon a:hover {
-  color: #fdc632;
+  color: #8860d0;
 }
 .blog_right_sidebar .popular_post_widget .post_item .media-body {
   justify-content: center;
@@ -1615,7 +1620,7 @@ button:focus {
   transition: all 0.3s linear;
 }
 .blog_right_sidebar .popular_post_widget .post_item .media-body h3:hover {
-  color: #fdc632;
+  color: #8860d0;
 }
 .blog_right_sidebar .popular_post_widget .post_item .media-body p {
   font-size: 12px;
@@ -1642,10 +1647,10 @@ button:focus {
   padding-top: 15px;
 }
 .blog_right_sidebar .post_category_widget .cat-list li:hover {
-  border-color: #fdc632;
+  border-color: #8860d0;
 }
 .blog_right_sidebar .post_category_widget .cat-list li:hover a {
-  color: #fdc632;
+  color: #8860d0;
 }
 .blog_right_sidebar .newsletter_widget {
   text-align: center;
@@ -1693,7 +1698,7 @@ button:focus {
   box-shadow: none;
 }
 .blog_right_sidebar .newsletter_widget .bbtns {
-  background: #fdc632;
+  background: #8860d0;
   color: #fff;
   font-size: 12px;
   line-height: 38px;
@@ -1719,7 +1724,7 @@ button:focus {
   font-size: 12px;
 }
 .blog_right_sidebar .tag_cloud_widget ul li a:hover {
-  background: #fdc632;
+  background: #8860d0;
   color: #fff;
 }
 .blog_right_sidebar .br {
@@ -1748,7 +1753,7 @@ button:focus {
 }
 
 .blog-pagination .page-item.active .page-link {
-  background: #fdc632;
+  background: #8860d0;
   border-color: transparent;
   color: #fff;
 }
@@ -1775,7 +1780,7 @@ button:focus {
 .blog-pagination .page-link:hover {
   color: #fff;
   text-decoration: none;
-  background: #fdc632;
+  background: #8860d0;
   border-color: #eee;
 }
 
@@ -1970,7 +1975,7 @@ button:focus {
   transition: all 0.3s ease 0s;
 }
 .comments-area .btn-reply:hover {
-  background: #fdc632;
+  background: #8860d0;
   color: #5680e9;
 }
 
@@ -2155,7 +2160,7 @@ button:focus {
 .modal-message .modal-dialog .modal-content .modal-header h2 {
   display: block;
   text-align: center;
-  color: #fdc632;
+  color: #8860d0;
   padding-bottom: 10px;
   font-family: "Roboto", sans-serif;
 }
@@ -2187,25 +2192,25 @@ button:focus {
 }
 .sample-text-area p b {
   font-weight: bold;
-  color: #fdc632;
+  color: #8860d0;
 }
 .sample-text-area p i {
-  color: #fdc632;
+  color: #8860d0;
   font-style: italic;
 }
 .sample-text-area p sup {
-  color: #fdc632;
+  color: #8860d0;
   font-style: italic;
 }
 .sample-text-area p sub {
-  color: #fdc632;
+  color: #8860d0;
   font-style: italic;
 }
 .sample-text-area p del {
-  color: #fdc632;
+  color: #8860d0;
 }
 .sample-text-area p u {
-  color: #fdc632;
+  color: #8860d0;
 }
 
 /*============== End Elements Area css ================*/
@@ -2330,11 +2335,11 @@ button:focus {
 
 .link-border {
   background: transparent;
-  border: 1px solid #fdc632;
-  color: #fdc632;
+  border: 1px solid #8860d0;
+  color: #8860d0;
 }
 .link-border:before {
-  background: #fdc632;
+  background: #8860d0;
 }
 
 .radius {
@@ -3689,7 +3694,7 @@ h6 {
   border: none;
 }
 .white_bg_btn:hover {
-  background: #fdc632;
+  background: #8860d0;
   color: #fff;
 }
 
@@ -3706,9 +3711,9 @@ h6 {
   display: inline-block;
 }
 .blog_btn:hover {
-  background: #fdc632;
-  border-color: #fdc632;
-  color: #5680e9;
+  background: #8860d0;
+  border-color: #8860d0;
+  color: #ffffff;
 }
 
 /* End Main Button Area css
@@ -4141,7 +4146,7 @@ h6 {
   box-shadow: none;
 }
 .footer-area .single-footer-widget .click-btn {
-  background: #fdc632;
+  background: #8860d0;
   background-size: 200% auto;
   color: #5680e9;
   border-radius: 0;
@@ -4178,7 +4183,7 @@ h6 {
   }
 }
 .footer-area .footer-bottom a {
-  color: #fdc632;
+  color: #8860d0;
 }
 .footer-area .footer-bottom .footer-social {
   text-align: left;

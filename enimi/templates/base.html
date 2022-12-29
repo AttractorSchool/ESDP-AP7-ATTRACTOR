@@ -90,24 +90,6 @@
                                     role="button"
                                     aria-haspopup="true"
                                     aria-expanded="false"
-                            >Регистрация</a
-                            >
-                            <ul class="dropdown-menu">
-                                {% for type in types %}
-                                <li><a class="dropdown-item" href="{% url 'account_register' type.0 %}">{{ type.1 }}</a>
-                                </li>
-
-                            {% endfor %}
-                            </ul>
-                        </li>
-                        <li class="nav-item submenu dropdown">
-                            <a
-                                    href="#"
-                                    class="nav-link dropdown-toggle"
-                                    data-toggle="dropdown"
-                                    role="button"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
                             >Больше</a
                             >
                             <ul class="dropdown-menu">
@@ -121,11 +103,47 @@
                                 </li>
                             </ul>
                         </li>
+                        {% if user.is_authenticated %}
+                        {% if user.type == 'parents' %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'parents_cabinet_detail' user.pk %}">Личный кабинет</a>
+                        </li>
+                        {% elif user.type == 'tutor' %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Личный кабинет репетитора</a>
+                        </li>
+                        {% elif user.type == 'student' %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Личный кабинет студента</a>
+                        </li>
+                        {% endif %}
+                        {% else %}
+                        <li class="nav-item submenu dropdown">
+                            <a
+                                    href="#"
+                                    class="nav-link dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    role="button"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                            >Регистрация</a
+                            >
+                            <ul class="dropdown-menu">
+                                {% for type in types %}
+                                <li><a class="dropdown-item" href="{% url 'account_register' type.0 %}">{{ type.1 }}</a>
+                                </li>
+
+                            {% endfor %}
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {% block search_btn %}
                         <li class="nav-item">
                             <a href="#" class="nav-link search" id="search">
                                 <i class="ti-search"></i>
                             </a>
                         </li>
+                        {% endblock %}
                         <div class="lang-log-block">
                             <li class="nav-item submenu dropdown">
                                 <a
@@ -148,9 +166,16 @@
                                     </li>
                                 </ul>
                             </li>
+                            {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <span>{{ user.username }}</span>
+                                    <a class="nav-link" href="{% url 'logout' %}">Выход</a>
+                                </li>
+                            {% else %}
                             <li class="nav-item active">
                                 <a class="nav-link" href="{% url 'login' %}">Вход</a>
                             </li>
+                            {% endif %}
                         </div>
                     </ul>
                 </div>
