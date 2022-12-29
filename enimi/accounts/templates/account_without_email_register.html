@@ -18,6 +18,7 @@
                  {% csrf_token %}
                     <div class="form" >
                         {% bootstrap_form form %}
+                        <p>* - поля обязательны к заполнению</p>
                         <div class="row">
                             <div class="col-6">
                                 {% bootstrap_button button_type="submit" content='Зарегистрироваться' %}

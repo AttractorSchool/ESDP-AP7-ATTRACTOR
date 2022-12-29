@@ -104,7 +104,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                 <div class="col-8">
                                                                     <h5 style="color: #6c757d; padding-top: 25px">Имя ученика: <span style="color: #568be9">{{ child.first_name }}</span></h5>
                                                                     <h5 style="color: #6c757d; padding-top: 8px">Фамилия ученика: <span style="color: #568be9">{{ child.last_name }}</span></h5>
-                                                                    {% if child.with_email == False %}
+                                                                    {% if child.with_email == True %}
                                                                         <h5 style="color: #6c757d; padding-top: 8px">Номер телефона: <span style="color: #568be9">{{ child.phone }}</span></h5>
                                                                     {% endif %}
                                                                     <hr>
