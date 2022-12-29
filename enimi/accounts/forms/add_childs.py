@@ -9,6 +9,8 @@ class ChildrenForm(forms.ModelForm):
     class Meta:
         model = Account
         fields = ('first_name', 'last_name', 'father_name', 'birthday', 'avatar')
+        labels = {'first_name': 'Имя', 'last_name': 'Фамилия', 'father_name': 'Отчество',
+                  'avatar': 'Фото на аватар', 'phone': 'Контакный телефон', 'birthday': 'Дата рождения'}
 
         widgets = {
             'birthday': TextInput(attrs={

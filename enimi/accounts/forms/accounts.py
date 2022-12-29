@@ -55,3 +55,39 @@ class AvatarForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = ('avatar',)
+
+
+class UserWithoutEmailUpdateForm(forms.ModelForm):
+    first_name = forms.CharField(required=True, label='Имя')
+    last_name = forms.CharField(required=True, label='Фамилия')
+    class Meta:
+        model = get_user_model()
+        fields = ('first_name', 'last_name', 'father_name', 'avatar', 'phone', 'birthday', )
+        labels = {'first_name': 'Имя', 'last_name': 'Фамилия', 'father_name': 'Отчество',
+                  'avatar': 'Фотография в профиле', 'birthday': 'Дата рождения'}
+        widgets = {
+            'birthday': TextInput(attrs={
+                'class': 'form-control',
+                'style': 'max-width: 250px; height: 26px;',
+                'type': 'date'
+            }),
+        }
+
+
+class UserUpdateForm(forms.ModelForm):
+    first_name = forms.CharField(required=True, label='Имя')
+    last_name = forms.CharField(required=True, label='Фамилия')
+    email = forms.EmailField(required=True, label='Номер телефона')
+    class Meta:
+        model = get_user_model()
+        fields = ('first_name', 'last_name', 'father_name', 'avatar', 'phone', 'email', 'birthday', )
+        labels = {'first_name': 'Имя', 'last_name': 'Фамилия', 'father_name': 'Отчество',
+                  'avatar': 'Фото на аватар', 'phone': 'Телефон', 'email': 'Email', 'birthday': 'Дата рождения'}
+
+        widgets = {
+            'birthday': TextInput(attrs={
+                'class': 'form-control',
+                'style': 'max-width: 250px; height: 26px;',
+                'type': 'date'
+            }),
+        }

@@ -24,6 +24,12 @@ class Survey(models.Model):
         related_name='surveys',
         blank=False,
     )
+    tests = models.ManyToManyField(
+        to='cabinet_parents.Test',
+        verbose_name='Программа тестов',
+        related_name='surveys',
+        blank=False,
+    )
     education_time = models.ForeignKey(
         to='cabinet_parents.EducationTime',
         verbose_name='Время для обучения',

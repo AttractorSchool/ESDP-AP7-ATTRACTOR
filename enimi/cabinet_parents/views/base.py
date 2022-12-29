@@ -69,6 +69,7 @@ class ParentCreateChildrenWithoutEmailView(CreateView):
             child.email = user.email.split("@")[0] + child.first_name + '@' + user.email.split("@")[1]
             child.username = child.email
             child.parent = Account.objects.get(pk=kwargs['pk'])
+            child.with_email = False
             child.save()
             return redirect('parents_cabinet_detail', pk=child.parent.pk)
         context = {}
@@ -120,6 +121,26 @@ class CreateParentChildrenSurveyView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return redirect('parent_children_surveys', self.kwargs['pk'])
+
+
+class UpdateParentChildrenSurveyView(UpdateView):
+    template_name = 'main_survey_edit.html'
+    form_class = SurveyForm
+    model = Survey
+    context_object_name = 'survey'
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateParentChildrenSurveyView, self).get_context_data(**kwargs)
+        context['form'] = SurveyForm(instance=self.object)
+        return context
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.save()
+        child = Account.objects.get(id=self.object.user_id)
+        print(child)
+        return redirect('parent_children_surveys', pk=child.parent.pk)
+
 
 
 # class GetDataForSurveysView(CreateView):
