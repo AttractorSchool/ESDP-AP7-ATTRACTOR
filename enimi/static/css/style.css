@@ -31,10 +31,6 @@ body {
   color: #7b838a;
 }
 
-* {
-    transition: all ease 0.3s;
-}
-
 h1,
 h2,
 h3,

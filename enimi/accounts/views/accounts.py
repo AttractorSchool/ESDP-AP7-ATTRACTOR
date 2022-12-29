@@ -1,8 +1,11 @@
-from django.contrib.auth import login, logout, authenticate
-from django.shortcuts import redirect
-from django.views.generic import CreateView, TemplateView
+from django.contrib.auth import login, logout, authenticate, get_user_model, update_session_auth_hash
+from django.shortcuts import redirect, get_object_or_404
+from django.views.generic import CreateView, TemplateView, UpdateView
+
 from accounts.forms import AccountForm, LoginForm
+from accounts.forms.accounts import PasswordChangeForm
 from accounts.models.accounts import Account
+from cabinet_tutors.models import TutorCabinets
 
 
 class AccountCreateView(CreateView):
@@ -25,11 +28,15 @@ class AccountCreateView(CreateView):
                 # account.username = account.email
                 # account.type = kwargs['type']
                 # account.parent = user
-                return redirect('parents_cabinet_detail', pk=account.pk)         # после создания страницы кабинета установите свой редирект
+                return redirect('parents_cabinet_detail',
+                                pk=account.pk)  # после создания страницы кабинета установите свой редирект
             if account.type == 'tutor':
-                return redirect('index')          # после создания страницы кабинета установите свой редирект
+                tutor = TutorCabinets.objects.create(
+                    user=account
+                )
+                return redirect('tutor_cabinet', pk=tutor.pk)  # после создания страницы кабинета установите свой редирект
             if account.type == 'parents':
-                return redirect('index')          # после создания страницы кабинета установите свой редирект
+                return redirect('index')  # после создания страницы кабинета установите свой редирект
         context = {}
         context['form'] = form
         return self.render_to_response(context)
@@ -69,3 +76,21 @@ class LoginView(TemplateView):
         if user.type == 'parents':
             return redirect('parents_cabinet_detail', pk=user.pk)
         return redirect('index')
+
+
+class PasswordChangeView(UpdateView):
+    template_name = 'change_password.html'
+    model = get_user_model()
+    form_class = PasswordChangeForm
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(self.request, user)
+            login(request, user)
+            if user.type == 'tutor':
+                return redirect('tutor_cabinet', pk=get_object_or_404(TutorCabinets, user=user).pk)
+        context = {}
+        context['form'] = form
+        return self.render_to_response(context)
