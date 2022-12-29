@@ -3698,12 +3698,12 @@ h6 {
   box-shadow: #0c5460;
   border: 1px solid #eeeeee;
   background: #c8e4fa;
-  padding: 0px 32px;
+  padding: 14px 32px;
   font-size: 15px;
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   color: #5680e9;
-  line-height: 34px;
+  line-height: 23px;
   display: inline-block;
 }
 .blog_btn:hover {
