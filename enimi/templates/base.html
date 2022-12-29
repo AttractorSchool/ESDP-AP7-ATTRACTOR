@@ -110,7 +110,7 @@
                         </li>
                         {% elif user.type == 'tutor' %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'tutor_cabinet' user.pk %}">Личный кабинет репетитора</a>
+                            <a class="nav-link" href="{% url 'tutor_cabinet' user.tutor.id  %}">Личный кабинет репетитора</a>
                         </li>
                         {% elif user.type == 'student' %}
                         <li class="nav-item">

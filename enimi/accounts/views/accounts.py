@@ -72,7 +72,7 @@ class LoginView(TemplateView):
         if next:
             return redirect(next)
         if user.type == 'tutor':
-            return redirect('tutor_cabinet', pk=user.pk)
+            return redirect('tutor_cabinet', pk=user.tutor.pk)
         if user.type == 'parents':
             return redirect('parents_cabinet_detail', pk=user.pk)
         return redirect('index')
