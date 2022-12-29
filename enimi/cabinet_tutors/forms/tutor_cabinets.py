@@ -7,7 +7,7 @@ from cabinet_tutors.models import TutorCabinets, Languages
 class TutorCabinetForm(forms.ModelForm):
     languages = forms.ModelMultipleChoiceField(
         label='Языки обучения',
-        queryset=Languages.objects.values_list('name', flat=True),
+        queryset=Languages.objects.all(),
         widget=forms.CheckboxSelectMultiple
     )
 

@@ -11,6 +11,9 @@ class GenderChoices(TextChoices):
 class Languages(models.Model):
     name = models.CharField(verbose_name="Язык", null=False, blank=False, max_length=100)
 
+    def __str__(self):
+        return f'{self.name}'
+
 
 class TutorCabinets(models.Model):
     user = models.OneToOneField(
