@@ -2,7 +2,7 @@
 
 <div class="border-bottom">
     <h5 class="fw-bold">Основной блок <a href="{% url 'tutor_main_update' tutor.pk %}"><i
-            class="bi bi-pencil-square ms-3"></i></a></h5>
+            class="bi bi-pencil-square ml-3"></i></a></h5>
 
     <span class="fw-bold">Пол: </span>
     <span>{% if tutor.gender %} {{ tutor.get_gender_display }} {% else %} - {% endif %}

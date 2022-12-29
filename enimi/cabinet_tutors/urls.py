@@ -1,7 +1,7 @@
 from django.urls import path
 
 from cabinet_tutors.views.education import EducationUpdateView, EducationCreateView, EducationDeleteView
-from cabinet_tutors.views.tutor_modules import TutorCabinetView, TutorCabinetUpdateView
+from cabinet_tutors.views.tutor_cabinets import TutorCabinetView, TutorCabinetUpdateView
 
 urlpatterns = [
     path('<int:pk>/', TutorCabinetView.as_view(), name='tutor_cabinet'),

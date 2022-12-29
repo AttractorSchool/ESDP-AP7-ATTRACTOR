@@ -1,7 +1,7 @@
 from django.urls import reverse
 from django.views.generic import DetailView, UpdateView
 
-from cabinet_tutors.forms.tutor_modules import TutorCabinetForm
+from cabinet_tutors.forms.tutor_cabinets import TutorCabinetForm
 from cabinet_tutors.models import TutorCabinets, Education
 
 

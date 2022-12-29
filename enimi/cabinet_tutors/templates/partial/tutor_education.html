@@ -3,7 +3,7 @@
 <div class="mt-2 border-bottom mt-3 pb-2">
     <h5 class="fw-bold">Образование
         <a href="{% url 'education_create' user.tutor.pk %}">
-            <i class="bi bi-plus-lg fs-5 ms-3"></i>
+            <i class="bi bi-plus-lg fs-5 ml-3"></i>
         </a>
     </h5>
     {% if user.tutor.education.all %}
@@ -23,12 +23,12 @@
                     <div class="d-flex">
                         <div>
                             <a href="{% url 'education_update' user.tutor.pk education.pk %}">
-                                <i class="bi bi-pencil-square ms-3"></i>
+                                <i class="bi bi-pencil-square ml-3"></i>
                             </a>
                         </div>
                         <div>
                             <a href="{% url 'education_delete' user.tutor.pk education.pk %}"
-                               class="ms-2 text-danger"><i class="bi bi-dash-lg"></i></a>
+                               class="ml-2 text-danger"><i class="bi bi-dash-lg"></i></a>
                         </div>
                     </div>
                 </div>

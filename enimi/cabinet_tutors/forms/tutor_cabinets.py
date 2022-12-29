@@ -7,7 +7,7 @@ from cabinet_tutors.models import TutorCabinets, Languages
 class TutorCabinetForm(forms.ModelForm):
     languages = forms.ModelMultipleChoiceField(
         label='Языки обучения',
-        queryset=Languages.objects.all(),
+        queryset=Languages.objects.values_list('name', flat=True),
         widget=forms.CheckboxSelectMultiple
     )
 
@@ -15,10 +15,10 @@ class TutorCabinetForm(forms.ModelForm):
         model = TutorCabinets
         fields = ('gender', 'languages', 'about')
         widgets = {
-            'gender': Select(attrs={
-                'class': 'form-control',
-                'style': 'max-width: 100px;  height: 36px;',
-            }),
+            # 'gender': Select(attrs={
+            #     'class': 'form-select',
+            #     'style': 'max-width: 100px; height: 36px;',
+            # }),
             'about': Textarea(attrs={
                 'rows': 5,
                 'class': 'border-0 border-top',
