@@ -98,19 +98,80 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                        <div class="col-3 text-center align-self-center" style="margin-top: 25px; margin-bottom: 25px">
                                                             <img id="avatar" src="{{ child.avatar.url }}" class="circlehome-dp" style="border-radius: 100px; width:80%;" alt="signuplogo ">
                                                         </div>
-                                                        <div class="col-5 align-self-center">
-                                                            <h5 style="color: #6c757d">Имя ученика: <span style="color: #568be9">{{ child.first_name }}</span></h5>
-                                                            <h5 style="color: #6c757d">Фамилия ученика: <span style="color: #568be9">{{ child.last_name }}</span></h5>
+
+                                                        <div class="col-9 align-self-center">
+                                                            <div class="row">
+                                                                <div class="col-8">
+                                                                    <h5 style="color: #6c757d; padding-top: 25px">Имя ученика: <span style="color: #568be9">{{ child.first_name }}</span></h5>
+                                                                    <h5 style="color: #6c757d; padding-top: 8px">Фамилия ученика: <span style="color: #568be9">{{ child.last_name }}</span></h5>
+                                                                    {% if child.with_email == True %}
+                                                                        <h5 style="color: #6c757d; padding-top: 8px">Номер телефона: <span style="color: #568be9">{{ child.phone }}</span></h5>
+                                                                    {% endif %}
+                                                                    <hr>
+                                                                </div>
+                                                                <div class="col-4 text-center align-self-center">
+                                                                    {% if child.with_survey == False %}
+                                                                       <a href="{% url 'parent_children_create_surveys' child.pk %}" class="btn btn-primary" style="border-radius: 10px" data-id="'+ data[i].pk +'" id="btn" >Создать анкету</a>
+                                                                    {% else %}
+                                                                        {% if child.with_email == True %}
+                                                                            <a href="{% url 'user_update' child.pk %}" class="btn btn-success" style="border-radius: 10px" data-id="'+ data[i].pk +'" id="btn-base-info-update" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                                                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                                                </svg></a>
+                                                                         {% else %}
+                                                                            <a href="{% url 'user_update_without_email' child.pk %}" class="btn btn-success" style="border-radius: 10px" data-id="'+ data[i].pk +'" id="btn-base-info-update" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                                                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                                                </svg></a>
+                                                                         {% endif %}
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-8">
+                                                                    {% if child.with_survey == True %}
+                                                                    <p style="margin-bottom: 10px">Предметы: <span style="color: #568be9">
+                                                                    {% for subject in child.survey.subjects.all %}
+                                                                        <span class="info-item">{{ subject}}{% if not forloop.last %}, {% endif %}</span>
+                                                                    {% endfor %}
+                                                                    </p>
+
+                                                                    <p style="margin-bottom: 10px">Стоимость: <span style="color: #568be9;"><span class="info-item">{{ child.survey.min_cost }}тг. - {{ child.survey.max_cost }}тг.</span>
+                                                                    <p style="margin-bottom: 10px">Время обучения: <span style="color: #568be9"><span class="info-item">{{ child.survey.education_time }}</span>
+
+                                                                    <p style="margin-bottom: 10px">Тесты: <span style="color: #568be9">
+                                                                    {% for test in child.survey.tests.all %}
+                                                                        <span class="info-item">{{ test}}{% if not forloop.last %}, {% endif %}</span>
+                                                                    {% endfor %}
+                                                                    </p>
+
+                                                                    <p style="margin-bottom: 10px">Программа: <span style="color: #568be9">
+                                                                    {% for program in child.survey.programs.all %}
+                                                                        <span class="info-item">{{ program }}{% if not forloop.last %}, {% endif %}</span>
+                                                                    {% endfor %}
+                                                                    </p>
+
+
+                                                                    <p style="margin-bottom: 10px">Онлайн: <span style="color: #568be9">
+                                                                    {% for platform in child.survey.online.all %}
+                                                                        <span class="info-item">{{ platform }}{% if not forloop.last %}, {% endif %}</span>
+                                                                    {% endfor %}
+                                                                    </p>
+                                                                    {% endif %}
+
+                                                                </div>
+                                                                {% if child.with_survey == True %}
+                                                                    <div class="col-4 text-center align-self-center">
+                                                                        <a href="{% url 'main_survey_update' child.survey.pk %}"  class="btn btn-success" style="border-radius: 10px"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                                          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                                        </svg></a>
+                                                                    </div>
+                                                                {% endif %}
+                                                            </div>
                                                        </div>
-                                                       {% if child.with_survey == False %}
-                                                       <div class="col-3 text-center align-self-center text-center">
-                                                           <a href="{% url 'parent_children_create_surveys' child.pk %}" class="btn btn-primary" style="border-radius: 10px" data-id="'+ data[i].pk +'" id="btn" >Создать анкету</a>
-                                                        </div>
-                                                       {% else %}
-                                                        <div class="col-3 text-center align-self-center">
-                                                            <button type="button" class="btn btn-success" style="border-radius: 10px">Редактировать</button>
-                                                        </div>
-                                                        {% endif %}
+
                                                      </div>
                                                  </div>
                                              </div>

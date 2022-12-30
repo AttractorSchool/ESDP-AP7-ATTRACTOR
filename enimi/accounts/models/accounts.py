@@ -67,6 +67,11 @@ class Account(AbstractUser):
         default=False,
         null=False
     )
+    with_email = models.BooleanField(
+        verbose_name='Email есть',
+        default=True,
+        null=False
+    )
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

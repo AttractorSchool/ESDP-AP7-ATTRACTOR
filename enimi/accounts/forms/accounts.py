@@ -6,12 +6,13 @@ from accounts.models.accounts import Account
 
 
 class AccountForm(forms.ModelForm):
-    first_name = forms.CharField(required=True, label='Имя')
-    last_name = forms.CharField(required=True, label='Фамилия')
-    password = forms.CharField(label='Пароль', strip=False, required=True, widget=forms.PasswordInput)
-    password_confirm = forms.CharField(label='Подтвердите пароль', strip=False, required=True,
+    first_name = forms.CharField(required=True, label='Имя *')
+    last_name = forms.CharField(required=True, label='Фамилия *')
+    password = forms.CharField(label='Пароль *', strip=False, required=True, widget=forms.PasswordInput)
+    password_confirm = forms.CharField(label='Подтвердите пароль *', strip=False, required=True,
                                        widget=forms.PasswordInput)
-    phone = forms.CharField(label='Номер телефона')
+    phone = forms.CharField(label='Номер телефона *')
+    email = forms.CharField(label='Email *')
     class Meta:
         model = Account
 
@@ -46,8 +47,8 @@ class AccountForm(forms.ModelForm):
 
 
 class LoginForm(forms.Form):
-    username = forms.EmailField(required=True, label='Email')
-    password = forms.CharField(required=True, label='Password', widget=forms.PasswordInput)
+    username = forms.EmailField(required=True, label='Email *')
+    password = forms.CharField(required=True, label='Password *', widget=forms.PasswordInput)
     next = forms.CharField(required=False, widget=forms.HiddenInput)
 
 
@@ -55,3 +56,39 @@ class AvatarForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = ('avatar',)
+
+
+class UserWithoutEmailUpdateForm(forms.ModelForm):
+    # first_name = forms.CharField(required=True, label='Имя *')
+    # last_name = forms.CharField(required=True, label='Фамилия *')
+    class Meta:
+        model = get_user_model()
+        fields = ('avatar', 'birthday', )
+        labels = {'first_name': 'Имя', 'last_name': 'Фамилия', 'father_name': 'Отчество',
+                  'avatar': 'Фотография в профиле', 'birthday': 'Дата рождения'}
+        widgets = {
+            'birthday': TextInput(attrs={
+                'class': 'form-control',
+                'style': 'max-width: 250px; height: 26px;',
+                'type': 'date'
+            }),
+        }
+
+
+class UserUpdateForm(forms.ModelForm):
+    # first_name = forms.CharField(required=True, label='Имя *')
+    # last_name = forms.CharField(required=True, label='Фамилия *')
+    email = forms.EmailField(required=True, label='Email')
+    class Meta:
+        model = get_user_model()
+        fields = ('avatar', 'phone', 'email', 'birthday', )
+        labels = {'first_name': 'Имя', 'last_name': 'Фамилия', 'father_name': 'Отчество',
+                  'avatar': 'Фото на аватар', 'phone': 'Телефон', 'email': 'Email', 'birthday': 'Дата рождения'}
+
+        widgets = {
+            'birthday': TextInput(attrs={
+                'class': 'form-control',
+                'style': 'max-width: 250px; height: 26px;',
+                'type': 'date'
+            }),
+        }

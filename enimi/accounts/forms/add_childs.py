@@ -4,11 +4,13 @@ from django.forms import TextInput
 
 
 class ChildrenForm(forms.ModelForm):
-    first_name = forms.CharField(required=True, label='Имя')
-    last_name = forms.CharField(required=True, label='Фамилия')
+    first_name = forms.CharField(required=True, label='Имя *')
+    last_name = forms.CharField(required=True, label='Фамилия *')
     class Meta:
         model = Account
         fields = ('first_name', 'last_name', 'father_name', 'birthday', 'avatar')
+        labels = {'first_name': 'Имя', 'last_name': 'Фамилия', 'father_name': 'Отчество',
+                  'avatar': 'Фото на аватар *', 'phone': 'Контакный телефон', 'birthday': 'Дата рождения *'}
 
         widgets = {
             'birthday': TextInput(attrs={

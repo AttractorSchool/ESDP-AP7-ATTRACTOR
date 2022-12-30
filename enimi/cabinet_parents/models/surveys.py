@@ -24,6 +24,12 @@ class Survey(models.Model):
         related_name='surveys',
         blank=False,
     )
+    tests = models.ManyToManyField(
+        to='cabinet_parents.Test',
+        verbose_name='Программа тестов',
+        related_name='surveys',
+        blank=False,
+    )
     education_time = models.ForeignKey(
         to='cabinet_parents.EducationTime',
         verbose_name='Время для обучения',
@@ -36,14 +42,14 @@ class Survey(models.Model):
         verbose_name='Минимальная стоимость',
         null=True,
         blank=False,
-        validators=[MinValueValidator(500), MaxValueValidator(29900)]
+        validators=[MinValueValidator(0), MaxValueValidator(499000)]
 
     )
     max_cost = models.IntegerField(
         verbose_name='Максимальная стоимость',
         null=True,
         blank=False,
-        validators=[MinValueValidator(600), MaxValueValidator(30000)]
+        validators=[MinValueValidator(1), MaxValueValidator(500000)]
     )
     online = models.ManyToManyField(
         to='cabinet_parents.OnlinePlatform',

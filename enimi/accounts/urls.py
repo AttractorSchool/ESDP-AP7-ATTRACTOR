@@ -1,5 +1,5 @@
 from django.urls import path
-from accounts.views.accounts import AccountCreateView, logout_view, LoginView
+from accounts.views.accounts import AccountCreateView, logout_view, LoginView, UserUpdateView, UserWithoutEmailUpdateView
 from accounts.views.tutor_modules import TutorModuleCreateView
 from accounts.views.add_child import AddChildView
 
@@ -8,5 +8,7 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('login/', LoginView.as_view(), name='login'),
     path('register/tutor/<int:pk>/', TutorModuleCreateView.as_view(), name='tutor_module_creation'),
-    path('register/child/<int:pk>/', AddChildView.as_view(), name='add_child')
+    path('register/child/<int:pk>/', AddChildView.as_view(), name='add_child'),
+    path('profile/<int:pk>/user_update', UserUpdateView.as_view(), name='user_update'),
+    path('profile/<int:pk>/user_update_without_email', UserWithoutEmailUpdateView.as_view(), name='user_update_without_email'),
 ]

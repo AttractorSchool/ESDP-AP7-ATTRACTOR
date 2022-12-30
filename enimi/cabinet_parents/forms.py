@@ -1,7 +1,7 @@
 from django import forms
 
 from cabinet_parents.models import Subject, Program, EducationTime, OnlinePlatform, Survey, Region, City, District, \
-    TutorRegion, StudentRegion
+    TutorRegion, StudentRegion, Test
 
 
 class SurveyForm(forms.ModelForm):
@@ -13,6 +13,11 @@ class SurveyForm(forms.ModelForm):
     programs = forms.ModelMultipleChoiceField(
         label='Программа обучения',
         queryset=Program.objects.all(),
+        widget=forms.CheckboxSelectMultiple
+    )
+    tests = forms.ModelMultipleChoiceField(
+        label='Тесты',
+        queryset=Test.objects.all(),
         widget=forms.CheckboxSelectMultiple
     )
     education_time = forms.ModelChoiceField(
@@ -28,7 +33,12 @@ class SurveyForm(forms.ModelForm):
 
     class Meta:
         model = Survey
-        fields = ('subjects', 'programs', 'education_time', 'min_cost', 'max_cost', 'online')
+        fields = ('subjects', 'programs', 'tests', 'education_time', 'min_cost', 'max_cost', 'online')
+
+        widgets = {
+            'min_cost': forms.NumberInput(attrs={'step': '500'}),
+            'max_cost': forms.NumberInput(attrs={'step': '500'}),
+        }
 
 
 class TutorRegionForm(forms.ModelForm):
