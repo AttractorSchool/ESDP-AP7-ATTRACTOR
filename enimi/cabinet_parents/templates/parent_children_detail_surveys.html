@@ -3,7 +3,6 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
-
 <div class="box" style="width:auto; background-color:white; border-radius: 15px; margin: -30px; min-height: 300px">
         <section class="blog_area section_gap">
             <div class="container">
@@ -110,7 +109,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                 <div class="col-12" style="border-radius: 20px">
                                                     <div class="row">
                                                        <div class="col-3 text-center align-self-center" style="margin-top: 25px; margin-bottom: 25px">
-                                                            <img id="avatar" src="{{ child.avatar.url }}" class="circlehome-dp" style="border-radius: 290486px; width:80%;" alt="signuplogo ">
+                                                            <img id="avatar" src="{{ child.avatar.url }}" class="circlehome-dp" style="border-radius: 100px; width:80%;" alt="signuplogo ">
                                                         </div>
 
                                                         <div class="col-9 align-self-center">
@@ -172,7 +171,6 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                         <span class="info-item">{{ platform }}{% if not forloop.last %}, {% endif %}</span>
                                                                     {% endfor %}
                                                                     </p>
-                                                                    <hr>
                                                                     {% endif %}
 
                                                                 </div>
