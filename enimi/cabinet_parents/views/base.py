@@ -81,7 +81,7 @@ class ParentCreateChildrenWithoutEmailView(CreateView):
 class ParentChildrenSurveysView(LoginRequiredMixin, ListView):
     template_name = 'parent_children_detail_surveys.html'
     model = Account
-    context_object_name = 'vacancies'
+
 
     def get_context_data(self, *, object_list=None, **kwargs):
         parent = Account.objects.get(id=self.kwargs['pk'])

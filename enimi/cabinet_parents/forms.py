@@ -34,7 +34,6 @@ class SurveyForm(forms.ModelForm):
         queryset=OnlinePlatform.objects.all(),
         widget=forms.CheckboxSelectMultiple
     )
-
     class Meta:
         model = Survey
         fields = ('subjects', 'programs', 'tests', 'education_time', 'min_cost', 'max_cost', 'online')
@@ -67,8 +66,6 @@ class TutorAreaForm(forms.ModelForm):
         queryset=District.objects.all().exclude(district='Не указано'),
         initial='New'
     )
-
-
     class Meta:
         model = TutorArea
         fields = ('tutor_region', 'tutor_city', 'tutor_district')
@@ -96,8 +93,6 @@ class StudentAreaForm(forms.ModelForm):
         queryset=District.objects.all().exclude(district='Не указано'),
         initial='New'
     )
-
-
     class Meta:
         model = StudentArea
         fields = ('student_region', 'student_city', 'student_district')
