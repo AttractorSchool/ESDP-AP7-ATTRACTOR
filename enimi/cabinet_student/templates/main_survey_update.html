@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+        <div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; width: 50%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+        -moz-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+        box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
+            <h2 style="margin: 20px auto; margin-bottom: 50px; text-align:center; ">Изменить анкету</h2><div>
+                <form action="" method="POST" enctype="multipart/form-data">
+                 {% csrf_token %}
+                    <div class="form" >
+                        <h3 style="margin: 30px auto; text-align: center">Выбрать предметы</h3>
+                        <button type="button" id="subjectsButton" class="btn btn-primary btn-block">Выбрать</button>
+                        <div id="subjectsModal" class="modal" style="display: none; width: 100%; height: 100%; border-radius: 30px; background-color: rgba(0,0,0, 0.3); z-index: 1; overflow: auto">
+                            <div class="modal-content" style="background-color: white; margin: 10% auto; border-radius: 15px; padding: 20px; width: 30%;">
+                                <h2 style="margin: 30px auto">Укажите предметы</h2>
+
+                                <div class="row justify-content-center" style="height: 25%; overflow-y: scroll;">
+                                    {% bootstrap_field form.subjects %}
+                                    <div class="col-3 text-center">
+                                        <button type="button" id="subjectsCloseButton" class="btn btn-primary btn-block">Закрыть</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 style="margin: 30px auto; text-align: center">Программа обучения?</h3>
+                        <div class="row justify-content-center">
+                            <div class="col-5 text-center">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioPrograms" id="flexRadioDefault1">
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    Да
+                                  </label>
+                                </div>
+                            </div>
+
+                            <div class="col-5 text-center">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioPrograms" id="flexRadioDefault2" checked>
+                                  <label class="form-check-label" for="flexRadioDefault2">
+                                    Нет
+                                  </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="programsModal" class="modal" style="display: none; width: 100%; height: 100%; border-radius: 30px; background-color: rgba(0,0,0, 0.3); z-index: 1; overflow: auto">
+                            <div class="modal-content" style="background-color: white; margin: 10% auto; border-radius: 15px; padding: 20px; width: 30%;">
+                                <h2 style="margin: 30px auto">Укажите программу обучения</h2>
+
+                                <div class="row justify-content-center" style="height: 25%; overflow-y: scroll;">
+                                    {% bootstrap_field form.programs %}
+                                    <div class="col-3 text-center">
+                                        <button type="button" id="programsCloseButton" class="btn btn-primary btn-block">Закрыть</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <h3 style="margin: 30px auto; text-align: center">Тестирование?</h3>
+                        <div class="row justify-content-center">
+                            <div class="col-5 text-center">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioTests" id="flexRadioYesTest">
+                                  <label class="form-check-label" for="flexRadioYesTest">
+                                    Да
+                                  </label>
+                                </div>
+                            </div>
+
+                            <div class="col-5 text-center">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioTests" id="flexRadioNoTest" checked>
+                                  <label class="form-check-label" for="flexRadioNoTest">
+                                    Нет
+                                  </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="testsModal" class="modal" style="display: none; width: 100%; height: 100%; border-radius: 30px; background-color: rgba(0,0,0, 0.3); z-index: 1; overflow: auto">
+                            <div class="modal-content" style="background-color: white; margin: 10% auto; border-radius: 15px; padding: 20px; width: 30%;">
+                                <h2 style="margin: 30px auto; text-align: center">Укажите программу тестирования</h2>
+
+                                <div class="row justify-content-center" style="height: 25%; overflow-y: scroll;">
+                                    {% bootstrap_field form.tests %}
+                                    <div class="col-3 text-center">
+                                        <button type="button" id="testsCloseButton" class="btn btn-primary btn-block">Закрыть</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <h3 style="margin: 30px auto; text-align: center">Укажите удобное время</h3>
+                        <div class="row justify-content-center">
+                            {% bootstrap_field form.education_time show_label=False %}
+                        </div>
+
+
+                        <h3 style="margin: 30px auto; text-align: center">Укажите стоимость обучения</h3>
+                        <div class="row justify-content-center">
+                            {% bootstrap_field form.min_cost %}
+                        </div>
+                        <div class="row justify-content-center">
+                            {% bootstrap_field form.max_cost %}
+                        </div>
+
+
+                        <h3 style="margin: 30px auto; text-align: center">Обучение онлайн?</h3>
+                        <div class="row justify-content-center">
+                            <div class="col-5 text-center">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioOnline" id="flexRadioYesOnline">
+                                  <label class="form-check-label" for="flexRadioYesOnline">
+                                    Да
+                                  </label>
+                                </div>
+                            </div>
+
+                            <div class="col-5 text-center">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioOnline" id="flexRadioNoOnline" checked>
+                                  <label class="form-check-label" for="flexRadioNoOnline">
+                                    Нет
+                                  </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div id="onlineModal" class="modal" style="display: none; width: 100%; height: 100%; border-radius: 30px; background-color: rgba(0,0,0, 0.3); z-index: 1; overflow: auto">
+                            <div class="modal-content" style="background-color: white; margin: 10% auto; border-radius: 15px; padding: 20px; width: 30%;">
+                                <h2 style="margin: 30px auto; text-align: center">Укажите платформу для онлайн занятий</h2>
+
+                                <div class="row justify-content-center" style="height: 25%; overflow-y: scroll;">
+                                    {% bootstrap_field form.online %}
+                                    <div class="col-3 text-center">
+                                        <button type="button" id="onlineCloseButton" class="btn btn-primary btn-block">Закрыть</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                {% bootstrap_button button_type="submit" content='Сохранить' %}
+                            </div>
+                            <div class="col-6 text-center">
+                                <a href="{% url 'parent_children_surveys' request.user.pk %}">
+                                    <button type="button" class="btn btn-primary btn-block">Отмена</button>
+                                </a>
+                           </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+<script type="text/javascript" src="{% static 'js/student-survey-create.js' %}"></script>
+
+
+{% endblock %}

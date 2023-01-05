@@ -30,8 +30,8 @@ class AccountCreateView(CreateView):
                 return redirect('parents_cabinet_detail', pk=account.pk)         # после создания страницы кабинета установите свой редирект
             if account.type == 'tutor':
                 return redirect('index')          # после создания страницы кабинета установите свой редирект
-            if account.type == 'parents':
-                return redirect('index')          # после создания страницы кабинета установите свой редирект
+            if account.type == 'student':
+                return redirect('student_cabinet_detail', pk=account.pk)          # после создания страницы кабинета установите свой редирект
         context = {}
         context['form'] = form
         return self.render_to_response(context)
