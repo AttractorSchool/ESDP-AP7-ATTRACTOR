@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.files.base import ContentFile
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect
+from django.urls import reverse
 from django.views.generic import DetailView, CreateView, UpdateView, ListView
 from django.http import HttpResponse
 from django.core import serializers
@@ -172,12 +173,10 @@ class UpdateParentChildrenSurveyView(UpdateView):
         context['form'] = SurveyForm(instance=self.object)
         return context
 
-    def form_valid(self, form):
-        self.object = form.save(commit=False)
-        self.object.save()
-        child = Account.objects.get(id=self.object.user_id)
-        print(child)
-        return redirect('parent_children_surveys', pk=child.parent.pk)
+    def get_success_url(self):
+        survey = self.object
+        student = Account.objects.get(id=survey.user_id)
+        return reverse('parent_children_surveys', kwargs={'pk': student.parent.pk})
 
 
 class UpdateParentChildrenOfflineStudyTutorAreaSurveyView(UpdateView):
