@@ -73,6 +73,19 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                       <a class="nav-link active" aria-current="page" style="padding-right: 20px"
                                          href="#">Отзывы</a>
                                     </li>
+
+                                    <li class="nav-item" style="margin-left: 150px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
+                                      <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                         href="#"><body onload="clockTimer();">
+
+                                            <div class="clockpage">
+                                              <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold" id="clock"></span>
+                                              <span style="display: block;" id="dayOfWeek"></span>
+                                            </div>
+                                          </body></a>
+                                    </li>
                                   </ul>
 
                                 </div>
@@ -158,6 +171,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                         <span class="info-item">{{ platform }}{% if not forloop.last %}, {% endif %}</span>
                                                                     {% endfor %}
                                                                     </p>
+                                                                    <hr>
                                                                     {% endif %}
 
                                                                 </div>
@@ -170,6 +184,67 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                     </div>
                                                                 {% endif %}
                                                             </div>
+
+                                                            <div class="row">
+                                                                <div class="col-8">
+                                                                    {% if child.with_survey == True %}
+
+                                                                    <h5 style="margin-bottom: 10px; color: #6c757d;">Оффлайн у преподавателя:</h5>
+
+                                                                    <p style="margin-bottom: 10px">Область:
+                                                                    <span style="color: #568be9;">
+                                                                        <span class="info-item">{{ child.survey.tutor_area.tutor_region }}</span></p>
+
+                                                                    <p style="margin-bottom: 10px">Город:
+                                                                    <span style="color: #568be9;">
+                                                                        <span class="info-item">{{ child.survey.tutor_area.tutor_city }}</span></p>
+
+                                                                    <p style="margin-bottom: 10px">Район:
+                                                                    <span style="color: #568be9;">
+                                                                        <span class="info-item">{{ child.survey.tutor_area.tutor_district }}</span></p>
+                                                                    <hr>
+                                                                </div>
+
+
+                                                                {% if child.with_survey == True %}
+                                                                <div class="col-4 text-center align-self-center">
+                                                                    <a href="{% url 'offline_study_tutor_area_survey_update' child.survey.tutor_area.pk %}" class="btn btn-success" style="border-radius: 10px"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                                    </svg></a>
+                                                                </div>
+                                                                {% endif %}
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-8">
+                                                                    <h5 style="margin-bottom: 10px; color: #6c757d;">Оффлайн у себя:</h5>
+
+                                                                    <p style="margin-bottom: 10px">Область:
+                                                                    <span style="color: #568be9;">
+                                                                        <span class="info-item">{{ child.survey.student_area.student_region }}</span></p>
+
+                                                                    <p style="margin-bottom: 10px">Город:
+                                                                    <span style="color: #568be9;">
+                                                                        <span class="info-item">{{ child.survey.student_area.student_city }}</span></p>
+
+                                                                    <p style="margin-bottom: 10px">Район:
+                                                                    <span style="color: #568be9;">
+                                                                        <span class="info-item">{{ child.survey.student_area.student_district }}</span></p>
+                                                                    {% endif %}
+                                                                </div>
+
+                                                                {% if child.with_survey == True %}
+                                                                <div class="col-4 text-center align-self-center">
+                                                                    <a href="{% url 'offline_study_student_area_survey_update' child.survey.student_area.pk %}"  class="btn btn-success" style="border-radius: 10px"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                                    </svg></a>
+                                                                </div>
+                                                                {% endif %}
+
+                                                            </div>
+
                                                        </div>
 
                                                      </div>
@@ -299,7 +374,31 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
 
 
         </div>
+<script>
+    function clockTimer()
+{
+  var date = new Date();
 
+  var time = [date.getHours(),date.getMinutes(),date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
+  var dayOfWeek = ["Воскресенье","Понедельник","Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+  var days = date.getDay();
+
+  if(time[0] < 10){time[0] = "0"+ time[0];}
+  if(time[1] < 10){time[1] = "0"+ time[1];}
+  if(time[2] < 10){time[2] = "0"+ time[2];}
+
+  var current_time = [time[0],time[1],time[2]].join(':');
+  var clock = document.getElementById("clock");
+  var day = document.getElementById("dayOfWeek");
+
+  clock.innerHTML = current_time;
+  day.innerHTML = dayOfWeek[days];
+
+
+
+  setTimeout("clockTimer()", 1000);
+}
+</script>
 
 <script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
@@ -315,5 +414,5 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 <script src="{% static 'js/gmaps.min.js' %}"></script>
 <script src="{% static 'js/theme.js' %}"></script>
-
+<script type="text/javascript" src="{% static 'js/clock.js' %}"></script>
 {% endblock %}
