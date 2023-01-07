@@ -33,7 +33,7 @@ class StudentProfileView(LoginRequiredMixin, DetailView):
 
 
 class CreateStudentSurveyView(LoginRequiredMixin, CreateView):
-    template_name = 'create_survey_student.html'
+    template_name = 'student_create_survey.html'
     form_class = SurveyForm
     model = Survey
 
@@ -111,7 +111,7 @@ class StudentDetailSurveyView(LoginRequiredMixin, ListView):
 
 
 class UpdateStudentSurveyView(UpdateView):
-    template_name = 'main_survey_update.html'
+    template_name = 'student_survey_update.html'
     form_class = SurveyForm
     model = Survey
     context_object_name = 'survey'
@@ -128,7 +128,7 @@ class UpdateStudentSurveyView(UpdateView):
 
 
 class UpdateStudentOfflineStudyTutorAreaView(UpdateView):
-    template_name = 'offline_study_tutor_area_update.html'
+    template_name = 'tutor_area_update.html'
     form_class = TutorAreaForm
     model = TutorArea
     context_object_name = 'tutor_area'
@@ -147,7 +147,7 @@ class UpdateStudentOfflineStudyTutorAreaView(UpdateView):
 
 
 class UpdateStudentOfflineStudyStudentAreaView(UpdateView):
-    template_name = 'offline_study_student_area_update.html'
+    template_name = 'student_area_update.html'
     form_class = StudentAreaForm
     model = StudentArea
     context_object_name = 'student_area'
@@ -171,7 +171,6 @@ class ResetStudentOfflineStudyTutorAreaView(UpdateView):
 
     def post(self, request, **kwargs):
         tutor_area = TutorArea.objects.get(id=kwargs['pk'])
-
         tutor_area.tutor_region = Region.objects.get(region='Не указано')
         tutor_area.tutor_city = City.objects.get(city='Не указано')
         tutor_area.tutor_district = District.objects.get(district='Не указано')
@@ -188,7 +187,6 @@ class ResetStudentOfflineStudyStudentAreaView(UpdateView):
 
     def post(self, request, **kwargs):
         student_area = StudentArea.objects.get(id=kwargs['pk'])
-
         student_area.student_region = Region.objects.get(region='Не указано')
         student_area.student_city = City.objects.get(city='Не указано')
         student_area.student_district = District.objects.get(district='Не указано')
