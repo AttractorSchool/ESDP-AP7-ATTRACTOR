@@ -115,7 +115,7 @@
                         </li>
                         {% elif user.type == 'student' %}
                         <li class="nav-item">
-                            <a class="nav-link" href="">Личный кабинет студента</a>
+                            <a class="nav-link" href="{% url 'student_cabinet_detail' user.pk %}">Личный кабинет студента</a>
                         </li>
                         {% endif %}
                         {% else %}
