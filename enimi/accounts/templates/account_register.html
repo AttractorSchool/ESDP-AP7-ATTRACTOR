@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% load static %}
 {% load django_bootstrap5 %}
@@ -18,10 +19,12 @@
                  {% csrf_token %}
                     <div class="form" >
                         {% bootstrap_form form %}
+                        <p>* - поля обязательны к заполнению</p>
                         <div class="row">
                             <div class="col-6">
                                 {% bootstrap_button button_type="submit" content='Зарегистрироваться' %}
                             </div>
+
 
                             {% if request.user.type == 'parents' %}
                             <div class="col-6 text-center">
@@ -42,6 +45,7 @@
 
 
 {#<script type="text/javascript" src="{% static 'js/register-modal.js' %}"></script>#}
+
 
 
 {% endblock %}

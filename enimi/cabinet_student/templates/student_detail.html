@@ -22,11 +22,7 @@
                                     <a href="#"><i class="ti-github"></i></a>
                                     <a href="#"><i class="ti-linkedin"></i></a>
                                 </div>
-                                <div class="row justify-content-center" style="margin-top: 30px">
-                                    <div class="col-12 text-center">
-                                        <button type="button" id="add-modal-register-answer-btn-left" class="blog_btn" style="border-radius: 10px">Зарегистрировать ребёнка</button>
-                                    </div>
-                                </div>
+
 <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
 <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
 <!--                                    ters andits detractors.</p>-->
@@ -54,13 +50,12 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item" style="box-shadow: #0c5460">
                                         <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                           href="{% url 'parents_cabinet_detail' request.user.pk %}">Главная</a>
+                                           href="{% url 'student_cabinet_detail' request.user.pk %}">Главная</a>
                                     </li>
-                                    <li class="nav-item">
+                                      <li class="nav-item" style="box-shadow: #0c5460">
                                         <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                           href="{% url 'parent_children_surveys' request.user.pk %}">Анкеты детей</a>
-                                    </li>
-                                    </li>
+                                           href="{% url 'student_detail_survey' request.user.pk %}">Моя анкета</a>
+                                      </li>
                                     <li class="nav-item">
                                       <a class="nav-link active" aria-current="page" style="padding-right: 20px"
                                          href="#">Успеваемость</a>
@@ -102,20 +97,21 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                         <img src="#" alt="">
                                         <div class="blog_details">
 
-                                            {% if children %}
+                                            {% if request.user.with_survey %}
 
                                             <h2>Расписание</h2>
                                             {% else %}
 
                                             <h2>Здравствуй, дорогой пользователь!</h2>
 
-
                                     <span>Рады приветствовать тебя в лучшем приложении в мире
                                     Чтобы пользоваться услугами нашего сервиса вам необходимо
-                                    зарегистрировать анкету ребенка. Это не займёт много времени!</p>
+                                    создать анкету . Это не займёт много времени!</p>
                                         <div class="row justify-content-center" style="margin-top: 30px">
                                             <div class="col-12 text-center">
-                                                <button type="button" id="add-modal-register-answer-btn" class="blog_btn" style="border-radius: 10px">Зарегистрировать ребёнка</button>
+                                                <a href="{% url 'student_create_survey' request.user.pk %}" class="btn btn-primary" style="border-radius: 10px" data-id="'+ data[i].pk +'" id="btn" >
+                                                <button type="button" id="add-modal-register-answer-btn"  style="border-radius: 10px">Создать анкету</button>
+                                                </a>
                                             </div>
                                         </div>
 
@@ -151,100 +147,30 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
             </div>
 
 
-            <div id="registerModal" class="modal" style="display: none; width: 100%; height: 100%; border-radius: 30px; background-color: rgba(0,0,0, 0.3); z-index: 1; overflow: auto">
-                <div class="modal-content" style="background-color: white; margin: 10% auto; border-radius: 15px; padding: 20px; width: 30%">
-                    <h2 style="margin: 30px auto">У ребенка есть email?</h2><div>
 
-                        <div class="row justify-content-center">
-                            <div class="col-6 text-center">
-                                <a href="{% url 'parent_create_children' user_obj.pk %}">
-                                    <button type="button" class="btn btn-primary btn-block">Да</button>
-                                </a>
-                            </div>
-                            <div class="col-6 text-center">
-                                <a href="{% url 'parent_create_children_without_email' user_obj.pk %}">
-                                    <button type="button" class="btn btn-primary btn-block">Нет</button>
-                                </a>
-                            </div>
-                        </div>
 
-                    </div>
+
+
+
+
                 </div>
-            </div>
-
-
-
-            <div id="registerModalFormYes" class="modal" style="display: none; width: 100%; height: 100%; border-radius: 30px; background-color: rgba(0,0,0, 0.3); z-index: 1; overflow: auto">
-                    <div class="modal-content" style="background-color: white; margin: 10% auto; border-radius: 30px; padding: 20px; width: 30%"><h2 style="margin: 30px auto">Регистрация ученика</h2><div>
-                        <form action="{% url 'parent_create_children' user_obj.pk %}" method="POST" enctype="multipart/form-data">
-                         {% csrf_token %}
-                            <div class="form" id="form-student">
-                                {% bootstrap_form student_register_form %}
-                                <div class="row">
-                                    <div class="col-6 text-center">
-                                        {% bootstrap_button button_type="submit" content='Сохранить' %}
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <a href="{% url 'parent_create_children_without_email' user_obj.pk %}">
-                                            <button type="button" class="btn btn-primary btn-block">Нет</button>
-                                        </a>
-                                   </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
 
         </section>
+</div>
 
 
 
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
 
 
 
-
-
-
-
-                                <div id="registerModalFormNo" class="modal" style="display: none; width: 100%; height: 100%; border-radius: 30px; background-color: rgba(0,0,0, 0.3); z-index: 1; overflow: auto">
-                                    <div class="modal-content" style="background-color: white; margin: 10% auto; border-radius: 30px; padding: 20px; width: 30%"><h2 style="margin: 30px auto">Регистрация ученика</h2><div>
-                                        <form action="{% url 'parent_create_children_without_email' user_obj.pk %}" method="POST" enctype="multipart/form-data">
-                                         {% csrf_token %}
-                                            <div class="form" id="form-student-without-email">
-                                                {% bootstrap_form student_without_email_register_form %}
-                                                <div class="row">
-                                                    <div class="col-6 text-center">
-                                                        {% bootstrap_button button_type="submit" content='Сохранить' %}
-                                                    </div>
-                                                    <div class="col-6 text-center">
-                                                        <a id="btn-register-modal-without-email-close" class="btn btn-secondary">Закрыть</a>
-                                                   </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-
-                    </div>
-
-                </div>
-
-
-
-        </div>
+</div>
 
 
 <script>
@@ -273,7 +199,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
 }
 </script>
 
-<script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
+
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'js/popper.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>

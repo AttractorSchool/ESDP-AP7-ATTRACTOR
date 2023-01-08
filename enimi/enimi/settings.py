@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'cabinet_parents',
     'cabinet_tutors',
-
+    'cabinet_student',
 ]
 
 MIDDLEWARE = [

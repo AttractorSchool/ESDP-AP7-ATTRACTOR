@@ -1,9 +1,11 @@
+
 from django.contrib.auth import login, logout, authenticate, get_user_model, update_session_auth_hash
 from django.shortcuts import redirect, get_object_or_404
+from django.urls import reverse
 from django.views.generic import CreateView, TemplateView, UpdateView
-
 from accounts.forms import AccountForm, LoginForm
 from accounts.forms.accounts import PasswordChangeForm
+from accounts.forms.accounts import UserUpdateForm, UserWithoutEmailUpdateForm
 from accounts.models.accounts import Account
 from cabinet_tutors.models import TutorCabinets
 
@@ -35,8 +37,11 @@ class AccountCreateView(CreateView):
                     user=account
                 )
                 return redirect('tutor_cabinet', pk=tutor.pk)  # после создания страницы кабинета установите свой редирект
-            if account.type == 'parents':
-                return redirect('index')  # после создания страницы кабинета установите свой редирект
+
+                
+            if account.type == 'student':
+                return redirect('student_cabinet_detail', pk=account.pk)          # после создания страницы кабинета установите свой редирект
+
         context = {}
         context['form'] = form
         return self.render_to_response(context)
@@ -78,6 +83,7 @@ class LoginView(TemplateView):
         return redirect('index')
 
 
+
 class PasswordChangeView(UpdateView):
     template_name = 'change_password.html'
     model = get_user_model()
@@ -94,3 +100,62 @@ class PasswordChangeView(UpdateView):
         context = {}
         context['form'] = form
         return self.render_to_response(context)
+
+class UserUpdateView(UpdateView):
+    model = get_user_model()
+    form_class = UserUpdateForm
+    template_name = 'user_update.html'
+    context_object_name = 'user_obj'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserUpdateView, self).get_context_data(**kwargs)
+        context['form'] = UserUpdateForm(instance=self.object)
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form_class = self.get_form_class()
+
+        form = self.get_form(form_class)
+        if form.is_valid():
+            form.save()
+            if request.user.type == 'parents':
+                return redirect('parent_children_surveys', pk=request.user.pk)
+        return self.form_invalid(form, form)
+
+    def form_invalid(self, form, profile_form):
+        print('INVALID')
+        context = self.get_context_data(form=form)
+        return self.render_to_response(context)
+
+
+class UserWithoutEmailUpdateView(UpdateView):
+    model = get_user_model()
+    form_class = UserWithoutEmailUpdateForm
+    template_name = 'user_without_update.html'
+    context_object_name = 'user_obj'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserWithoutEmailUpdateView, self).get_context_data(**kwargs)
+        context['form'] = UserWithoutEmailUpdateForm(instance=self.object)
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form_class = self.get_form_class()
+
+        form = self.get_form(form_class)
+        if form.is_valid():
+            form.save()
+            return redirect('parent_children_surveys', pk=request.user.pk)
+        return self.form_invalid(form, form)
+
+
+    def form_invalid(self, form, profile_form):
+        print('INVALID')
+        context = self.get_context_data(form=form)
+        return self.render_to_response(context)
+
+
+
+
