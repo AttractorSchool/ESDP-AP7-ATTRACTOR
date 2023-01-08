@@ -24,3 +24,4 @@ urlpatterns = [
     # path('<int:pk>/get_children_surveys/', GetDataForSurveysView.as_view(), name='get_children_surveys'),
     # path('<int:pk>/change_avatar/', upload_file, name='change_avatar'),
 ]
+

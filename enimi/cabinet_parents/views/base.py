@@ -272,3 +272,4 @@ class ResetParentChildrenOfflineStudyStudentAreaSurveyView(UpdateView):
 #     account.save()
 #     return JsonResponse({"link": ('/uploads/' + url), "pk": pk})
 #
+

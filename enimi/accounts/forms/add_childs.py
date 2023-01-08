@@ -27,4 +27,5 @@ class ChildrenForm(forms.ModelForm):
             # group_name = 'basic_users'
             # group = Group.objects.get(name=group_name)
             # user.groups.add(group)
+
         return user

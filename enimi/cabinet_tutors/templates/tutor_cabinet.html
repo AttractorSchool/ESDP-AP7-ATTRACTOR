@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="d-flex pb-3" style="padding-top: 100px;">
+            <div class="d-flex flex-column" style="width: 25%">
+                <div class="rounded text-center">
+                    <p>
+                        <span class="fw-bold">{{ user.last_name }}</span>
+                        <span class="fw-bold">{{ user.first_name }}<br></span>
+                        <span class="fw-bold">{{ user.father_name }}<br></span>
+                    </p>
+                    <img src="{{ user.avatar.url }}" alt=""
+                         style="border-radius: 50%; width: 200px; height: 180px;">
+                    <div>
+                        <p class="pt-2">
+                            <span>{{ user.email }}</span>
+                            <br>
+                            <span>{{ user.phone }}</span>
+                        </p>
+                        <p>
+                            <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 75%">
+
+                {% if tutor.user == user %}
+                    {% include 'partial/tutor_navbar.html' %}
+                    {% include 'partial/tutor_main.html' %}
+                    {% include 'partial/tutor_education.html' %}
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

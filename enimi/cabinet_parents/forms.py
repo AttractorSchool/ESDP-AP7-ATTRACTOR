@@ -96,3 +96,4 @@ class StudentAreaForm(forms.ModelForm):
     class Meta:
         model = StudentArea
         fields = ('student_region', 'student_city', 'student_district')
+

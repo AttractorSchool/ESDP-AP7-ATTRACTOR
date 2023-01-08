@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="text-center mt-3" style="padding-top: 280px; padding-bottom: 100px;">
+        <h4>Блок образования: {{ education }}</h4>
+        <h5 class="text-center text-danger">Вы уверены что хотите удалить данный блок?</h5>
+        <form action="" method="post" class="text-center">
+            {% csrf_token %}
+            <input class="btn btn-danger mx-1" type="submit" value="Да">
+            <a class="btn btn-primary mx-1" href="{% url 'tutor_cabinet' user.tutor.pk %}">Нет</a>
+        </form>
+    </div>
+
+{% endblock %}

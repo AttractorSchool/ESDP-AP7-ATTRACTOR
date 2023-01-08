@@ -1,5 +1,5 @@
-from accounts.models import Account
 from django.contrib import admin
+from accounts.models import Account
 
 
 class AccountAdmin(admin.ModelAdmin):
@@ -7,3 +7,4 @@ class AccountAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Account, AccountAdmin)
+

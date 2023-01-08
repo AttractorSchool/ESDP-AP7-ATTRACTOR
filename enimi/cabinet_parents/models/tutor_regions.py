@@ -31,3 +31,4 @@ class TutorArea(models.Model):
 
     def __str__(self):
         return f'{self.tutor_region} {self.tutor_city} {self.tutor_district}'
+

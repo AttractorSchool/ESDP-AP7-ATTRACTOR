@@ -39,3 +39,4 @@ class StudentArea(models.Model):
 
     def __str__(self):
         return f'{self.student_region} {self.student_city} {self.student_district}'
+

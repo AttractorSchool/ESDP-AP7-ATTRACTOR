@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'django_bootstrap5',
     'cabinet_parents',
+    'cabinet_tutors',
     'cabinet_student',
-
 ]
 
 MIDDLEWARE = [
