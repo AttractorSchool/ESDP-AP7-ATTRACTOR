@@ -21,12 +21,13 @@ from django.urls import path, include
 from enimi.views import IndexView
 
 urlpatterns = [
-                  path('admin/', admin.site.urls),
-                  path('auth/', include('accounts.urls')),
-                  path('', IndexView.as_view(), name='index'),
-                  path('cabinet_parents/', include('cabinet_parents.urls')),
-                  path('cabinet_student/', include('cabinet_student.urls')),
-                  path('cabinet_tutors/', include('cabinet_tutors.urls')),
-              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
-              + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+      path('admin/', admin.site.urls),
+      path('auth/', include('accounts.urls')),
+      path('', IndexView.as_view(), name='index'),
+      path('cabinet_parents/', include('cabinet_parents.urls')),
+      path('cabinet_student/', include('cabinet_student.urls')),
+      path('cabinet_tutors/', include('cabinet_tutors.urls')),
+      path('schedule/', include("calendarapp.urls")),
+  ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
