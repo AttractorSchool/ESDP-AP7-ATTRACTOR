@@ -31,6 +31,10 @@ body {
   color: #7b838a;
 }
 
+* {
+    transition: all ease 0.3s;
+}
+
 h1,
 h2,
 h3,
@@ -3698,12 +3702,12 @@ h6 {
   box-shadow: #0c5460;
   border: 1px solid #eeeeee;
   background: #c8e4fa;
-  padding: 14px 32px;
+  padding: 0px 32px;
   font-size: 15px;
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   color: #5680e9;
-  line-height: 23px;
+  line-height: 34px;
   display: inline-block;
 }
 .blog_btn:hover {
