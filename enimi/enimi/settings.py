@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'cabinet_parents',
     'cabinet_tutors',
     'cabinet_student',
+    'calendarapp.apps.CalendarappConfig',
 ]
 
 MIDDLEWARE = [

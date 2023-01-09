@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_enimi.html' %}
 {% load static %}
 {% block content %}
     {% if user.is_authenticated %}
@@ -21,9 +21,11 @@
                         <p>
                             <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
                         </p>
+                        <a href="{% url 'calendarapp:calendar' %}">Расписание</a>
                     </div>
                 </div>
             </div>
+
             <div style="width: 75%">
 
                 {% if tutor.user == user %}
@@ -32,6 +34,7 @@
                     {% include 'partial/tutor_education.html' %}
                 {% endif %}
             </div>
+
         </div>
     {% endif %}
 
