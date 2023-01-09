@@ -55,9 +55,9 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #0d6efd;
   text-align: left;
-  background-color: #fff; }
+  background-color: #e6e6ea; }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -5349,7 +5349,7 @@ a.close.disabled {
   vertical-align: text-top !important; }
 
 .bg-primary {
-  background-color: #007bff !important; }
+  background-color: #0d6efd !important; }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
