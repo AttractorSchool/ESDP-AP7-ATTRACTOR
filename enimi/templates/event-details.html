@@ -14,8 +14,6 @@ Event Details
         -moz-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
         box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
             <h2 style="margin: 20px auto; text-align:center; ">Описание события</h2><div>
-
-
         <div class="clearfix">
             <h3>Название события: {{ event.title }}</h3>
             <p>Начало <span style="color: gray;">{{ event.start_time }}</span> Конец <span style="color: gray;">{{ event.end_time }}</span></p>
@@ -24,6 +22,7 @@ Event Details
         </div>
         <hr>
         <div class="clearfix">
+
             <h4 class="left" > Участники мероприятия</h4>
         </div>
     </div>
@@ -51,6 +50,7 @@ Event Details
                 {% endfor %}
               </tbody>
         </table>
+
             <div class="row justify-content-between">
                 <div class="col-4">
                     <a class="btn btn-primary right" href="{% url 'calendarapp:add_eventmember' event.id %}"> Добавить участника </a>

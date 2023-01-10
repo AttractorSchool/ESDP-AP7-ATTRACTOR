@@ -32,3 +32,4 @@ class ActualEventsListView(ListView):
     def get_queryset(self):
         print(datetime.now().date())
         return Event.objects.filter(user=self.request.user, start_time__gte=datetime.now())
+

@@ -25,7 +25,6 @@ urlpatterns = [
         views.RunningEventsListView.as_view(),
         name="running_events",
     ),
-
     path(
         "actual-event-list/",
         views.ActualEventsListView.as_view(),

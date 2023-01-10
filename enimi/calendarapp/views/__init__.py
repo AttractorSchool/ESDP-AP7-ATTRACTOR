@@ -1,4 +1,6 @@
+
 from .event_list import AllEventsListView, RunningEventsListView, ActualEventsListView
+
 from .other_views import (
     CalendarViewNew,
     CalendarView,
