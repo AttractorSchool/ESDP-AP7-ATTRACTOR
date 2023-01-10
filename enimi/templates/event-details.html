@@ -10,14 +10,10 @@ Event Details
 <br>
 <br>
 <br>
-
-
-    <div class="container">
-        <div class="clearfix">
-            <a class="btn btn-primary left" href="{% url 'calendarapp:calendar' %}"> Расписание </a>
-            <a class="btn btn-info right mr-2" href="{% url 'calendarapp:event_edit' event.pk %}"> Редактировать событие </a>
-        </div>
-
+<div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; width: 90%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+        -moz-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+        box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
+            <h2 style="margin: 20px auto; text-align:center; ">Описание события</h2><div>
         <div class="clearfix">
             <h3>Название события: {{ event.title }}</h3>
             <p>Начало <span style="color: gray;">{{ event.start_time }}</span> Конец <span style="color: gray;">{{ event.end_time }}</span></p>
@@ -26,12 +22,13 @@ Event Details
         </div>
         <hr>
         <div class="clearfix">
-            <h4 class="left" > Members of this Event</h4>
-            <a class="btn btn-success right" href="{% url 'calendarapp:add_eventmember' event.id %}"> Добавить участника </a>
+
+            <h4 class="left" > Участники мероприятия</h4>
         </div>
+    </div>
         <table class="table table-bordered">
             <thead>
-                <tr>
+                <tr style="color: #007bff">
                   <th style="width: 10px">#</th>
                   <th>Имя</th>
                   <th>Телефон</th>
@@ -53,5 +50,22 @@ Event Details
                 {% endfor %}
               </tbody>
         </table>
+
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <a class="btn btn-primary right" href="{% url 'calendarapp:add_eventmember' event.id %}"> Добавить участника </a>
+                </div>
+                <div class="col-4">
+                    <a class="btn btn-primary left" href="{% url 'calendarapp:calendar' %}"> Расписание </a>
+                </div>
+                <div class="col-4">
+                    <a class="btn btn-primary right mr-2" href="{% url 'calendarapp:event_edit' event.pk %}"> Редактировать событие </a>
+
+                </div>
+            </div>
+        </div>
+
+    <div class="container">
+
     </div>
 {% endblock %}

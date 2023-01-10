@@ -1,5 +1,7 @@
 from datetime import datetime
 from django.db import models
+
+from django.shortcuts import redirect
 from django.urls import reverse
 
 from calendarapp.models import EventAbstract
@@ -38,7 +40,8 @@ class Event(EventAbstract):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("calendarapp:event-detail", args=(self.id,))
+        return reverse("calendarapp:calendar")
+
 
     @property
     def get_html_url(self):
