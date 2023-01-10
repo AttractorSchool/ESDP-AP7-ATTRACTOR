@@ -9,7 +9,7 @@ class EventForm(ModelForm):
         fields = ["title", "description", "start_time", "end_time"]
         # datetime-local is a HTML5 input type
         labels = {'title': 'Название', 'description': 'Описание', 'start_time': 'Начало',
-                  'end_time': 'Конец',}
+                  'end_time': 'Конец'}
         widgets = {
             "title": forms.TextInput(
                 attrs={"class": "form-control", "placeholder": "Название события"}
