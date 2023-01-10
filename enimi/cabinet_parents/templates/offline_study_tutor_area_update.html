@@ -37,7 +37,7 @@
 
 
                             <div class="col-6" style="max-width: 150px">
-                                 <form action="{% url 'reset_tutor_area_for_student' tutor_area.pk %}" method="POST" enctype="multipart/form-data">
+                                 <form action="{% url 'reset_child_tutor_area_for_student' tutor_area.pk %}" method="POST" enctype="multipart/form-data">
                                     {% csrf_token %}
 
                                         <button type="submit" class="btn btn-secondary btn-block">Сбросить</button>
