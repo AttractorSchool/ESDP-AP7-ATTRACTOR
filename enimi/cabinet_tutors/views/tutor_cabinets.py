@@ -2,7 +2,7 @@ from django.urls import reverse
 from django.views.generic import DetailView, UpdateView
 
 from cabinet_tutors.forms.tutor_cabinets import TutorCabinetForm
-from cabinet_tutors.models import TutorCabinets, Education
+from cabinet_tutors.models import TutorCabinets, Education, SubjectsAndCosts
 
 
 # Create your views here.
@@ -12,7 +12,10 @@ class TutorCabinetView(DetailView):
     context_object_name = 'tutor'
 
     def get(self, request, *args, **kwargs):
-        self.extra_context = {'educations': Education.objects.filter(tutors=kwargs.get('pk')).order_by('created_at')}
+        self.extra_context = {
+            'educations': Education.objects.filter(tutors=kwargs.get('pk')).order_by('created_at'),
+            'subjects_and_costs': SubjectsAndCosts.objects.filter(tutors=kwargs.get('pk'))
+        }
         return super(TutorCabinetView, self).get(request, *args, **kwargs)
 
 

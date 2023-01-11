@@ -8,8 +8,11 @@
             <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form">
-                    {% bootstrap_form form %}
-                    <button type="submit" class="btn btn-primary">Создать</button>
+                    {{ formset.management_form }}
+                    {% for form in formset %}
+                        {% bootstrap_form form %}<br>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
                     <a class="btn btn-primary mx-1" href="{% url 'tutor_cabinet' user.tutor.pk %}">Назад</a>
                 </div>
             </form>

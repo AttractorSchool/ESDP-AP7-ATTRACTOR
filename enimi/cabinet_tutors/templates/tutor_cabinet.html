@@ -8,7 +8,9 @@
                     <p>
                         <span class="fw-bold">{{ user.last_name }}</span>
                         <span class="fw-bold">{{ user.first_name }}<br></span>
-                        <span class="fw-bold">{{ user.father_name }}<br></span>
+                        {% if user.father_name %}
+                            <span class="fw-bold">{{ user.father_name }}<br></span>
+                        {% endif %}
                     </p>
                     <img src="{{ user.avatar.url }}" alt=""
                          style="border-radius: 50%; width: 200px; height: 180px;">
@@ -32,6 +34,14 @@
                     {% include 'partial/tutor_navbar.html' %}
                     {% include 'partial/tutor_main.html' %}
                     {% include 'partial/tutor_education.html' %}
+                    {% include 'partial/tutor_subjects_and_costs.html' %}
+{#                    <div class="card text-dark bg-light mb-3 rounded">#}
+{#                        <div class="card-header p-0 pl-3 rounded" style="height: 26px;">Header</div>#}
+{#                        <div class="card-body">#}
+{#                            <span class="card-text">Математика</span>#}
+{#                            <span class="card-text"> 7500 тг.час</span>#}
+{#                        </div>#}
+{#                    </div>#}
                 {% endif %}
             </div>
 
