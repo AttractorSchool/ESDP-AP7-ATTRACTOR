@@ -1,0 +1,66 @@
+{% extends 'base_enimi.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<section class="tutors">
+    <h2 class="tutors__title">
+        Предложения репетиторов
+    </h2>
+    <div class="tutors__content">
+        <div class="tutors__blocks">
+            <div class="tut__tutor">
+                <div class="tut__avatar">
+                    <div class="tut_avatar-img-block"><img src="{% static 'images/ava1.webp' %}" alt=""
+                                                           class="tut_avatar-img"></div>
+                    <p class="tut__name">
+                        name
+                    </p>
+                    <div class="tut__location-block">
+                        <div class="tut__location">
+                            <p class="tut__country">Almaty</p>
+                            <div class="tut__rate">
+                                <p class="rate__num"><i class="fa-solid fa-star"></i> 4,9</p>
+                                <p class="tut__rate-reviews">отзывы <span>15</span></p>
+                            </div>
+                            <div class="tut__cost">
+                                <p class="cost">Стоймость </p>
+                                <p class="price">5000 <span>тнг/час</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tut__connection_btn_block">
+                        <button class="tut__connection_btn">Связаться с репетитором</button>
+                    </div>
+                </div>
+                <div class="tut-info">
+                    <div class="tut-info__experience">
+                        <p class="tut-info__subject">
+                            <i class="fa-solid fa-book-open"></i> География
+                        </p>
+                    </div>
+                    <div class="tut-info__experience">
+                        <p class="tut-info__edu">Образование: <span>Высший институт</span></p>
+                    </div>
+                    <div class="tut-info__experience">
+                        <p class="tut-info__edu ">Опыт работы: <span>более 5-ти лет</span></p>
+                    </div>
+                    <div class="tut-info__experience">
+                        <p class="tut-info__online">✓ Возможны занятия онлайн</p>
+                        <p class="tut-info__description">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
+                            accusantium adipisci, delectus deserunt, dicta ducimus eius explicabo
+                            ipsum laboriosam molestiae nemo nesciunt nisi nobis porro praesentium
+                            quibusdam saepe sequi, ut.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tutors__filter">
+            <p>FILTER</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
