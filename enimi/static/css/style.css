@@ -4250,20 +4250,22 @@ h6 {
 
 .tutors__title {
     color: #7b838a;
-    margin-bottom: 35px;
+    margin-bottom: 45px;
     text-align: center;
 }
 
 .tutors__blocks {
-
+    width: 100%;
+    max-width: 755px;
+    margin-right: 35px;
 }
 
 .tut__tutor {
     display: flex;
-    width: fit-content;
+    width: 100%;
     background: #ffffff;
     border-radius: 15px;
-    padding: 20px 20px;
+    padding: 25px 25px;
     margin-bottom: 40px;
 }
 
@@ -4272,7 +4274,8 @@ h6 {
 }
 
 .tut_avatar-img {
-    width: 100%;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
 }
 
@@ -4394,6 +4397,7 @@ h6 {
     color: #000000;
     font-size: 14px;
     line-height: 21px;
+    word-break: break-all;
 }
 
 .tut__cost {
@@ -4433,3 +4437,52 @@ h6 {
 .tutors__filter {
     margin-left: 20px;
 }
+
+.filter-tutor {
+    width: 100%;
+    height: fit-content;
+    border-radius: 15px;
+    max-width: 321px;
+    background: #ffffff;
+}
+
+.filter-tutor input {
+    font-size: 14px;
+    border-radius: 16px;
+    border: 1px solid #000000;
+    margin-bottom: 10px;
+    padding: 7px 16px;
+}
+
+.filter-tutor p {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+.nice-select {
+    border-radius: 16px;
+    border: 1px solid #000000;
+    margin-bottom: 11px;
+}
+
+.filter-tutor__block {
+    padding: 0px 20px;
+}
+
+.filter-tutor__title {
+    font-size: 18px;
+    padding: 13px 10px;
+    text-align: center;
+    color: #ffffff;
+    background: #ffcc1d;
+    border-radius: 12px;
+}
+
+.filter-tutor__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+

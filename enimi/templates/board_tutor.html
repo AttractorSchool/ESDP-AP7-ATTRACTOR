@@ -9,12 +9,13 @@
     </h2>
     <div class="tutors__content">
         <div class="tutors__blocks">
+            {% for t in tutors %}
             <div class="tut__tutor">
                 <div class="tut__avatar">
-                    <div class="tut_avatar-img-block"><img src="{% static 'images/ava1.webp' %}" alt=""
+                    <div class="tut_avatar-img-block"><img src="{{ t.user.avatar.url }}" alt=""
                                                            class="tut_avatar-img"></div>
                     <p class="tut__name">
-                        name
+                        {{ t.user.first_name }} {{ t.user.last_name }}
                     </p>
                     <div class="tut__location-block">
                         <div class="tut__location">
@@ -36,11 +37,16 @@
                 <div class="tut-info">
                     <div class="tut-info__experience">
                         <p class="tut-info__subject">
-                            <i class="fa-solid fa-book-open"></i> География
+                            <i class="fa-solid fa-book-open"></i>
+                            География
                         </p>
                     </div>
                     <div class="tut-info__experience">
-                        <p class="tut-info__edu">Образование: <span>Высший институт</span></p>
+                        <p class="tut-info__edu">Образование:
+                            {% for edu in t.education.all %}
+                            <span>{{ edu.institution }}</span>
+                            {% endfor %}
+                        </p>
                     </div>
                     <div class="tut-info__experience">
                         <p class="tut-info__edu ">Опыт работы: <span>более 5-ти лет</span></p>
@@ -48,19 +54,54 @@
                     <div class="tut-info__experience">
                         <p class="tut-info__online">✓ Возможны занятия онлайн</p>
                         <p class="tut-info__description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
-                            accusantium adipisci, delectus deserunt, dicta ducimus eius explicabo
-                            ipsum laboriosam molestiae nemo nesciunt nisi nobis porro praesentium
-                            quibusdam saepe sequi, ut.
+                            {{ t.about }}
                         </p>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        <div class="tutors__filter">
-            <p>FILTER</p>
+        <div class="filter-tutor">
+            <h3 class="filter-tutor__title">Фильтры</h3>
+            <div class="filter-tutor__block">
+                <form action="">
+                    <div class="filter-tutor__item">
+                        <p>Выберите дисциплину:</p>
+                        <select name="" id="">
+                            <option value="" selected disabled hidden>Выберите дисциплину</option>
+                            <option value="">География</option>
+                        </select>
+                    </div>
+                    <div class="filter-tutor__item">
+                        <p>Желаемое место обучения:</p>
+                        <select name="" id="">
+                            <option value="" selected disabled hidden>Выберите город</option>
+                            <option value="">Алматы</option>
+                            <option value="">Астана</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="" selected disabled hidden>У репетитора/у ученика/онлайн</option>
+                            <option value="">У репетитора</option>
+                            <option value="">У ученика</option>
+                            <option value="">Онлайн</option>
+                        </select>
+                    </div>
+                    <div class="filter-tutor__item">
+                        <p>Стоимость часа занятий:</p>
+                        <input type="number" name="" id="" placeholder="Цена от:">
+                        <input type="number" name="" id="" placeholder="Цена до:">
+                    </div>
+                    <div class="filter-tutor__item">
+                        <p>Способ сортировки:</p>
+                        <select name="" id="">
+                            <option value="" selected disabled hidden>Способ сортировки</option>
+                            <option value="">По рейтингу</option>
+                            <option value="">По цене</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </section>
-
 {% endblock %}
