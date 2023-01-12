@@ -1,13 +1,12 @@
-
 from django.contrib.auth import login, logout, authenticate, get_user_model, update_session_auth_hash
 from django.shortcuts import redirect, get_object_or_404
-from django.urls import reverse
 from django.views.generic import CreateView, TemplateView, UpdateView
 from accounts.forms import AccountForm, LoginForm
 from accounts.forms.accounts import PasswordChangeForm
 from accounts.forms.accounts import UserUpdateForm, UserWithoutEmailUpdateForm
 from accounts.models.accounts import Account
 from cabinet_tutors.models import TutorCabinets
+from verify_email import send_verification_email
 
 
 class AccountCreateView(CreateView):
@@ -23,25 +22,8 @@ class AccountCreateView(CreateView):
             account = form.save(commit=False)
             account.type = kwargs['type']
             account.username = account.email
-            account.save()
-            login(request, account)
-            if account.type == 'parents':
-                # account.email = user.email.split("@")[0]+account.first_name+user.email.split("@")[1]
-                # account.username = account.email
-                # account.type = kwargs['type']
-                # account.parent = user
-                return redirect('parents_cabinet_detail',
-                                pk=account.pk)  # после создания страницы кабинета установите свой редирект
-            if account.type == 'tutor':
-                tutor = TutorCabinets.objects.create(
-                    user=account
-                )
-                return redirect('tutor_cabinet', pk=tutor.pk)  # после создания страницы кабинета установите свой редирект
-
-                
-            if account.type == 'student':
-                return redirect('student_cabinet_detail', pk=account.pk)          # после создания страницы кабинета установите свой редирект
-
+            inactive_user = send_verification_email(request, form)
+            return redirect('index')
         context = {}
         context['form'] = form
         return self.render_to_response(context)
@@ -66,13 +48,13 @@ class LoginView(TemplateView):
     def post(self, request, *args, **kwargs):
         form = self.form(request.POST)
         if not form.is_valid():
-            return redirect('login')
+            return redirect('login_page')
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password')
         next = form.cleaned_data.get('next', None)
         user = authenticate(request, username=username, password=password)
         if not user:
-            return redirect('login')
+            return redirect('login_page')
         login(request, user)
         if next:
             return redirect(next)
@@ -81,7 +63,6 @@ class LoginView(TemplateView):
         if user.type == 'parents':
             return redirect('parents_cabinet_detail', pk=user.pk)
         return redirect('index')
-
 
 
 class PasswordChangeView(UpdateView):
@@ -100,6 +81,7 @@ class PasswordChangeView(UpdateView):
         context = {}
         context['form'] = form
         return self.render_to_response(context)
+
 
 class UserUpdateView(UpdateView):
     model = get_user_model()
@@ -152,12 +134,7 @@ class UserWithoutEmailUpdateView(UpdateView):
             return redirect('parent_children_surveys', pk=request.user.pk)
         return self.form_invalid(form, form)
 
-
     def form_invalid(self, form, profile_form):
         print('INVALID')
         context = self.get_context_data(form=form)
         return self.render_to_response(context)
-
-
-
-

@@ -1,21 +1,12 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.files.base import ContentFile
-from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import DetailView, CreateView, UpdateView, ListView
-from django.http import HttpResponse
-from django.core import serializers
-import base64
-
+from verify_email import send_verification_email
 from accounts.forms import AccountForm, ChildrenForm
-from accounts.forms.accounts import AvatarForm
 from accounts.models import Account
-from django.http.response import JsonResponse
-
 from cabinet_parents.forms import SurveyForm, TutorAreaForm, StudentAreaForm
-
 from cabinet_parents.models import Survey, TutorArea, Region, City, District, StudentArea
 
 
@@ -49,7 +40,7 @@ class ParentCreateChildrenView(CreateView):
             account.username = account.email
             account.type = 'student'
             account.parent = user
-            account.save()
+            inactive_user = send_verification_email(request, form)
             # children = Account.objects.filter(is_deleted=False, parent=request.user)
             return redirect('parents_cabinet_detail', pk=user.pk)
         context = {}
@@ -82,7 +73,6 @@ class ParentCreateChildrenWithoutEmailView(CreateView):
 class ParentChildrenSurveysView(LoginRequiredMixin, ListView):
     template_name = 'parent_children_detail_surveys.html'
     model = Account
-
 
     def get_context_data(self, *, object_list=None, **kwargs):
         parent = Account.objects.get(id=self.kwargs['pk'])
@@ -272,4 +262,3 @@ class ResetParentChildrenOfflineStudyStudentAreaSurveyView(UpdateView):
 #     account.save()
 #     return JsonResponse({"link": ('/uploads/' + url), "pk": pk})
 #
-
