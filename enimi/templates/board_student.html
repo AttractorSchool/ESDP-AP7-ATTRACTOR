@@ -1,0 +1,108 @@
+{% extends 'base_enimi.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<section class="tutors">
+    <h2 class="tutors__title">
+        Предложения студентов
+    </h2>
+    <div class="tutors__content">
+        <div class="tutors__blocks">
+            {% for s in students %}
+            <div class="tut__tutor">
+                <div class="tut__avatar">
+                    <div class="tut_avatar-img-block"><img src="" alt=""
+                                                           class="tut_avatar-img"></div>
+                    <p class="tut__name">
+                        {{ s.user.first_name }}
+                        {{ s.user.last_name }}
+                    </p>
+<!--                    <div class="tut__location-block">-->
+<!--                        <div class="tut__location">-->
+<!--                            <p class="tut__country">Almaty</p>-->
+<!--                            <div class="tut__rate">-->
+<!--                                <p class="rate__num"><i class="fa-solid fa-star"></i> 4,9</p>-->
+<!--                                <p class="tut__rate-reviews">отзывы <span>15</span></p>-->
+<!--                            </div>-->
+<!--                            <div class="tut__cost">-->
+<!--                                <p class="cost">Стоймость </p>-->
+<!--                                <p class="price">5000 <span>тнг/час</span></p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <div class="tut__connection_btn_block">
+                        <button class="tut__connection_btn">Связаться со студентом</button>
+                    </div>
+                </div>
+                <div class="tut-info">
+                    <div class="tut-info__experience">
+                        <p class="tut-info__subject">
+                            <i class="fa-solid fa-book-open"></i>
+                            {% for sub in s.subjects.all %}
+                                sub.subject
+                            {% endfor %}
+                        </p>
+
+                    </div>
+                    <div class="tut-info__experience">
+                        <p class="tut-info__edu">Образование:
+                            <span>Описание образования</span>
+                        </p>
+                    </div>
+                    <div class="tut-info__experience">
+                        <p class="tut-info__edu ">Опыт работы: <span>более 5-ти лет</span></p>
+                    </div>
+                    <div class="tut-info__experience">
+                        <p class="tut-info__online">✓ Возможны занятия онлайн</p>
+                        <p class="tut-info__description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="filter-tutor">
+            <h3 class="filter-tutor__title">Фильтры</h3>
+            <div class="filter-tutor__block">
+                <form action="">
+                    <div class="filter-tutor__item">
+                        <p>Выберите дисциплину:</p>
+                        <select name="" id="">
+                            <option value="" selected disabled hidden>Выберите дисциплину</option>
+                            <option value="">География</option>
+                        </select>
+                    </div>
+                    <div class="filter-tutor__item">
+                        <p>Желаемое место обучения:</p>
+                        <select name="" id="">
+                            <option value="" selected disabled hidden>Выберите город</option>
+                            <option value="">Алматы</option>
+                            <option value="">Астана</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="" selected disabled hidden>У репетитора/у ученика/онлайн</option>
+                            <option value="">У репетитора</option>
+                            <option value="">У ученика</option>
+                            <option value="">Онлайн</option>
+                        </select>
+                    </div>
+                    <div class="filter-tutor__item">
+                        <p>Стоимость часа занятий:</p>
+                        <input type="number" name="" id="" placeholder="Цена от:">
+                        <input type="number" name="" id="" placeholder="Цена до:">
+                    </div>
+                    <div class="filter-tutor__item">
+                        <p>Способ сортировки:</p>
+                        <select name="" id="">
+                            <option value="" selected disabled hidden>Способ сортировки</option>
+                            <option value="">По рейтингу</option>
+                            <option value="">По цене</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
