@@ -18,6 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from board_tutors_students.views.base import BoardTutorView
 from enimi.views import IndexView
 
 urlpatterns = [
@@ -29,5 +30,7 @@ urlpatterns = [
                   path('cabinet_tutors/', include('cabinet_tutors.urls')),
                   path('schedule/', include("calendarapp.urls")),
                   path('verification/', include('verify_email.urls')),
+                  path('board_tutors_students/', include('board_tutors_students.urls')),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
