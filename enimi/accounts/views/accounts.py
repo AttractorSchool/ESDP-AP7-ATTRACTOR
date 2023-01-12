@@ -121,6 +121,8 @@ class UserUpdateView(UpdateView):
             form.save()
             if request.user.type == 'parents':
                 return redirect('parent_children_surveys', pk=request.user.pk)
+            if request.user.type == 'student':
+                return redirect('student_detail_survey', pk=request.user.pk)
         return self.form_invalid(form, form)
 
     def form_invalid(self, form, profile_form):
