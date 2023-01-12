@@ -22,11 +22,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
-SECRET_KEY = os.environ.get('SECRET_KEY', "django-insecure-728k0bs%91o$^sp%aa_ji@2fmtwpdk7r1na#*$%l2+%)7tnpo3")
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_ID')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+LOGIN_URL = 'login_page'
+DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
 
 ALLOWED_HOSTS = ['*']
 
@@ -46,6 +55,7 @@ INSTALLED_APPS = [
     'cabinet_tutors',
     'cabinet_student',
     'calendarapp.apps.CalendarappConfig',
+    'verify_email.apps.VerifyEmailConfig',
 ]
 
 MIDDLEWARE = [
@@ -139,7 +149,7 @@ MEDIA_URL = '/uploads/'
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
-LOGIN_URL = 'login'
+
 
 AUTH_USER_MODEL = 'accounts.Account'
 
@@ -148,4 +158,3 @@ AUTH_USER_MODEL = 'accounts.Account'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_URL = 'static/'
