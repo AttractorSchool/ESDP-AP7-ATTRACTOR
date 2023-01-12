@@ -1,114 +1,87 @@
 {% load django_bootstrap5 %}
 
-<div class="mt-2 pb-2">
+<div class="mt-2">
 
     <div class="card bg-light mb-3 rounded">
         <div class="card-header p-0 pl-3 rounded fw-bold" style="height: 26px;">Предметы и их стоимость
             <a href="{% url 'subjects_and_costs_create_or_update' user.tutor.pk %}">
-                <i class="bi bi-plus-lg fs-5 ml-3"></i>
-                <span class="font-weight-light fs-5">|</span>
-                <i class="bi bi-pencil-square"></i>
+                <i class="bi bi-pencil-square ml-3"></i>
             </a>
         </div>
         <div class="card-body">
             {% if user.tutor.subjects_and_costs.all %}
-        {% for subject_and_cost in subjects_and_costs %}
-            <div class="d-flex">
-                <div class="d-flex w-100">
-                    <div class="col-3 pl-0">
+                {% for subject_and_cost in subjects_and_costs %}
+                    <div class="d-flex">
+                        <div class="d-flex w-100">
+                            <div class="col-3 pl-0">
                         <span class="text-break">{% if subject_and_cost.subject %}
                             {{ subject_and_cost.subject }} {% else %}
                             - {% endif %}</span>
-                    </div>
-                    <div class="col-3">
+                            </div>
+                            <div class="col-3">
                         <span class="text-break">{% if subject_and_cost.cost %} {{ subject_and_cost.cost }}
                             тг/час{% else %}
                             - {% endif %}</span>
-                    </div>
-                    <div class="col-6">
+                            </div>
+                            <div class="col-6">
                         <span class="text-break">{% if subject_and_cost.experience %} опыт преподавания:
                             {{ subject_and_cost.experience }} лет{% else %}
                             - {% endif %}</span>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row-reverse">
+                            <div class="d-flex">
+                                <div>
+                                    <!-- Button For Delete Modal -->
+                                    <button type="button" class="ml-2 text-danger border-0 bg-light rounded"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#deleteSubjectsAndCostsModal">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex flex-row-reverse pe-3">
-                    <div class="d-flex">
-                        <div>
-                            <a href="{% url 'subjects_and_costs_delete' user.tutor.pk subject_and_cost.pk %}"
-                               class="ml-2 text-danger"><i class="bi bi-trash"></i></a>
+
+                    <!-- Delete Modal -->
+                    <div class="modal fade" id="deleteSubjectsAndCostsModal" tabindex="-1"
+                         aria-labelledby="deleteSubjectsAndCostsModalLabel"
+                         aria-hidden="true" style="margin-top: 200px;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="text-center text-danger col-12">Вы уверены, что хотите удалить?</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{% url 'subjects_and_costs_delete' user.tutor.pk subject_and_cost.pk %}"
+                                          method="post"
+                                          class="text-center">
+                                        {% csrf_token %}
+                                        <input class="btn btn-danger mx-1" type="submit" value="Да">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Нет
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            {% else %}
+                <div class="d-flex">
+                    <div class="d-flex w-50">
+                        <div class="col-4 pl-0">
+                            <span>---</span>
+                        </div>
+                        <div class="col-4">
+                            <span>---</span>
+                        </div>
+                        <div class="col-4">
+                            <span>---</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-    {% else %}
-        <div class="d-flex">
-            <div class="d-flex w-50">
-                <div class="col-4 pl-0">
-                    <span>---</span>
-                </div>
-                <div class="col-4">
-                    <span>---</span>
-                </div>
-                <div class="col-4">
-                    <span>---</span>
-                </div>
-            </div>
-        </div>
-    {% endif %}
+            {% endif %}
         </div>
     </div>
-
-{#    <h5 class="fw-bold">Предметы и их стоимость#}
-{#        <a href="{% url 'subjects_and_costs_create_or_update' user.tutor.pk %}">#}
-{#            <i class="bi bi-plus-lg fs-5 ml-3"></i>#}
-{#            <span class="font-weight-light fs-5">|</span>#}
-{#            <i class="bi bi-pencil-square"></i>#}
-{#        </a>#}
-{#    </h5>#}
-{#    {% if user.tutor.subjects_and_costs.all %}#}
-{#        {% for subject_and_cost in subjects_and_costs %}#}
-{#            <div class="d-flex">#}
-{#                <div class="d-flex w-50">#}
-{#                    <div class="col-4 pl-0">#}
-{#                        <span class="text-break">{% if subject_and_cost.subject %}#}
-{#                            {{ subject_and_cost.subject }} {% else %}#}
-{#                            - {% endif %}</span>#}
-{#                    </div>#}
-{#                    <div class="col-4">#}
-{#                        <span class="text-break">{% if subject_and_cost.cost %} {{ subject_and_cost.cost }}#}
-{#                            тг/час{% else %}#}
-{#                            - {% endif %}</span>#}
-{#                    </div>#}
-{#                    <div class="col-4">#}
-{#                        <span class="text-break">{% if subject_and_cost.experience %} опыт:#}
-{#                            {{ subject_and_cost.experience }} лет{% else %}#}
-{#                            - {% endif %}</span>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="d-flex flex-row-reverse pe-3">#}
-{#                    <div class="d-flex">#}
-{#                        <div>#}
-{#                            <a href="{% url 'subjects_and_costs_delete' user.tutor.pk subject_and_cost.pk %}"#}
-{#                               class="ml-2 text-danger"><i class="bi bi-trash"></i></a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        {% endfor %}#}
-{#    {% else %}#}
-{#        <div class="d-flex">#}
-{#            <div class="d-flex w-50">#}
-{#                <div class="col-4 pl-0">#}
-{#                    <span>---</span>#}
-{#                </div>#}
-{#                <div class="col-4">#}
-{#                    <span>---</span>#}
-{#                </div>#}
-{#                <div class="col-4">#}
-{#                    <span>---</span>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    {% endif %}#}
 </div>

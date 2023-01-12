@@ -5,13 +5,13 @@ from cabinet_tutors.forms.education import EducationForm, EducationFormSet
 from cabinet_tutors.models import Education
 
 
-class EducationCreateView(CreateView):
+class EducationCreateUpdateView(CreateView):
     template_name = 'education/education_create_or_update.html'
     form_class = EducationForm
     model = Education
 
     def get_context_data(self, **kwargs):
-        context = super(EducationCreateView, self).get_context_data(**kwargs)
+        context = super(EducationCreateUpdateView, self).get_context_data(**kwargs)
         context['formset'] = EducationFormSet(
             queryset=Education.objects.filter(tutors=self.request.user.tutor).order_by('id'))
         return context
@@ -33,7 +33,6 @@ class EducationCreateView(CreateView):
 
 
 class EducationDeleteView(DeleteView):
-    template_name = 'education/education_delete.html'
     model = Education
     context_object_name = 'education'
 

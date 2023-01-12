@@ -5,13 +5,13 @@ from cabinet_tutors.forms.subjects_and_costs import SubjectsAndCostsForm, Subjec
 from cabinet_tutors.models import SubjectsAndCosts
 
 
-class SubjectsAndCostCreateView(CreateView):
+class SubjectsAndCostCreateUpdateView(CreateView):
     template_name = 'subjects_and_costs/subjects_and_costs_create_or_update.html'
     form_class = SubjectsAndCostsForm
     model = SubjectsAndCosts
 
     def get_context_data(self, **kwargs):
-        context = super(SubjectsAndCostCreateView, self).get_context_data(**kwargs)
+        context = super(SubjectsAndCostCreateUpdateView, self).get_context_data(**kwargs)
         context['formset'] = SubjectsAndCostsFormSet(
             queryset=SubjectsAndCosts.objects.filter(tutors=self.request.user.tutor).order_by('id'))
         return context
@@ -33,7 +33,6 @@ class SubjectsAndCostCreateView(CreateView):
 
 
 class SubjectsAndCostDeleteView(DeleteView):
-    template_name = 'subjects_and_costs/subjects_and_costs_delete.html'
     model = SubjectsAndCosts
     context_object_name = 'subjects_and_costs'
 

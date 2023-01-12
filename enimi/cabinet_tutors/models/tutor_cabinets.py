@@ -49,10 +49,13 @@ class TutorCabinets(models.Model):
         to='cabinet_tutors.SubjectsAndCosts',
         related_name='tutors',
     )
-    study_formats = models.ManyToManyField(
+    study_formats = models.ForeignKey(
+        to='cabinet_tutors.TutorStudyFormats',
         verbose_name='Формат обучения',
-        to='cabinet_tutors.StudyFormats',
         related_name='tutors',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
     )
 
     def __str__(self):
