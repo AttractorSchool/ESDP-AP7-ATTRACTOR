@@ -13,13 +13,30 @@ Event Delete
 <br>
 
 <div class="container">
-    <div class="row justify-content-center">
-        <h1>Удаление </h1>
-        <form action="" method="post">{% csrf_token %}
-            <p>Are you sure you want to delete this event?</p>
-            <button class="btn btn-danger ml-2" type="submit">Confirm</button>
-        </form>
-    </div>
+    <div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; width: 50%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+        -moz-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+        box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
+                 <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <h1>Удаление </h1>
+                        <form action="" method="post">{% csrf_token %}
+                            <p>Вы уверены что хотите удалить событие?</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button class="btn btn-danger ml-2" type="submit">Согласен</button>
+                                </div>
+                                <div class="col-6">
+                                    <a class="btn btn-primary left" href="{% url 'calendarapp:calendar' %}"> Отмена </a>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
 
 </div>
 {% endblock content %}

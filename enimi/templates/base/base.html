@@ -75,7 +75,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{% url 'index' %}">Главная</a>
                         </li>
-                        <li class="nav-item">
+                        <li c<<<<<<< schedule_update_worklass="nav-item">
                             <a class="nav-link" href="about-us.html">Как это работает</a>
                         </li>
                         <li class="nav-item submenu dropdown">
@@ -201,11 +201,11 @@
                 <li class="treeview">
                     <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">События</span><i class="treeview-indicator fa fa-angle-right"></i></a>
                     <ul class="treeview-menu">
+<!--                        <li>-->
+<!--                            <a class="treeview-item" href="{% url 'calendarapp:running_events' %}"><i class="icon fa fa-circle-o"></i> Текушие</a>-->
+<!--                        </li>-->
                         <li>
-                            <a class="treeview-item" href="{% url 'calendarapp:running_events' %}"><i class="icon fa fa-circle-o"></i> Текушие</a>
-                        </li>
-                        <li>
-                            <a class="treeview-item" href="{% url 'calendarapp:running_events' %}"><i class="icon fa fa-circle-o"></i> Предстоящие</a>
+                            <a class="treeview-item" href="{% url 'calendarapp:actual_events' %}"><i class="icon fa fa-circle-o"></i> Предстоящие</a>
                         </li>
                         <li>
                             <a class="treeview-item" href="{% url 'calendarapp:all_events' %}"><i class="icon fa fa-circle-o"></i> Все</a>
