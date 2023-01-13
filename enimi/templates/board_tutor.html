@@ -31,7 +31,9 @@
                         </div>
                     </div>
                     <div class="tut__connection_btn_block">
-                        <button class="tut__connection_btn">Связаться с репетитором</button>
+                        <a href="{% url 'response_on_tutor' t.pk %}">
+                            <button class="tut__connection_btn">Связаться с репетитором</button>
+                        </a>
                     </div>
                 </div>
                 <div class="tut-info">

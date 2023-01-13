@@ -17,6 +17,8 @@ from django.http.response import JsonResponse
 from cabinet_student.forms import SurveyForm, StudentAreaForm, TutorAreaForm
 
 from cabinet_parents.models import Survey, TutorArea, Region, City, District, StudentArea
+from cabinet_tutors.models import TutorCabinets
+from responses.models import Response
 
 
 class StudentProfileView(LoginRequiredMixin, DetailView):
@@ -82,7 +84,7 @@ class CreateStudentSurveyView(LoginRequiredMixin, CreateView):
             survey.save()
             student.with_survey = True
             student.save()
-            return redirect('student_cabinet_detail', student.pk)
+            return redirect('student_detail_survey', student.pk)
         context = {}
         context['form'] = form
         return self.render_to_response(context)
@@ -197,3 +199,27 @@ class ResetStudentOfflineStudyStudentAreaView(UpdateView):
         return redirect('student_detail_survey', pk=student.pk)
 
 
+class StudentToMeResponsesView(LoginRequiredMixin, ListView):
+    template_name = 'student_to_me_responses.html'
+    model = Response
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(StudentToMeResponsesView, self).get_context_data(object_list=object_list, **kwargs)
+        user = Account.objects.get(id=self.kwargs['pk'])
+        survey_pk = user.survey.pk
+        responses = Response.objects.filter(survey_id=survey_pk)
+        context['responses'] = responses
+        return context
+
+
+class StudentOnTutorResponsesView(LoginRequiredMixin, ListView):
+    template_name = 'student_on_tutor_response.html'
+    model = Response
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(StudentOnTutorResponsesView, self).get_context_data(object_list=object_list, **kwargs)
+        user = Account.objects.get(id=self.kwargs['pk'])
+        responses = Response.objects.filter(author_id=user.pk)
+        print(responses)
+        context['responses'] = responses
+        return context

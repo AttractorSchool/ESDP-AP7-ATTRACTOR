@@ -32,7 +32,7 @@ urlpatterns = [
                   path('schedule/', include("calendarapp.urls")),
                   path('verification/', include('verify_email.urls')),
                   path('board_tutors_students/', include('board_tutors_students.urls')),
-                  path('board_student', BoardStudentView.as_view(), name='board_student'),
+                  path('responses/', include("responses.urls")),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

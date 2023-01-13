@@ -48,7 +48,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                 </button>
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                     <li class="nav-item" style="box-shadow: #0c5460">
+                                    <li class="nav-item" style="box-shadow: #0c5460">
                                         <a class="nav-link active" aria-current="page" style="padding-right: 20px"
                                            href="{% url 'student_cabinet_detail' request.user.pk %}">Главная</a>
                                     </li>
@@ -56,21 +56,23 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                         <a class="nav-link active" aria-current="page" style="padding-right: 20px"
                                            href="{% url 'student_detail_survey' request.user.pk %}">Моя анкета</a>
                                       </li>
-
                                     <li class="nav-item">
                                       <a class="nav-link active" aria-current="page" style="padding-right: 20px"
                                          href="#">Успеваемость</a>
                                     </li>
                                     <li class="nav-item">
                                       <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                         href="#">Отклики</a>
+                                         href="{% url 'to_me_student_responses' request.user.pk %}">Отклики на меня</a>
+                                    </li>
+                                      <li class="nav-item">
+                                      <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                         href="{% url 'student_on_tutor_responses' request.user.pk %}">Мои отклики</a>
                                     </li>
                                     <li class="nav-item">
                                       <a class="nav-link active" aria-current="page" style="padding-right: 20px"
                                          href="#">Отзывы</a>
                                     </li>
-
-                                    <li class="nav-item" style="margin-left: 150px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                    <li class="nav-item" style="margin-left: 60px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
                                       <a class="nav-link active" aria-current="page" style="padding-right: 20px"
@@ -82,6 +84,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                             </div>
                                           </body></a>
                                     </li>
+
                                   </ul>
 
                                 </div>

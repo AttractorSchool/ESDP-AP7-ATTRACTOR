@@ -28,3 +28,4 @@ class TutorCabinetUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('tutor_cabinet', kwargs={'pk': self.object.pk})
+

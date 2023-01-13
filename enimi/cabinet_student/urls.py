@@ -1,10 +1,9 @@
 from django.urls import path
 
-from cabinet_student.views.base import StudentProfileView, CreateStudentSurveyView, UpdateStudentSurveyView, StudentDetailSurveyView, \
-                                         UpdateStudentOfflineStudyTutorAreaView,\
-                                        UpdateStudentOfflineStudyStudentAreaView, ResetStudentOfflineStudyTutorAreaView, \
-                                        ResetStudentOfflineStudyStudentAreaView
-
+from cabinet_student.views.base import StudentProfileView, CreateStudentSurveyView, UpdateStudentSurveyView, \
+    StudentDetailSurveyView, UpdateStudentOfflineStudyTutorAreaView, UpdateStudentOfflineStudyStudentAreaView, \
+    ResetStudentOfflineStudyTutorAreaView, ResetStudentOfflineStudyStudentAreaView, StudentToMeResponsesView, \
+    StudentOnTutorResponsesView
 
 urlpatterns = [
     path('<int:pk>/', StudentProfileView.as_view(), name='student_cabinet_detail'),
@@ -20,4 +19,7 @@ urlpatterns = [
          ResetStudentOfflineStudyTutorAreaView.as_view(), name='reset_tutor_area_for_student'),
     path('<int:pk>/student/offline_study_student_area_reset',
          ResetStudentOfflineStudyStudentAreaView.as_view(), name='reset_student_area_for_student'),
+    path('<int:pk>/to_me_student_responses', StudentToMeResponsesView.as_view(), name='to_me_student_responses'),
+    path('<int:pk>/student_on_tutor_responses', StudentOnTutorResponsesView.as_view(),
+         name='student_on_tutor_responses'),
 ]
