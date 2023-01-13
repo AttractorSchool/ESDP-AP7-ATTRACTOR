@@ -1,0 +1,91 @@
+{% load django_bootstrap5 %}
+
+<div class="mt-2 pb-2">
+
+    <div class="card bg-light mb-3 rounded">
+        <div class="card-header p-0 pl-3 rounded fw-bold" style="height: 26px;">Формат обучения
+            {% if user.tutor.study_formats %}
+                <a href="{% url 'tutor_study_formats_update' user.tutor.pk user.tutor.study_formats.pk %}">
+                    <i class="bi bi-pencil-square ml-3"></i>
+                </a>
+            {% else %}
+                <a href="{% url 'tutor_study_formats_create' user.tutor.pk %}">
+                    <i class="bi bi-pencil-square ml-3"></i>
+                </a>
+            {% endif %}
+
+        </div>
+        <div class="card-body">
+            {{ user.tutor.study_formats.all }}
+            {% if user.tutor.study_formats %}
+                {% for study_format in study_formats %}
+                    <div class="pl-0 d-flex">
+                        <div class="col-4 pl-0">
+                            <span class="fw-bold">Онлайн: </span>
+                        </div>
+                        <div class="col-7 text-break">
+                            {% for online in user.tutor.study_formats.online.all %}
+                                <span>{{ online }} </span>
+                            {% endfor %}
+
+                        </div>
+                        <div class="col-1 ml-3 text-break">
+                            <!-- Button For Delete Modal -->
+                            <button type="button" class="ml-2 text-danger border-0 bg-light rounded"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deleteStudyFormatsModal">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-4 pl-0">
+                            <span class="fw-bold">Оффлайн охват: </span>
+                        </div>
+                        <div class="col-7 text-break">
+                            {{ user.tutor.study_formats.tutor_area }}
+                        </div>
+                    </div>
+
+                    <!-- Delete Modal -->
+                    <div class="modal fade" id="deleteStudyFormatsModal" tabindex="-1"
+                         aria-labelledby="deleteStudyFormatsModalModalLabel"
+                         aria-hidden="true" style="margin-top: 200px;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="text-center text-danger col-12">Вы уверены, что хотите удалить?</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{% url 'tutor_study_formats_delete' user.tutor.pk user.tutor.study_formats.pk %}"
+                                          method="post"
+                                          class="text-center">
+                                        {% csrf_token %}
+                                        <input class="btn btn-danger mx-1" type="submit" value="Да">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Нет
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            {% else %}
+                <div class="d-flex">
+                    <div class="d-flex w-50">
+                        <div class="col-4 pl-0">
+                            <span>---</span>
+                        </div>
+                        <div class="col-4">
+                            <span>---</span>
+                        </div>
+                        <div class="col-4">
+                            <span>---</span>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

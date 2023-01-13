@@ -10,5 +10,8 @@ class Education(models.Model):
         auto_now_add=True
     )
 
+    class Meta:
+        ordering = ['id']
+
     def __str__(self):
         return f'{self.institution}, {self.speciality}, {self.degree}'
