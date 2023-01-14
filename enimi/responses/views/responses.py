@@ -60,7 +60,7 @@ class TutorAddResponseView(LoginRequiredMixin, CreateView):
             form.instance.author_id = self.request.user.pk
             form.instance.cabinet_tutor_id = self.kwargs['pk']
             form.save()
-            return redirect('board_student')
+            return redirect('board_tutor')
         context = {}
         context['response_form'] = form
         return self.render_to_response(context)
