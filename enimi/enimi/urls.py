@@ -19,11 +19,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 from board_tutors_students.views.base import BoardTutorView, BoardStudentView
+from chat.views.add_chat import ResponsesAddChatMessageView
 from enimi.views import IndexView
 
 urlpatterns = [
 
                   path('admin/', admin.site.urls),
+                  path('chat_messages/<int:pk>/', ResponsesAddChatMessageView.as_view(), name='add_chat_message'),
                   path('auth/', include('accounts.urls')),
                   path('', IndexView.as_view(), name='index'),
                   path('cabinet_parents/', include('cabinet_parents.urls')),
@@ -33,6 +35,7 @@ urlpatterns = [
                   path('verification/', include('verify_email.urls')),
                   path('board_tutors_students/', include('board_tutors_students.urls')),
                   path('responses/', include("responses.urls")),
+                  # path('chats/', include("chat.urls")),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

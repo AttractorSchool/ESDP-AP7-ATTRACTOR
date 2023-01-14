@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'cabinet_student',
     'calendarapp.apps.CalendarappConfig',
     'verify_email.apps.VerifyEmailConfig',
-    'responses'
+    'responses',
+    'chat',
 ]
 
 MIDDLEWARE = [
