@@ -60,9 +60,7 @@
 
                                         </div>
                                         <div class="col-4 text-center align-self-center">
-
-                                               <a href="#" class="btn btn-primary" style="border-radius: 10px" data-id="'+ data[i].pk +'" id="btn" >Открыть чат</a>
-
+                                               <a href="{% url 'add_chat_message' response.pk %}" class="btn btn-primary" style="border-radius: 10px" data-id="'+ data[i].pk +'" id="btn" >Открыть чат</a>
                                         </div>
                                     </div>
                                </div>
