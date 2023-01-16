@@ -6,18 +6,21 @@ class TutorArea(models.Model):
         to='cabinet_parents.Region',
         verbose_name='Область',
         related_name='tutor_areas',
+        null=True,
         on_delete=models.CASCADE
     )
     tutor_city = models.ForeignKey(
         to='cabinet_parents.City',
         verbose_name='Город',
         related_name='tutor_areas',
+        null=True,
         on_delete=models.CASCADE
     )
     tutor_district = models.ForeignKey(
         to='cabinet_parents.District',
         verbose_name='Район',
         related_name='tutor_areas',
+        null=True,
         on_delete=models.CASCADE
     )
     created_at = models.DateTimeField(

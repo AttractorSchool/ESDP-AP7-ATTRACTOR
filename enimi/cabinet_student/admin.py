@@ -72,10 +72,10 @@ admin.site.register(Region, RegionAdmin)
 
 
 class StudentAreaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'survey', 'student_region', 'student_city', 'student_district', 'created_at', 'updated_at')
-    list_filter = ('survey', 'student_region', 'student_city', 'student_district')
-    search_fields = ('survey', 'student_region', 'student_city', 'student_district')
-    fields = ('id', 'survey', 'student_region', 'student_city', 'student_district', 'created_at', 'updated_at')
+    list_display = ('id', 'student_region', 'student_city', 'student_district', 'created_at', 'updated_at')
+    list_filter = ('student_region', 'student_city', 'student_district')
+    search_fields = ('student_region', 'student_city', 'student_district')
+    fields = ('id', 'student_region', 'student_city', 'student_district', 'created_at', 'updated_at')
     readonly_fields = ('id', 'created_at', 'updated_at')
 
 

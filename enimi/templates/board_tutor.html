@@ -30,11 +30,19 @@
                             </div>
                         </div>
                     </div>
+                    {% if request.user.type == 'parents' %}
+                    <div class="tut__connection_btn_block">
+                        <a href="{% url 'response_by_parent_on_tutor' t.pk %}">
+                            <button class="tut__connection_btn">Связаться с репетитором</button>
+                        </a>
+                    </div>
+                    {% else %}
                     <div class="tut__connection_btn_block">
                         <a href="{% url 'response_on_tutor' t.pk %}">
                             <button class="tut__connection_btn">Связаться с репетитором</button>
                         </a>
                     </div>
+                    {% endif %}
                 </div>
                 <div class="tut-info">
                     <div class="tut-info__experience">

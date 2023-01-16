@@ -6,7 +6,7 @@ class Region(models.Model):
         verbose_name='Область',
         max_length=100,
         null=True,
-        blank=False
+        blank=True
     )
     created_at = models.DateTimeField(
         verbose_name='Дата создания',
