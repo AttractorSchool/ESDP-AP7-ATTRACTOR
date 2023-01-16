@@ -22,7 +22,6 @@ from board_tutors_students.views.base import BoardTutorView, BoardStudentView
 from enimi.views import IndexView
 
 urlpatterns = [
-
                   path('admin/', admin.site.urls),
                   path('auth/', include('accounts.urls')),
                   path('', IndexView.as_view(), name='index'),
@@ -32,7 +31,8 @@ urlpatterns = [
                   path('schedule/', include("calendarapp.urls")),
                   path('verification/', include('verify_email.urls')),
                   path('board_tutors_students/', include('board_tutors_students.urls')),
-                  path('board_student', BoardStudentView.as_view(), name='board_student'),
+                  path('responses/', include("responses.urls")),
+                  path('chats/', include("chat.urls")),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

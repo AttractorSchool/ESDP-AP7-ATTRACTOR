@@ -22,7 +22,21 @@ class AccountCreateView(CreateView):
             account = form.save(commit=False)
             account.type = kwargs['type']
             account.username = account.email
-            inactive_user = send_verification_email(request, form)
+            # inactive_user = send_verification_email(request, form)
+            account.save()
+            login(request, account)
+            if account.type == 'parents':
+                return redirect('parents_cabinet_detail',
+                                pk=account.pk)
+            if account.type == 'tutor':
+                tutor = TutorCabinets.objects.create(
+                    user=account
+                )
+                return redirect('tutor_cabinet',
+                                pk=tutor.pk)
+            if account.type == 'student':
+                return redirect('student_cabinet_detail',
+                                pk=account.pk)
             return redirect('index')
         context = {}
         context['form'] = form
@@ -60,6 +74,8 @@ class LoginView(TemplateView):
             return redirect(next)
         if user.type == 'tutor':
             return redirect('tutor_cabinet', pk=user.tutor.pk)
+        if user.type == 'student':
+            return redirect('student_cabinet_detail', pk=user.pk)
         if user.type == 'parents':
             return redirect('parents_cabinet_detail', pk=user.pk)
         return redirect('index')

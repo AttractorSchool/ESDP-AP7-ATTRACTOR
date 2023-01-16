@@ -9,14 +9,14 @@
     </h2>
     <div class="tutors__content">
         <div class="tutors__blocks">
-            {% for s in students %}
+            {% for survey in surveys %}
             <div class="tut__tutor">
                 <div class="tut__avatar">
-                    <div class="tut_avatar-img-block"><img src="" alt=""
+                    <div class="tut_avatar-img-block"><img src="{{ survey.user.avatar.url }}" alt=""
                                                            class="tut_avatar-img"></div>
                     <p class="tut__name">
-                        {{ s.user.first_name }}
-                        {{ s.user.last_name }}
+                        {{ survey.user.first_name }}
+                        {{ survey.user.last_name }}
                     </p>
 <!--                    <div class="tut__location-block">-->
 <!--                        <div class="tut__location">-->
@@ -32,7 +32,9 @@
 <!--                        </div>-->
 <!--                    </div>-->
                     <div class="tut__connection_btn_block">
-                        <button class="tut__connection_btn">Связаться со студентом</button>
+                        <a href="{% url 'response_on_student' survey.pk %}">
+                            <button class="tut__connection_btn">Связаться со студентом</button>
+                        </a>
                     </div>
                 </div>
                 <div class="tut-info">

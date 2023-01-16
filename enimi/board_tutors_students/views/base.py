@@ -15,4 +15,4 @@ class BoardStudentView(ListView):
     template_name = 'board_student.html'
     model = Survey
 
-    context_object_name = 'students'
+    context_object_name = 'surveys'
