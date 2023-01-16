@@ -8,7 +8,7 @@ from accounts.forms import AccountForm, ChildrenForm
 from accounts.models import Account
 from cabinet_parents.forms import SurveyForm, TutorAreaForm, StudentAreaForm
 from cabinet_parents.models import Survey, TutorArea, Region, City, District, StudentArea
-
+from responses.models import Response
 
 class ParentProfileView(LoginRequiredMixin, DetailView):
     model = get_user_model()
@@ -239,6 +239,59 @@ class ResetParentChildrenOfflineStudyStudentAreaSurveyView(UpdateView):
         survey = Survey.objects.get(student_area_id=student_area.pk)
         child = Account.objects.get(id=survey.user_id)
         return redirect('parent_children_surveys', pk=child.parent.pk)
+
+
+class ToMyChildrenResponsesView(LoginRequiredMixin, ListView):
+    template_name = 'to_my_children_responses.html'
+    model = Response
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ToMyChildrenResponsesView, self).get_context_data(object_list=object_list, **kwargs)
+        parent = Account.objects.get(id=self.kwargs['pk'])
+        children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
+        # print(children[0].get('id'))
+        # child_id_list = []
+        survey_id_list = []
+        for child in children:
+            # pk = child.get('id')
+            survey_pk = child.get('survey')
+            # child_id_list.append(pk)
+            survey_id_list.append(survey_pk)
+        print(survey_id_list)
+        responses = Response.objects.filter(survey_id__in=survey_id_list)
+        # , cabinet_tutor_id = None
+        context['responses'] = responses
+        context['student_register_form'] = AccountForm()
+        context['student_without_email_register_form'] = ChildrenForm
+        return context
+
+class FromParentOnTutorResponsesView(LoginRequiredMixin, ListView):
+    template_name = 'from_me_parent_to_tutor.html'
+    model = Response
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        print('AAADfsdgfdhfdghcghvghn')
+        context = super(FromParentOnTutorResponsesView, self).get_context_data(object_list=object_list, **kwargs)
+        parent = Account.objects.get(id=self.kwargs['pk'])
+        children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
+        user_id_list = []
+        for child in children:
+            # pk = child.get('id')
+            user_pk = child.get('id')
+            # child_id_list.append(pk)
+            user_id_list.append(user_pk)
+        print(user_id_list)
+
+        user = Account.objects.get(id=self.kwargs['pk'])
+        responses = Response.objects.filter(author_id__in=user_id_list)
+        print(responses)
+        context['responses'] = responses
+        context['student_register_form'] = AccountForm()
+        context['student_without_email_register_form'] = ChildrenForm
+        return context
+
+
+
 
 # class GetDataForSurveysView(CreateView):
 #     model = Account

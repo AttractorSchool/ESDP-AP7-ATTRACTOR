@@ -4,7 +4,7 @@ from cabinet_parents.views.base import ParentProfileView, ParentCreateChildrenVi
     ParentCreateChildrenWithoutEmailView, ParentChildrenSurveysView, CreateParentChildrenSurveyView, \
     UpdateParentChildrenSurveyView, UpdateParentChildrenOfflineStudyTutorAreaSurveyView, \
     UpdateParentChildrenOfflineStudyStudentAreaSurveyView, ResetParentChildrenOfflineStudyTutorAreaSurveyView,\
-    ResetParentChildrenOfflineStudyStudentAreaSurveyView
+    ResetParentChildrenOfflineStudyStudentAreaSurveyView, ToMyChildrenResponsesView, FromParentOnTutorResponsesView
 
 urlpatterns = [
     path('<int:pk>/', ParentProfileView.as_view(), name='parents_cabinet_detail'),
@@ -21,6 +21,9 @@ urlpatterns = [
          ResetParentChildrenOfflineStudyTutorAreaSurveyView.as_view(), name='reset_child_tutor_area_for_student'),
     path('<int:pk>/parent_children_surveys/offline_study_student_area_reset',
          ResetParentChildrenOfflineStudyStudentAreaSurveyView.as_view(), name='reset_child_student_area_for_student'),
+    path('<int:pk>/to_my_children_responses', ToMyChildrenResponsesView.as_view(), name='to_my_children_responses'),
+    path('<int:pk>/from_me-parent_on_tutor_responses', FromParentOnTutorResponsesView.as_view(),
+             name='from_me-parent_on_tutor_responses'),
     # path('<int:pk>/get_children_surveys/', GetDataForSurveysView.as_view(), name='get_children_surveys'),
     # path('<int:pk>/change_avatar/', upload_file, name='change_avatar'),
 ]
