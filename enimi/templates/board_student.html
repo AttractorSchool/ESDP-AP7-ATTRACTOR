@@ -12,7 +12,7 @@
             {% for survey in surveys %}
             <div class="tut__tutor">
                 <div class="tut__avatar">
-                    <div class="tut_avatar-img-block"><img src="" alt=""
+                    <div class="tut_avatar-img-block"><img src="{{ survey.user.avatar.url }}" alt=""
                                                            class="tut_avatar-img"></div>
                     <p class="tut__name">
                         {{ survey.user.first_name }}
