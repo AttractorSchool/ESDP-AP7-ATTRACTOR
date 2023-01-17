@@ -8,66 +8,144 @@
     {% if user.is_authenticated %}
         <div class="d-flex justify-content-center" style="overflow-y: auto">
             <div class="row pb-5" style=" padding-top: 85px;">
-            <div class="bg-light p-3 rounded  border border-secondary " id="the_div_holder">
-                <h3 class="fw-bold text-left">Чат</h3>
-                {% for message in chats %}
-                    {% if  message.author.type == 'tutor' %}
-                        <div class="d-flex flex-row-reverse chata">
-                            <div class="mb-1 rounded w-75 " style="background-color: lightgrey; color: black;">
-                                <div class="border-bottom text-right " style="height: 30px;">
-                                    <p class="m-0">
-                                        <span
-                                            class="fw-bold">{{ message.author.first_name }} {{ message.author.last_name }}: </span>{{ message.message }}
-                                    </p>
-                                </div>
+                <div class="bg-light p-3 rounded  border border-secondary " id="the_div_holder">
+                    <h3 class="fw-bold text-left">Чат</h3>
+                    <div style="height: 300px;">
+                        <div id="message_box">
+                        </div>
+                    </div>
+
+                    {#                        {% for message in chats %}#}
+                    {#                            {% if  message.author.type == 'tutor' %}#}
+                    {#                                <div class="d-flex flex-row-reverse chata">#}
+                    {#                                    <div class="mb-1 rounded w-75 " style="background-color: lightgrey; color: black;">#}
+                    {#                                        <div class="border-bottom text-right " style="height: 30px;">#}
+                    {#                                            <p class="m-0">#}
+                    {#                                        <span#}
+                    {#                                                class="fw-bold">{{ message.author.first_name }} {{ message.author.last_name }}: </span>{{ message.message }}#}
+                    {#                                            </p>#}
+                    {#                                        </div>#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            {% else %}#}
+                    {#                                <div class="mb-1 rounded  w-75 chata"#}
+                    {#                                     style="background-color: dodgerblue; color: white; ">#}
+                    {#                                    <div class="border-bottom d-flex text-right " style="height: 30px;">#}
+                    {#                                        <p class="m-0">#}
+                    {#                                            <span class="fw-bold">{{ message.author.first_name }} {{ message.author.last_name }}: </span>{{ message.message }}#}
+                    {#                                        </p>#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            {% endif %}#}
+                    {#                        {% endfor %}#}
+
+                    <form action="" method="post" style="" class="pt-3">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            {{ field }}
+                        {% endfor %}
+                        <div class="row">
+                            <div class="col-6 text-right pb-3 ">
+                                <input id="message_id" type="submit" value="Отправить" class="btn btn-primary ps-2 me-2"
+                                       onclick="sendMessage(event)">
+                            </div>
+                            <div class="col-6 text-right">
+                                {% if request.user.type == 'student' %}
+                                    <a href="{% url 'student_cabinet_detail' request.user.pk %}"
+                                       class="btn btn-primary">Назад</a>
+                                {% elif request.user.type == 'parents' %}
+                                    <a href="{% url 'parents_cabinet_detail' request.user.pk %}"
+                                       class="btn btn-primary">Назад</a>
+                                {% else %}
+                                    <a href="{% url 'tutor_on_students_responses' request.user.pk %}"
+                                       class="btn btn-primary">Назад</a>
+                                {% endif %}
+
                             </div>
                         </div>
-                    {% else %}
-                        <div class="mb-1 rounded  w-75 chata" style="background-color: dodgerblue; color: white; ">
-                            <div class="border-bottom d-flex text-right " style="height: 30px;">
-                                <p class="m-0" >
-                                    <span class="fw-bold">{{ message.author.first_name }} {{ message.author.last_name }}: </span>{{ message.message }}
-                                </p>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-
-                <form action="" method="post" style="" class="pt-3">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        {{ field }}
-                    {% endfor %}
-                <div class="row">
-                    <div class="col-6 text-right pb-3 ">
-                        <input type="submit" value="Отправить" class="btn btn-primary ps-2 me-2 ">
-                    </div>
-                    <div class="col-6 text-right">
-                        {% if request.user.type == 'student' %}
-                                <a href="{% url 'student_cabinet_detail'  request.user.pk %}" class="btn btn-primary">Отмена</a>
-                            {% elif request.user.type == 'parents' %}
-                            <a href="{% url 'parents_cabinet_detail'  request.user.pk %}" class="btn btn-primary">Отмена</a>
-                            {% else %}
-                                <a href="{% url 'tutor_cabinet' request.user.pk %}" class="btn btn-primary">Отмена</a>
-                            {% endif %}
-
-                    </div>
+                    </form>
                 </div>
-                </form>
             </div>
-        </div>
         </div>
 
     {% endif %}
+    {#    <script>#}
+    {#        $(function () {#}
+    {#            var target = $('#the_div_holder');#}
+    {#            if (target.length) {#}
+    {#                $('html,body').animate({#}
+    {#                    scrollTop: target.offset().top#}
+    {#                }, 1000);#}
+    {#                return false;#}
+    {#            }#}
+    {#        });#}
+    {#    </script>#}
+{% endblock %}
+{% block script %}
     <script>
-    $(function() {
-    var target = $('#the_div_holder');
-    if (target.length) {
-        $('html,body').animate({
-            scrollTop: target.offset().top
-        }, 1000);
-        return false;
-    }
-});
+        let box = document.getElementById('message_box');
+        let nested_box = document.createElement('div');
+        nested_box.setAttribute('id', 'nested_message_box');
+        box.appendChild(nested_box);
+
+        let timer = setInterval(function () {
+                let nested = document.getElementById('nested_message_box');
+                box.removeChild(nested);
+                $.ajax({
+                    url: 'http://localhost:8000/api/response/' + {{ chats.first.response.pk }} +'/get-chat/',
+                    method: 'get'
+                })
+                    .done(function (data) {
+                            let nested_box = document.createElement('div');
+                            nested_box.setAttribute('id', 'nested_message_box');
+                            box.appendChild(nested_box);
+                            console.log(nested_box);
+                            for (let i of data) {
+                                if (i.author === {{ user.id }}) {
+                                    let textBox = document.createElement('p');
+                                    textBox.style.background = 'silver';
+                                    textBox.innerHTML = i.message
+                                    nested_box.appendChild(textBox);
+                                } else {
+                                    let textBox2 = document.createElement('p');
+                                    textBox2.style.background = 'aqua';
+                                    textBox2.innerHTML = i.message
+                                    nested_box.appendChild(textBox2);
+                                }
+                            }
+                        }
+                    )
+                    .fail(function (error) {
+                            console.log(error)
+                        }
+                    );
+            },
+            1000);
+
+        function sendMessage(event) {
+            event.preventDefault()
+            let message = {
+                message_text: document.getElementById('id_message').value,
+                response_id: {{ chats.first.response.pk }},
+            }
+            console.log(message)
+            var $crf_token = $('[name="csrfmiddlewaretoken"]').attr('value');
+            $.ajax({
+                url: 'http://localhost:8000/api/response/' + {{ chats.first.response.pk }} +'/add-message/',
+                method: 'POST',
+                headers: {"X-CSRFToken": $crf_token},
+                data: JSON.stringify(message),
+                dataType: "json",
+                contentType: "application/json",
+            })
+                .done(function (data) {
+                        console.log(data)
+                    }
+                )
+                .fail(function (error) {
+                        console.log(error)
+                    }
+                );
+        }
     </script>
 {% endblock %}
