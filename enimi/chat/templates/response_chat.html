@@ -57,6 +57,16 @@
                                     {{ chats.first.response.author.last_name }}
                                 </h5>
                             </div>
+                        {% elif chats.first.response.author != user and chats.first.response.author.type == 'parents' %}
+                            <div>
+                                <img class="rounded-circle" src="{{ chats.first.response.author.avatar.url }}" alt=""
+                                     style="height: 50px; width: 50px;">
+                            </div>
+                            <div class="pt-3 ps-3">
+                                <h5>{{ chats.first.response.author.first_name }}
+                                    {{ chats.first.response.author.last_name }}
+                                </h5>
+                            </div>
                         {% endif %}
                     </div>
                     <div style="height: 300px;">
