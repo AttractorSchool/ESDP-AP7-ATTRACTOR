@@ -11,7 +11,8 @@
                     <div class="d-flex align-content-lg-between mb-5">
                         {% if chats.first.response.author.parent == user %}
                             <div>
-                                <img class="rounded-circle" src="{{ chats.first.response.cabinet_tutor.user.avatar.url }}" alt=""
+                                <img class="rounded-circle"
+                                     src="{{ chats.first.response.cabinet_tutor.user.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
                             </div>
                             <div class="pt-3 ps-3">
@@ -21,7 +22,8 @@
                             </div>
                         {% elif chats.first.response.author == user and user.type == 'student' %}
                             <div>
-                                <img class="rounded-circle" src="{{ chats.first.response.cabinet_tutor.user.avatar.url }}" alt=""
+                                <img class="rounded-circle"
+                                     src="{{ chats.first.response.cabinet_tutor.user.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
                             </div>
                             <div class="pt-3 ps-3">
@@ -67,13 +69,8 @@
                         {% for field in form %}
                             {{ field }}
                         {% endfor %}
-                        <div class="row">
-                            <div class="col-6 text-right pb-3 ">
-                                <input id="message_id" type="submit" value="Отправить"
-                                       class="btn btn-primary ps-2 me-2"
-                                       onclick="sendMessage(event)">
-                            </div>
-                            <div class="col-6 text-right">
+                        <div class="row mt-3">
+                            <div class="col-6 text-left">
                                 {% if request.user.type == 'student' %}
                                     <a href="{% url 'student_cabinet_detail' request.user.pk %}"
                                        class="btn btn-primary">Назад</a>
@@ -84,6 +81,11 @@
                                     <a href="{% url 'tutor_on_students_responses' request.user.pk %}"
                                        class="btn btn-primary">Назад</a>
                                 {% endif %}
+                            </div>
+                            <div class="col-6 text-right pb-3 ">
+                                <input id="message_id" type="submit" value="Отправить"
+                                       class="btn btn-primary ps-2 me-2"
+                                       onclick="sendMessage(event)">
                             </div>
                         </div>
                     </form>
