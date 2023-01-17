@@ -11,7 +11,7 @@
                     <div class="d-flex align-content-lg-between mb-5">
                         {% if chats.first.response.author.parent == user %}
                             <div>
-                                <img src="{{ chats.first.response.cabinet_tutor.user.avatar.url }}" alt=""
+                                <img class="rounded-circle" src="{{ chats.first.response.cabinet_tutor.user.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
                             </div>
                             <div class="pt-3 ps-3">
@@ -19,19 +19,19 @@
                                     {{ chats.first.response.cabinet_tutor.user.last_name }}
                                 </h5>
                             </div>
-                        {% elif chats.first.response.author == user and user.type == 'students' %}
+                        {% elif chats.first.response.author == user and user.type == 'student' %}
                             <div>
-                                <img src="{{ chats.first.response.survey.user.avatar.url }}" alt=""
+                                <img class="rounded-circle" src="{{ chats.first.response.cabinet_tutor.user.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
                             </div>
                             <div class="pt-3 ps-3">
-                                <h5>{{ chats.first.response.survey.user.first_name }}
-                                    {{ chats.first.response.survey.user.last_name }}
+                                <h5>{{ chats.first.response.cabinet_tutor.user.first_name }}
+                                    {{ chats.first.response.cabinet_tutor.user.last_name }}
                                 </h5>
                             </div>
                         {% elif chats.first.response.author != user and chats.first.response.author.parent %}
                             <div>
-                                <img src="{{ chats.first.response.author.avatar.url }}" alt=""
+                                <img class="rounded-circle" src="{{ chats.first.response.author.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
                             </div>
                             <div class="ps-3">
@@ -47,7 +47,7 @@
                             </div>
                         {% elif chats.first.response.author != user and chats.first.response.author.type == 'student' and not chats.first.response.author.parent %}
                             <div>
-                                <img src="{{ chats.first.response.author.avatar.url }}" alt=""
+                                <img class="rounded-circle" src="{{ chats.first.response.author.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
                             </div>
                             <div class="pt-3 ps-3">
