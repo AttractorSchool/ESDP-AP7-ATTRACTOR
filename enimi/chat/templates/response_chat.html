@@ -11,7 +11,7 @@
                 <div class="bg-light p-3 rounded  border border-secondary " id="the_div_holder">
                     <h3 class="fw-bold text-left">Чат</h3>
                     <div style="height: 300px;">
-                        <div id="message_box">
+                        <div id="message_box" style="height: 90%; overflow-y: scroll">
                         </div>
                     </div>
 
@@ -89,8 +89,7 @@
         box.appendChild(nested_box);
 
         let timer = setInterval(function () {
-                let nested = document.getElementById('nested_message_box');
-                box.removeChild(nested);
+                let nested1 = document.getElementById('nested_message_box');
                 $.ajax({
                     url: 'http://localhost:8000/api/response/' + {{ chats.first.response.pk }} +'/get-chat/',
                     method: 'get'
@@ -98,6 +97,7 @@
                     .done(function (data) {
                             let nested_box = document.createElement('div');
                             nested_box.setAttribute('id', 'nested_message_box');
+                            nested_box.style.display = 'None';
                             box.appendChild(nested_box);
                             console.log(nested_box);
                             for (let i of data) {
@@ -113,6 +113,9 @@
                                     nested_box.appendChild(textBox2);
                                 }
                             }
+                            box.removeChild(nested1);
+                            nested_box.style.display = 'block';
+
                         }
                     )
                     .fail(function (error) {
@@ -120,7 +123,7 @@
                         }
                     );
             },
-            1000);
+            1500);
 
         function sendMessage(event) {
             event.preventDefault()
