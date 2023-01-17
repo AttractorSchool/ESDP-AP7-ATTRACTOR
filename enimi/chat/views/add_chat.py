@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.views.generic import CreateView, DetailView, View
 from chat.forms import ChatForm
 from chat.models import Chat
