@@ -1,52 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
-    <head>
-        <meta name="description" content="Event Dashboard" />
-        <!-- Twitter meta-->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:site" content="@sajib1066" />
-        <meta property="twitter:creator" content="@sajib1066" />
-        <!-- Open Graph Meta-->
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Vali Admin" />
-        <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme" />
-        <meta property="og:url" content="https://sajib1066.github.io/" />
-        <meta property="og:image" content="https://sajib1066.github.io/images/me.jpg" />
-        <meta property="og:description" content="Event Dashboard" />
-        <title>{% block title %}{% endblock title  %}</title>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!-- Main CSS-->
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
-        <!-- Font-icon css-->
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-        {% block extracss %}
-        {% endblock extracss %}
-    </head>
-    <body class="app sidebar-mini">
-        <!-- Navbar-->
+{% load static %}
+<head>
+    <meta name="description" content="Event Dashboard"/>
+    <!-- Twitter meta-->
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:site" content="@sajib1066"/>
+    <meta property="twitter:creator" content="@sajib1066"/>
+    <!-- Open Graph Meta-->
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="Vali Admin"/>
+    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme"/>
+    <meta property="og:url" content="https://sajib1066.github.io/"/>
+    <meta property="og:image" content="https://sajib1066.github.io/images/me.jpg"/>
+    <meta property="og:description" content="Event Dashboard"/>
+    <title>{% block title %}{% endblock title %}</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static '/css/style.css' %} ">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    {% block extracss %}
+    {% endblock extracss %}
+</head>
+<body class="app sidebar-mini">
+<!-- Navbar-->
 <header class="header_area">
     <div class="main_menu">
-        <div class="search_input" id="search_input_box">
-            <div class="container">
-                <form class="d-flex justify-content-between" method="" action="">
-                    <input
-                            type="text"
-                            class="form-control"
-                            id="search_input"
-                            placeholder="Поиск"
-                    />
-                    <button type="submit" class="btn"></button>
-                    <span
-                            class="ti-close"
-                            id="close_search"
-                            title="Close Search"
-                    ></span>
-                </form>
-            </div>
-        </div>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -75,7 +61,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{% url 'index' %}">Главная</a>
                         </li>
-                        <li c<<<<<<< schedule_update_worklass="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="about-us.html">Как это работает</a>
                         </li>
                         <li class="nav-item submenu dropdown">
@@ -86,15 +72,15 @@
                                     role="button"
                                     aria-haspopup="true"
                                     aria-expanded="false"
-                            >Больше</a
+                            >Доска объявлений</a
                             >
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="blog.html">Blog</a>
+                                    <a class="nav-link" href="{% url 'board_tutor' %}">Репетиторы</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="single-blog.html"
-                                    >Blog Details</a
+                                    <a class="nav-link" href="{% url 'board_student' %}"
+                                    >Ученики</a
                                     >
                                 </li>
                             </ul>
@@ -106,11 +92,13 @@
                         </li>
                         {% elif user.type == 'tutor' %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'tutor_cabinet' user.tutor.id  %}">Личный кабинет репетитора</a>
+                            <a class="nav-link" href="{% url 'tutor_cabinet' user.tutor.id  %}">Личный кабинет
+                                репетитора</a>
                         </li>
                         {% elif user.type == 'student' %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'student_cabinet_detail' user.pk %}">Личный кабинет студента</a>
+                            <a class="nav-link" href="{% url 'student_cabinet_detail' user.pk %}">Личный кабинет
+                                студента</a>
                         </li>
                         {% endif %}
                         {% else %}
@@ -129,17 +117,10 @@
                                 <li><a class="dropdown-item" href="{% url 'account_register' type.0 %}">{{ type.1 }}</a>
                                 </li>
 
-                            {% endfor %}
+                                {% endfor %}
                             </ul>
                         </li>
                         {% endif %}
-                        {% block search_btn %}
-                        <li class="nav-item">
-                            <a href="#" class="nav-link search" id="search">
-                                <i class="ti-search"></i>
-                            </a>
-                        </li>
-                        {% endblock %}
                         <div class="lang-log-block">
                             <li class="nav-item submenu dropdown">
                                 <a
@@ -163,13 +144,13 @@
                                 </ul>
                             </li>
                             {% if user.is_authenticated %}
-                                <li class="nav-item">
-                                    <span>{{ user.username }}</span>
-                                    <a class="nav-link" href="{% url 'logout' %}">Выход</a>
-                                </li>
+                            <li class="nav-item">
+                                <span>{{ user.username }}</span>
+                                <a class="nav-link" href="{% url 'logout' %}">Выход</a>
+                            </li>
                             {% else %}
                             <li class="nav-item active">
-                                <a class="nav-link" href="{% url 'login' %}">Вход</a>
+                                <a class="nav-link" href="{% url 'login_page' %}">Вход</a>
                             </li>
                             {% endif %}
                         </div>
@@ -180,55 +161,58 @@
     </div>
 </header>
 
-
-
-        <!-- Sidebar menu-->
-        <div class="app-sidebar" data-toggle="sidebar"></div>
-        <aside class="app-sidebar">
-            <div class="app-sidebar__user">
-                <img class="app-sidebar__user-avatar" src="{{ request.user.avatar.url }}" alt="User Image" height="50px" width="50px"/>
-                <div>
-                    <p class="app-sidebar__user-name">{{ request.user.first_name }}</p>
-                    <p class="app-sidebar__user-designation">{{ request.user.last_name }}</p>
-                </div>
-            </div>
-            <ul class="app-menu">
+<!-- Sidebar menu-->
+<div class="app-sidebar" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+    <div class="app-sidebar__user">
+        <img class="app-sidebar__user-avatar" src="{{ request.user.avatar.url }}" alt="User Image" height="50px"
+             width="50px"/>
+        <div>
+            <p class="app-sidebar__user-name">{{ request.user.first_name }}</p>
+            <p class="app-sidebar__user-designation">{{ request.user.last_name }}</p>
+        </div>
+    </div>
+    <ul class="app-menu">
+        <li>
+        </li>
+        <li>
+            <a class="app-menu__item" href="{% url 'calendarapp:calendar' %}"><i
+                    class="app-menu__icon fa fa-calendar"></i><span class="app-menu__label">Расписание</span></a>
+        </li>
+        <li class="treeview">
+            <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span
+                    class="app-menu__label">События</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+            <ul class="treeview-menu">
+                <!--                        <li>-->
+                <!--                            <a class="treeview-item" href="{% url 'calendarapp:running_events' %}"><i class="icon fa fa-circle-o"></i> Текушие</a>-->
+                <!--                        </li>-->
                 <li>
+                    <a class="treeview-item" href="{% url 'calendarapp:actual_events' %}"><i
+                            class="icon fa fa-circle-o"></i> Предстоящие</a>
                 </li>
                 <li>
-                    <a class="app-menu__item" href="{% url 'calendarapp:calendar' %}"><i class="app-menu__icon fa fa-calendar"></i><span class="app-menu__label">Расписание</span></a>
-                </li>
-                <li class="treeview">
-                    <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">События</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-                    <ul class="treeview-menu">
-<!--                        <li>-->
-<!--                            <a class="treeview-item" href="{% url 'calendarapp:running_events' %}"><i class="icon fa fa-circle-o"></i> Текушие</a>-->
-<!--                        </li>-->
-                        <li>
-                            <a class="treeview-item" href="{% url 'calendarapp:actual_events' %}"><i class="icon fa fa-circle-o"></i> Предстоящие</a>
-                        </li>
-                        <li>
-                            <a class="treeview-item" href="{% url 'calendarapp:all_events' %}"><i class="icon fa fa-circle-o"></i> Все</a>
-                        </li>
-                    </ul>
+                    <a class="treeview-item" href="{% url 'calendarapp:all_events' %}"><i
+                            class="icon fa fa-circle-o"></i> Все</a>
                 </li>
             </ul>
-        </aside>
-        <main class="app-content">
-            <div class="app-title">
-                {% block breadcrumb %}
-                {% endblock breadcrumb %}
-            </div>
-            {% block content %}
-            {% endblock content %}
-        </main>
-        <!-- Essential javascripts for application to work-->
-        {% include 'base/js.html' %}
-        {% block extrascripts %}
-        {% endblock extrascripts %}
+        </li>
+    </ul>
+</aside>
+<main class="app-content">
+    <div class="app-title">
+        {% block breadcrumb %}
+        {% endblock breadcrumb %}
+    </div>
+    {% block content %}
+    {% endblock content %}
+</main>
+<!-- Essential javascripts for application to work-->
+{% include 'base/js.html' %}
+{% block extrascripts %}
+{% endblock extrascripts %}
 
-    </body>
- <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+</body>
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'js/popper.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
