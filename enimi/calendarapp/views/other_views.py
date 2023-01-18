@@ -10,7 +10,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 
-
+from accounts.models import Account
+from cabinet_tutors.models import MyStudent
 from calendarapp.models import EventMember, Event
 from calendarapp.utils import Calendar
 from calendarapp.forms import EventForm, AddMemberForm
@@ -90,18 +91,29 @@ def event_details(request, event_id):
 
 
 def add_eventmember(request, event_id):
-    forms = AddMemberForm()
+    print(request.user)
+    forms = AddMemberForm(current_user=request.user)
     if request.method == "POST":
-        forms = AddMemberForm(request.POST)
-        if forms.is_valid():
-            member = EventMember.objects.filter(event=event_id)
-            event = Event.objects.get(id=event_id)
-            if member.count() <= 9:
-                user = forms.cleaned_data["user"]
-                EventMember.objects.create(event=event, user=user)
-                return redirect("calendarapp:calendar")
-            else:
-                print("--------------User limit exceed!-----------------")
+        # forms = AddMemberForm(request.POST)
+        # if forms.is_valid():
+        print(request.POST)
+        print(event_id)
+        # member = EventMember.objects.filter(event=event_id)
+        event = Event.objects.get(id=event_id)
+        print(event)
+        # user = forms.cleaned_data["user"]
+        tutor_student_id = request.POST['user']
+        tutor_student = MyStudent.objects.get(id=tutor_student_id)
+        print(tutor_student)
+        user = Account.objects.get(id=tutor_student.student.pk)
+        # EventMember.objects.create(event=event, user=user)
+        event_member = EventMember.objects.create(event=event, user=user)
+        print(event_member)
+        # event_member.student.add(tutor_student.student)
+        event_member.save()
+
+        return redirect("calendarapp:calendar")
+
     context = {"form": forms}
     return render(request, "add_member.html", context)
 

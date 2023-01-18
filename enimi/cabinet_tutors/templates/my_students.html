@@ -32,52 +32,42 @@
 
         {% include 'partial/tutor_navbar.html' %}
 
-        {% for response in responses.all %}
+        {% for my_student in my_students.all %}
         <div class="row justify-content-center" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
                       -moz-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
                       box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2); ">
             <div class="col-12" style="border-radius: 20px">
                 <div class="row">
                     <div class="col-3 text-center align-self-center" style="margin-top: 25px; margin-bottom: 25px">
-                        {% if response.author.parent %}
-                        <img id="avatar" src="{{ response.author.parent.avatar.url }}" class="circlehome-dp" style="border-radius: 100px; width:50%; margin-top: -20px; margin-bottom: 35px; -webkit-box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.86);
+                        {% if my_student.student.parent %}
+                        <img id="avatar" src="{{ my_student.student.parent.avatar.url }}" class="circlehome-dp" style="border-radius: 100px; width:50%; margin-top: -20px; margin-bottom: 35px; -webkit-box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.86);
                                 -moz-box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.86);
                                 box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.86);" alt="signuplogo ">
                         {% endif %}
-                        <img id="avatar" src="{{ response.author.avatar.url }}" class="circlehome-dp"
+                        <img id="avatar" src="{{ my_student.student.avatar.url }}" class="circlehome-dp"
                              style="border-radius: 100px; width:80%;" alt="signuplogo ">
                     </div>
 
                     <div class="col-9 align-self-center">
                         <div class="row">
                             <div class="col-8">
-                                {% if response.author.parent %}
-                                <h5 style="color: #6c757d; padding-top: 25px">Родитель: <span style="color: #568be9">{{ response.author.parent.first_name }}</span>
-                                    <span style="color: #568be9">{{ response.author.parent.last_name }}</span></h5>
+                                {% if my_student.student.parent %}
+                                <h5 style="color: #6c757d; padding-top: 25px">Родитель: <span style="color: #568be9">{{ my_student.student.parent.first_name }}</span>
+                                    <span style="color: #568be9">{{ my_student.student.parent.last_name }}</span></h5>
                                 <hr style="margin-top: 30px">
                                 {% endif %}
-                                <h5 style="color: #6c757d; padding-top: 25px">Отклик от: <span style="color: #568be9">{{ response.author.first_name }}</span>
-                                    <span style="color: #568be9">{{ response.author.last_name }}</span></h5>
+                                <h5 style="color: #6c757d; padding-top: 25px">Ученик: <span style="color: #568be9">{{ my_student.student.first_name }}</span>
+                                    <span style="color: #568be9">{{ my_student.student.last_name }}</span></h5>
                                 <h5 style="color: #6c757d; padding-top: 10px">Интересны занятия по: </h5>
-                                {% for subject in response.subjects.all %}
+                                {% for subject in my_student.student.survey.subjects.all %}
                                 <span class="info-item">{{ subject }}{% if not forloop.last %}, {% endif %}</span>
                                 {% endfor %}
-                                <hr>
-                                <h5 style="color: #6c757d;">Вам отправлено сообщение: </h5>
-                                <span class="info-item">{{ response.hello_message }}</span>
 
                             </div>
-                            <div class="col-4 text-center align-self-center">
 
-                              <a href="{% url 'add_chat_message' response.pk %}" class="btn btn-primary chat" style="border-radius: 10px" >
-                                  Открыть чат</a>
-                              <button class="btn-success" id="" data-id="{{ response.author.pk }}" style="margin-top: 20px; border-radius: 10px" >
-                                  В ученики <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
-  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-  <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
-</svg></button>
 
-                            </div>
+
+
                         </div>
                     </div>
 
@@ -107,6 +97,6 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
     crossorigin="anonymous">
     </script>
-    <script src="{% static 'js/add-to-student-confirm.js' %}"></script>
+
 
 {% endblock %}
