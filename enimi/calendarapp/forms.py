@@ -1,4 +1,7 @@
 from django.forms import ModelForm, DateInput
+
+from accounts.models import Account
+from cabinet_tutors.models import MyStudent
 from calendarapp.models import Event, EventMember
 from django import forms
 
@@ -41,6 +44,13 @@ class EventForm(ModelForm):
 
 
 class AddMemberForm(forms.ModelForm):
+    def __init__(self, current_user, *args, **kwargs):
+        super(AddMemberForm, self).__init__(*args, **kwargs)
+        self.fields['user'].queryset = self.fields['user'].queryset.filter(tutor=current_user)
+    user = forms.ModelChoiceField(
+        label='Необходимо выбрать ученика',
+        queryset=MyStudent.objects.all(),
+    )
     class Meta:
         model = EventMember
         fields = ["user"]
