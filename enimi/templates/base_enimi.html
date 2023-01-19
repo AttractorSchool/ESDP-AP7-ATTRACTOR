@@ -40,7 +40,16 @@
     <!-- main css -->
     <link rel="stylesheet" href="{% static '/css/style.css' %} ">
 </head>
+<style>
+    @media (max-width: 991px) {
+        .lang-log-block {
+            flex-direction: column;
+        }
+    }
 
+
+
+</style>
 <body>
 {% block header %}{% endblock %}
 <!--================ Start Header Menu Area =================-->
@@ -88,17 +97,17 @@
                         class="collapse navbar-collapse offset"
                         id="navbarSupportedContent"
                 >
-                    <ul class="nav navbar-nav menu_nav ml-auto">
+                    <ul class="nav navbar-nav menu_nav ml-auto flex-nowrap">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'index' %}">Главная</a>
+                            <a class="nav-link text-nowrap" href="{% url 'index' %}">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about-us.html">Как это работает</a>
+                            <a class="nav-link text-nowrap" href="about-us.html">Как это работает</a>
                         </li>
                         <li class="nav-item submenu dropdown">
                             <a
                                     href="#"
-                                    class="nav-link dropdown-toggle"
+                                    class="nav-link text-nowrap text-nowrapdropdown-toggle"
                                     data-toggle="dropdown"
                                     role="button"
                                     aria-haspopup="true"
@@ -107,65 +116,63 @@
                             >
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'board_tutor' %}">Репетиторы</a>
+                                    <a class="text-nowrap nav-link text-nowrap" href="{% url 'board_tutor' %}">Репетиторы</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'board_student' %}"
+                                    <a class="text-nowrap nav-link text-nowrap" href="{% url 'board_student' %}"
                                     >Ученики</a
                                     >
                                 </li>
                             </ul>
                         </li>
                         {% if user.is_authenticated %}
-                            {% if user.type == 'parents' %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'parents_cabinet_detail' user.pk %}">Личный
-                                        кабинет</a>
-                                </li>
-                            {% elif user.type == 'tutor' %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'tutor_cabinet' user.tutor.id %}">Личный кабинет
-                                        репетитора</a>
-                                </li>
-                            {% elif user.type == 'student' %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'student_cabinet_detail' user.pk %}">Личный кабинет
-                                        студента</a>
-                                </li>
-                            {% endif %}
+                        {% if user.type == 'parents' %}
+                        <li class="nav-item">
+                            <a class="text-nowrap  nav-link " href="{% url 'parents_cabinet_detail' user.pk %}">Личный кабинет</a>
+                        </li>
+                        {% elif user.type == 'tutor' %}
+                        <li class="nav-item">
+                            <a class="text-nowrap nav-link" href="{% url 'tutor_cabinet' user.tutor.id  %}">Личный кабинет
+                                репетитора</a>
+                        </li>
+                        {% elif user.type == 'student' %}
+                        <li class="nav-item">
+                            <a class="text-nowrap nav-link" href="{% url 'student_cabinet_detail' user.pk %}">Личный кабинет
+                                студента</a>
+                        </li>
+                        {% endif %}
                         {% else %}
-                            <li class="nav-item submenu dropdown">
-                                <a
-                                        href="#"
-                                        class="nav-link dropdown-toggle"
-                                        data-toggle="dropdown"
-                                        role="button"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                >Регистрация</a
-                                >
-                                <ul class="dropdown-menu">
-                                    {% for type in types %}
-                                        <li><a class="dropdown-item"
-                                               href="{% url 'account_register' type.0 %}">{{ type.1 }}</a>
-                                        </li>
+                        <li class="nav-item submenu dropdown">
+                            <a
+                                    href="#"
+                                    class="nav-link dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    role="button"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                            >Регистрация</a
+                            >
+                            <ul class="dropdown-menu">
+                                {% for type in types %}
+                                <li><a class="dropdown-item" href="{% url 'account_register' type.0 %}">{{ type.1 }}</a>
+                                </li>
 
-                                    {% endfor %}
-                                </ul>
-                            </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
                         {% endif %}
                         {% block search_btn %}
-                            <li class="nav-item">
-                                <a href="#" class="nav-link search" id="search">
-                                    <i class="ti-search"></i>
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link search" id="search">
+                                <i class="ti-search"></i>
+                            </a>
+                        </li>
                         {% endblock %}
                         <div class="lang-log-block">
                             <li class="nav-item submenu dropdown">
                                 <a
                                         href="#"
-                                        class="nav-link dropdown-toggle"
+                                        class="nav-link nav-link dropdown-toggle"
                                         data-toggle="dropdown"
                                         role="button"
                                         aria-haspopup="true"
@@ -184,14 +191,14 @@
                                 </ul>
                             </li>
                             {% if user.is_authenticated %}
-                                <li class="nav-item">
-{#                                    <span class="text-break">{{ user.username }}</span>#}
-                                    <a class="nav-link" href="{% url 'logout' %}">Выход</a>
-                                </li>
+                            <li class="text-nowrap nav-item">
+                                <span class="text-break">{{ user.username }}</span>
+                                <a class="nav-link" href="{% url 'logout' %}">Выход</a>
+                            </li>
                             {% else %}
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="{% url 'login_page' %}">Вход</a>
-                                </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'login_page' %}">Вход</a>
+                            </li>
                             {% endif %}
                         </div>
                     </ul>
@@ -310,8 +317,6 @@
     </div>
 </footer>
 <!--================ End footer Area  =================-->
-{% block script %}
-{% endblock %}
 </body>
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'js/popper.js' %}"></script>

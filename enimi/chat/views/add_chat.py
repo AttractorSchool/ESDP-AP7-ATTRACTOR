@@ -4,6 +4,7 @@ from chat.forms import ChatForm
 from chat.models import Chat
 from responses.models import Response
 
+
 class ResponsesAddChatMessageView(CreateView):
     model = Chat
     template_name = 'response_chat.html'
@@ -24,6 +25,3 @@ class ResponsesAddChatMessageView(CreateView):
         context['form'] = ChatForm()
         context['chats'] = Chat.objects.filter(response_id=self.kwargs['pk'])
         return context
-
-
-
