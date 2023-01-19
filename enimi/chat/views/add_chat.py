@@ -1,8 +1,9 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.views.generic import CreateView, DetailView, View
 from chat.forms import ChatForm
 from chat.models import Chat
 from responses.models import Response
+
 
 class ResponsesAddChatMessageView(CreateView):
     model = Chat
@@ -24,6 +25,3 @@ class ResponsesAddChatMessageView(CreateView):
         context['form'] = ChatForm()
         context['chats'] = Chat.objects.filter(response_id=self.kwargs['pk'])
         return context
-
-
-

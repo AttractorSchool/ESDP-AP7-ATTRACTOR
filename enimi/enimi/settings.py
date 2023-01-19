@@ -59,6 +59,8 @@ INSTALLED_APPS = [
     'verify_email.apps.VerifyEmailConfig',
     'responses',
     'chat',
+    'rest_framework',
+    'api'
 ]
 
 MIDDLEWARE = [
@@ -147,7 +149,6 @@ MEDIA_URL = '/uploads/'
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
-
 
 AUTH_USER_MODEL = 'accounts.Account'
 

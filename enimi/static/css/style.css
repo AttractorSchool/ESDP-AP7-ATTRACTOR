@@ -58,6 +58,14 @@ a:focus {
   outline: none;
 }
 
+li {
+    list-style-type: none;
+}
+
+ul {
+    padding: 0;
+}
+
 .row.m0 {
   margin: 0px;
 }
@@ -3730,7 +3738,7 @@ h6 {
   /* Main Menu Area css
 	============================================================================================ */
   .header_area .navbar .nav .nav-item {
-    margin-right: 28px;
+    margin-right: 20px;
   }
 
   /* End Main Menu Area css
@@ -3912,6 +3920,19 @@ h6 {
   .home_banner_area {
     min-height: 700px;
   }
+
+  .tutor__block {
+    flex-direction: column;
+    padding-top: 45px!important;
+  }
+
+  .tutor__info-main {
+    width: 100% !important;
+  }
+
+  .tutor__block-personal {
+    width: 100% !important;
+  }
 }
 @media (max-width: 767px) {
   .home_banner_area .banner_inner .banner_content {
@@ -4085,10 +4106,14 @@ h6 {
     #c5eaf8 68%,
     #eadaf8 100%
   );
+
 }
 @media (max-width: 991px) {
   .footer-area .single-footer-widget {
     margin-bottom: 30px;
+  }
+  .lang-log-block {
+    flex-direction: column;
   }
 }
 .footer-area .single-footer-widget h4 {
@@ -4485,4 +4510,6 @@ h6 {
     margin-bottom: 10px;
 }
 
-
+.scroll-nav {
+    overflow-x: scroll;
+}

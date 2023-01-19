@@ -1,6 +1,7 @@
 from django.urls import path
 
 from cabinet_tutors.views.education import EducationCreateUpdateView, EducationDeleteView
+from cabinet_tutors.views.students_of_tutor import ToMyStudentAddView, MyStudentsView
 from cabinet_tutors.views.study_formats import TutorStudyFormatsUpdateView, TutorStudyFormatsCreateView, \
     TutorStudyFormatsDeleteView
 from cabinet_tutors.views.subjects_and_costs import SubjectsAndCostCreateUpdateView, SubjectsAndCostDeleteView
@@ -27,4 +28,8 @@ urlpatterns = [
     path('<int:pk>/my-responses-on-students/', MyResponsesOnStudentsView.as_view(), name='my_responses_on_students'),
     path('<int:pk>/tutor-on-students-responses/', OnTutorFromStudentResponsesView.as_view(),
          name='tutor_on_students_responses'),
+    path('add_user_to_my_students/<int:pk>/', ToMyStudentAddView.as_view(),
+             name='add_user_to_my_students'),
+    path('<int:pk>/my_students/', MyStudentsView.as_view(),
+                 name='my_students'),
 ]

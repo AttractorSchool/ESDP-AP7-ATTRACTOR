@@ -19,14 +19,16 @@
                     </p>
                     <div class="tut__location-block">
                         <div class="tut__location">
-                            <p class="tut__country">Almaty</p>
-                            <div class="tut__rate">
-                                <p class="rate__num"><i class="fa-solid fa-star"></i> 4,9</p>
-                                <p class="tut__rate-reviews">отзывы <span>15</span></p>
-                            </div>
+
+<!--                            <div class="tut__rate">-->
+<!--                                <p class="rate__num"><i class="fa-solid fa-star"></i> 4,9</p>-->
+<!--                                <p class="tut__rate-reviews">отзывы <span>15</span></p>-->
+<!--                            </div>-->
                             <div class="tut__cost">
-                                <p class="cost">Стоймость </p>
-                                <p class="price">5000 <span>тнг/час</span></p>
+                                <p class="cost">Средняя стоимость </p>
+                                {% for c in t.subjects_and_costs.all %}
+                                <p class="price">{{ c.cost }}{% if not forloop.last %}, {% endif %} <span>тнг/час</span></p>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -48,21 +50,29 @@
                     <div class="tut-info__experience">
                         <p class="tut-info__subject">
                             <i class="fa-solid fa-book-open"></i>
-                            География
+                            {% for c in t.subjects_and_costs.all %}
+                            <span>{{ c.subject }}{% if not forloop.last %}, {% endif %}</span>
+                            {% endfor %}
                         </p>
                     </div>
                     <div class="tut-info__experience">
-                        <p class="tut-info__edu">Образование:
+                        <p class="tut-info__edu" >Образование:
                             {% for edu in t.education.all %}
                             <span>{{ edu.institution }}</span>
                             {% endfor %}
                         </p>
                     </div>
                     <div class="tut-info__experience">
-                        <p class="tut-info__edu ">Опыт работы: <span>более 5-ти лет</span></p>
+
+                        <p class="tut-info__edu " >Опыт работы более:
+                        {% for c in t.subjects_and_costs.all %}
+                         <span>{{ c.experience }}{% if not forloop.last %}, {% endif %}<span> лет</span></span>
+                        </p>
+                        {% endfor %}
+
                     </div>
                     <div class="tut-info__experience">
-                        <p class="tut-info__online">✓ Возможны занятия онлайн</p>
+                        <p class="tut-info__online" style="color: black;">✓ Возможны занятия онлайн</p>
                         <p class="tut-info__description">
                             {{ t.about }}
                         </p>
