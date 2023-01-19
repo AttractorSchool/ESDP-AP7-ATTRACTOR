@@ -19,6 +19,7 @@
                     <div class="form" >
                         {% bootstrap_form form %}
                         <div class="row">
+                            <p><a href="{% url 'password_reset' %}">Забыл пароль?</a></p>
                             <div class="col-6">
                                 {% bootstrap_button button_type="submit" content='Войти' %}
                             </div>
@@ -32,3 +33,5 @@
         </div>
 {#<script type="text/javascript" src="{% static 'js/register-modal.js' %}"></script>#}
 {% endblock %}
+
+
