@@ -9,62 +9,62 @@
                 <div class="bg-light p-3 rounded  border border-secondary" id="the_div_holder"
                      style=" max-width: 450px;">
                     <div class="d-flex align-content-lg-between mb-5">
-                        {% if chats.first.response.author.parent == user %}
+                        {% if response.author.parent == user %}
                             <div>
                                 <img class="rounded-circle"
-                                     src="{{ chats.first.response.cabinet_tutor.user.avatar.url }}" alt=""
+                                     src="{{ response.cabinet_tutor.user.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
                             </div>
                             <div class="pt-3 ps-3">
-                                <h5>{{ chats.first.response.cabinet_tutor.user.first_name }}
-                                    {{ chats.first.response.cabinet_tutor.user.last_name }}
+                                <h5>{{ response.cabinet_tutor.user.first_name }}
+                                    {{ response.cabinet_tutor.user.last_name }}
                                 </h5>
                             </div>
-                        {% elif chats.first.response.author == user and user.type == 'student' %}
+                        {% elif response.author == user and user.type == 'student' %}
                             <div>
                                 <img class="rounded-circle"
-                                     src="{{ chats.first.response.cabinet_tutor.user.avatar.url }}" alt=""
+                                     src="{{ response.cabinet_tutor.user.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
                             </div>
                             <div class="pt-3 ps-3">
-                                <h5>{{ chats.first.response.cabinet_tutor.user.first_name }}
-                                    {{ chats.first.response.cabinet_tutor.user.last_name }}
+                                <h5>{{ response.cabinet_tutor.user.first_name }}
+                                    {{ response.cabinet_tutor.user.last_name }}
                                 </h5>
                             </div>
-                        {% elif chats.first.response.author != user and chats.first.response.author.parent %}
+                        {% elif response.author != user and response.author.parent %}
                             <div>
-                                <img class="rounded-circle" src="{{ chats.first.response.author.avatar.url }}" alt=""
+                                <img class="rounded-circle" src="{{ response.author.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
                             </div>
                             <div class="ps-3">
                                 <h4>Родитель
-                                    {{ chats.first.response.author.parent.first_name }}
-                                    {{ chats.first.response.author.parent.last_name }}
+                                    {{ response.author.parent.first_name }}
+                                    {{ response.author.parent.last_name }}
                                 </h4>
                                 <h5>
                                     от лица ученика
-                                    {{ chats.first.response.author.first_name }}
-                                    {{ chats.first.response.author.last_name }}
+                                    {{ response.author.first_name }}
+                                    {{ response.author.last_name }}
                                 </h5>
                             </div>
-                        {% elif chats.first.response.author != user and chats.first.response.author.type == 'student' and not chats.first.response.author.parent %}
+                        {% elif response.author != user and response.author.type == 'student' and not response.author.parent %}
                             <div>
-                                <img class="rounded-circle" src="{{ chats.first.response.author.avatar.url }}" alt=""
+                                <img class="rounded-circle" src="{{ response.author.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
                             </div>
                             <div class="pt-3 ps-3">
-                                <h5>{{ chats.first.response.author.first_name }}
-                                    {{ chats.first.response.author.last_name }}
+                                <h5>{{ response.author.first_name }}
+                                    {{ response.author.last_name }}
                                 </h5>
                             </div>
-                        {% elif chats.first.response.author != user and chats.first.response.author.type == 'parents' %}
+                        {% elif response.author != user and response.author.type == 'parents' %}
                             <div>
-                                <img class="rounded-circle" src="{{ chats.first.response.author.avatar.url }}" alt=""
+                                <img class="rounded-circle" src="{{ response.author.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
                             </div>
                             <div class="pt-3 ps-3">
-                                <h5>{{ chats.first.response.author.first_name }}
-                                    {{ chats.first.response.author.last_name }}
+                                <h5>{{ response.author.first_name }}
+                                    {{ response.author.last_name }}
                                 </h5>
                             </div>
                         {% endif %}
@@ -111,7 +111,7 @@
         let nested_box = document.createElement('div');
         nested_box.setAttribute('id', 'nested_message_box');
         box.appendChild(nested_box);
-        nested_box.innerHTML = `{% for message in chats %}
+        nested_box.innerHTML = `{% for message in response.chats.all %}
                                 {% if  message.author == user %}
                                     <div class="d-flex flex-row-reverse chata">
                                         <div class="mb-1 rounded w-75 "
@@ -140,7 +140,7 @@
         function drawMessages() {
             let nested_to_delete = document.getElementById('nested_message_box');
             $.ajax({
-                url: 'http://localhost:8000/api/response/' + {{ chats.first.response.pk }} +'/get-chat/',
+                url: 'http://localhost:8000/api/response/' + {{ response.pk }} +'/get-chat/',
                 method: 'get'
             })
                 .done(function (data) {
@@ -148,15 +148,15 @@
                         nested_box.setAttribute('id', 'nested_message_box');
                         nested_box.style.display = 'None';
                         box.appendChild(nested_box);
-                        for (let i of data) {
-                            if (i.author === {{ user.id }}) {
+                        for (let message of data) {
+                            if (message.author === {{ user.id }}) {
                                 let textBox = document.createElement('div');
                                 textBox.innerHTML = `<div class="d-flex flex-row-reverse chata">
                                         <div class="mb-1 rounded w-75 "
                                              style="background-color: lightgrey; color: black;">
                                             <div class="border-bottom text-right ">
                                                 <div class="m-0">
-                                                    <div class="fw-bold text-break"></div>` + i.message + `
+                                                    <div class="fw-bold text-break"></div>` + message.message + `
                                                 </div>
                                             </div>
                                         </div>
@@ -168,7 +168,7 @@
                                          style="background-color: dodgerblue; color: white; ">
                                         <div class="border-bottom d-flex text-left ">
                                             <p class="m-0">
-                                                <div class="fw-bold text-break color-5"></div>` + i.message + `
+                                                <div class="fw-bold text-break color-5"></div>` + message.message + `
                                             </p>
                                         </div>
                                     </div>`;
@@ -189,12 +189,12 @@
             event.preventDefault();
             let message = {
                 message_text: document.getElementById('id_message').value,
-                response_id: {{ chats.first.response.pk }},
+                response_id: {{ response.pk }}
             }
             console.log(message)
             var $crf_token = $('[name="csrfmiddlewaretoken"]').attr('value');
             $.ajax({
-                url: 'http://localhost:8000/api/response/' + {{ chats.first.response.pk }} +'/add-message/',
+                url: 'http://localhost:8000/api/response/' + {{ response.pk }} +'/add-message/',
                 method: 'POST',
                 headers: {"X-CSRFToken": $crf_token},
                 data: JSON.stringify(message),
