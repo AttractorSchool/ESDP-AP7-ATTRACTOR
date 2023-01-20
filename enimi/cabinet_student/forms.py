@@ -47,21 +47,21 @@ class SurveyForm(forms.ModelForm):
 class TutorAreaForm(forms.ModelForm):
     tutor_region = forms.ModelChoiceField(
         label='Область',
-        required=True,
+        required=False,
         empty_label='Выберите область',
         queryset=Region.objects.all().exclude(region='Не указано'),
         initial='New'
     )
     tutor_city = forms.ModelChoiceField(
         label='Город',
-        required=True,
+        required=False,
         empty_label='Выберите город',
         queryset=City.objects.all().exclude(city='Не указано'),
         initial='New'
     )
     tutor_district = forms.ModelChoiceField(
         label='Район',
-        required=True,
+        required=False,
         empty_label='Выберите район',
         queryset=District.objects.all().exclude(district='Не указано'),
         initial='New'

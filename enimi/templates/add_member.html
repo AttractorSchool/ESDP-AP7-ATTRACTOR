@@ -11,30 +11,66 @@
 <br>
 <br>
 <br>
-<div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; width: 50%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
-        -moz-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
-        box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
-            <h2 style="margin: 20px auto; text-align:center; ">Добавление участника</h2><div>
-                <form action="" method="POST" enctype="multipart/form-data">
-                 {% csrf_token %}
-                    <div class="form" >
-                        {% bootstrap_form form %}
-                        <div class="row">
-                            <div class="col-6 text-center">
-                                    <button type="submit" class="btn btn-primary btn-block">Сохранить</button>
-                           </div>
-                           <div class="col-6 text-right">
-                              <a href="{% url 'calendarapp:calendar' %}">
-                                <button type="button" class="btn btn-primary">Отмена</button>
-                               </a>
-                           </div>
 
+    {% if error %}
 
+    <div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; margin-bottom: 60px; width: 55%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
 
-                        </div>
-                    </div>
-                </form>
+        <h3 style="text-align: center">{{ error }}</h3>
+        <div class="row">
+            <div class="col-12 text-center">
+                <a style="text-align: center" href="{% url 'calendarapp:calendar' %}">
+                    <button id="btn-back-to-board" type="button" class="btn btn-primary"style="margin-top: 20px">Закрыть</button>
+                 </a>
             </div>
         </div>
 
+
+    </div>
+
+    {% elif ok %}
+
+    <div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; margin-bottom: 60px; width: 55%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
+
+        <h3 style="text-align: center">{{ ok }}</h3>
+        <div class="row">
+            <div class="col-12 text-center">
+                <a style="text-align: center" href="{% url 'calendarapp:calendar' %}">
+                    <button id="btn-back-to-board" type="button" class="btn btn-primary"style="margin-top: 20px">Закрыть</button>
+                 </a>
+            </div>
+        </div>
+
+
+    </div>
+
+    {% else %}
+
+        <div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; width: 50%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+                -moz-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+                box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
+                    <h2 style="margin: 20px auto; text-align:center; ">Добавление участника</h2><div>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                         {% csrf_token %}
+                            <div class="form" >
+                                {% bootstrap_form form %}
+                                <div class="row">
+                                    <div class="col-6 text-center">
+                                            <button type="submit" class="btn btn-primary btn-block">Сохранить</button>
+                                   </div>
+                                   <div class="col-6 text-right">
+                                      <a href="{% url 'calendarapp:calendar' %}">
+                                        <button type="button" class="btn btn-primary">Отмена</button>
+                                       </a>
+                                   </div>
+
+
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+{% endif %}
 {% endblock %}

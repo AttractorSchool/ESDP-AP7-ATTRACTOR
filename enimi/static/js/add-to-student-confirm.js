@@ -27,6 +27,13 @@ window.addEventListener('load', function() {
                             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
                         },
 
+                        error: function(data) {
+                            addToStudentConfirmModal[0].style.display = "none";
+                            alert('Пользователь ранее был добавлен в ученики!')
+
+
+                    },
+
                     }).done(
                         function(data) {
                             addToStudentConfirmModal[0].style.display = "none";
