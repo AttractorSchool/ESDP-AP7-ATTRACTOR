@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.generic import CreateView, ListView
 
 from accounts.models import Account
@@ -9,11 +9,18 @@ class ToMyStudentAddView(CreateView):
     model = Account
 
     def get(self, request, *args, **kwargs):
+        error = {}
         tutor = request.user
         student = Account.objects.get(id=kwargs['pk'])
-        my_student = MyStudent.objects.create(tutor=tutor, student=student)
-        print(my_student)
-        return HttpResponse(status=200)
+        in_table = MyStudent.objects.filter(student=student, tutor=tutor)
+        if not in_table:
+            print('not_in_table')
+            my_student = MyStudent.objects.create(tutor=tutor, student=student)
+            print(my_student)
+            return HttpResponse(status=200)
+        else:
+            error['error'] = 'Ученик уже в списке ваших учеников'
+            return JsonResponse(error, status=400)
 
 
 class MyStudentsView(ListView):

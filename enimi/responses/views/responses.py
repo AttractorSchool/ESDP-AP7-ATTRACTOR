@@ -27,13 +27,21 @@ class StudentAddResponseView(LoginRequiredMixin, CreateView):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
-        print(request.POST)
-        if form.is_valid():
-            form.instance.author_id = self.request.user.pk
-            form.instance.survey_id = self.kwargs['pk']
-            form.save()
-            return redirect('board_student')
         context = {}
+        if form.is_valid():
+            survey = Survey.objects.get(id=self.kwargs['pk'])
+            in_table = Response.objects.filter(survey_id=survey.pk, author_id=request.user.pk)
+            if not in_table:
+                form.instance.author_id = self.request.user.pk
+                form.instance.survey_id = self.kwargs['pk']
+                form.save()
+                context['response_form'] = form
+                context['ok'] = 'Отклик успешно добавлен'
+                return self.render_to_response(context)
+            else:
+                context['response_form'] = form
+                context['error'] = 'Ранее вы уже делали отклик на этого пользователя'
+                return self.render_to_response(context)
         context['response_form'] = form
         return self.render_to_response(context)
 
@@ -56,13 +64,21 @@ class TutorAddResponseView(LoginRequiredMixin, CreateView):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
-        print(request.POST)
-        if form.is_valid():
-            form.instance.author_id = self.request.user.pk
-            form.instance.cabinet_tutor_id = self.kwargs['pk']
-            form.save()
-            return redirect('board_tutor')
         context = {}
+        if form.is_valid():
+            tutor_cabinet = TutorCabinets.objects.get(id=self.kwargs['pk'])
+            in_table = Response.objects.filter(cabinet_tutor_id=tutor_cabinet.pk, author_id=request.user.pk)
+            if not in_table:
+                form.instance.author_id = self.request.user.pk
+                form.instance.cabinet_tutor_id = self.kwargs['pk']
+                form.save()
+                context['response_form'] = form
+                context['ok'] = 'Отклик успешно добавлен'
+                return self.render_to_response(context)
+            else:
+                context['response_form'] = form
+                context['error'] = 'Ранее вы уже делали отклик на этого пользователя'
+                return self.render_to_response(context)
         context['response_form'] = form
         return self.render_to_response(context)
 
@@ -91,15 +107,37 @@ class ParentAddResponseView(LoginRequiredMixin, CreateView):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
-        print(request.POST)
+        context = {}
         if form.is_valid():
             survey = Survey.objects.get(id=request.POST['survey'])
             child = survey.user
-            form.instance.author_id = child.pk
-            # form.instance.survey_id = request.POST['survey']
-            form.instance.cabinet_tutor_id = self.kwargs['pk']
-            form.save()
-            return redirect('board_tutor')
-        context = {}
+            in_table = Response.objects.filter(author_id=child.pk, cabinet_tutor_id=self.kwargs['pk'])
+            if not in_table:
+                form.instance.author_id = child.pk
+                form.instance.cabinet_tutor_id = self.kwargs['pk']
+                form.save()
+                context['response_form'] = form
+                context['ok'] = 'Отклик успешно добавлен'
+                return self.render_to_response(context)
+            else:
+                context['response_form'] = form
+                context['error'] = 'Ранее вы уже делали отклик на этого пользователя'
+                return self.render_to_response(context)
         context['response_form'] = form
         return self.render_to_response(context)
+
+
+    # def post(self, request, *args, **kwargs):
+    #     form = self.form_class(request.POST, request.FILES)
+    #     print(request.POST)
+    #     if form.is_valid():
+    #         survey = Survey.objects.get(id=request.POST['survey'])
+    #         child = survey.user
+    #         form.instance.author_id = child.pk
+    #         # form.instance.survey_id = request.POST['survey']
+    #         form.instance.cabinet_tutor_id = self.kwargs['pk']
+    #         form.save()
+    #         return redirect('board_tutor')
+    #     context = {}
+    #     context['response_form'] = form
+    #     return self.render_to_response(context)

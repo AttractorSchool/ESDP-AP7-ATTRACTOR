@@ -92,28 +92,34 @@ def event_details(request, event_id):
 
 def add_eventmember(request, event_id):
     print(request.user)
+    context = {}
     forms = AddMemberForm(current_user=request.user)
     if request.method == "POST":
         # forms = AddMemberForm(request.POST)
         # if forms.is_valid():
-        print(request.POST)
-        print(event_id)
+
         # member = EventMember.objects.filter(event=event_id)
         event = Event.objects.get(id=event_id)
-        print(event)
+
         # user = forms.cleaned_data["user"]
         tutor_student_id = request.POST['user']
         tutor_student = MyStudent.objects.get(id=tutor_student_id)
-        print(tutor_student)
         user = Account.objects.get(id=tutor_student.student.pk)
-        # EventMember.objects.create(event=event, user=user)
-        event_member = EventMember.objects.create(event=event, user=user)
-        print(event_member)
-        # event_member.student.add(tutor_student.student)
-        event_member.save()
 
-        return redirect("calendarapp:calendar")
-
+        in_table = EventMember.objects.filter(event=event, user=user)
+        if not in_table:
+            # EventMember.objects.create(event=event, user=user)
+            event_member = EventMember.objects.create(event=event, user=user)
+            print(event_member)
+            # event_member.student.add(tutor_student.student)
+            event_member.save()
+            context = {"form": forms}
+            context['ok'] = 'Ученик добавлен'
+            return render(request, "add_member.html", context)
+        else:
+            context = {"form": forms}
+            context['error'] = 'Вы уже добавили этого ученика'
+            return render(request, "add_member.html", context)
     context = {"form": forms}
     return render(request, "add_member.html", context)
 
