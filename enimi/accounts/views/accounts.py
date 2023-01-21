@@ -8,6 +8,8 @@ from accounts.models.accounts import Account
 from cabinet_tutors.models import TutorCabinets
 from verify_email import send_verification_email
 
+from notifications.messages import registration
+
 
 class AccountCreateView(CreateView):
     template_name = 'account_register.html'
@@ -24,6 +26,7 @@ class AccountCreateView(CreateView):
             account.username = account.email
             # inactive_user = send_verification_email(request, form)
             account.save()
+            registration(account)
             login(request, account)
             if account.type == 'parents':
                 return redirect('parents_cabinet_detail',

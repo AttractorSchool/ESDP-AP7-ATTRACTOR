@@ -1,0 +1,30 @@
+<div class="pagination pt-3">
+    <span class="step-links d-flex">
+        <div class="mr-3">
+            <a href="?{% if query %}{{ query }}{% endif %}&page=1" class="btn Z mb-2">&laquo; В начало</a>
+            {% if page_obj.has_previous %}
+                <a href="?{% if query %}{{ query }}{% endif %}&page={{ page_obj.previous_page_number }}"
+                   class="btn btn-primary mb-2">Назад</a>
+            {% else %}
+                <span class="page-disabled">Назад</span>
+            {% endif %}
+        </div>
+        <div>
+            <form class="current-page pt-1" method="get">
+            <label for="page mb-0">
+                Страница <input type="text" name="page" id="page" value="{{ page_obj.number }}">
+                из {{ page_obj.paginator.num_pages }}.
+            </label>
+        </form>
+        </div>
+        <div class="ml-3">
+            {% if page_obj.has_next %}
+            <a href="?{% if query %}{{ query }}{% endif %}&page={{ page_obj.next_page_number }}"
+               class="btn btn-primary">Далее</a>
+        {% else %}
+            <span class="page-disabled">Далее</span>
+        {% endif %}
+        <a href="?{% if query %}{{ query }}{% endif %}&page={{ page_obj.paginator.num_pages }}" class="btn btn-primary">В конец &raquo;</a>
+        </div>
+    </span>
+</div>

@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 
 from api.serializers import ChatSerializer
 from chat.models import Chat
+from notifications.messages import chats
 from responses.models import Response
 
 
@@ -15,11 +16,20 @@ class AddMessage(APIView):
         response = Response.objects.get(pk=kwargs.get('pk'))
         author = request.user
         Chat.objects.create(response=response, message=message, author=author)
+        user = author
+        if response.survey and response.survey.user.parent and response.survey.user.parent != user:
+            chats(response.survey.user.parent, user)
+        if response.survey and not response.survey.user.parent and response.survey != user:
+            chats(response.survey.user, user)
+        if response.cabinet_tutor and response.cabinet_tutor.user == user and response.author.parent:
+            chats(response.author.parent, user)
+        if response.cabinet_tutor and response.cabinet_tutor.user == user and not response.author.parent:
+            chats(response.author, user)
         return JsonResponse({'chats': 'Сообщение добавлено'})
 
 
 class GetChat(View):
-    def get(self, requesr, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         objects = Chat.objects.filter(response_id=self.kwargs['pk'])
         serializer = ChatSerializer(objects, many=True)
         return JsonResponse(serializer.data, safe=False)

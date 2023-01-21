@@ -22,7 +22,7 @@ class TutorCabinetView(DetailView):
 
 
 class TutorCabinetUpdateView(UpdateView):
-    template_name = 'tutor_main_update.html'
+    template_name = 'tutor_about_update.html'
     model = TutorCabinets
     form_class = TutorCabinetForm
 

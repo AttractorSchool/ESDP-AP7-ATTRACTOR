@@ -3,6 +3,8 @@ from django.shortcuts import redirect
 from django.views.generic import CreateView
 
 from cabinet_tutors.models import TutorCabinets
+from notifications.messages import response_from_parent, response_to_tutor
+from notifications.models import Notifications
 from responses.models.responses import Response
 from responses.forms import ResponseForm, ParentResponseForm
 from cabinet_parents.models import Survey, Subject
@@ -115,9 +117,11 @@ class ParentAddResponseView(LoginRequiredMixin, CreateView):
             if not in_table:
                 form.instance.author_id = child.pk
                 form.instance.cabinet_tutor_id = self.kwargs['pk']
-                form.save()
+                response = form.save()
                 context['response_form'] = form
                 context['ok'] = 'Отклик успешно добавлен'
+                response_from_parent(response, child)
+                response_to_tutor(response, child)
                 return self.render_to_response(context)
             else:
                 context['response_form'] = form
