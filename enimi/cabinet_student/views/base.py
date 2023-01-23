@@ -19,6 +19,7 @@ from cabinet_student.forms import SurveyForm, StudentAreaForm, TutorAreaForm
 from cabinet_parents.models import Survey, TutorArea, Region, City, District, StudentArea
 from cabinet_tutors.models import TutorCabinets
 from responses.models import Response
+from reviews.forms import ReviewForm
 
 
 class StudentProfileView(LoginRequiredMixin, DetailView):
@@ -31,7 +32,6 @@ class StudentProfileView(LoginRequiredMixin, DetailView):
         context['student_register_form'] = AccountForm()
         context['main_form'] = SurveyForm()
         return context
-
 
 
 class CreateStudentSurveyView(LoginRequiredMixin, CreateView):
@@ -104,7 +104,6 @@ class CreateStudentSurveyView(LoginRequiredMixin, CreateView):
 class StudentDetailSurveyView(LoginRequiredMixin, ListView):
     template_name = 'student_detail_survey.html'
     model = Account
-
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(StudentDetailSurveyView, self).get_context_data(object_list=object_list, **kwargs)
@@ -223,3 +222,22 @@ class StudentOnTutorResponsesView(LoginRequiredMixin, ListView):
         print(responses)
         context['responses'] = responses
         return context
+
+
+class StudentOnTutorReviews(ListView):
+    template_name = "student_on_tutor_reviews.html"
+    model = Response
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['tutors'] = Response.objects.all()
+        context['review_form'] = ReviewForm()
+
+        return context
+
+
+class TutorDetailView(DetailView):
+    model = Account
+    template_name = "tutor_detail_reviews.html"
+    context_object_name = "tutor_obj"
+

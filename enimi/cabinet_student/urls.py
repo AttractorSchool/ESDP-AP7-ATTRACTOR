@@ -3,7 +3,8 @@ from django.urls import path
 from cabinet_student.views.base import StudentProfileView, CreateStudentSurveyView, UpdateStudentSurveyView, \
     StudentDetailSurveyView, UpdateStudentOfflineStudyTutorAreaView, UpdateStudentOfflineStudyStudentAreaView, \
     ResetStudentOfflineStudyTutorAreaView, ResetStudentOfflineStudyStudentAreaView, StudentToMeResponsesView, \
-    StudentOnTutorResponsesView
+    StudentOnTutorResponsesView, StudentOnTutorReviews, TutorDetailView
+from reviews.views.base import ReviewView
 
 urlpatterns = [
     path('<int:pk>/', StudentProfileView.as_view(), name='student_cabinet_detail'),
@@ -22,4 +23,8 @@ urlpatterns = [
     path('<int:pk>/to_me_student_responses', StudentToMeResponsesView.as_view(), name='to_me_student_responses'),
     path('<int:pk>/student_on_tutor_responses', StudentOnTutorResponsesView.as_view(),
          name='student_on_tutor_responses'),
+    path('<int:pk>/student_on_tutor_reviews', StudentOnTutorReviews.as_view(),
+         name='student_on_tutor_review'),
+    path('review/<int:pk>', ReviewView.as_view(), name='review_on_tutor'),
+    path('tutor_detail/<int:pk>/', TutorDetailView.as_view(), name='detail_tutor')
 ]
