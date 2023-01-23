@@ -94,6 +94,10 @@ class PasswordChangeView(UpdateView):
             login(request, user)
             if user.type == 'tutor':
                 return redirect('tutor_cabinet', pk=get_object_or_404(TutorCabinets, user=user).pk)
+            if user.type == 'student':
+                return redirect('student_cabinet_detail', pk=user.pk)
+            if user.type == 'parents':
+                return redirect('parents_cabinet_detail', pk=user.pk)
         context = {}
         context['form'] = form
         return self.render_to_response(context)
