@@ -60,7 +60,8 @@ INSTALLED_APPS = [
     'responses',
     'chat',
     'rest_framework',
-    'api'
+    'api',
+    'notifications'
 ]
 
 MIDDLEWARE = [

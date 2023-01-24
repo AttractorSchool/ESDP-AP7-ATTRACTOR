@@ -1,0 +1,47 @@
+{% extends 'base_enimi.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <div class="d-flex flex-row flex-wrap" style="padding-top: 100px;">
+{#        <div class="d-block">#}
+{#            {% for notification in notifications %}#}
+{#                {% if notification.viewed == False %}#}
+{#                    <div>#}
+{#                        {{ notification.message }} <span style="color: black;">{{ notification.cnt }}</span>#}
+{#                    </div>#}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+{#        </div>#}
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Сообщение</th>
+                <th scope="col">Дата</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+                        {% for notification in notifications %}
+                            {% if notification.type != 'response' %}
+                                {% include 'partial/chats.html' %}
+                            {% else %}
+                                {% include 'partial/responses.html' %}
+                            {% endif %}
+                        {% endfor %}
+            </tbody>
+        </table>
+        {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $(document).ready(function () {
+            console.log('ASDASDASDASD')
+        });
+    </script>
+{% endblock %}
