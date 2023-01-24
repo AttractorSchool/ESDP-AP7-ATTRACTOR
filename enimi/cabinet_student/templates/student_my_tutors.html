@@ -97,7 +97,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                         <article class="row blog_item">
                             <div class="col-md-9">
                                 <div class="blog_post">
-                                    {% for tutors_cabinet in tutors_cabinets.all %}
+                                    {% for my_tutor in my_tutors.all %}
                                         <div class="row justify-content-center pb-2" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
                                               -moz-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
                                               box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2); ">
@@ -106,7 +106,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                 <div class="col-3 text-center align-self-center"
                                                      style="margin-top: 25px; margin-bottom: 25px">
                                                     <img id="avatar"
-                                                         src="{{ tutors_cabinet.user.avatar.url }}"
+                                                         src="{{ my_tutor.tutor.avatar.url }}"
                                                          class="circlehome-dp"
                                                          style="border-radius: 100px; width:80%;" alt="signuplogo ">
                                                 </div>
@@ -117,8 +117,8 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                 репетитора:
 
                                                                 <span style="color: #568be9">
-                                                                    {{ tutors_cabinet.user.first_name }}
-                                                                    {{ tutors_cabinet.user.last_name }}
+                                                                    {{ my_tutor.tutor.first_name }}
+                                                                    {{ my_tutor.tutor.last_name }}
                                                                 </span>
                                                             </h5>
                                                             <h5 style="color: #6c757d; padding-top: 10px">Предметы
@@ -126,7 +126,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                             <span class="info-item"></span>
                                                             <h5 style="color: #6c757d; padding-top: 8px">Номер
                                                                 телефона: <span style="color: #568be9">
-                                                                    {{ tutors_cabinet.user.phone }}</span>
+                                                                    {{ my_tutor.tutor.phone }}</span>
                                                             </h5>
                                                             <hr>
                                                             <h5 style="color: #6c757d;">Вы отправили
@@ -134,7 +134,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                             <span class="info-item"
                                                                   style="padding-bottom: 10px">hhello</span>
                                                             <div class="review__block mt-2">
-                                                                <form action="{% url 'review_on_tutor' tutors_cabinet.pk %}"  method="post">
+                                                                <form action="{% url 'review_on_tutor' my_tutor.tutor.pk %}"  method="post">
                                                                     {% csrf_token %}
                                                                     {{ review_form.text }}
                                                                     {{ review_form.rate_choices }}
