@@ -88,7 +88,7 @@
                                     <a href="{% url 'parents_cabinet_detail' request.user.pk %}"
                                        class="btn btn-primary">Назад</a>
                                 {% else %}
-                                    <a href="{% url 'tutor_on_students_responses' request.user.pk %}"
+                                    <a href="{% url 'tutor_on_students_responses' request.user.tutor.pk %}"
                                        class="btn btn-primary">Назад</a>
                                 {% endif %}
                             </div>
