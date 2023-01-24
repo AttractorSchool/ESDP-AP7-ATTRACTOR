@@ -29,10 +29,11 @@ class OnTutorFromStudentResponsesView(LoginRequiredMixin, ListView):
     #     responses = Response.objects.filter(cabinet_tutor_id=user.tutor.pk)
     #     context['responses'] = responses
     #     context['chat_page_2'] = '1'
+    #     context['student_responses'] = '1'
     #     return context
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(OnTutorFromStudentResponsesView, self).get_context_data(object_list=object_list, **kwargs)
-        tutor_cabinet = TutorCabinets.objects.get(id=self.kwargs['pk'])
+        tutor_cabinet = TutorCabinets.objects.get(pk=self.kwargs['pk'])
         responses = Response.objects.filter(cabinet_tutor_id=tutor_cabinet.pk)
         context['responses'] = responses
         context['student_responses'] = '1'

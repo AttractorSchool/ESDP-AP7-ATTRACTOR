@@ -17,18 +17,18 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-nowrap" aria-current="page" style="padding-right: 20px"
-                           href="{% url 'my_students' request.user.tutor.pk %}">Мои ученики</a>
+                           href="{% url 'my_students' user.tutor.pk %}">Мои ученики</a>
                     </li>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-nowrap {% if tutor_responses %} card-header disabled {% endif %}"
                            aria-current="page" style="padding-right: 20px"
-                           href="{% url 'my_responses_on_students' request.user.tutor.pk %}">Мои отклики</a>
+                           href="{% url 'my_responses_on_students' user.tutor.pk %}">Мои отклики</a>
                     </li>
                     <li class="nav-item">
                         <a class="text-nowrap nav-link active rounded {% if student_responses %} card-header disabled {% endif %}"
                            aria-current="page" style="padding-right: 20px"
-                           href="{% url 'tutor_on_students_responses' request.user.tutor.pk %}">Отклики на меня</a>
+                           href="{% url 'tutor_on_students_responses' user.tutor.pk %}">Отклики на меня</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-nowrap" aria-current="page" style="padding-right: 20px"
@@ -37,7 +37,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                     <li class="nav-item" style="box-shadow: #0c5460">
                         <a class="text-nowrap nav-link active rounded {% if tutor_cabinet %} card-header disabled {% endif %} p-2"
                            aria-current="page"
-                           href="{% url 'tutor_cabinet' request.user.tutor.pk %}">Анкета</a>
+                           href="{% url 'tutor_cabinet' user.tutor.pk %}">Анкета</a>
                     </li>
                 </ul>
             </div>

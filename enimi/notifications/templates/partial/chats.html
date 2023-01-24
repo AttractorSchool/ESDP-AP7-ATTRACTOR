@@ -2,8 +2,8 @@
 
 {% if contains_viewed and contains_unviewed %}
     {% if not notification.viewed %}
-        <tr>
-            <td class="col-8 text-break fw-bold">
+        <tr class="fw-bold">
+            <td class="col-8 text-break">
                 <a class="list-unstyled text-dark" href="{% url 'add_chat_message' notification.response_pk %}">
                     {{ notification.message }}:
                     <span style="color: black; font-weight: bold">{{ notification.cnt }}</span>

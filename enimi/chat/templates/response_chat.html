@@ -167,7 +167,7 @@
                                         <a href="{% url 'notifications' user.pk %}"
                                            class="btn btn-primary">Назад</a>
                                     {% else %}
-                                        <a href="{% url 'tutor_on_students_responses' user.pk %}"
+                                        <a href="{% url 'tutor_on_students_responses' user.tutor.pk %}"
                                            class="btn btn-primary">Назад</a>
                                     {% endif %}
                                 {% elif user.type == 'tutor' and response.author == user %}
@@ -175,7 +175,7 @@
                                         <a href="{% url 'notifications' user.pk %}"
                                            class="btn btn-primary">Назад</a>
                                     {% else %}
-                                        <a href="{% url 'my_responses_on_students' user.pk %}"
+                                        <a href="{% url 'my_responses_on_students' user.tutor.pk %}"
                                            class="btn btn-primary">Назад</a>
                                     {% endif %}
                                 {% endif %}
