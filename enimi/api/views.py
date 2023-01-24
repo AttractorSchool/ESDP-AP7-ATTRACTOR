@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from api.serializers import ChatSerializer
 from chat.models import Chat
 from notifications.messages import chats
+from notifications.models import Notifications
 from responses.models import Response
 
 
@@ -17,16 +18,18 @@ class AddMessage(APIView):
         author = request.user
         Chat.objects.create(response=response, message=message, author=author)
         # Когда репетитор отправляет сообщение ученику, при этом сообщение приходит родителю (автор отклика - репетитор)
-        if author.type == 'tutor' and author == response.author and response.survey and response.survey.user.parent:
+        if author.type == 'tutor' and author == response.author and response.survey and response.survey.user.parent \
+                and not response.survey.user.with_email:
             chats(response.survey.user.parent, author)
         # Когда репетитор отправляет сообщение самостоятельному ученику (автор отклика - репетитор)
-        if author.type == 'tutor' and author == response.author and response.survey and not response.survey.user.parent:
+        if author.type == 'tutor' and author == response.author and response.survey and response.survey.user.with_email:
             chats(response.survey.user, author)
         # Когда репетитор отправляет сообщение ученику, при этом сообщение приходит родителю (автор отклика - ученик)
-        if author.type == 'tutor' and author != response.author and response.author.parent:
+        if author.type == 'tutor' and author != response.author and response.author.parent \
+                and not response.author.with_email:
             chats(response.author.parent, author)
         # Когда репетитор отправляет сообщение самостоятельному ученику (автор отклика - ученик)
-        if author.type == 'tutor' and author != response.author and not response.author.parent:
+        if author.type == 'tutor' and author != response.author and response.author.with_email:
             chats(response.author, author)
         # Когда самостоятельный ученик отправляет сообщение репетитору (автор отклика - репетитор)
         if author.type == 'student' and author != response.author:
@@ -42,24 +45,15 @@ class AddMessage(APIView):
             chats(response.cabinet_tutor.user, response.author)
         return JsonResponse({'chats': 'Сообщение добавлено'})
 
-        # user = author
-        # # Когда репетитор отправляет сообщение ученику, при этом сообщение приходит родителю (автор отклика - рпетитор)
-        # if response.survey and response.survey.user.parent and response.survey.user.parent != user:
-        #     chats(response.survey.user.parent, user)
-        # # Когда репетитор отправляет сообщение ученику, при этом сообщение приходит родителю (автор отклика - ученик)
-        # if response.cabinet_tutor and response.cabinet_tutor.user == user and response.author.parent:
-        #     chats(response.author.parent, user)
-        # # Когда репетитор отправляет сообщение самостоятельному ученику (автор отклика - репетитор)
-        # if response.survey and not response.survey.user.parent and response.survey != user:
-        #     chats(response.survey.user, user)
-        # # Когда репетитор отправляет сообщение самостоятельному ученику (автор отклика - ученик)
-        # if response.cabinet_tutor and response.cabinet_tutor.user == user and not response.author.parent:
-        #     chats(response.author, user)
-        # return JsonResponse({'chats': 'Сообщение добавлено'})
-
 
 class GetChat(View):
     def get(self, request, *args, **kwargs):
         objects = Chat.objects.filter(response_id=self.kwargs['pk'])
         serializer = ChatSerializer(objects, many=True)
         return JsonResponse(serializer.data, safe=False)
+
+
+class GetNotifications(View):
+    def get(self, request, *args, **kwargs):
+        count = Notifications.objects.filter(to_whom=kwargs.get('pk'), viewed=False).count()
+        return JsonResponse({'count': count}, safe=False)

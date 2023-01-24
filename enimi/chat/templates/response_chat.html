@@ -9,8 +9,8 @@
                 <div class="bg-light p-3 rounded  border border-secondary" id="the_div_holder"
                      style=" max-width: 450px;">
                     <div class="d-flex align-content-lg-between mb-5">
-                        {# Автор - ученик с родителем (на странице родителя)#}
-                        {% if response.author.parent == user %}
+                        {# Автор - НЕсамостоятельный с родителем (на странице родителя)#}
+                        {% if response.author.parent == user and not response.author.with_email %}
                             <div>
                                 <img class="rounded-circle"
                                      src="{{ response.cabinet_tutor.user.avatar.url }}" alt=""
@@ -22,8 +22,8 @@
                                 </h5>
                             </div>
 
-                            {# Автор - ученик с родителем (на странице репетитора)#}
-                        {% elif response.author != user and response.author.parent %}
+                            {# Автор - НЕсамостоятельный ученик с родителем (на странице репетитора)#}
+                        {% elif response.author != user and response.author.parent and not response.author.with_email %}
                             <div>
                                 <img class="rounded-circle" src="{{ response.author.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
@@ -41,7 +41,7 @@
                             </div>
 
                             {# Автор - самостоятельный ученик (на странице ученика)#}
-                        {% elif response.author == user and user.type == 'student' %}
+                        {% elif response.author == user and user.type == 'student' and user.with_email %}
                             <div>
                                 <img class="rounded-circle"
                                      src="{{ response.cabinet_tutor.user.avatar.url }}" alt=""
@@ -53,8 +53,20 @@
                                 </h5>
                             </div>
 
+                            {# Автор - самостоятельный ученик (на странице репетитора)#}
+                        {% elif response.author != user and response.author.type == 'student' and user.with_email %}
+                            <div>
+                                <img class="rounded-circle" src="{{ response.author.avatar.url }}" alt=""
+                                     style="height: 50px; width: 50px;">
+                            </div>
+                            <div class="pt-3 ps-3">
+                                <h5>{{ response.author.first_name }}
+                                    {{ response.author.last_name }}
+                                </h5>
+                            </div>
+
                             {# Автор - репетитор, собеседник - самосоятельный ученик (на странице репетитора)#}
-                        {% elif response.author == user and response.survey %}
+                        {% elif response.author == user and response.survey and response.survey.user.with_email  %}
                             <div>
                                 <img class="rounded-circle" src="{{ response.survey.user.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
@@ -65,8 +77,8 @@
                                 </h5>
                             </div>
 
-                            {# Автор - репетитор, собеседник - самосоятельный ученик (на странице родителя)#}
-                        {% elif response.author != user and response.survey %}
+                            {# Автор - репетитор, собеседник - самосоятельный ученик (на странице ученика)#}
+                        {% elif response.author != user and response.survey and response.survey.user.with_email %}
                             <div>
                                 <img class="rounded-circle" src="{{ response.author.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
@@ -77,8 +89,26 @@
                                 </h5>
                             </div>
 
-                            {# Автор - самостоятельный ученик (на странице репетитора)#}
-                        {% elif response.author != user and response.author.type == 'student' %}
+                            {# Автор - репетитор, собеседник - НЕсамостоятельный ученик с родителем (на странице репетитора)#}
+                        {% elif response.author == user and response.survey and not response.survey.user.with_email  %}
+                            <div>
+                                <img class="rounded-circle" src="{{ response.survey.user.parent.avatar.url }}" alt=""
+                                     style="height: 50px; width: 50px;">
+                            </div>
+                            <div class="ps-3">
+                                <h4>Родитель
+                                    {{ response.survey.user.parent.first_name }}
+                                    {{ response.survey.user.parent.last_name }}
+                                </h4>
+                                <h5>
+                                    от лица ученика
+                                    {{ response.survey.user.first_name }}
+                                    {{ response.survey.user.last_name }}
+                                </h5>
+                            </div>
+
+                            {# Автор - репетитор, собеседник - НЕсамостоятельный ученик - с родителем (на странице родителя)#}
+                        {% elif response.author != user and response.survey and response.survey.user.parent  %}
                             <div>
                                 <img class="rounded-circle" src="{{ response.author.avatar.url }}" alt=""
                                      style="height: 50px; width: 50px;">
@@ -88,6 +118,7 @@
                                     {{ response.author.last_name }}
                                 </h5>
                             </div>
+
                         {% endif %}
                     </div>
                     <div style="height: 300px;">

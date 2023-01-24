@@ -1,9 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.views.generic import CreateView
 
 from cabinet_tutors.models import TutorCabinets
-from notifications.messages import response_from_parent, response_to_tutor
+from notifications.messages import response_to_parent_from_self, response_from_student_to_tutor, \
+    response_from_tutor_to_self, response_from_tutor_to_student, response_from_student_to_self, \
+    response_from_tutor_to_student_with_parent
 from notifications.models import Notifications
 from responses.models.responses import Response
 from responses.forms import ResponseForm, ParentResponseForm
@@ -11,16 +13,15 @@ from cabinet_parents.models import Survey, Subject
 from accounts.models import Account
 
 
+# FromTutorToStudent
 class StudentAddResponseView(LoginRequiredMixin, CreateView):
     template_name = 'to_student_response_create.html'
     model = Response
     form_class = ResponseForm
 
     def get_context_data(self, **kwargs):
-        print(self.kwargs['pk'])
         context = super(StudentAddResponseView, self).get_context_data(**kwargs)
         survey = Survey.objects.get(id=self.kwargs['pk'])
-        print(survey)
         subjects = Subject.objects.all()
         context['subjects'] = subjects
         context['response_form'] = ResponseForm
@@ -36,9 +37,14 @@ class StudentAddResponseView(LoginRequiredMixin, CreateView):
             if not in_table:
                 form.instance.author_id = self.request.user.pk
                 form.instance.survey_id = self.kwargs['pk']
-                form.save()
+                response = form.save()
                 context['response_form'] = form
                 context['ok'] = 'Отклик успешно добавлен'
+                if survey.user.with_email:
+                    response_from_tutor_to_student(response, survey.user)
+                else:
+                    response_from_tutor_to_student_with_parent(response, survey.user)
+                response_from_tutor_to_self(response, survey.user)
                 return self.render_to_response(context)
             else:
                 context['response_form'] = form
@@ -48,16 +54,15 @@ class StudentAddResponseView(LoginRequiredMixin, CreateView):
         return self.render_to_response(context)
 
 
+# FromStudentToTutor
 class TutorAddResponseView(LoginRequiredMixin, CreateView):
     template_name = 'to_tutor_response_create.html'
     model = Response
     form_class = ResponseForm
 
     def get_context_data(self, **kwargs):
-        print(self.kwargs['pk'])
         context = super(TutorAddResponseView, self).get_context_data(**kwargs)
         cabinet_tutor = TutorCabinets.objects.get(id=self.kwargs['pk'])
-        print(cabinet_tutor)
         subjects = Subject.objects.all()
         context['subjects'] = subjects
         context['response_form'] = ResponseForm
@@ -73,7 +78,9 @@ class TutorAddResponseView(LoginRequiredMixin, CreateView):
             if not in_table:
                 form.instance.author_id = self.request.user.pk
                 form.instance.cabinet_tutor_id = self.kwargs['pk']
-                form.save()
+                response = form.save()
+                response_from_student_to_tutor(response, tutor_cabinet.user)
+                response_from_student_to_self(response, tutor_cabinet.user)
                 context['response_form'] = form
                 context['ok'] = 'Отклик успешно добавлен'
                 return self.render_to_response(context)
@@ -85,11 +92,11 @@ class TutorAddResponseView(LoginRequiredMixin, CreateView):
         return self.render_to_response(context)
 
 
+# FromParentToTutor
 class ParentAddResponseView(LoginRequiredMixin, CreateView):
     template_name = 'parent_on_tutor_response_create.html'
     model = Response
     form_class = ResponseForm
-
 
     def get_context_data(self, **kwargs):
         context = super(ParentAddResponseView, self).get_context_data(**kwargs)
@@ -120,8 +127,9 @@ class ParentAddResponseView(LoginRequiredMixin, CreateView):
                 response = form.save()
                 context['response_form'] = form
                 context['ok'] = 'Отклик успешно добавлен'
-                response_from_parent(response, child)
-                response_to_tutor(response, child)
+                tutor = get_object_or_404(TutorCabinets, pk=self.kwargs['pk']).user
+                response_to_parent_from_self(response, child, tutor)
+                response_from_student_to_tutor(response, tutor)
                 return self.render_to_response(context)
             else:
                 context['response_form'] = form
@@ -129,7 +137,6 @@ class ParentAddResponseView(LoginRequiredMixin, CreateView):
                 return self.render_to_response(context)
         context['response_form'] = form
         return self.render_to_response(context)
-
 
     # def post(self, request, *args, **kwargs):
     #     form = self.form_class(request.POST, request.FILES)

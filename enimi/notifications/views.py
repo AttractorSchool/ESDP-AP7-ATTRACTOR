@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import ListView, UpdateView
 
@@ -13,7 +14,13 @@ class NotificationsView(ListView):
 
     def get_queryset(self):
         queryset = Notifications.objects.order_by('-created_at').filter(to_whom=self.kwargs['pk'])
+        # queryset = Notifications.objects.values('type', 'viewed', 'message').annotate(cnt=Count('id'))
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(NotificationsView, self).get_context_data(**kwargs)
+        context['notifications_count'] = Notifications.objects.filter(to_whom=self.request.user).count()
+        return context
 
 
 class NotificationsViewAsViewed(UpdateView):

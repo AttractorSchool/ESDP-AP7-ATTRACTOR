@@ -4,6 +4,16 @@
 
 {% block content %}
     <div class="d-flex flex-row flex-wrap" style="padding-top: 100px;">
+{#        <div class="d-block">#}
+{#            {% for notification in notifications %}#}
+{#                {% if notification.viewed == False %}#}
+{#                    <div>#}
+{#                        {{ notification.message }} <span style="color: black;">{{ notification.cnt }}</span>#}
+{#                    </div>#}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+{#        </div>#}
+
         <table class="table">
             <thead>
             <tr>
@@ -13,13 +23,13 @@
             </tr>
             </thead>
             <tbody>
-            {% for notification in notifications %}
-                {% if notification.type != 'response' %}
-                    {% include 'partial/chats.html' %}
-                {% else %}
-                    {% include 'partial/responses.html' %}
-                {% endif %}
-            {% endfor %}
+                        {% for notification in notifications %}
+                            {% if notification.type != 'response' %}
+                                {% include 'partial/chats.html' %}
+                            {% else %}
+                                {% include 'partial/responses.html' %}
+                            {% endif %}
+                        {% endfor %}
             </tbody>
         </table>
         {% if is_paginated %}
@@ -28,3 +38,10 @@
     </div>
 {% endblock %}
 
+{% block script %}
+    <script>
+        $(document).ready(function () {
+            console.log('ASDASDASDASD')
+        });
+    </script>
+{% endblock %}
