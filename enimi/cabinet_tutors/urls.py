@@ -6,7 +6,7 @@ from cabinet_tutors.views.study_formats import TutorStudyFormatsUpdateView, Tuto
     TutorStudyFormatsDeleteView
 from cabinet_tutors.views.subjects_and_costs import SubjectsAndCostCreateUpdateView, SubjectsAndCostDeleteView
 from cabinet_tutors.views.tutor_cabinets import TutorCabinetView, TutorCabinetUpdateView
-from cabinet_tutors.views.responses import MyResponsesOnStudentsView, OnTutorFromStudentResponsesView
+from cabinet_tutors.views.responses import OnStudentsFromTutorView, OnTutorFromStudentResponsesView
 
 urlpatterns = [
     path('<int:pk>/', TutorCabinetView.as_view(), name='tutor_cabinet'),
@@ -25,8 +25,8 @@ urlpatterns = [
          name='tutor_study_formats_update'),
     path('<int:tpk>/study-formats/<int:pk>/delete/', TutorStudyFormatsDeleteView.as_view(),
          name='tutor_study_formats_delete'),
-    path('<int:pk>/my-responses-on-students/', MyResponsesOnStudentsView.as_view(), name='my_responses_on_students'),
-    path('<int:pk>/tutor-on-students-responses/', OnTutorFromStudentResponsesView.as_view(),
+    path('<int:pk>/tutor-responses-on-students/', OnStudentsFromTutorView.as_view(), name='my_responses_on_students'),
+    path('<int:pk>/students-responses-on-tutor/', OnTutorFromStudentResponsesView.as_view(),
          name='tutor_on_students_responses'),
     path('add_user_to_my_students/<int:pk>/', ToMyStudentAddView.as_view(),
              name='add_user_to_my_students'),

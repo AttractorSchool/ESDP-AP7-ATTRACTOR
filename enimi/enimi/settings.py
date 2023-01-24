@@ -61,7 +61,8 @@ INSTALLED_APPS = [
     'chat',
     'reviews',
     'rest_framework',
-    'api'
+    'api',
+    'notifications'
 ]
 
 MIDDLEWARE = [
