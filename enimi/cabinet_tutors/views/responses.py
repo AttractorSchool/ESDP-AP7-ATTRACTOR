@@ -23,14 +23,6 @@ class OnTutorFromStudentResponsesView(LoginRequiredMixin, ListView):
     template_name = 'on_me_from_student_responses.html'
     model = Response
 
-    # def get_context_data(self, *, object_list=None, **kwargs):
-    #     context = super(OnTutorFromStudentResponsesView, self).get_context_data(object_list=object_list, **kwargs)
-    #     user = Account.objects.get(id=self.kwargs['pk'])
-    #     responses = Response.objects.filter(cabinet_tutor_id=user.tutor.pk)
-    #     context['responses'] = responses
-    #     context['chat_page_2'] = '1'
-    #     context['student_responses'] = '1'
-    #     return context
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(OnTutorFromStudentResponsesView, self).get_context_data(object_list=object_list, **kwargs)
         tutor_cabinet = TutorCabinets.objects.get(pk=self.kwargs['pk'])
