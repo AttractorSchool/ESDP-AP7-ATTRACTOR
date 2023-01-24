@@ -15,7 +15,7 @@ class OnStudentsFromTutorView(LoginRequiredMixin, ListView):
         tutor_cabinet = TutorCabinets.objects.get(id=self.kwargs['pk'])
         responses = Response.objects.filter(author_id=tutor_cabinet.user.pk)
         context['responses'] = responses
-        context['chat_page_1'] = '1'
+        context['tutor_responses'] = '1'
         return context
 
 
@@ -28,5 +28,5 @@ class OnTutorFromStudentResponsesView(LoginRequiredMixin, ListView):
         user = Account.objects.get(id=self.kwargs['pk'])
         responses = Response.objects.filter(cabinet_tutor_id=user.tutor.pk)
         context['responses'] = responses
-        context['chat_page_2'] = '1'
+        context['student_responses'] = '1'
         return context

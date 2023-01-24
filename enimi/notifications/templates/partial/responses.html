@@ -1,13 +1,13 @@
 {% load django_bootstrap5 %}
 
-{% if notification.viewed == False %}
+{% if notification.viewed == False and notification.cnt != 0 %}
     <tr>
         <td class="col-8 text-break fw-bold">
             <a class="list-unstyled text-dark" href="{% url 'notification_viewed' notification.pk %}">
                 {{ notification.message }}
             </a>
         </td>
-        <td class="col-3 fw-bold">{{ notification.created_at }}</td>
+        <td class="col-3 fw-bold">{{ notification.date }}</td>
         <td class="col-2"></td>
     </tr>
 {% else %}
@@ -17,7 +17,7 @@
                 {{ notification.message }}
             </a>
         </td>
-        <td class="col-3">{{ notification.created_at }}</td>
+        <td class="col-3">{{ notification.date }}</td>
         <td class="col-2"></td>
     </tr>
 {% endif %}
