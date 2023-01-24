@@ -140,10 +140,10 @@
                                     <a href="{% url 'parents_cabinet_detail' user.pk %}"
                                        class="btn btn-primary">Назад</a>
                                 {% elif user.type == 'tutor' and response.author != user %}
-                                    <a href="{% url 'tutor_on_students_responses' user.pk %}"
+                                    <a href="{% url 'tutor_on_students_responses' user.tutor.pk %}"
                                        class="btn btn-primary">Назад</a>
                                 {% elif user.type == 'tutor' and response.author == user %}
-                                    <a href="{% url 'my_responses_on_students' user.pk %}"
+                                    <a href="{% url 'my_responses_on_students' user.tutor.pk %}"
                                        class="btn btn-primary">Назад</a>
                                 {% endif %}
                             </div>
