@@ -2,9 +2,9 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.files.base import ContentFile
 from django.core.files.storage import FileSystemStorage
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
-from django.views.generic import DetailView, CreateView, UpdateView, ListView
+from django.views.generic import DetailView, CreateView, UpdateView, ListView, FormView
 from django.http import HttpResponse
 from django.core import serializers
 import base64
@@ -17,9 +17,10 @@ from django.http.response import JsonResponse
 from cabinet_student.forms import SurveyForm, StudentAreaForm, TutorAreaForm
 
 from cabinet_parents.models import Survey, TutorArea, Region, City, District, StudentArea
-from cabinet_tutors.models import TutorCabinets
+from cabinet_tutors.models import TutorCabinets, MyStudent
 from responses.models import Response
 from reviews.forms import ReviewForm
+from reviews.models.reviews import Review
 
 
 class StudentProfileView(LoginRequiredMixin, DetailView):
@@ -236,8 +237,44 @@ class StudentOnTutorReviews(ListView):
         return context
 
 
-class TutorDetailView(DetailView):
-    model = Account
-    template_name = "tutor_detail_reviews.html"
-    context_object_name = "tutor_obj"
+class MyTutorsView(ListView):
+    template_name = "student_my_tutors.html"
+    model = MyStudent
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        student = Account.objects.get(id=self.kwargs['pk'])
+        context['my_tutors'] = MyStudent.objects.filter(student_id=student.pk)
+        context['tutors_cabinets'] = TutorCabinets.objects.all()
+        context['review_form'] = ReviewForm()
+        return context
+
+
+class ReviewView(FormView):
+    form_class = ReviewForm
+    template_name = "student_my_tutors.html"
+
+    def post(self, request, *args, **kwargs):
+        tutor = get_object_or_404(TutorCabinets, pk=kwargs.get('pk'))
+        form = ReviewForm(request.POST)
+
+        if form.is_valid():
+            text = request.POST.get('text')
+            rate_choices = request.POST.get('rate_choices')
+            author = request.POST.get('author')
+            Review.objects.create(authors=author, tutor=tutor, text=text, rate_choices=rate_choices)
+
+        return redirect('index')
+
+
+class ReviewListView(ListView):
+    template_name = 'student_reviews.html'
+    model = Review
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        student = Account.objects.get(id=self.kwargs['pk'])
+        context['my_tutors'] = MyStudent.objects.filter(student_id=student.pk)
+        context['my_reviews'] = Review.objects.all()
+        return context
 

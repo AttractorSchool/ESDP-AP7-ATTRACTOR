@@ -70,7 +70,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                         </li>
                                          <li class="nav-item">
                                             <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                               href="#">Мои учителя</a>
+                                               href="{% url 'my_tutors' request.user.pk  %}">Мои учителя</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link active" aria-current="page" style="padding-right: 20px"

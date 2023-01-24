@@ -3925,7 +3925,6 @@ h6 {
     flex-direction: column;
     padding-top: 45px!important;
   }
-
   .tutor__info-main {
     width: 100% !important;
   }
@@ -4512,4 +4511,13 @@ h6 {
 
 .scroll-nav {
     overflow-x: scroll;
+}
+
+.fa-star {
+  color: #ffffff;
+
+}
+
+.fa-star.checked {
+   color: #ffc80b;
 }
