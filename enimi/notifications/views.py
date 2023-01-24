@@ -1,4 +1,4 @@
-from django.db.models import Count
+from django.db.models import Count, Max, Q
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import ListView, UpdateView
 
@@ -13,8 +13,23 @@ class NotificationsView(ListView):
     paginate_orphans = 0
 
     def get_queryset(self):
-        queryset = Notifications.objects.order_by('-created_at').filter(to_whom=self.kwargs['pk'])
-        # queryset = Notifications.objects.values('type', 'viewed', 'message').annotate(cnt=Count('id'))
+        queryset = Notifications.objects.filter(to_whom=self.kwargs['pk']).values('type', 'viewed', 'message'). \
+            annotate(
+            cnt=Count('viewed', filter=Q(viewed=False)),
+            date=Max('created_at'),
+            pk=Max('id'),
+            response_pk=Max('response')).order_by('-date')
+        contains_viewed = False
+        contains_unviewed = False
+        for obj in queryset:
+            if obj.get('type') == 'chat' and not obj.get('viewed'):
+                contains_unviewed = True
+            elif obj.get('type') == 'chat' and obj.get('viewed'):
+                contains_viewed = True
+        self.extra_context = {
+            'contains_viewed': contains_viewed,
+            'contains_unviewed': contains_unviewed
+        }
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -31,7 +46,6 @@ class NotificationsViewAsViewed(UpdateView):
         notification = get_object_or_404(Notifications, pk=kwargs['pk'])
         notification.viewed = True
         notification.save()
-        print(notification.viewed)
         return redirect('notifications', pk=request.user.pk)
 
 
@@ -43,5 +57,4 @@ class NotificationsViewAsUnviewed(UpdateView):
         notification = get_object_or_404(Notifications, pk=kwargs['pk'])
         notification.viewed = False
         notification.save()
-        print(notification.viewed)
         return redirect('notifications', pk=request.user.pk)
