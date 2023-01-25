@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.shortcuts import redirect, get_object_or_404
 from django.views.generic import CreateView
 
@@ -33,8 +34,15 @@ class StudentAddResponseView(LoginRequiredMixin, CreateView):
         context = {}
         if form.is_valid():
             survey = Survey.objects.get(id=self.kwargs['pk'])
-            in_table = Response.objects.filter(survey_id=survey.pk, author_id=request.user.pk)
-            if not in_table:
+            response_exists = Q(survey=survey, author=request.user) | Q(author=survey.user,
+                                                                        cabinet_tutor=request.user.tutor)
+            response_already_exists = Response.objects.filter(response_exists)
+            if response_already_exists:
+                context['response_form'] = form
+                context['error'] = 'Отклик с данным пользователем уже существует'
+                context['response_pk'] = response_already_exists.first().pk
+                return self.render_to_response(context)
+            else:
                 form.instance.author_id = self.request.user.pk
                 form.instance.survey_id = self.kwargs['pk']
                 response = form.save()
@@ -45,10 +53,6 @@ class StudentAddResponseView(LoginRequiredMixin, CreateView):
                 else:
                     response_from_tutor_to_student_with_parent(response, survey.user)
                 response_from_tutor_to_self(response, survey.user)
-                return self.render_to_response(context)
-            else:
-                context['response_form'] = form
-                context['error'] = 'Ранее вы уже делали отклик на этого пользователя'
                 return self.render_to_response(context)
         context['response_form'] = form
         return self.render_to_response(context)
@@ -73,20 +77,23 @@ class TutorAddResponseView(LoginRequiredMixin, CreateView):
         form = self.form_class(request.POST, request.FILES)
         context = {}
         if form.is_valid():
-            tutor_cabinet = TutorCabinets.objects.get(id=self.kwargs['pk'])
-            in_table = Response.objects.filter(cabinet_tutor_id=tutor_cabinet.pk, author_id=request.user.pk)
-            if not in_table:
+            cabinet_tutor = TutorCabinets.objects.get(id=self.kwargs['pk'])
+            response_exists = Q(author=cabinet_tutor.user, survey=request.user.survey) | Q(author=request.user,
+                                                                                           cabinet_tutor=cabinet_tutor)
+            response_already_exists = Response.objects.filter(response_exists)
+            if response_already_exists:
+                context['response_form'] = form
+                context['error'] = 'Отклик с данным пользователем уже существует'
+                context['response_pk'] = response_already_exists.first().pk
+                return self.render_to_response(context)
+            else:
                 form.instance.author_id = self.request.user.pk
                 form.instance.cabinet_tutor_id = self.kwargs['pk']
                 response = form.save()
-                response_from_student_to_tutor(response, tutor_cabinet.user)
-                response_from_student_to_self(response, tutor_cabinet.user)
+                response_from_student_to_tutor(response, cabinet_tutor.user)
+                response_from_student_to_self(response, cabinet_tutor.user)
                 context['response_form'] = form
                 context['ok'] = 'Отклик успешно добавлен'
-                return self.render_to_response(context)
-            else:
-                context['response_form'] = form
-                context['error'] = 'Ранее вы уже делали отклик на этого пользователя'
                 return self.render_to_response(context)
         context['response_form'] = form
         return self.render_to_response(context)
@@ -120,21 +127,24 @@ class ParentAddResponseView(LoginRequiredMixin, CreateView):
         if form.is_valid():
             survey = Survey.objects.get(id=request.POST['survey'])
             child = survey.user
-            in_table = Response.objects.filter(author_id=child.pk, cabinet_tutor_id=self.kwargs['pk'])
-            if not in_table:
+            tutor_cabinet = get_object_or_404(TutorCabinets, pk=self.kwargs['pk'])
+            response_exists = Q(author=child, cabinet_tutor=tutor_cabinet) | Q(author=tutor_cabinet.user, survey=survey)
+            response_already_exists = Response.objects.filter(response_exists)
+            if response_already_exists:
+                context['response_form'] = form
+                context['error'] = 'Отклик с данным пользователем уже существует'
+                context['response_pk'] = response_already_exists.first().pk
+                return self.render_to_response(context)
+            else:
                 form.instance.author_id = child.pk
                 form.instance.cabinet_tutor_id = self.kwargs['pk']
                 response = form.save()
                 context['response_form'] = form
                 context['ok'] = 'Отклик успешно добавлен'
-                tutor = get_object_or_404(TutorCabinets, pk=self.kwargs['pk']).user
-                response_to_parent_from_self(response, child, tutor)
-                response_from_student_to_tutor(response, tutor)
+                response_to_parent_from_self(response, child, tutor_cabinet.user)
+                response_from_student_to_tutor(response, tutor_cabinet.user)
                 return self.render_to_response(context)
-            else:
-                context['response_form'] = form
-                context['error'] = 'Ранее вы уже делали отклик на этого пользователя'
-                return self.render_to_response(context)
+
         context['response_form'] = form
         return self.render_to_response(context)
 

@@ -68,3 +68,15 @@ def chats(to_whom, from_whom, response, child=None):
         message=message,
         response=response
     )
+
+
+def student_added_message_to_tutor():
+    pass
+
+
+def student_added_message_to_parent():
+    pass
+
+
+def student_added_message_to_student():
+    pass
