@@ -12,7 +12,7 @@ class Review(models.Model):
     tutor = models.ForeignKey(to=Account, on_delete=models.CASCADE)
     review_date = models.DateTimeField(verbose_name='Дата добавления', auto_now_add=True)
     text = models.CharField(verbose_name='Отзыв', null=False, blank=False, max_length=1000)
-    rate_choices = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
+    rate = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
 
     class Meta:
         verbose_name = 'Отзыв'

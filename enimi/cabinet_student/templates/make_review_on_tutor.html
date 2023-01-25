@@ -4,7 +4,9 @@
 {% block search_btn %}
 {% endblock %}
 {% block content %}
+<style>
 
+</style>
 <div class="box" style="width:auto; background-color:white; border-radius: 15px; margin: -30px; min-height: 300px">
     <section class="blog_area section_gap">
         <div class="container">
@@ -96,52 +98,30 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                     <div class="blog_left_sidebar">
                         <article class="row blog_item">
                             <div class="col-md-9">
-                                <div class="blog_post">
-                                    {% for my_tutor in my_tutors.all %}
-                                    <div class="row justify-content-center pb-2" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
-                                              -moz-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
-                                              box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2); ">
-                                        <div class="col-12" style="border-radius: 20px">
-                                            <div class="row">
-                                                <div class="col-3 text-center align-self-center"
-                                                     style="margin-top: 25px; margin-bottom: 25px">
-                                                    <img id="avatar"
-                                                         src="{{ my_tutor.tutor.avatar.url }}"
-                                                         class="circlehome-dp"
-                                                         style="border-radius: 100px; width:80%;" alt="signuplogo ">
-                                                </div>
-                                                <div class="col-9 align-self-center">
-                                                    <div class="row">
-                                                        <div class="col-8">
-                                                            <h5 style="color: #6c757d; padding-top: 25px">Имя
-                                                                репетитора:s
-                                                                <span style="color: #568be9">
-                                                                    {{ my_tutor.tutor.first_name }}
-                                                                    {{ my_tutor.tutor.last_name }}
-                                                                </span>
-                                                            </h5>
-                                                            <h5 style="color: #6c757d; padding-top: 10px">Предметы
-                                                                репетитора: </h5>
-                                                            <span class="info-item"></span>
-                                                            <h5 style="color: #6c757d; padding-top: 8px">Номер
-                                                                телефона: <span style="color: #568be9">
-                                                                    {{ my_tutor.tutor.phone }}</span>
-                                                            </h5>
-                                                            <hr>
-                                                            <h5 style="color: #6c757d;">Вы отправили
-                                                                сообщение: </h5>
-                                                            <span class="info-item"
-                                                                  style="padding-bottom: 10px">hhello</span>
-                                                        </div>
-                                                        <a href="{% url 'review_page' my_tutor.tutor.pk %}"
-                                                           class="review__link">Оставить отзыв о репетиторе</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
+                                <div class="review__block">
+                                    {{ tutor.first_name }}
                                 </div>
+                                <form action="{% url 'make_review' tutor.pk %}" method="post">
+                                    {% csrf_token %}
+                                    <textarea name="text" id="" cols="30" rows="5"></textarea>
+                                    <div class="star-rating">
+                                        <input type="radio" name="rate" id="star-a" value="5"/>
+                                        <label for="star-a"></label>
+
+                                        <input type="radio" name="rate" id="star-b" value="4"/>
+                                        <label for="star-b"></label>
+
+                                        <input type="radio" name="rate" id="star-c" value="3"/>
+                                        <label for="star-c"></label>
+
+                                        <input type="radio" name="rate" id="star-d" value="2"/>
+                                        <label for="star-d"></label>
+
+                                        <input type="radio" name="rate" id="star-e" value="1"/>
+                                        <label for="star-e"></label>
+                                    </div>
+                                    <button class="rate__btn">Отправить отзыв</button>
+                                </form>
                             </div>
                         </article>
                     </div>
