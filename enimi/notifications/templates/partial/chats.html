@@ -2,15 +2,19 @@
 
 {% if contains_viewed and contains_unviewed %}
     {% if not notification.viewed %}
-        <tr class="fw-bold">
+        <tr>
             <td class="col-8 text-break">
-                <a class="list-unstyled text-dark" href="{% url 'add_chat_message' notification.response_pk %}">
+                <a class="list-unstyled text-dark btn p-0 fw-bold" >
                     {{ notification.message }}:
                     <span style="color: black; font-weight: bold">{{ notification.cnt }}</span>
                 </a>
             </td>
             <td class="col-3">{{ notification.date }}</td>
-            <td class="col-1"></td>
+            <td class="col-1">
+                <a href="{% url 'add_chat_message' notification.response_pk %}" class="list-unstyled fs-5">
+                    <i class="bi bi-chat"></i>
+                </a>
+            </td>
         </tr>
     {% endif %}
 
@@ -18,12 +22,16 @@
     {% if notification.viewed %}
         <tr>
             <td class="col-9 text-break">
-                <a class="list-unstyled text-dark" href="{% url 'add_chat_message' notification.response_pk %}">
+                <a class="list-unstyled text-dark btn p-0" >
                     {{ notification.message }}
                 </a>
             </td>
             <td class="col-3">{{ notification.date }}</td>
-            <td class="col-1"></td>
+            <td class="col-1">
+                <a href="{% url 'add_chat_message' notification.response_pk %}" class="list-unstyled fs-5">
+                    <i class="bi bi-chat"></i>
+                </a>
+            </td>
         </tr>
     {% endif %}
 
@@ -31,13 +39,17 @@
     {% if not notification.viewed %}
         <tr class="fw-bold">
             <td class="col-9 text-break">
-                <a class="list-unstyled text-dark" href="{% url 'add_chat_message' notification.response_pk %}">
+                <a class="list-unstyled text-dark btn p-0 fw-bold">
                     {{ notification.message }}:
                     <span style="color: black; font-weight: bold">{{ notification.cnt }}</span>
                 </a>
             </td>
             <td class="col-3">{{ notification.date }}</td>
-            <td class="col-2"></td>
+            <td class="col-2">
+                <a href="{% url 'add_chat_message' notification.response_pk %}" class="list-unstyled fs-5">
+                    <i class="bi bi-chat"></i>
+                </a>
+            </td>
         </tr>
     {% endif %}
 {% endif %}

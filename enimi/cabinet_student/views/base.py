@@ -30,6 +30,7 @@ class StudentProfileView(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context['student_register_form'] = AccountForm()
         context['main_form'] = SurveyForm()
+        context['main_page'] = '1'
         return context
 
 
@@ -109,6 +110,7 @@ class StudentDetailSurveyView(LoginRequiredMixin, ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(StudentDetailSurveyView, self).get_context_data(object_list=object_list, **kwargs)
         context['main_form'] = SurveyForm()
+        context['student_profile'] = '1'
         return context
 
 

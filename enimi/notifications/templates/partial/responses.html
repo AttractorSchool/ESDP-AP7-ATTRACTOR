@@ -9,19 +9,42 @@
         </td>
         <td class="col-3">{{ notification.date }}</td>
         <td class="col-1">
-            {% if notification.type == 'response' and 'Интересующие предметы' in notification.message %}
-                <a {% if user.type == 'tutor' %} href="{% url 'tutor_on_students_responses' user.tutor.pk %}"
-                {% elif user.type == 'parents' %} href="{% url 'from_me-parent_on_tutor_responses' user.pk %}"
-                {% elif user.type == 'student' %} href="{% url 'student_on_tutor_responses' user.pk %}"
-                {% endif %} class="list-unstyled text-secondary fs-5">
-                    <i class="bi bi-person-bounding-box"></i>
+            {% if notification.type == 'response' and user.type == 'tutor' and notification.response_author_pk %}
+                <a class="list-unstyled fs-5"
+                   href="{% url 'my_responses_on_students' user.tutor.pk %}">
+                    <i class="bi bi-arrow-right-circle"></i>
                 </a>
-            {% elif notification.type == 'response' and 'Предлагаемые предметы' in notification.message %}
-                <a {% if user.type == 'tutor' %} href="{% url 'my_responses_on_students' user.tutor.pk %}"
-                {% elif user.type == 'parents' %} href="{% url 'to_my_children_responses' user.pk %}"
-                {% elif user.type == 'student' %} href="{% url 'to_me_student_responses' user.pk %}"
-                {% endif %} class="list-unstyled text-secondary fs-5">
-                    <i class="bi bi-person-bounding-box"></i>
+            {% elif notification.type == 'response' and user.type == 'tutor' and not notification.response_author_pk %}
+                <a class="list-unstyled fs-5"
+                   href="{% url 'students_on_tutor_responses' user.tutor.pk %}">
+                    <i class="bi bi-arrow-left-circle"></i>
+                </a>
+            {% endif %}
+            {% if notification.type == 'response' and user.type == 'parents' and notification.response_author_pk %}
+                <a class="list-unstyled fs-5"
+                   href="{% url 'from_me-parent_on_tutor_responses' user.pk %}">
+                    <i class="bi bi-arrow-right-circle"></i>
+                </a>
+            {% elif notification.type == 'response' and user.type == 'parents' and not notification.response_author_pk %}
+                <a class="list-unstyled fs-5"
+                   href="{% url 'to_my_children_responses' user.pk %}">
+                    <i class="bi bi-arrow-left-circle"></i>
+                </a>
+            {% endif %}
+            {% if notification.type == 'response' and user.type == 'student' and notification.response_author_pk %}
+                <a class="list-unstyled fs-5"
+                   href="{% url 'student_on_tutor_responses' user.pk %}">
+                    <i class="bi bi-arrow-right-circle"></i>
+                </a>
+            {% elif notification.type == 'response' and user.type == 'student' and not notification.response_author_pk %}
+                <a class="list-unstyled fs-5"
+                   href="{% url 'to_me_student_responses' user.pk %}">
+                    <i class="bi bi-arrow-left-circle"></i>
+                </a>
+            {% endif %}
+            {% if notification.type == 'adding_student' and user.type == 'tutor' %}
+                <a href="{% url 'my_students' user.tutor.pk %}" class="list-unstyled fs-5">
+                    <i class="bi bi-people fs-5"></i>
                 </a>
             {% endif %}
         </td>
@@ -35,19 +58,42 @@
         </td>
         <td class="col-3">{{ notification.date }}</td>
         <td class="col-1">
-            {% if notification.type == 'response' and 'Интересующие предметы' in notification.message %}
-                <a {% if user.type == 'tutor' %} href="{% url 'tutor_on_students_responses' user.tutor.pk %}"
-                {% elif user.type == 'parents' %} href="{% url 'from_me-parent_on_tutor_responses' user.pk %}"
-                {% elif user.type == 'student' %} href="{% url 'student_on_tutor_responses' user.pk %}"
-                {% endif %} class="list-unstyled text-secondary fs-5">
-                    <i class="bi bi-person-bounding-box"></i>
+            {% if notification.type == 'response' and user.type == 'tutor' and notification.response_author_pk %}
+                <a class="list-unstyled fs-5"
+                   href="{% url 'my_responses_on_students' user.tutor.pk %}">
+                    <i class="bi bi-arrow-right-circle"></i>
                 </a>
-            {% elif notification.type == 'response' and 'Предлагаемые предметы' in notification.message %}
-                <a {% if user.type == 'tutor' %} href="{% url 'my_responses_on_students' user.tutor.pk %}"
-                {% elif user.type == 'parents' %} href="{% url 'to_my_children_responses' user.pk %}"
-                {% elif user.type == 'student' %} href="{% url 'to_me_student_responses' user.pk %}"
-                {% endif %} class="list-unstyled text-secondary fs-5">
-                    <i class="bi bi-person-bounding-box"></i>
+            {% elif notification.type == 'response' and user.type == 'tutor' and not notification.response_author_pk %}
+                <a class="list-unstyled fs-5"
+                   href="{% url 'students_on_tutor_responses' user.tutor.pk %}">
+                    <i class="bi bi-arrow-left-circle"></i>
+                </a>
+            {% endif %}
+            {% if notification.type == 'response' and user.type == 'parents' and notification.response_author_pk %}
+                <a class="list-unstyled fs-5"
+                   href="{% url 'from_me-parent_on_tutor_responses' user.pk %}">
+                    <i class="bi bi-arrow-right-circle"></i>
+                </a>
+            {% elif notification.type == 'response' and user.type == 'parents' and not notification.response_author_pk %}
+                <a class="list-unstyled fs-5"
+                   href="{% url 'to_my_children_responses' user.pk %}">
+                    <i class="bi bi-arrow-left-circle"></i>
+                </a>
+            {% endif %}
+            {% if notification.type == 'response' and user.type == 'student' and notification.response_author_pk %}
+                <a class="list-unstyled fs-5"
+                   href="{% url 'student_on_tutor_responses' user.pk %}">
+                    <i class="bi bi-arrow-right-circle"></i>
+                </a>
+            {% elif notification.type == 'response' and user.type == 'student' and not notification.response_author_pk %}
+                <a class="list-unstyled fs-5"
+                   href="{% url 'to_me_student_responses' user.pk %}">
+                    <i class="bi bi-arrow-left-circle"></i>
+                </a>
+            {% endif %}
+            {% if notification.type == 'adding_student' and user.type == 'tutor' %}
+                <a href="{% url 'my_students' user.tutor.pk %}">
+                    <i class="bi bi-people fs-5"></i>
                 </a>
             {% endif %}
         </td>

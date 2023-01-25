@@ -40,4 +40,5 @@ class MyStudentsView(ListView):
         # responses = Response.objects.filter(cabinet_tutor_id=tutor_cabinet.pk)
         # context['responses'] = responses
         context['my_students'] = my_students
+        context['my_students_page'] = '1'
         return context
