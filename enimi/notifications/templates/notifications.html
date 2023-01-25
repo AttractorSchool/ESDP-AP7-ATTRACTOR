@@ -19,10 +19,10 @@
             <tbody>
 
             {% for notification in notifications %}
-                {% if notification.type == 'response' or notification.type == 'registration' %}
-                    {% include 'partial/responses.html' %}
-                {% elif notification.type == 'chat' %}
+                {% if notification.type == 'chat' %}
                     {% include 'partial/chats.html' %}
+                {% else %}
+                    {% include 'partial/responses.html' %}
                 {% endif %}
             {% endfor %}
 
