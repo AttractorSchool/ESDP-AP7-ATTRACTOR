@@ -72,7 +72,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                               href="{% url 'student_on_tutor_review' request.user.pk %}">Отзывы</a>
+                                               href="{% url 'my_reviews' request.user.pk %}">Отзывы</a>
                                         </li>
                                         <li class="nav-item" style="margin-left: 60px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
@@ -80,6 +80,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                             <a class="nav-link active" aria-current="page" style="padding-right: 20px"
                                                href="#">
                                                 <body onload="clockTimer();">
+
                                                 <div class="clockpage">
                                                     <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
                                                           id="clock"></span>
@@ -88,6 +89,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                 </body>
                                             </a>
                                         </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -95,13 +97,13 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                     </div>
                     <div class="blog_left_sidebar">
                         <article class="row blog_item">
-                            <div class="col-md-9">
+                            <div class="col-md-9 pt-2">
                                 <div class="blog_post">
                                     {% for my_review in my_reviews.all %}
-                                    <div class="row justify-content-center pb-2" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
-                                              -moz-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
-                                              box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2); ">
-                                        <div class="col-12" style="border-radius: 20px">
+                                    <div class="row justify-content-center pb-3" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #ffffff; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
+                                              -moz-box-shadow: 1px 2px 5px 5px rgba(34, 60, 80, 0.2);
+                                              box-shadow: 1px 2px 5px 5px rgba(34, 60, 80, 0.2); ">
+                                        <div class="col-12 pe-4" style="border-radius: 20px">
                                             <div class="row">
                                                 <div class="col-3 text-center align-self-center"
                                                      style="margin-top: 25px; margin-bottom: 25px">
@@ -110,39 +112,31 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                          class="circlehome-dp"
                                                          style="border-radius: 100px; width:80%;" alt="signuplogo ">
                                                 </div>
-                                                <div class="col-9 align-self-center">
+                                                <div class="col-6 align-self-center">
                                                     <div class="row">
-                                                        <div class="col-8">
-                                                            <h5 style="color: #6c757d; padding-top: 25px">Имя
-                                                                репетитора:
-                                                                <span style="color: #568be9">
+                                                        <div class="col-12">
+                                                            <h5 class="d-flex" style="color: #6c757d; padding-top: 25px">
+                                                                Преподаватель:
+                                                                <span class="ps-1" style="color: #568be9">
                                                                     {{ my_review.tutor.first_name }}
                                                                     {{ my_review.tutor.last_name }}
                                                                 </span>
                                                             </h5>
-                                                            <h5 style="color: #6c757d; padding-top: 10px">Предметы
-                                                                репетитора: </h5>
-                                                            <span class="info-item"></span>
-                                                            <h5 style="color: #6c757d; padding-top: 8px">Номер
-                                                                телефона: <span style="color: #568be9">
-                                                                    {{ my_review.tutor.phone }}</span>
-                                                            </h5>
                                                             <hr>
-                                                            <h5 style="color: #6c757d;">Вы отправили
-                                                                сообщение: </h5>
-                                                            <span class="info-item"
-                                                                  style="padding-bottom: 10px">hhello</span>
-                                                            <div class="review__block mt-2">
-                                                                <div class="stars_rate">
-                                                                    <span class="fa fa-star {% if my_review.rate > 0 %} checked {% endif %}"></span>
-                                                                    <span class="fa fa-star {% if my_review.rate > 1 %} checked {% endif %}"></span>
-                                                                    <span class="fa fa-star {% if my_review.rate > 2 %} checked {% endif %}"></span>
-                                                                    <span class="fa fa-star {% if my_review.rate > 3 %} checked {% endif %}"></span>
-                                                                    <span class="fa fa-star {% if my_review.rate > 4 %} checked {% endif %}"></span>
-                                                                </div>
-                                                                <p>{{ my_review.text }}</p>
+                                                            <h5 style="color: #6c757d;">Отзыв: </h5>
+                                                            <div class="review-rate__box d-flex align-items-center justify-content-between">
+                                                                <span class="info-item">
+                                                                <p class="mb-0">{{ my_review.text }}</p>
+                                                            </span>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                                <div class="review__block col-3 d-flex align-items-center justify-content-end">
+                                                    <div class="stars_rate d-flex">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <p class="rate__num ms-1 mb-0">
+                                                            {{ my_review.rate }}</p>
                                                     </div>
                                                 </div>
                                             </div>
