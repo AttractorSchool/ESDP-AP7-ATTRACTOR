@@ -224,25 +224,14 @@ class StudentOnTutorResponsesView(LoginRequiredMixin, ListView):
         return context
 
 
-class StudentOnTutorReviews(ListView):
-    template_name = "student_on_tutor_reviews.html"
-    model = Response
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(object_list=object_list, **kwargs)
-        context['tutors'] = Response.objects.all()
-        context['review_form'] = ReviewForm()
-
-        return context
-
-
 class MyTutorsView(ListView):
     template_name = "student_my_tutors.html"
     model = MyStudent
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(object_list=object_list, **kwargs)
+        context = super(MyTutorsView, self).get_context_data(object_list=object_list, **kwargs)
         student = Account.objects.get(id=self.kwargs['pk'])
+        context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
         context['my_tutors'] = MyStudent.objects.filter(student_id=student.pk)
         context['tutors_cabinets'] = TutorCabinets.objects.all()
         return context
@@ -259,22 +248,15 @@ class ReviewMakeView(DetailView):
         context['tutors'] = Account.objects.all()
         return context
 
-    def post(self, request, *args, **kwargs):
-        tutor = get_object_or_404(TutorCabinets, pk=kwargs.get('pk'))
-        form = ReviewForm(request.POST)
 
-        if form.is_valid():
-            text = request.POST.get('text')
-            rate = request.POST.get('rate')
-            author = request.POST.get('author')
-            Review.objects.create(authors=author, tutor=tutor, text=text, rate=rate)
-
-        return redirect('index')
-
-
-class ReviewView(CreateView):
+class ReviewCreateView(CreateView):
     template_name = "make_review_on_tutor.html"
     model = Review
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ReviewCreateView, self).get_context_data(object_list=object_list, **kwargs)
+        context['user_obj'] = Account.objects.get(pk=self.kwargs['pk'])
+        return context
 
     def post(self, request, *args, **kwargs):
         tutor = get_object_or_404(Account, pk=kwargs.get('pk'))
@@ -283,16 +265,18 @@ class ReviewView(CreateView):
         text = request.POST.get('text')
 
         Review.objects.create(author=user, tutor=tutor, rate=rate, text=text)
-        return redirect('index')
+
+        return redirect('my_reviews', pk=user.pk)
 
 
 class ReviewListView(ListView):
-    template_name = 'student_reviews.html'
+    template_name = 'student_reviews_list.html'
     model = Review
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)
         student = Account.objects.get(id=self.kwargs['pk'])
+        context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
         context['my_tutors'] = MyStudent.objects.filter(student_id=student.pk)
         context['my_reviews'] = Review.objects.filter(author_id=student.pk)
         return context

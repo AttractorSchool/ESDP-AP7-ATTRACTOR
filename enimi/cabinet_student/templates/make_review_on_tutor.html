@@ -97,14 +97,14 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                     </div>
                     <div class="blog_left_sidebar">
                         <article class="row blog_item">
-                            <div class="col-md-9">
+                            <div class="col-md-9 pt-3">
                                 <div class="review__block">
-                                    {{ tutor.first_name }}
+                                    <p>Преподаватель: <span>{{ tutor.first_name }} {{ tutor.last_name }}</span></p>
                                 </div>
                                 <form action="{% url 'make_review' tutor.pk %}" method="post">
                                     {% csrf_token %}
-                                    <textarea name="text" id="" cols="30" rows="5"></textarea>
-                                    <div class="star-rating">
+                                    <textarea class="form-control w-100 p-2" name="text" id="" cols="50" rows="5"></textarea>
+                                    <div class="star-rating mt-3 mb-1">
                                         <input type="radio" name="rate" id="star-a" value="5"/>
                                         <label for="star-a"></label>
 
@@ -120,7 +120,10 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                         <input type="radio" name="rate" id="star-e" value="1"/>
                                         <label for="star-e"></label>
                                     </div>
-                                    <button class="rate__btn">Отправить отзыв</button>
+                                    <div>
+                                        <button class="rate__btn btn btn-primary">Отправить отзыв</button>
+                                        <a class="btn btn-secondary ms-2" href="{% url 'my_tutors' request.user.pk  %}">Назад</a>
+                                    </div>
                                 </form>
                             </div>
                         </article>

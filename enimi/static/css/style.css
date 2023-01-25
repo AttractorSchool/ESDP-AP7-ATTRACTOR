@@ -4920,10 +4920,10 @@ h6 {
 
 
 .star-rating > label {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     font-family: Arial;
-    font-size: 30px;
+    font-size: 40px;
     transition: 0.2s ease;
     color: orange;
 }
@@ -4957,4 +4957,10 @@ h6 {
     }
 }
 
+.review__text {
+    word-break: break-all;
+}
 
+.review__link {
+
+}
