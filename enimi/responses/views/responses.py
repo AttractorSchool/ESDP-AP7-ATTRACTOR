@@ -22,9 +22,15 @@ class StudentAddResponseView(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         context = super(StudentAddResponseView, self).get_context_data(**kwargs)
         survey = Survey.objects.get(id=self.kwargs['pk'])
-        subjects = Subject.objects.all()
-        context['subjects'] = subjects
-        context['response_form'] = ResponseForm
+        students_response = Response.objects.filter(author_id=survey.user.pk).filter(cabinet_tutor_id=self.request.user.tutor.pk)
+        if students_response:
+            response = Response.objects.get(id=students_response[0].pk)
+            context['response'] = response
+            context['response_form'] = ResponseForm
+        else:
+            subjects = Subject.objects.all()
+            context['subjects'] = subjects
+            context['response_form'] = ResponseForm
         # (current_survey=survey)
         return context
 
@@ -63,10 +69,17 @@ class TutorAddResponseView(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         context = super(TutorAddResponseView, self).get_context_data(**kwargs)
         cabinet_tutor = TutorCabinets.objects.get(id=self.kwargs['pk'])
-        subjects = Subject.objects.all()
-        context['subjects'] = subjects
-        context['response_form'] = ResponseForm
-        # (current_survey=survey)
+        tutors_response = Response.objects.filter(author_id=cabinet_tutor.user.pk,
+                                                  survey_id=self.request.user.survey.pk)
+        if tutors_response:
+            response = Response.objects.get(id=tutors_response[0].pk)
+            context['response'] = response
+            context['response_form'] = ResponseForm
+        else:
+            subjects = Subject.objects.all()
+            context['subjects'] = subjects
+            context['response_form'] = ResponseForm
+            # (current_survey=survey)
         return context
 
     def post(self, request, *args, **kwargs):
@@ -119,7 +132,16 @@ class ParentAddResponseView(LoginRequiredMixin, CreateView):
         context = {}
         if form.is_valid():
             survey = Survey.objects.get(id=request.POST['survey'])
+            cabinet_tutor = TutorCabinets.objects.get(id=kwargs['pk'])
             child = survey.user
+            tutors_response = Response.objects.filter(author_id=cabinet_tutor.user.pk,
+                                                      survey_id=child.survey.pk)
+            if tutors_response:
+                print('AAAAAAA')
+                response = Response.objects.get(id=tutors_response[0].pk)
+                context['response'] = response
+                context['response_form'] = ResponseForm
+                return self.render_to_response(context)
             in_table = Response.objects.filter(author_id=child.pk, cabinet_tutor_id=self.kwargs['pk'])
             if not in_table:
                 form.instance.author_id = child.pk
