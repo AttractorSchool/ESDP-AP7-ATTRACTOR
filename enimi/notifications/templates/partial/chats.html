@@ -10,27 +10,27 @@
                 </a>
             </td>
             <td class="col-3">{{ notification.date }}</td>
-            <td class="col-2"></td>
+            <td class="col-1"></td>
         </tr>
     {% endif %}
 
 {% elif contains_viewed and not contains_unviewed %}
     {% if notification.viewed %}
         <tr>
-            <td class="col-8 text-break">
+            <td class="col-9 text-break">
                 <a class="list-unstyled text-dark" href="{% url 'add_chat_message' notification.response_pk %}">
                     {{ notification.message }}
                 </a>
             </td>
             <td class="col-3">{{ notification.date }}</td>
-            <td class="col-2"></td>
+            <td class="col-1"></td>
         </tr>
     {% endif %}
 
 {% elif not contains_viewed and contains_unviewed %}
     {% if not notification.viewed %}
         <tr class="fw-bold">
-            <td class="col-8 text-break">
+            <td class="col-9 text-break">
                 <a class="list-unstyled text-dark" href="{% url 'add_chat_message' notification.response_pk %}">
                     {{ notification.message }}:
                     <span style="color: black; font-weight: bold">{{ notification.cnt }}</span>

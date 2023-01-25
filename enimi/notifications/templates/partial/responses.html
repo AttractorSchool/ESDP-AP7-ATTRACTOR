@@ -2,13 +2,13 @@
 
 {% if notification.viewed == False and notification.cnt != 0 %}
     <tr class="fw-bold">
-        <td class="col-8 text-break">
+        <td class="col-9 text-break">
             <a class="list-unstyled text-dark" href="{% url 'notification_viewed' notification.pk %}">
                 {{ notification.message }}
             </a>
         </td>
         <td class="col-3">{{ notification.date }}</td>
-        <td class="col-2">
+        <td class="col-1">
             {% if notification.type == 'response' and 'Интересующие предметы' in notification.message %}
                 <a {% if user.type == 'tutor' %} href="{% url 'tutor_on_students_responses' user.tutor.pk %}"
                 {% elif user.type == 'parents' %} href="{% url 'from_me-parent_on_tutor_responses' user.pk %}"
@@ -28,13 +28,13 @@
     </tr>
 {% else %}
     <tr>
-        <td class="col-8 text-break">
+        <td class="col-9 text-break">
             <a class="list-unstyled text-dark" href="{% url 'notification_unviewed' notification.pk %}">
                 {{ notification.message }}
             </a>
         </td>
         <td class="col-3">{{ notification.date }}</td>
-        <td class="col-2">
+        <td class="col-1">
             {% if notification.type == 'response' and 'Интересующие предметы' in notification.message %}
                 <a {% if user.type == 'tutor' %} href="{% url 'tutor_on_students_responses' user.tutor.pk %}"
                 {% elif user.type == 'parents' %} href="{% url 'from_me-parent_on_tutor_responses' user.pk %}"
