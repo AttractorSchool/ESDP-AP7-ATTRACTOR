@@ -16,7 +16,8 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                            href="#">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-nowrap" aria-current="page" style="padding-right: 20px"
+                        <a class="nav-link active text-nowrap {% if my_students_page %} card-header disabled {% endif %}"
+                           aria-current="page" style="padding-right: 20px"
                            href="{% url 'my_students' user.tutor.pk %}">Мои ученики</a>
                     </li>
                     </li>
@@ -28,7 +29,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                     <li class="nav-item">
                         <a class="text-nowrap nav-link active rounded {% if student_responses %} card-header disabled {% endif %}"
                            aria-current="page" style="padding-right: 20px"
-                           href="{% url 'tutor_on_students_responses' user.tutor.pk %}">Отклики на меня</a>
+                           href="{% url 'students_on_tutor_responses' user.tutor.pk %}">Отклики на меня</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-nowrap" aria-current="page" style="padding-right: 20px"

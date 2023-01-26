@@ -3,6 +3,7 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
+
     <div class="d-flex flex-row flex-wrap" style="padding-top: 100px;">
         <div class="d-block">
 
@@ -19,10 +20,10 @@
             <tbody>
 
             {% for notification in notifications %}
-                {% if notification.type == 'response' or notification.type == 'registration' %}
-                    {% include 'partial/responses.html' %}
-                {% elif notification.type == 'chat' %}
+                {% if notification.type == 'chat' %}
                     {% include 'partial/chats.html' %}
+                {% else %}
+                    {% include 'partial/responses.html' %}
                 {% endif %}
             {% endfor %}
 

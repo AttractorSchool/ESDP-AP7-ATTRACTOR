@@ -18,7 +18,9 @@ class NotificationsView(ListView):
             cnt=Count('viewed', filter=Q(viewed=False)),
             date=Max('created_at'),
             pk=Max('id'),
-            response_pk=Max('response')).order_by('-date')
+            response_pk=Max('response'),
+            response_author_pk=Q(response__author__pk=self.kwargs['pk']),
+        ).order_by('-date')
         contains_viewed = False
         contains_unviewed = False
         for obj in queryset:
@@ -28,7 +30,7 @@ class NotificationsView(ListView):
                 contains_viewed = True
         self.extra_context = {
             'contains_viewed': contains_viewed,
-            'contains_unviewed': contains_unviewed
+            'contains_unviewed': contains_unviewed,
         }
         return queryset
 

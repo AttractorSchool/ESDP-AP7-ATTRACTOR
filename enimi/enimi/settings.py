@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'verify_email.apps.VerifyEmailConfig',
     'responses',
     'chat',
+    'reviews',
     'rest_framework',
     'api',
     'notifications'
