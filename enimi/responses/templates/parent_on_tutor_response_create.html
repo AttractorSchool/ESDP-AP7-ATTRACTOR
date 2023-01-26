@@ -4,86 +4,130 @@
 
 {% block content %}
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    {% if response %}
+            <div class="row justify-content-center" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
+              -moz-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
+              box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2); " >
+                <h2 style=" margin-bottom: 30px; margin-top: 20px; text-align:center">Данный пользователь уже оставил отклик на студента</h2><div>
 
-    {% if error %}
+                <div class="col-12" style="border-radius: 20px">
+                    <div class="row">
+                       <div class="col-3 text-center align-self-center" style="margin-top: 25px; margin-bottom: 25px">
+                          <img id="avatar" src="{{ response.survey.user.avatar.url }}" class="circlehome-dp" style="border-radius: 100px; width:50%; margin-bottom: 20px; -webkit-box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.86);
+                                -moz-box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.86);
+                                box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.86);" alt="signuplogo ">
+                            <img id="avatar" src="{{ response.author.avatar.url }}" class="circlehome-dp" style="border-radius: 100px; width:80%; " alt="signuplogo ">
+                        </div>
 
-        <div class="content"
-             style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; margin-bottom: 60px; width: 55%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
+                        <div class="col-9 align-self-center">
+                            <div class="row">
+                                <div class="col-8">
+                                    <h5 style="color: #6c757d; padding-top: 10px">Отклик на: <span style="color: #568be9">{{ response.survey.user.first_name }} </span>
+                                        <span style="color: #568be9">{{ response.survey.user.last_name }} </span>
 
-            <h3 style="text-align: center">{{ error }}</h3>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <a style="text-align: center" href="{% url 'board_tutor' %}">
-                        <button id="btn-back-to-board" type="button" class="btn btn-primary me-3" style="margin-top: 20px">
-                            Закрыть
-                        </button>
-                    </a>
-                    <a style="text-align: center" href="">
-                        <button id="to-response" type="button" class="btn btn-primary me-3" style="margin-top: 20px">К
-                            имеющемуся отклику
-                        </button>
-                    </a>
-                    <a style="text-align: center" href="{% url 'add_chat_message' response_pk %}">
-                        <button id="to-chat" type="button" class="btn btn-primary me-3" style="margin-top: 20px">
-                            Чат
-                        </button>
-                    </a>
-                </div>
-            </div>
+                                        <hr style="margin-top: 30px">
+                                    <h5 style="color: #6c757d;">Автор отклика: <span style="color: #568be9">{{ response.author.first_name }}</span>
+                                        <span style="color: #568be9">{{ response.author.last_name }}</span></h5>
+                                    <h5 style="color: #6c757d; padding-top: 10px">Вам предложили предметы: </h5>
+                                    {% for subject in response.subjects.all %}
+                                        <span class="info-item">{{ subject }}{% if not forloop.last %}, {% endif %}</span>
+                                    {% endfor %}
+                                    {% if child.with_email == True %}
+                                        <h5 style="color: #6c757d; padding-top: 8px">Номер телефона: <span style="color: #568be9">{{ child.phone }}</span></h5>
+                                    {% endif %}
+                                    <hr>
+                                    <h5 style="color: #6c757d;">Вам отправили сообщение: </h5>
+                                    <span class="info-item" style="padding-bottom: 10px">{{ response.hello_message }}</span>
+                                </div>
+                                <div class="col-4 text-center align-self-center">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <a href="{% url 'add_chat_message' response.pk %}" class="btn btn-success" style="border-radius: 10px" id="btn" >Смотреть отклики</a>
+                                        </div>
+                                        <div class="col-12" style="margin-top: 25px">
+                                            <a href="{% url 'to_my_children_responses' request.user.pk %}" class="btn btn-success" style="border-radius: 10px" id="btn" >Открыть чат</a>
+                                        </div>
 
-
-        </div>
-
-    {% elif ok %}
-
-        <div class="content"
-             style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; margin-bottom: 60px; width: 55%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
-
-            <h3 style="text-align: center">{{ ok }}</h3>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <a style="text-align: center" href="{% url 'board_tutor' %}">
-                        <button id="btn-back-to-board" type="button" class="btn btn-primary" style="margin-top: 20px">
-                            Закрыть
-                        </button>
-                    </a>
-                </div>
-            </div>
+                                        <div class="col-12" style="margin-top: 25px">
+                                            <a href="{{ back_page }}"
+                                               class="btn btn-primary">Назад
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
-        </div>
+
+
+
+
+
+
+                       </div>
+
+                     </div>
+                 </div>
+             </div>
 
     {% else %}
+            {% if error %}
 
-        <div class="content"
-             style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; margin-bottom: 60px; width: 55%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
+            <div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; margin-bottom: 60px; width: 55%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
 
-        <h2 style=" margin-bottom: 30px; text-align:center">Отправить отклик</h2>
-        <div>
-            <form action="" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="form" id="form-course" style="background-color: white; padding: 40px; width: 90%;">
-                    {% bootstrap_form response_form %}
-                    <button id="saveResponseBtn" type="submit" class="btn btn-primary" style="margin: 20px 10px 0 0">
-                        Сохранить
-                    </button>
-                    <a href="{% url 'board_tutor' %}">
-                        <button id="btn-close-response" type="button" class="btn btn-primary" style="margin-top: 20px">
-                            Закрыть
-                        </button>
-                    </a>
-
+                <h3 style="text-align: center">{{ error }}</h3>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <a style="text-align: center" href="{% url 'board_tutor' %}">
+                            <button id="btn-back-to-board" type="button" class="btn btn-primary"style="margin-top: 20px">Закрыть</button>
+                         </a>
+                    </div>
                 </div>
-            </form>
-        </div>
 
+
+            </div>
+
+            {% elif ok %}
+
+            <div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; margin-bottom: 60px; width: 55%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
+
+                <h3 style="text-align: center">{{ ok }}</h3>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <a style="text-align: center" href="{% url 'board_tutor' %}">
+                            <button id="btn-back-to-board" type="button" class="btn btn-primary"style="margin-top: 20px">Закрыть</button>
+                         </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            {% else %}
+
+                <div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; margin-bottom: 60px; width: 55%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
+
+                        <h2 style=" margin-bottom: 30px; text-align:center">Отправить отклик</h2><div>
+                            <form action="" method="POST" enctype="multipart/form-data">
+                             {% csrf_token %}
+                                <div class="form" id="form-course" style="background-color: white; padding: 40px; width: 90%;">
+                                    {% bootstrap_form response_form %}
+                                    <button id="saveResponseBtn" type="submit" class="btn btn-primary" style="margin: 20px 10px 0 0">Сохранить</button>
+                                    <a href="{% url 'board_tutor' %}">
+                                        <button id="btn-close-response" type="button" class="btn btn-primary"style="margin-top: 20px">Закрыть</button>
+                                     </a>
+
+                                </div>
+                            </form>
+                        </div>
+
+             {% endif %}
     {% endif %}
-
 
 {% endblock %}
