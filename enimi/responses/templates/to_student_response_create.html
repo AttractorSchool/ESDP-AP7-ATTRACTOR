@@ -50,10 +50,19 @@
 
                             </div>
                             <div class="col-4 text-center align-self-center">
-                                <a href="{% url 'add_chat_message' response.pk %}" class="btn btn-primary chat" style="border-radius: 10px" >
+                                <div class="row">
+                                    <div class="col-12">
+                                        <a href="{% url 'add_chat_message' response.pk %}" class="btn btn-success" style="border-radius: 10px" id="btn" >Открыть чат</a>
+                                    </div>
 
-                                  Открыть чат</a>
+                                    <div class="col-12" style="margin-top: 25px">
+                                        <a href="{% url 'tutor_on_students_responses' request.user.tutor.pk %}" class="btn btn-success" style="border-radius: 10px" id="btn" >Смотреть отклики</a>
+                                    </div>
 
+                                    <div class="col-12" style="margin-top: 25px">
+                                        <a href="{% url 'board_tutor' %}"><button id="btn-close-response" type="button" class="btn btn-primary" style="margin-top: 20px; border-radius: 10px">Назад</button></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

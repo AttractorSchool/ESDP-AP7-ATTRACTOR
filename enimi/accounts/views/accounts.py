@@ -25,6 +25,7 @@ class AccountCreateView(CreateView):
             account.type = kwargs['type']
             account.username = account.email
             # inactive_user = send_verification_email(request, form)
+            account.is_active = True
             account.save()
             registration(account)
             login(request, account)

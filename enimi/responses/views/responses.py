@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404, render
 from django.views.generic import CreateView
 
 from cabinet_tutors.models import TutorCabinets
@@ -130,6 +130,9 @@ class ParentAddResponseView(LoginRequiredMixin, CreateView):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
         context = {}
+        self.extra_context = {
+            'back_page': request.META.get('HTTP_REFERER')
+        }
         if form.is_valid():
             survey = Survey.objects.get(id=request.POST['survey'])
             cabinet_tutor = TutorCabinets.objects.get(id=kwargs['pk'])
@@ -137,7 +140,6 @@ class ParentAddResponseView(LoginRequiredMixin, CreateView):
             tutors_response = Response.objects.filter(author_id=cabinet_tutor.user.pk,
                                                       survey_id=child.survey.pk)
             if tutors_response:
-                print('AAAAAAA')
                 response = Response.objects.get(id=tutors_response[0].pk)
                 context['response'] = response
                 context['response_form'] = ResponseForm
@@ -157,7 +159,16 @@ class ParentAddResponseView(LoginRequiredMixin, CreateView):
                 context['response_form'] = form
                 context['error'] = 'Ранее вы уже делали отклик на этого пользователя'
                 return self.render_to_response(context)
-        context['response_form'] = form
+        subjects = Subject.objects.all()
+        parent = self.request.user
+        children = Account.objects.filter(parent_id=parent.pk).values('id', 'survey')
+        survey_id_list = []
+        for child in children:
+            survey_pk = child.get('survey')
+            survey_id_list.append(survey_pk)
+        surveys = Survey.objects.filter(id__in=survey_id_list)
+        context['subjects'] = subjects
+        context['response_form'] = ParentResponseForm(survey_id_list=survey_id_list)
         return self.render_to_response(context)
 
     # def post(self, request, *args, **kwargs):
