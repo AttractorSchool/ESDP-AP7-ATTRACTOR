@@ -75,9 +75,13 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                               href="#">Отзывы</a>
+                                               href="{% url 'my_tutors' request.user.pk  %}">Мои учителя</a>
                                         </li>
-                                        <li class="nav-item" style="margin-left: 60px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                               href="{% url 'my_reviews' request.user.pk %}">Отзывы</a>
+                                        </li>
+                                        <li class="nav-item" style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
                                             <a class="nav-link active" aria-current="page" style="padding-right: 20px"
