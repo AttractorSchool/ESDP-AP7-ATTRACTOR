@@ -6,6 +6,7 @@ class TypeChoices(TextChoices):
     RESPONSE = 'response', 'Отклик'
     CHAT = 'chat', 'Чат'
     REGISTRATION = 'registration', 'Регистрация'
+    ADDING_STUDENT = 'adding_student', 'Добавление ученика'
 
 
 class Notifications(models.Model):
