@@ -1,43 +1,38 @@
 {% extends 'base_enimi.html' %}
 {% load static %}
 {% load django_bootstrap5 %}
-
+{% block search_btn %}
+{% endblock %}
 {% block content %}
+<style>
+
+</style>
 <div class="box" style="width:auto; background-color:white; border-radius: 15px; margin: -30px; min-height: 300px">
     <section class="blog_area section_gap">
         <div class="container">
             <div class="row">
-
                 <div class="col-lg-3">
                     <div class="blog_right_sidebar">
-
                         <aside class="single_sidebar_widget author_widget">
-                            <img class="author_img rounded-circle" style="width: 60%;"
-                                 src="{{ request.user.avatar.url }}" alt="">
-                            <h4>{{ request.user.first_name}}</h4>
-                            <h4 style="margin-top: 5px;">{{ request.user.last_name}}</h4>
-                            <p>{{ request.user.get_type_display}}</p>
+                            <img class="author_img rounded-circle" style="width: 60%; border-radius: 100px;"
+                                 src="{{ user_obj.avatar.url }}" alt="">
+                            <h4>{{ user_obj.first_name }}</h4>
+                            <h4 style="margin-top: 5px;">{{ user_obj.last_name }}</h4>
+                            <p>{{ user_obj.get_type_display }}</p>
                             <div class="social_icon">
                                 <a href="#"><i class="ti-facebook"></i></a>
                                 <a href="#"><i class="ti-twitter"></i></a>
                                 <a href="#"><i class="ti-github"></i></a>
                                 <a href="#"><i class="ti-linkedin"></i></a>
                             </div>
-
-                            <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
-                            <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
-                            <!--                                    ters andits detractors.</p>-->
                             <div class="br"></div>
                         </aside>
-
                         <aside class="single_sidebar_widget ads_widget">
                             <a href="#"><img class="img-fluid" src="img/blog/add.jpg" alt=""></a>
                             <div class="br"></div>
                         </aside>
-
                     </div>
                 </div>
-
                 <div class="col-lg-9">
                     <div class="mini-navbar" style="-webkit-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
 -moz-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
@@ -81,13 +76,12 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                             <a class="nav-link active" aria-current="page" style="padding-right: 20px"
                                                href="{% url 'my_reviews' request.user.pk %}">Отзывы</a>
                                         </li>
-                                        <li class="nav-item" style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        <li class="nav-item" style="margin-left: 60px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
                                             <a class="nav-link active" aria-current="page" style="padding-right: 20px"
                                                href="#">
                                                 <body onload="clockTimer();">
-
                                                 <div class="clockpage">
                                                     <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
                                                           id="clock"></span>
@@ -96,139 +90,80 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                 </body>
                                             </a>
                                         </li>
-
                                     </ul>
-
                                 </div>
                             </div>
                         </nav>
                     </div>
-
-
                     <div class="blog_left_sidebar">
                         <article class="row blog_item">
-
-                            <div class="col-md-10">
-                                <div class="blog_post">
-                                    <img src="#" alt="">
-                                    <div class="blog_details">
-
-                                        {% for response in responses.all %}
-                                        <div class="row justify-content-center" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
-                                              -moz-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
-                                              box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2); ">
-                                            <div class="col-12" style="border-radius: 20px">
-                                                <div class="row">
-                                                    <div class="col-3 text-center align-self-center"
-                                                         style="margin-top: 25px; margin-bottom: 25px">
-                                                        <img id="avatar"
-                                                             src="{{ response.cabinet_tutor.user.avatar.url }}"
-                                                             class="circlehome-dp"
-                                                             style="border-radius: 100px; width:80%;" alt="signuplogo ">
-                                                    </div>
-
-                                                    <div class="col-9 align-self-center">
-                                                        <div class="row">
-                                                            <div class="col-8">
-                                                                <h5 style="color: #6c757d; padding-top: 25px">Отклик на:
-                                                                    <span style="color: #568be9">{{ response.cabinet_tutor.user.first_name }}</span>
-                                                                    <span style="color: #568be9">{{ response.cabinet_tutor.user.last_name }}</span>
-                                                                </h5>
-                                                                <h5 style="color: #6c757d; padding-top: 10px">Вы
-                                                                    предложили предметы: </h5>
-                                                                {% for subject in response.subjects.all %}
-                                                                <span class="info-item">{{ subject }}{% if not forloop.last %}, {% endif %}</span>
-                                                                {% endfor %}
-                                                                {% if child.with_email == True %}
-                                                                <h5 style="color: #6c757d; padding-top: 8px">Номер
-                                                                    телефона: <span style="color: #568be9">{{ child.phone }}</span>
-                                                                </h5>
-                                                                {% endif %}
-                                                                <hr>
-                                                                <h5 style="color: #6c757d;">Вы отправили
-                                                                    сообщение: </h5>
-                                                                <span class="info-item" style="padding-bottom: 10px">{{ response.hello_message }}</span>
-                                                            </div>
-                                                            <div class="col-4 text-center align-self-center">
-
-                                                                <a href="{% url 'add_chat_message' response.pk %}"
-                                                                   class="btn btn-primary" style="border-radius: 10px"
-                                                                   id="btn">Открыть чат</a>
-
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {% endfor %}
-
-
-                                    </div>
+                            <div class="col-md-9 pt-3">
+                                <div class="review__block">
+                                    <p>Преподаватель: <span>{{ tutor.first_name }} {{ tutor.last_name }}</span></p>
                                 </div>
+                                <form action="{% url 'make_review' tutor.pk %}" method="post">
+                                    {% csrf_token %}
+                                    <textarea class="form-control w-100 p-2" name="text" id="" cols="50" rows="5"></textarea>
+                                    <div class="star-rating mt-3 mb-1">
+                                        <input type="radio" name="rate" id="star-a" value="5"/>
+                                        <label for="star-a"></label>
+
+                                        <input type="radio" name="rate" id="star-b" value="4"/>
+                                        <label for="star-b"></label>
+
+                                        <input type="radio" name="rate" id="star-c" value="3"/>
+                                        <label for="star-c"></label>
+
+                                        <input type="radio" name="rate" id="star-d" value="2"/>
+                                        <label for="star-d"></label>
+
+                                        <input type="radio" name="rate" id="star-e" value="1"/>
+                                        <label for="star-e"></label>
+                                    </div>
+                                    <div>
+                                        <button class="rate__btn btn btn-primary">Отправить отзыв</button>
+                                        <a class="btn btn-secondary ms-2" href="{% url 'my_tutors' request.user.pk  %}">Назад</a>
+                                    </div>
+                                </form>
                             </div>
-
-
                         </article>
-
-
                     </div>
                 </div>
-
             </div>
         </div>
-
-
     </section>
-
-
-</div>
-</div>
-
-
-</div>
-</div>
-</div>
-
-
-</div>
-
-</div>
-
-
 </div>
 <script>
-    function clockTimer()
-{
-  var date = new Date();
+    function clockTimer() {
+        var date = new Date();
 
-  var time = [date.getHours(),date.getMinutes(),date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
-  var dayOfWeek = ["Воскресенье","Понедельник","Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
-  var days = date.getDay();
+        var time = [date.getHours(), date.getMinutes(), date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
+        var dayOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+        var days = date.getDay();
 
-  if(time[0] < 10){time[0] = "0"+ time[0];}
-  if(time[1] < 10){time[1] = "0"+ time[1];}
-  if(time[2] < 10){time[2] = "0"+ time[2];}
+        if (time[0] < 10) {
+            time[0] = "0" + time[0];
+        }
+        if (time[1] < 10) {
+            time[1] = "0" + time[1];
+        }
+        if (time[2] < 10) {
+            time[2] = "0" + time[2];
+            time[2] = "0" + time[2];
+        }
 
-  var current_time = [time[0],time[1],time[2]].join(':');
-  var clock = document.getElementById("clock");
-  var day = document.getElementById("dayOfWeek");
+        var current_time = [time[0], time[1], time[2]].join(':');
+        var clock = document.getElementById("clock");
+        var day = document.getElementById("dayOfWeek");
 
-  clock.innerHTML = current_time;
-  day.innerHTML = dayOfWeek[days];
+        clock.innerHTML = current_time;
+        day.innerHTML = dayOfWeek[days];
 
-
-
-  setTimeout("clockTimer()", 1000);
-}
+        setTimeout("clockTimer()", 1000);
+    }
 
 </script>
 
-<script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'js/popper.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -241,6 +176,5 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 <script src="{% static 'js/gmaps.min.js' %}"></script>
 <script src="{% static 'js/theme.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/clock.js' %}"></script>
 
 {% endblock %}

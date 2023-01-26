@@ -5,133 +5,118 @@
 {% endblock %}
 {% block content %}
 
-    <div class="box" style="width:auto; background-color:white; border-radius: 15px; margin: -30px; min-height: 300px">
-        <section class="blog_area section_gap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="blog_right_sidebar">
-                            <aside class="single_sidebar_widget author_widget">
-                                <img class="author_img rounded-circle" style="width: 60%; border-radius: 100px;"
-                                     src="{{ user_obj.avatar.url }}" alt="">
-                                <h4>{{ user_obj.first_name }}</h4>
-                                <h4 style="margin-top: 5px;">{{ user_obj.last_name }}</h4>
-                                <p>{{ user_obj.get_type_display }}</p>
-                                <div class="social_icon">
-                                    <a href="#"><i class="ti-facebook"></i></a>
-                                    <a href="#"><i class="ti-twitter"></i></a>
-                                    <a href="#"><i class="ti-github"></i></a>
-                                    <a href="#"><i class="ti-linkedin"></i></a>
-                                </div>
-                                <p>
-                                    <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
-                                </p>
+<div class="box" style="width:auto; background-color:white; border-radius: 15px; margin: -30px; min-height: 300px">
+    <section class="blog_area section_gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget author_widget">
+                            <img class="author_img rounded-circle" style="width: 60%; border-radius: 100px;"
+                                 src="{{ user_obj.avatar.url }}" alt="">
+                            <h4>{{ user_obj.first_name}}</h4>
+                            <h4 style="margin-top: 5px;">{{ user_obj.last_name}}</h4>
+                            <p>{{ user_obj.get_type_display}}</p>
+                            <div class="social_icon">
+                                <a href="#"><i class="ti-facebook"></i></a>
+                                <a href="#"><i class="ti-twitter"></i></a>
+                                <a href="#"><i class="ti-github"></i></a>
+                                <a href="#"><i class="ti-linkedin"></i></a>
+                            </div>
 
-                                <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
-                                <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
-                                <!--                                    ters andits detractors.</p>-->
-                                <div class="br"></div>
-                            </aside>
+                            <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
+                            <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
+                            <!--                                    ters andits detractors.</p>-->
+                            <div class="br"></div>
+                        </aside>
 
-                            <aside class="single_sidebar_widget ads_widget">
-                                <a href="#"><img class="img-fluid" src="img/blog/add.jpg" alt=""></a>
-                                <div class="br"></div>
-                            </aside>
+                        <aside class="single_sidebar_widget ads_widget">
+                            <a href="#"><img class="img-fluid" src="img/blog/add.jpg" alt=""></a>
+                            <div class="br"></div>
+                        </aside>
 
-                        </div>
                     </div>
+                </div>
 
-                    <div class="col-lg-9">
-                        <div class="mini-navbar" style="-webkit-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
+                <div class="col-lg-9">
+                    <div class="mini-navbar" style="-webkit-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
 -moz-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
 box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
-                            <nav class="navbar navbar-expand-lg bg-light" style="background-color: #f1f9ff">
-                                <div class="container-fluid">
-                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#navbarSupportedContent"
-                                            aria-controls="navbarSupportedContent" aria-expanded="false"
-                                            aria-label="Переключатель навигации">
-                                        <span class="navbar-toggler-icon"></span>
-                                    </button>
-                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                            <li class="nav-item" style="box-shadow: #0c5460">
-                                                <a class="nav-link active" aria-current="page"
-                                                   style="padding-right: 20px"
-                                                   href="{% url 'student_cabinet_detail' request.user.pk %}">Главная</a>
-                                            </li>
-                                            <li class="nav-item" style="box-shadow: #0c5460">
-                                                <a class="nav-link active" aria-current="page"
-                                                   style="padding-right: 20px"
-                                                   href="{% url 'student_detail_survey' request.user.pk %}">Моя
-                                                    анкета</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page"
-                                                   style="padding-right: 20px"
-                                                   href="#">Успеваемость</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page"
-                                                   style="padding-right: 20px"
-                                                   href="{% url 'to_me_student_responses' request.user.pk %}">Отклики на
-                                                    меня</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page"
-                                                   style="padding-right: 20px"
-                                                   href="{% url 'student_on_tutor_responses' request.user.pk %}">Мои
-                                                    отклики</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page"
-                                                   style="padding-right: 20px"
-                                                   href="#">Отзывы</a>
-                                            </li>
-                                            <li class="nav-item" style="margin-left: 60px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                        <nav class="navbar navbar-expand-lg bg-light" style="background-color: #f1f9ff">
+                            <div class="container-fluid">
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Переключатель навигации">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item" style="box-shadow: #0c5460">
+                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                               href="{% url 'student_cabinet_detail' request.user.pk %}">Главная</a>
+                                        </li>
+                                        <li class="nav-item" style="box-shadow: #0c5460">
+                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                               href="{% url 'student_detail_survey' request.user.pk %}">Моя анкета</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                               href="#">Успеваемость</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                               href="{% url 'to_me_student_responses' request.user.pk %}">Отклики на
+                                                меня</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                               href="{% url 'student_on_tutor_responses' request.user.pk %}">Мои
+                                                отклики</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                               href="{% url 'my_tutors' request.user.pk  %}">Мои учителя</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                               href="{% url 'my_reviews' request.user.pk %}">Отзывы</a>
+                                        </li>
+                                        <li class="nav-item" style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
-                                                <a class="nav-link active" aria-current="page"
-                                                   style="padding-right: 20px"
-                                                   href="#">
-                                                    <body onload="clockTimer();">
+                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                               href="#">
+                                                <body onload="clockTimer();">
 
-                                                    <div class="clockpage">
-                                                        <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
-                                                              id="clock"></span>
-                                                        <span style="display: block;" id="dayOfWeek"></span>
-                                                    </div>
-                                                    </body>
-                                                </a>
-                                            </li>
+                                                <div class="clockpage">
+                                                    <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
+                                                          id="clock"></span>
+                                                    <span style="display: block;" id="dayOfWeek"></span>
+                                                </div>
+                                                </body>
+                                            </a>
+                                        </li>
 
-                                        </ul>
+                                    </ul>
 
-                                    </div>
                                 </div>
-                            </nav>
-                        </div>
-
-
-                        <div class="blog_left_sidebar">
-                            <article class="row blog_item">
-
-                                <div class="col-md-9">
-                                    <div class="blog_post">
-                                        <img src="#" alt="">
-                                        <div class="blog_details">
-
-                                            {% if request.user.with_survey %}
-
-                                                <h2>Расписание</h2>
-                                            {% else %}
-
-                                                <h2>Здравствуй, дорогой пользователь!</h2>
-
-                                                <span>Рады приветствовать тебя в лучшем приложении в мире
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="blog_left_sidebar">
+                        <article class="row blog_item">
+                            <div class="col-md-9">
+                                <div class="blog_post">
+                                    <img src="#" alt="">
+                                    <div class="blog_details">
+                                        {% if request.user.with_survey %}
+                                        <h2>Расписание</h2>
+                                        {% else %}
+                                        <h2>Здравствуй, дорогой пользователь!</h2>
+                                        <span>Рады приветствовать тебя в лучшем приложении в мире
                                     Чтобы пользоваться услугами нашего сервиса вам необходимо
-                                    создать анкету . Это не займёт много времени!</p>
-                                                    <div class="row justify-content-center" style="margin-top: 30px">
+                                    создать анкету . Это не займёт много времени!</span>
+                                            <div class="row justify-content-center" style="margin-top: 30px">
                                             <div class="col-12 text-center">
                                                 <a href="{% url 'student_create_survey' request.user.pk %}"
                                                    class="btn btn-primary" style="border-radius: 10px"
@@ -142,100 +127,95 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                             </div>
                                         </div>
 
-                                                </div>
-                                                </div>
-                                                </div>
-                                            {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
 
-                                <!--                                <div class="col-md-3">-->
-                                <!--                                    <div class="blog_info text-right">-->
-                                <!--                                        <div class="post_tag">-->
-                                <!--                                            <a href="#">Food,</a>-->
-                                <!--                                            <a class="active" href="#">Technology,</a>-->
-                                <!--                                            <a href="#">Politics,</a>-->
-                                <!--                                            <a href="#">Lifestyle</a>-->
-                                <!--                                        </div>-->
-                                <!--                                        <ul class="blog_meta list">-->
-                                <!--                                            <li><a href="#">Mark wiens<i class="ti-user"></i></a></li>-->
-                                <!--                                            <li><a href="#">12 Dec, 2017<i class="ti-calendar"></i></a></li>-->
-                                <!--                                            <li><a href="#">1.2M Views<i class="ti-eye"></i></a></li>-->
-                                <!--                                            <li><a href="#">06 Comments<i class="ti-comment"></i></a></li>-->
-                                <!--                                        </ul>-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
+                            <!--                                <div class="col-md-3">-->
+                            <!--                                    <div class="blog_info text-right">-->
+                            <!--                                        <div class="post_tag">-->
+                            <!--                                            <a href="#">Food,</a>-->
+                            <!--                                            <a class="active" href="#">Technology,</a>-->
+                            <!--                                            <a href="#">Politics,</a>-->
+                            <!--                                            <a href="#">Lifestyle</a>-->
+                            <!--                                        </div>-->
+                            <!--                                        <ul class="blog_meta list">-->
+                            <!--                                            <li><a href="#">Mark wiens<i class="ti-user"></i></a></li>-->
+                            <!--                                            <li><a href="#">12 Dec, 2017<i class="ti-calendar"></i></a></li>-->
+                            <!--                                            <li><a href="#">1.2M Views<i class="ti-eye"></i></a></li>-->
+                            <!--                                            <li><a href="#">06 Comments<i class="ti-comment"></i></a></li>-->
+                            <!--                                        </ul>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
 
-                            </article>
+                        </article>
 
 
-                        </div>
                     </div>
-
                 </div>
+
             </div>
+        </div>
 
 
-    </div>
+</div>
 
-    </section>
-    </div>
-
-
-
-    </div>
-    </div>
-    </div>
-
-    </div>
-
-    </div>
+</section>
+</div>
 
 
+</div>
+</div>
+</div>
 
-    </div>
+</div>
 
-
-    <script>
-        function clockTimer() {
-            var date = new Date();
-
-            var time = [date.getHours(), date.getMinutes(), date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
-            var dayOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
-            var days = date.getDay();
-
-            if (time[0] < 10) {
-                time[0] = "0" + time[0];
-            }
-            if (time[1] < 10) {
-                time[1] = "0" + time[1];
-            }
-            if (time[2] < 10) {
-                time[2] = "0" + time[2];
-            }
-
-            var current_time = [time[0], time[1], time[2]].join(':');
-            var clock = document.getElementById("clock");
-            var day = document.getElementById("dayOfWeek");
-
-            clock.innerHTML = current_time;
-            day.innerHTML = dayOfWeek[days];
+</div>
 
 
-            setTimeout("clockTimer()", 1000);
-        }
-    </script>
+</div>
 
 
-    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'js/popper.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
-    <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/owl-carousel-thumb.min.js' %}"></script>
-    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
-    <script src="{% static 'js/mail-script.js' %}"></script>
-    <!--gmaps Js-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-    <script src="{% static 'js/gmaps.min.js' %}"></script>
-    <script src="{% static 'js/theme.js' %}"></script>
+<script>
+    function clockTimer()
+{
+  var date = new Date();
+
+  var time = [date.getHours(),date.getMinutes(),date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
+  var dayOfWeek = ["Воскресенье","Понедельник","Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+  var days = date.getDay();
+
+  if(time[0] < 10){time[0] = "0"+ time[0];}
+  if(time[1] < 10){time[1] = "0"+ time[1];}
+  if(time[2] < 10){time[2] = "0"+ time[2];}
+
+  var current_time = [time[0],time[1],time[2]].join(':');
+  var clock = document.getElementById("clock");
+  var day = document.getElementById("dayOfWeek");
+
+  clock.innerHTML = current_time;
+  day.innerHTML = dayOfWeek[days];
+
+
+
+  setTimeout("clockTimer()", 1000);
+}
+
+</script>
+
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/owl-carousel-thumb.min.js' %}"></script>
+<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static 'js/mail-script.js' %}"></script>
+<!--gmaps Js-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+<script src="{% static 'js/gmaps.min.js' %}"></script>
+<script src="{% static 'js/theme.js' %}"></script>
 
 {% endblock %}

@@ -2,9 +2,9 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.files.base import ContentFile
 from django.core.files.storage import FileSystemStorage
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
-from django.views.generic import DetailView, CreateView, UpdateView, ListView
+from django.views.generic import DetailView, CreateView, UpdateView, ListView, FormView
 from django.http import HttpResponse
 from django.core import serializers
 import base64
@@ -17,8 +17,9 @@ from django.http.response import JsonResponse
 from cabinet_student.forms import SurveyForm, StudentAreaForm, TutorAreaForm
 
 from cabinet_parents.models import Survey, TutorArea, Region, City, District, StudentArea
-from cabinet_tutors.models import TutorCabinets
+from cabinet_tutors.models import TutorCabinets, MyStudent
 from responses.models import Response
+from reviews.models.reviews import Review
 
 
 class StudentProfileView(LoginRequiredMixin, DetailView):
@@ -31,7 +32,6 @@ class StudentProfileView(LoginRequiredMixin, DetailView):
         context['student_register_form'] = AccountForm()
         context['main_form'] = SurveyForm()
         return context
-
 
 
 class CreateStudentSurveyView(LoginRequiredMixin, CreateView):
@@ -104,7 +104,6 @@ class CreateStudentSurveyView(LoginRequiredMixin, CreateView):
 class StudentDetailSurveyView(LoginRequiredMixin, ListView):
     template_name = 'student_detail_survey.html'
     model = Account
-
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(StudentDetailSurveyView, self).get_context_data(object_list=object_list, **kwargs)
@@ -223,3 +222,62 @@ class StudentOnTutorResponsesView(LoginRequiredMixin, ListView):
         context['responses'] = responses
         context['student_responses'] = '1'
         return context
+
+
+class MyTutorsView(ListView):
+    template_name = "student_my_tutors.html"
+    model = MyStudent
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(MyTutorsView, self).get_context_data(object_list=object_list, **kwargs)
+        student = Account.objects.get(id=self.kwargs['pk'])
+        context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
+        context['my_tutors'] = MyStudent.objects.filter(student_id=student.pk)
+        context['tutors_cabinets'] = TutorCabinets.objects.all()
+        return context
+
+
+class ReviewMakeView(DetailView):
+    template_name = "make_review_on_tutor.html"
+    model = Account
+
+    context_object_name = "tutor"
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ReviewMakeView, self).get_context_data(object_list=object_list, **kwargs)
+        context['tutors'] = Account.objects.all()
+        return context
+
+
+class ReviewCreateView(CreateView):
+    template_name = "make_review_on_tutor.html"
+    model = Review
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ReviewCreateView, self).get_context_data(object_list=object_list, **kwargs)
+        context['user_obj'] = Account.objects.get(pk=self.kwargs['pk'])
+        return context
+
+    def post(self, request, *args, **kwargs):
+        tutor = get_object_or_404(Account, pk=kwargs.get('pk'))
+        user = request.user
+        rate = request.POST.get('rate')
+        text = request.POST.get('text')
+
+        Review.objects.create(author=user, tutor=tutor, rate=rate, text=text)
+
+        return redirect('my_reviews', pk=user.pk)
+
+
+class ReviewListView(ListView):
+    template_name = 'student_reviews_list.html'
+    model = Review
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        student = Account.objects.get(id=self.kwargs['pk'])
+        context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
+        context['my_tutors'] = MyStudent.objects.filter(student_id=student.pk)
+        context['my_reviews'] = Review.objects.filter(author_id=student.pk)
+        return context
+

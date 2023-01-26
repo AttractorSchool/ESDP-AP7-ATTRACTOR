@@ -23,10 +23,6 @@
                                 <a href="#"><i class="ti-github"></i></a>
                                 <a href="#"><i class="ti-linkedin"></i></a>
                             </div>
-
-                            <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
-                            <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
-                            <!--                                    ters andits detractors.</p>-->
                             <div class="br"></div>
                         </aside>
 
@@ -37,7 +33,6 @@
 
                     </div>
                 </div>
-
                 <div class="col-lg-9">
                     <div class="mini-navbar" style="-webkit-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
 -moz-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
@@ -73,7 +68,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                href="{% url 'student_on_tutor_responses' request.user.pk %}">Мои
                                                 отклики</a>
                                         </li>
-                                        <li class="nav-item">
+                                         <li class="nav-item">
                                             <a class="nav-link active" aria-current="page" style="padding-right: 20px"
                                                href="{% url 'my_tutors' request.user.pk  %}">Мои учителя</a>
                                         </li>
@@ -96,109 +91,40 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                 </body>
                                             </a>
                                         </li>
-
                                     </ul>
-
                                 </div>
                             </div>
                         </nav>
                     </div>
-
-
                     <div class="blog_left_sidebar">
                         <article class="row blog_item">
-
                             <div class="col-md-10">
                                 <div class="blog_post">
                                     <img src="#" alt="">
                                     <div class="blog_details">
-
-                                        {% for response in responses.all %}
-                                        <div class="row justify-content-center" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
-                                              -moz-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
-                                              box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2); ">
-                                            <div class="col-12" style="border-radius: 20px">
-                                                <div class="row">
-                                                    <div class="col-3 text-center align-self-center"
-                                                         style="margin-top: 25px; margin-bottom: 25px">
-                                                        <img id="avatar"
-                                                             src="{{ response.cabinet_tutor.user.avatar.url }}"
-                                                             class="circlehome-dp"
-                                                             style="border-radius: 100px; width:80%;" alt="signuplogo ">
-                                                    </div>
-
-                                                    <div class="col-9 align-self-center">
-                                                        <div class="row">
-                                                            <div class="col-8">
-                                                                <h5 style="color: #6c757d; padding-top: 25px">Отклик на:
-                                                                    <span style="color: #568be9">{{ response.cabinet_tutor.user.first_name }}</span>
-                                                                    <span style="color: #568be9">{{ response.cabinet_tutor.user.last_name }}</span>
-                                                                </h5>
-                                                                <h5 style="color: #6c757d; padding-top: 10px">Вы
-                                                                    предложили предметы: </h5>
-                                                                {% for subject in response.subjects.all %}
-                                                                <span class="info-item">{{ subject }}{% if not forloop.last %}, {% endif %}</span>
-                                                                {% endfor %}
-                                                                {% if child.with_email == True %}
-                                                                <h5 style="color: #6c757d; padding-top: 8px">Номер
-                                                                    телефона: <span style="color: #568be9">{{ child.phone }}</span>
-                                                                </h5>
-                                                                {% endif %}
-                                                                <hr>
-                                                                <h5 style="color: #6c757d;">Вы отправили
-                                                                    сообщение: </h5>
-                                                                <span class="info-item" style="padding-bottom: 10px">{{ response.hello_message }}</span>
-                                                            </div>
-                                                            <div class="col-4 text-center align-self-center">
-
-                                                                <a href="{% url 'add_chat_message' response.pk %}"
-                                                                   class="btn btn-primary" style="border-radius: 10px"
-                                                                   id="btn">Открыть чат</a>
-
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-
+                                        <div class="tutor__reviews__block">
+                                            {% for tutor in tutors %}
+                                            <a href="{% url 'detail_tutor' tutor.cabinet_tutor.user.pk %}" class="tutor__reviews__item">
+                                                <div class="tut_avatar-img-block">
+                                                    <img src="{{ tutor.cabinet_tutor.user.avatar.url }}" alt=""
+                                                         class="tut_avatar-img">
                                                 </div>
-                                            </div>
+                                                <p class="tut__name">
+                                                    {{ tutor.cabinet_tutor.user.first_name }}
+                                                    {{ tutor.cabinet_tutor.user.last_name }}
+                                                </p>
+                                            </a>
+                                            {% endfor %}
                                         </div>
-                                        {% endfor %}
-
-
                                     </div>
                                 </div>
                             </div>
-
-
                         </article>
-
-
                     </div>
                 </div>
-
             </div>
         </div>
-
-
     </section>
-
-
-</div>
-</div>
-
-
-</div>
-</div>
-</div>
-
-
-</div>
-
-</div>
-
-
 </div>
 <script>
     function clockTimer()
@@ -220,13 +146,10 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
   clock.innerHTML = current_time;
   day.innerHTML = dayOfWeek[days];
 
-
-
   setTimeout("clockTimer()", 1000);
 }
 
 </script>
-
 <script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
