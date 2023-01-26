@@ -4,32 +4,28 @@
 
 {% block content %}
     <div class="d-flex flex-row flex-wrap" style="padding-top: 100px;">
-{#        <div class="d-block">#}
-{#            {% for notification in notifications %}#}
-{#                {% if notification.viewed == False %}#}
-{#                    <div>#}
-{#                        {{ notification.message }} <span style="color: black;">{{ notification.cnt }}</span>#}
-{#                    </div>#}
-{#                {% endif %}#}
-{#            {% endfor %}#}
-{#        </div>#}
+        <div class="d-block">
+
+        </div>
 
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">Сообщение</th>
+                <th scope="col">Уведомление</th>
                 <th scope="col">Дата</th>
                 <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-                        {% for notification in notifications %}
-                            {% if notification.type != 'response' %}
-                                {% include 'partial/chats.html' %}
-                            {% else %}
-                                {% include 'partial/responses.html' %}
-                            {% endif %}
-                        {% endfor %}
+
+            {% for notification in notifications %}
+                {% if notification.type == 'response' or notification.type == 'registration' %}
+                    {% include 'partial/responses.html' %}
+                {% elif notification.type == 'chat' %}
+                    {% include 'partial/chats.html' %}
+                {% endif %}
+            {% endfor %}
+
             </tbody>
         </table>
         {% if is_paginated %}
@@ -41,7 +37,7 @@
 {% block script %}
     <script>
         $(document).ready(function () {
-            console.log('ASDASDASDASD')
+            console.log('Test')
         });
     </script>
 {% endblock %}

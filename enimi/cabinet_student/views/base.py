@@ -191,7 +191,6 @@ class ResetStudentOfflineStudyStudentAreaView(UpdateView):
         student_area.student_region = Region.objects.get(region='Не указано')
         student_area.student_city = City.objects.get(city='Не указано')
         student_area.student_district = District.objects.get(district='Не указано')
-
         student_area.save()
         survey = Survey.objects.get(student_area_id=student_area.pk)
         student = Account.objects.get(id=survey.user_id)
@@ -208,6 +207,7 @@ class StudentToMeResponsesView(LoginRequiredMixin, ListView):
         survey_pk = user.survey.pk
         responses = Response.objects.filter(survey_id=survey_pk)
         context['responses'] = responses
+        context['tutor_responses'] = '1'
         return context
 
 
@@ -219,8 +219,8 @@ class StudentOnTutorResponsesView(LoginRequiredMixin, ListView):
         context = super(StudentOnTutorResponsesView, self).get_context_data(object_list=object_list, **kwargs)
         user = Account.objects.get(id=self.kwargs['pk'])
         responses = Response.objects.filter(author_id=user.pk)
-        print(responses)
         context['responses'] = responses
+        context['student_responses'] = '1'
         return context
 
 

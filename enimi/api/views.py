@@ -20,29 +20,29 @@ class AddMessage(APIView):
         # Когда репетитор отправляет сообщение ученику, при этом сообщение приходит родителю (автор отклика - репетитор)
         if author.type == 'tutor' and author == response.author and response.survey and response.survey.user.parent \
                 and not response.survey.user.with_email:
-            chats(response.survey.user.parent, author)
+            chats(response.survey.user.parent, author, response, child=response.survey.user)
         # Когда репетитор отправляет сообщение самостоятельному ученику (автор отклика - репетитор)
         if author.type == 'tutor' and author == response.author and response.survey and response.survey.user.with_email:
-            chats(response.survey.user, author)
+            chats(response.survey.user, author, response)
         # Когда репетитор отправляет сообщение ученику, при этом сообщение приходит родителю (автор отклика - ученик)
         if author.type == 'tutor' and author != response.author and response.author.parent \
                 and not response.author.with_email:
-            chats(response.author.parent, author)
+            chats(response.author.parent, author, response, child=response.survey.user)
         # Когда репетитор отправляет сообщение самостоятельному ученику (автор отклика - ученик)
         if author.type == 'tutor' and author != response.author and response.author.with_email:
-            chats(response.author, author)
+            chats(response.author, author, response)
         # Когда самостоятельный ученик отправляет сообщение репетитору (автор отклика - репетитор)
         if author.type == 'student' and author != response.author:
-            chats(response.author, author)
+            chats(response.author, author, response)
         # Когда самостоятльный ученик отправляет сообщение репетитору (автор отклика - ученик)
         if author.type == 'student' and response.cabinet_tutor:
-            chats(response.cabinet_tutor.user, author)
+            chats(response.cabinet_tutor.user, author, response)
         # Когда ученик отправляет сообщение репетитору от лица родителя (автор отклика - репетитор)
         if author.type == 'parents' and not response.cabinet_tutor:
-            chats(response.author, response.survey.user)
+            chats(response.author, response.survey.user, response)
         # Когда ученик отправляет сообщение репетитору от лица родителя (автор отклика - ученик)
         if author.type == 'parents' and response.cabinet_tutor:
-            chats(response.cabinet_tutor.user, response.author)
+            chats(response.cabinet_tutor.user, response.author, response)
         return JsonResponse({'chats': 'Сообщение добавлено'})
 
 

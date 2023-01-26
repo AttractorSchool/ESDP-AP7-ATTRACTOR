@@ -38,6 +38,14 @@ class Notifications(models.Model):
         blank=True,
         on_delete=models.CASCADE
     )
+    response = models.ForeignKey(
+        verbose_name='Отклик',
+        to='responses.Response',
+        related_name='notification_response',
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE
+    )
     viewed = models.BooleanField(
         verbose_name='Просмотрено',
         default=False,
