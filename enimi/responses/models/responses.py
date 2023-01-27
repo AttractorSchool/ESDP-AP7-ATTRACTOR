@@ -5,7 +5,7 @@ from django.db import models
 class Response(models.Model):
     author = models.ForeignKey(verbose_name='Автор отклика', to='accounts.Account', related_name='responses',
                                null=False, blank=False, on_delete=models.CASCADE)
-    hello_message = models.TextField(verbose_name='Приветственное сообщение', null=False, blank=True, max_length=3000,
+    hello_message = models.TextField(verbose_name='Приветственное сообщение', null=False, blank=False, max_length=3000,
                                      default='Здравствуйте. Меня заинтересовала ваша анкета!')
     subjects = models.ManyToManyField(
         to='cabinet_parents.Subject',
