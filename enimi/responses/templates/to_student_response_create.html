@@ -56,11 +56,13 @@
                                     </div>
 
                                     <div class="col-12" style="margin-top: 25px">
-                                        <a href="{% url 'tutor_on_students_responses' request.user.tutor.pk %}" class="btn btn-success" style="border-radius: 10px" id="btn" >Смотреть отклики</a>
+                                        <a href="{% url 'students_on_tutor_responses' request.user.tutor.pk %}" class="btn btn-success" style="border-radius: 10px" id="btn" >Смотреть отклики</a>
                                     </div>
 
                                     <div class="col-12" style="margin-top: 25px">
-                                        <a href="{% url 'board_tutor' %}"><button id="btn-close-response" type="button" class="btn btn-primary" style="margin-top: 20px; border-radius: 10px">Назад</button></a>
+                                        <a href="{% url 'board_student' %}">
+                                            <button id="btn-close-response" type="button" class="btn btn-primary" style="margin-top: 20px; border-radius: 10px">Назад</button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
