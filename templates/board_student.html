@@ -21,6 +21,10 @@
                     <div class="tut__location-block">
                         <div class="tut__location">
                             <p class="tut__country"></p>
+                            <div class="tut__rate">
+                                <p class="rate__num"><i class="fa-solid fa-star"></i> </p>
+                                <p class="tut__rate-reviews"> <span></span></p>
+                            </div>
                             <div class="tut__cost">
                                 <p class="cost">Стоимость</p>
                                 <p class="price">{{survey.min_cost}}-{{survey.max_cost}}<span>тнг/час</span></p>
@@ -32,43 +36,32 @@
                             <button class="tut__connection_btn">Связаться со студентом</button>
                         </a>
                     </div>
-                    <div class="tut__connection_btn_block text-center" style="margin-top: 20px">
-                        <a href="{% url 'student_board_detail_page' survey.pk %}">Подробнее>></a>
-                    </div>
                 </div>
                 <div class="tut-info">
                     <div class="tut-info__experience">
                         <p class="tut-info__subject">
                         <i class="fa-solid fa-book-open"></i>
                             {% for sub in survey.subjects.all %}
-                               <span class="tut__location">{{sub.subject}}</span>
+                               <span>{{sub.subject}},</span>
                             {% endfor %}
                         </p>
 
                     </div>
+                    <div class="tut-info__experience">
+                        <p class="tut-info__edu" style="color:black;">Подготовка по школьным программам:
+                            {% for p in survey.programs.all %}
+                               <span>{{p.program}},</span>
+                            {% endfor %}
 
-                    {% if survey.programs.all %}
-                        <div class="tut-info__experience">
-                            <p class="tut-info__edu" style="color:black;">Подготовка по школьным программам:
-                                {% for p in survey.programs.all %}
-                                   <span>{{p.program}},</span>
-                                {% endfor %}
-
-                            </p>
-                        </div>
-                    {% endif %}
-
-
-                    {% if survey.tests.all %}
-                        <div class="tut-info__experience">
-                            <p class="tut-info__edu " style="color: black;">Подготовка к тестам:
-                            {% for t in survey.tests.all %}
-                                   <span>{{t.test_name}}</span>
-                                {% endfor %}
-                            </p>
-                        </div>
-                    {% endif %}
-
+                        </p>
+                    </div>
+                    <div class="tut-info__experience">
+                        <p class="tut-info__edu " style="color: black;">Подготовка к тестам:
+                        {% for t in survey.tests.all %}
+                               <span>{{t.test_name}},</span>
+                            {% endfor %}
+                        </p>
+                    </div>
                     <div class="tut-info__experience">
                         <p class="tut-info__edu " style="color: black;">Время обучения:
 
@@ -76,81 +69,79 @@
 
                         </p>
                     </div>
-
-
-<!--                    {% if survey.online.all %}-->
-<!--                        <div class="tut-info__experience">-->
-<!--                            <p class="tut-info__online"><b style="color: black;"><i class="fa-solid fa-check"></i>Возможны занятия онлайн</b></p>-->
-<!--&lt;!&ndash;                            {% for class in survey.online.all %}&ndash;&gt;-->
-<!--&lt;!&ndash;                            <p class="tut-info__edu " style="color: black;">&ndash;&gt;-->
-<!--&lt;!&ndash;                                   <span>{{class.online_platform}}</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </p>&ndash;&gt;-->
-<!--&lt;!&ndash;                            {% endfor %}&ndash;&gt;-->
-<!--&lt;!&ndash;                            <p class="tut-info__description">&ndash;&gt;-->
-<!--&lt;!&ndash;                            </p>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                    {% endif %}-->
-
-<!--                    {% if survey.student_area.region %}-->
-<!--                        <div class="tut-info__experience">-->
-<!--                            <p class="tut-info__online" ><b style="color: black;"><i class="fa-solid fa-check"></i>Возможны занятия дома</b></p>-->
-<!--&lt;!&ndash;                            <p class="tut-info__edu " style="color: black;">&ndash;&gt;-->
-<!--&lt;!&ndash;                                   <span>{{survey.student_area}}</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </p>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <p class="tut-info__description">&ndash;&gt;-->
-<!--&lt;!&ndash;                            </p>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                    {% endif %}-->
-
-                    {% if survey.tutor_area %}
-                        <div class="tut-info__experience">
-                            <p class="tut-info__online"><b style="color: black;"><i class="fa-solid fa-check"></i>Возможны занятия у репетитора</b></p>
-
-                        </div>
-                    {% endif %}
-
+                    <div class="tut-info__experience">
+                        <p class="tut-info__online"><b style="color: black;">✓ Возможны занятия онлайн</b></p>
+                        {% for class in survey.online.all %}
+                        <p class="tut-info__edu " style="color: black;">
+                               <span>{{class.online_platform}},</span>
+                        </p>
+                        {% endfor %}
+                        <p class="tut-info__description">
+                        </p>
+                    </div>
+                    <div class="tut-info__experience">
+                        <p class="tut-info__online" ><b style="color: black;">✓ Возможны занятия дома</b></p>
+                        <p class="tut-info__edu " style="color: black;">
+                               <span>{{survey.student_area}}</span>
+                        </p>
+                        <p class="tut-info__description">
+                        </p>
+                    </div>
+                    <div class="tut-info__experience">
+                        <p class="tut-info__online"><b style="color: black;">✓ Возможны занятия у репетитора</b></p>
+                        <p class="tut-info__edu " style="color: black;">
+                               <span>{{survey.tutor_area}}</span>
+                        </p>
+                        <p class="tut-info__description">
+                        </p>
+                    </div>
                 </div>
             </div>
             {% endfor %}
         </div>
+
         <div class="filter-tutor">
             <h3 class="filter-tutor__title">Фильтры</h3>
             <div class="filter-tutor__block">
-                <form action="">
+                <form action="{% url 'filter_students' %}" method="get">
                     <div class="filter-tutor__item">
                         <p>Выберите дисциплину:</p>
-                        <select name="" id="">
+                        <select name="subject" id="">
                             <option value="" selected disabled hidden>Выберите дисциплину</option>
-                            <option value="">География</option>
+                            {% for s in subjects %}
+                            <option value="{{ s.id }}">{{ s.subject }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="filter-tutor__item">
                         <p>Желаемое место обучения:</p>
-                        <select name="" id="">
+                        <select name="city" id="">
                             <option value="" selected disabled hidden>Выберите город</option>
-                            <option value="">Алматы</option>
-                            <option value="">Астана</option>
+                            {% for c in cities %}
+                            <option value="{{ c.id}}">{{ c.city }}</option>
+                            {% endfor %}
                         </select>
-                        <select name="" id="">
+                        <select name="format" id="">
                             <option value="" selected disabled hidden>У репетитора/у ученика/онлайн</option>
-                            <option value="">У репетитора</option>
-                            <option value="">У ученика</option>
-                            <option value="">Онлайн</option>
+                            <option value="tutor">У репетитора</option>
+                            <option value="student">У ученика</option>
+                            <option value="online">Онлайн</option>
                         </select>
                     </div>
                     <div class="filter-tutor__item">
                         <p>Стоимость часа занятий:</p>
-                        <input type="number" name="" id="" placeholder="Цена от:">
-                        <input type="number" name="" id="" placeholder="Цена до:">
+                        <input type="number" name="min_cost" id="" placeholder="Цена от:">
+                        <input type="number" name="max_cost" id="" placeholder="Цена до:">
                     </div>
                     <div class="filter-tutor__item">
                         <p>Способ сортировки:</p>
-                        <select name="" id="">
+                        <select name="order" id="">
                             <option value="" selected disabled hidden>Способ сортировки</option>
-                            <option value="">По рейтингу</option>
-                            <option value="">По цене</option>
+                            <option value="by_rate">По рейтингу</option>
+                            <option value="by_cost">По цене</option>
                         </select>
                     </div>
+                <button type="submit">Искать</button>
                 </form>
             </div>
         </div>

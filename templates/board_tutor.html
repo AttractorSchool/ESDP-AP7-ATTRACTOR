@@ -93,41 +93,45 @@
         <div class="filter-tutor">
             <h3 class="filter-tutor__title">Фильтры</h3>
             <div class="filter-tutor__block">
-                <form action="">
+                <form action="{% url 'filter_tutors' %}" method="get">
                     <div class="filter-tutor__item">
                         <p>Выберите дисциплину:</p>
-                        <select name="" id="">
+                        <select name="subject" id="">
                             <option value="" selected disabled hidden>Выберите дисциплину</option>
-                            <option value="">География</option>
+                            {% for s in subjects %}
+                            <option value="{{ s.id }}">{{ s.subject }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="filter-tutor__item">
                         <p>Желаемое место обучения:</p>
-                        <select name="" id="">
+                        <select name="city" id="">
                             <option value="" selected disabled hidden>Выберите город</option>
-                            <option value="">Алматы</option>
-                            <option value="">Астана</option>
+                            {% for c in cities %}
+                            <option value="{{ c.id}}">{{ c.city }}</option>
+                            {% endfor %}
                         </select>
-                        <select name="" id="">
+                        <select name="format" id="">
                             <option value="" selected disabled hidden>У репетитора/у ученика/онлайн</option>
-                            <option value="">У репетитора</option>
-                            <option value="">У ученика</option>
-                            <option value="">Онлайн</option>
+                            <option value="tutor">У репетитора</option>
+                            <option value="student">У ученика</option>
+                            <option value="online">Онлайн</option>
                         </select>
                     </div>
                     <div class="filter-tutor__item">
                         <p>Стоимость часа занятий:</p>
-                        <input type="number" name="" id="" placeholder="Цена от:">
-                        <input type="number" name="" id="" placeholder="Цена до:">
+                        <input type="number" name="min_cost" id="" placeholder="Цена от:">
+                        <input type="number" name="max_cost" id="" placeholder="Цена до:">
                     </div>
                     <div class="filter-tutor__item">
                         <p>Способ сортировки:</p>
-                        <select name="" id="">
+                        <select name="order" id="">
                             <option value="" selected disabled hidden>Способ сортировки</option>
-                            <option value="">По рейтингу</option>
-                            <option value="">По цене</option>
+                            <option value="by_rate">По рейтингу</option>
+                            <option value="by_cost">По цене</option>
                         </select>
                     </div>
+                <button type="submit">Искать</button>
                 </form>
             </div>
         </div>
