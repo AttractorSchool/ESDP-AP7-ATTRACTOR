@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
 from django.views.generic import DetailView, CreateView, UpdateView, ListView
 from verify_email import send_verification_email
@@ -8,7 +8,10 @@ from accounts.forms import AccountForm, ChildrenForm
 from accounts.models import Account
 from cabinet_parents.forms import SurveyForm, TutorAreaForm, StudentAreaForm
 from cabinet_parents.models import Survey, TutorArea, Region, City, District, StudentArea
+from cabinet_tutors.models import MyStudent
 from responses.models import Response
+from reviews.models import Review
+
 
 class ParentProfileView(LoginRequiredMixin, DetailView):
     model = get_user_model()
@@ -291,7 +294,53 @@ class FromParentOnTutorResponsesView(LoginRequiredMixin, ListView):
         return context
 
 
+class TutorsOfMyChildrenView(ListView):
+    template_name = "tutors_of_my_children.html"
+    model = MyStudent
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(TutorsOfMyChildrenView, self).get_context_data(object_list=object_list, **kwargs)
+        parent = Account.objects.get(id=self.kwargs['pk'])
+        children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
+        user_id_list = []
+        for child in children:
+            user_pk = child.get('id')
+            user_id_list.append(user_pk)
+
+        context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
+        context['my_tutors'] = MyStudent.objects.filter(student_id__in=user_id_list)
+        return context
+
+
+class FromParentReviewMakeView(DetailView):
+    template_name = "from_parent_review_create.html"
+    model = Account
+
+    context_object_name = "tutor"
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(FromParentReviewMakeView, self).get_context_data(object_list=object_list, **kwargs)
+        context['tutors'] = Account.objects.all()
+        return context
+
+class FromParentReviewCreateView(CreateView):
+    template_name = "from_parent_review_create.html"
+    model = Review
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(FromParentReviewCreateView, self).get_context_data(object_list=object_list, **kwargs)
+        context['user_obj'] = Account.objects.get(pk=self.kwargs['pk'])
+        return context
+
+    def post(self, request, *args, **kwargs):
+        tutor = get_object_or_404(Account, pk=kwargs.get('pk'))
+        user = request.user
+        rate = request.POST.get('rate')
+        text = request.POST.get('text')
+
+        Review.objects.create(author=user, tutor=tutor, rate=rate, text=text)
+
+        return redirect('my_children_tutors', pk=user.pk)
 
 # class GetDataForSurveysView(CreateView):
 #     model = Account

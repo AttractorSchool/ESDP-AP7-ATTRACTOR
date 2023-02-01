@@ -47,34 +47,41 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item" style="box-shadow: #0c5460">
-                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                               href="{% url 'student_cabinet_detail' request.user.pk %}">Главная</a>
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'parents_cabinet_detail' request.user.pk %}">Главная</a>
                                         </li>
-                                        <li class="nav-item" style="box-shadow: #0c5460">
-                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                               href="{% url 'student_detail_survey' request.user.pk %}">Моя анкета</a>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page"
+                                               style="padding-right: 20px"
+                                               href="{% url 'parent_children_surveys' request.user.pk %}">Анкеты
+                                                детей</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                               href="{% url 'my_children_tutors' request.user.pk  %}">Учителя детей</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page"
+                                               style="padding-right: 20px"
                                                href="#">Успеваемость</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                               href="{% url 'to_me_student_responses' request.user.pk %}">Отклики на
-                                                меня</a>
+                                            <a class="nav-link active" aria-current="page"
+                                               style="padding-right: 20px; text-align: center"
+                                               href="{% url 'to_my_children_responses' request.user.pk %}">Отклики
+                                                на детей</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                               href="{% url 'student_on_tutor_responses' request.user.pk %}">Мои
-                                                отклики</a>
+                                            <a class="nav-link active" aria-current="page"
+                                               style="padding-right: 20px; text-align: center"
+                                               href="{% url 'from_me-parent_on_tutor_responses' request.user.pk %}">Мои
+                                                Отклики</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                               href="{% url 'my_tutors' request.user.pk  %}">Мои учителя</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                               href="{% url 'my_reviews' request.user.pk %}">Отзывы</a>
+                                            <a class="nav-link active" aria-current="page"
+                                               style="padding-right: 20px"
+                                               href="#">Отзывы</a>
                                         </li>
                                         <li class="nav-item" style="margin-left: 60px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
@@ -101,7 +108,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                 <div class="review__block">
                                     <p>Преподаватель: <span>{{ tutor.first_name }} {{ tutor.last_name }}</span></p>
                                 </div>
-                                <form action="{% url 'make_review' tutor.pk %}" method="post">
+                                <form action="{% url 'parent_make_review' tutor.pk %}" method="post">
                                     {% csrf_token %}
                                     <textarea class="form-control w-100 p-2" name="text" id="" cols="50" rows="5"></textarea>
                                     <div class="star-rating mt-3 mb-1">
@@ -122,7 +129,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                     </div>
                                     <div>
                                         <button class="rate__btn btn btn-primary">Отправить отзыв</button>
-                                        <a class="btn btn-secondary ms-2" href="{% url 'my_tutors' request.user.pk  %}">Назад</a>
+                                        <a class="btn btn-secondary ms-2" href="{% url 'my_children_tutors' request.user.pk  %}">Назад</a>
                                     </div>
                                 </form>
                             </div>
