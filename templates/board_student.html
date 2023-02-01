@@ -21,10 +21,6 @@
                     <div class="tut__location-block">
                         <div class="tut__location">
                             <p class="tut__country"></p>
-                            <div class="tut__rate">
-                                <p class="rate__num"><i class="fa-solid fa-star"></i> </p>
-                                <p class="tut__rate-reviews"> <span></span></p>
-                            </div>
                             <div class="tut__cost">
                                 <p class="cost">Стоимость</p>
                                 <p class="price">{{survey.min_cost}}-{{survey.max_cost}}<span>тнг/час</span></p>
@@ -45,26 +41,34 @@
                         <p class="tut-info__subject">
                         <i class="fa-solid fa-book-open"></i>
                             {% for sub in survey.subjects.all %}
-                               <span>{{sub.subject}},</span>
+                               <span class="tut__location">{{sub.subject}}</span>
                             {% endfor %}
                         </p>
 
                     </div>
-                    <div class="tut-info__experience">
-                        <p class="tut-info__edu" style="color:black;">Подготовка по школьным программам:
-                            {% for p in survey.programs.all %}
-                               <span>{{p.program}},</span>
-                            {% endfor %}
 
-                        </p>
-                    </div>
-                    <div class="tut-info__experience">
-                        <p class="tut-info__edu " style="color: black;">Подготовка к тестам:
-                        {% for t in survey.tests.all %}
-                               <span>{{t.test_name}},</span>
-                            {% endfor %}
-                        </p>
-                    </div>
+                    {% if survey.programs.all %}
+                        <div class="tut-info__experience">
+                            <p class="tut-info__edu" style="color:black;">Подготовка по школьным программам:
+                                {% for p in survey.programs.all %}
+                                   <span>{{p.program}},</span>
+                                {% endfor %}
+
+                            </p>
+                        </div>
+                    {% endif %}
+
+
+                    {% if survey.tests.all %}
+                        <div class="tut-info__experience">
+                            <p class="tut-info__edu " style="color: black;">Подготовка к тестам:
+                            {% for t in survey.tests.all %}
+                                   <span>{{t.test_name}}</span>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    {% endif %}
+
                     <div class="tut-info__experience">
                         <p class="tut-info__edu " style="color: black;">Время обучения:
 
@@ -72,32 +76,43 @@
 
                         </p>
                     </div>
-                    <div class="tut-info__experience">
-                        <p class="tut-info__online"><b style="color: black;">✓ Возможны занятия онлайн</b></p>
-                        {% for class in survey.online.all %}
-                        <p class="tut-info__edu " style="color: black;">
-                               <span>{{class.online_platform}},</span>
-                        </p>
-                        {% endfor %}
-                        <p class="tut-info__description">
-                        </p>
-                    </div>
-                    <div class="tut-info__experience">
-                        <p class="tut-info__online" ><b style="color: black;">✓ Возможны занятия дома</b></p>
-                        <p class="tut-info__edu " style="color: black;">
-                               <span>{{survey.student_area}}</span>
-                        </p>
-                        <p class="tut-info__description">
-                        </p>
-                    </div>
-                    <div class="tut-info__experience">
-                        <p class="tut-info__online"><b style="color: black;">✓ Возможны занятия у репетитора</b></p>
-                        <p class="tut-info__edu " style="color: black;">
-                               <span>{{survey.tutor_area}}</span>
-                        </p>
-                        <p class="tut-info__description">
-                        </p>
-                    </div>
+
+
+                    {% if survey.online.all %}
+                        <div class="tut-info__experience">
+                            <p class="tut-info__online"><b style="color: black;"><i class="fa-solid fa-check"></i>Возможны занятия онлайн</b></p>
+<!--                            {% for class in survey.online.all %}-->
+<!--                            <p class="tut-info__edu " style="color: black;">-->
+<!--                                   <span>{{class.online_platform}}</span>-->
+<!--                            </p>-->
+<!--                            {% endfor %}-->
+<!--                            <p class="tut-info__description">-->
+<!--                            </p>-->
+                        </div>
+                    {% endif %}
+
+                    {% if survey.student_area %}
+                        <div class="tut-info__experience">
+                            <p class="tut-info__online" ><b style="color: black;"><i class="fa-solid fa-check"></i>Возможны занятия дома</b></p>
+<!--                            <p class="tut-info__edu " style="color: black;">-->
+<!--                                   <span>{{survey.student_area}}</span>-->
+<!--                            </p>-->
+<!--                            <p class="tut-info__description">-->
+<!--                            </p>-->
+                        </div>
+                    {% endif %}
+
+                    {% if survey.tutor_area %}
+                        <div class="tut-info__experience">
+                            <p class="tut-info__online"><b style="color: black;"><i class="fa-solid fa-check"></i>Возможны занятия у репетитора</b></p>
+<!--                            <p class="tut-info__edu " style="color: black;">-->
+<!--                                   <span>{{survey.tutor_area}}</span>-->
+<!--                            </p>-->
+<!--                            <p class="tut-info__description">-->
+<!--                            </p>-->
+                        </div>
+                    {% endif %}
+
                 </div>
             </div>
             {% endfor %}

@@ -55,7 +55,7 @@
                         <p class="tut-info__subject">
                             <i class="fa-solid fa-book-open"></i>
                             {% for c in t.subjects_and_costs.all %}
-                            <span>{{ c.subject }}{% if not forloop.last %}, {% endif %}</span>
+                            <span class="tut__location">{{ c.subject }}{% if not forloop.last %}, {% endif %}</span>
                             {% endfor %}
                         </p>
                     </div>

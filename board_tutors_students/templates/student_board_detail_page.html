@@ -37,7 +37,7 @@
                         <div class="tut__cost">
                             <p class="tut-info__edu">Запрос на дисциплины: </p>
                             {% for subject in survey.subjects.all %}
-                            <span class="tut__location" style="margin-left: 15px; font-size: 15px">{{ subject }}{% if not forloop.last %}, {% endif %}</span>
+                            <span class="tut__location" style="margin-left: 15px; font-size: 15px">{{ subject }}{% if not forloop.last %} {% endif %}</span>
                             {% endfor %}
                         </div>
 
@@ -89,7 +89,7 @@
                             <div class="w-100 border-top">
                                 <span class="fw-bold">Тесты: </span>
                                 {% for test in survey.tests.all %}
-                                    <span style="margin-left: 15px; font-size: 15px"><i class="fa-solid fa-check"></i> {{ test }}{% if not forloop.last %} {% endif %}</span>
+                                    <span  style="margin-left: 15px; font-size: 15px"><i class="fa-solid fa-check"></i> {{ test }}{% if not forloop.last %} {% endif %}</span>
                                     </span>
                                 {% endfor %}
                             </div>
