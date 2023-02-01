@@ -31,7 +31,7 @@ class TutorBoardDetailPageView(DetailView):
             review_rate_list.append(review.rate)
         if len(review_rate_list) > 0:
             middle_rate = sum(review_rate_list) / len(review_rate_list)
-            context['middle_rate'] = middle_rate
+            context['middle_rate'] = round(middle_rate, 1)
 
         cost_list = []
         costs = SubjectsAndCosts.objects.filter(tutors=self.object)
