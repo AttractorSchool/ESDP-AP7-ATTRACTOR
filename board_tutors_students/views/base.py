@@ -42,7 +42,7 @@ class TutorBoardDetailPageView(DetailView):
         if len(cost_list) > 0:
             middle_cost = round(sum(cost_list) / len(cost_list))
             context['middle_cost'] = middle_cost
-        educations = Education.objects.filter(tutors=kwargs.get('pk')).order_by('created_at')
+        educations = tutor.education.all()
 
         reviews = Review.objects.filter(tutor_id=tutor.user.pk)
 

@@ -34,8 +34,9 @@
 
         {% if reviews %}
 
+          <div class="row justify-content-center pb-3" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #ffffff; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
 
-              <div class="row justify-content-between">
+              <div class="row justify-content-between" style="margin-bottom: 20px">
                     <div class="col-6" style="margin-bottom: 30px">
                         <h3>
                             Всего: {{ reviews_count}} отзывов
@@ -50,10 +51,8 @@
                         </div>
                     </div>
                     </div>
-                </div>
 
-
-               <div class="styles_item__a7-am" style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
+                          <div class="styles_item__a7-am" style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
                     <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
                                         padding-right: 20px; display: flex; align-items: center; min-width: 38px;
                                 margin-right: 3px;">
@@ -136,9 +135,13 @@
                     </div>
                     <p class="styles_countValue__1Ebkt">{{ one_sum }}</p>
                  </div>
+                </div>
 
 
-            <div class="blog_left_sidebar" style="margin-top: 40px">
+
+
+
+            <div class="blog_left_sidebar" style="margin-top: 10px">
                   <article class="row blog_item">
                       <div class="col-md-12 pt-2">
                           <div class="blog_post">
@@ -188,7 +191,7 @@
                               {% endfor %}
                           </div>
                       </div>
-                  </article>
+
               </div>
         {% else %}
 
