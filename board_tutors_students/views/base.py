@@ -97,3 +97,9 @@ class TutorBoardDetailPageView(DetailView):
 
 
         return context
+
+
+class StudentBoardDetailPageView(DetailView):
+    template_name = 'student_board_detail_page.html'
+    model = Survey
+    context_object_name = 'survey'

@@ -1,0 +1,186 @@
+{% extends 'base_enimi.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<section class="tutors">
+    <h2 class="tutors__title">
+        Подробная информация
+    </h2>
+    <div class="tutors__content">
+        <div class="blocks" style="width: 100%">
+            <div class="tutor-box" style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
+
+                <div class="row" style="width: 100%">
+                    <div class="col-3">
+                        <div class="tut__avatar">
+                            <div class="tut_avatar-img-block"><img src="{{ survey.user.avatar.url }}" alt=""
+                                                                   class="tut_avatar-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <p class="tut__name" style="font-size: 25px">
+                            {{ survey.user.first_name }}
+                        </p>
+                        <p class="tut__name" style="font-size: 25px">
+                            {{ survey.user.last_name }}
+                        </p>
+
+
+                        <hr>
+                        <div class="tut__cost">
+                            <p class="tut-info__edu">Желаемая стоимость занятия: </p>
+                            <p class="price" style="margin-left: 15px">{{survey.min_cost}}-{{survey.max_cost}}<span>тнг/час</span></p>
+
+                        </div>
+                        <div class="tut__cost">
+                            <p class="tut-info__edu">Запрос на дисциплины: </p>
+                            {% for subject in survey.subjects.all %}
+                            <span class="tut__location" style="margin-left: 15px; font-size: 15px">{{ subject }}{% if not forloop.last %}, {% endif %}</span>
+                            {% endfor %}
+                        </div>
+
+
+                        <br>
+
+                    </div>
+                    <div class="col-3 text-center">
+
+                            <div class="tut__connection_btn_block">
+                                <a href="{% url 'response_on_student' survey.pk %}">
+                                    <button class="tut__connection_btn">Связаться со студентом</button>
+                                </a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            {% if survey.programs.all %}
+                <div style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
+                    <div class="row">
+                        <p class="tut__name" style="font-size: 25px">
+                            Запрос на программы обучения
+                        </p>
+
+                        <div class="pb-2 d-flex">
+                            <div class="w-100 border-top">
+                                <span class="fw-bold">Программа: </span>
+                                {% for program in survey.programs.all %}
+                                <span style="margin-left: 15px; font-size: 15px"><i class="fa-solid fa-check"></i> {{ program }}{% if not forloop.last %} {% endif %}</span>
+                                </span>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            {% endif%}
+
+
+            {% if survey.tests.all %}
+                <div style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
+                    <div class="row">
+                        <p class="tut__name" style="font-size: 25px">
+                            Запрос на подготовку к тестам
+                        </p>
+
+                        <div class="pb-2 d-flex">
+                            <div class="w-100 border-top">
+                                <span class="fw-bold">Тесты: </span>
+                                {% for test in survey.tests.all %}
+                                    <span style="margin-left: 15px; font-size: 15px"><i class="fa-solid fa-check"></i> {{ test }}{% if not forloop.last %} {% endif %}</span>
+                                    </span>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            {% endif%}
+
+            <div style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
+                    <div class="row">
+                        <p class="tut__name" style="font-size: 25px">
+                            Удобное время для занятий
+                        </p>
+
+                        <div class="pb-2 d-flex">
+                            <div class="w-100 border-top">
+                                <span class="fw-bold">Время: </span>
+                                <span style="margin-left: 15px; font-size: 15px"><i class="fa-solid fa-check"></i> {{ survey.education_time }}</span>
+                                    <br>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            <div style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
+                <div class="row">
+                    <p class="tut__name" style="font-size: 25px">
+                        Формат обучения
+                    </p>
+
+                    <div class="row">
+                        {% if survey.online.all %}
+                            <div class="col-4">
+                                <span class="fw-bold">Онлайн </span>
+                                <div class="w-100">
+                                    {% for online in survey.online.all %}
+                                        <i class="fa-solid fa-check"></i><span>{{ online }} </span><br>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {% if survey.tutor_area %}
+                            <div class="col-4">
+                                    <span class="fw-bold" style="margin-top: 20px">Оффлайн у преподавателя </span>
+
+                                 <div class="w-100">
+                                    <span style="font-style: italic">Область: </span>
+                                    <span>{{ survey.tutor_area.tutor_region }} </span>
+
+                                    <span style="font-style: italic">Город: </span>
+                                    <span>{{ survey.tutor_area.tutor_city }} </span>
+
+                                    <span style="font-style: italic">Район: </span>
+                                    <span>{{ survey.tutor_area.tutor_district }} </span>
+                                 </div>
+                           </div>
+                       {% endif %}
+
+                       {% if survey.student_area %}
+                            <div class="col-4">
+                                    <span class="fw-bold" style="margin-top: 20px">Оффлайн у студента </span>
+
+                                 <div class="w-100">
+                                    <span style="font-style: italic">Область: </span>
+                                    <span>{{ survey.student_area.student_region }} </span>
+
+                                    <span style="font-style: italic">Город: </span>
+                                    <span>{{ survey.student_area.student_city }} </span>
+
+                                    <span style="font-style: italic">Район: </span>
+                                    <span>{{ survey.student_area.student_district }} </span>
+                                 </div>
+                           </div>
+                       {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+{% endblock %}

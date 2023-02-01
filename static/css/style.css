@@ -4746,7 +4746,7 @@ h6 {
     font-size: 30px;
 }
 
-.fa-solid.fa-star, .fa-regular.fa-star{
+.fa-solid.fa-star, .fa-regular.fa-star, .fa-solid.fa-check{
     font-size: 30px;
     color: #03c303;
 }
@@ -4839,7 +4839,7 @@ h6 {
     padding: 10px 15px;
     border-radius: 10px;
     border: none;
-    background: #ffcc1d;
+    background: #28a745;
     color: #ffffff;
     line-height: 21px;
 }
@@ -4885,7 +4885,7 @@ h6 {
     padding: 13px 10px;
     text-align: center;
     color: #ffffff;
-    background: #ffcc1d;
+    background: #28a745;
     border-radius: 12px;
 }
 

@@ -130,9 +130,9 @@
 
                     <div class="row">
                         {% if tutor.study_formats.online.all %}
-                        <div class="col-6">
+                            <div class="col-6">
                                 <span class="fw-bold">Онлайн </span>
-                            {% endif %}
+                        {% endif %}
                              <div class="w-100">
                                 {% for online in tutor.study_formats.online.all %}
                                     <span>{{ online }} </span>
@@ -354,9 +354,10 @@
                                                             <h5 style="color: #6c757d;">Отзыв: </h5>
                                                             <div class="review-rate__box d-flex align-items-center justify-content-between">
                                                                 <span class="text-wrap info-item">
-                                                                <p class="review__text text-wrap mb-0">{{ review.text }}</p>
-                                                            </span>
+                                                                    <p class="review__text text-wrap mb-0">{{ review.text }}</p>
+                                                                </span>
                                                             </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
