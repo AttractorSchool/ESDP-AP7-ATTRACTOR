@@ -7,6 +7,7 @@ from cabinet_tutors.views.study_formats import TutorStudyFormatsUpdateView, Tuto
 from cabinet_tutors.views.subjects_and_costs import SubjectsAndCostCreateUpdateView, SubjectsAndCostDeleteView
 from cabinet_tutors.views.tutor_cabinets import TutorCabinetView, TutorCabinetUpdateView
 from cabinet_tutors.views.responses import OnStudentsFromTutorView, OnTutorFromStudentResponsesView
+from cabinet_tutors.views.reviews import OnMeReviewsView
 
 urlpatterns = [
     path('<int:pk>/', TutorCabinetView.as_view(), name='tutor_cabinet'),
@@ -32,4 +33,6 @@ urlpatterns = [
              name='add_user_to_my_students'),
     path('<int:pk>/my_students/', MyStudentsView.as_view(),
                  name='my_students'),
+    path('<int:pk>/reviews/', OnMeReviewsView.as_view(),
+                     name='on_tutor_reviews'),
 ]

@@ -1,0 +1,202 @@
+{% extends 'base_enimi.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="d-flex pb-3" style="padding-top: 100px;">
+    <div class="d-flex flex-column" style="width: 25%">
+        <div class="rounded text-center">
+            <p>
+                <span class="fw-bold">{{ user.last_name }}</span>
+                <span class="fw-bold">{{ user.first_name }}<br></span>
+                {% if user.father_name %}
+                <span class="fw-bold">{{ user.father_name }}<br></span>
+                {% endif %}
+            </p>
+            <img src="{{ user.avatar.url }}" alt=""
+                 style="border-radius: 50%; width: 200px; height: 180px;">
+            <div>
+                <p class="pt-2">
+                    <span>{{ user.email }}</span>
+                    <br>
+                    <span>{{ user.phone }}</span>
+                </p>
+                <p>
+                    <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
+                </p>
+                <a href="{% url 'calendarapp:calendar' %}">Расписание</a>
+            </div>
+        </div>
+    </div>
+
+    <div style="width: 75%">
+
+        {% include 'partial/tutor_navbar.html' %}
+
+        {% if reviews %}
+
+
+              <div class="row justify-content-between">
+                    <div class="col-6" style="margin-bottom: 30px">
+                        <h3>
+                            Всего: {{ reviews_count}} отзывов
+                        </h3>
+                    </div>
+                    <div class="col-6">
+                        <div class="review__block col-12 d-flex align-items-center justify-content-end" style="margin-top: 20px;">
+                        <div class="stars_rate d-flex">
+                            <i class="fa-solid fa-star"></i>
+                                <span style="font-size: 20px">
+                                Средняя оценка: {{ middle_rate }}/5</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+               <div class="styles_item__a7-am" style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
+                    <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
+                                        padding-right: 20px; display: flex; align-items: center; min-width: 38px;
+                                margin-right: 3px;">
+                        5<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
+                    <div class="styles_progressBar__jWk0z" style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
+                        <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
+                            <span class="styles_progress__3z4sU" style=" border-radius: 7px; display:block; width:{{ proportion_five_sum }}%;
+                                background-color: #66b314;padding: 8px 0;">
+
+                            </span>
+                        </div>
+                    </div>
+                    <p class="styles_countValue__1Ebkt">{{ five_sum }}</p>
+                </div>
+
+
+                <div class="styles_item__a7-am" style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
+                    <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
+                                padding-right: 20px; display: flex; align-items: center; min-width: 38px;
+                                margin-right: 3px;">
+                        4<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
+                    <div class="styles_progressBar__jWk0z" style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
+                        <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
+                            <span class="styles_progress__3z4sU" style="border-radius: 7px;  display:block; width:{{ proportion_four_sum }}%;
+                                background-color: #66b314;padding: 8px 0;">
+
+                            </span>
+                        </div>
+                    </div>
+                    <p class="styles_countValue__1Ebkt">{{ four_sum }}</p>
+                </div>
+
+
+                <div class="styles_item__a7-am" style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
+                    <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
+                                padding-right: 20px; display: flex; align-items: center; min-width: 38px;
+                                margin-right: 3px;">
+                        3<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
+                    <div class="styles_progressBar__jWk0z" style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
+                        <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
+                            <span class="styles_progress__3z4sU" style="border-radius: 7px;  display:block; width:{{ proportion_three_sum }}%;
+                                background-color: #66b314;padding: 8px 0;">
+
+                            </span>
+                        </div>
+                    </div>
+                    <p class="styles_countValue__1Ebkt">{{ three_sum }}</p>
+                 </div>
+
+
+                <div class="styles_item__a7-am" style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
+                    <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
+                                padding-right: 20px; display: flex; align-items: center; min-width: 38px;
+                                margin-right: 3px;">
+                        2<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
+                    <div class="styles_progressBar__jWk0z" style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
+                        <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
+                            <span class="styles_progress__3z4sU" style="border-radius: 7px;  display:block; width:{{ proportion_two_sum }}%;
+                                background-color: #66b314;padding: 8px 0;">
+
+                            </span>
+                        </div>
+                    </div>
+                    <p class="styles_countValue__1Ebkt">{{ two_sum }}</p>
+                 </div>
+
+
+                <div class="styles_item__a7-am" style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
+                    <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
+                                padding-right: 20px; display: flex; align-items: center; min-width: 38px;
+                                margin-right: 3px;">
+                        1<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
+                    <div class="styles_progressBar__jWk0z" style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
+                        <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
+                            <span class="styles_progress__3z4sU" style="border-radius: 7px;  display:block; width:{{ proportion_one_sum }}%;
+                                background-color: #66b314;padding: 8px 0;">
+
+                            </span>
+                        </div>
+                    </div>
+                    <p class="styles_countValue__1Ebkt">{{ one_sum }}</p>
+                 </div>
+
+
+            <div class="blog_left_sidebar">
+                  <article class="row blog_item">
+                      <div class="col-md-12 pt-2">
+                          <div class="blog_post">
+                              {% for review in reviews %}
+                              <div class="row justify-content-center pb-3" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #ffffff; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
+                                        -moz-box-shadow: 1px 2px 5px 5px rgba(34, 60, 80, 0.2);
+                                        box-shadow: 1px 2px 5px 5px rgba(34, 60, 80, 0.2); ">
+                                  <div class="col-12 pe-4" style="border-radius: 20px">
+                                      <div class="row">
+                                          <div class="col-3 text-center align-self-center"
+                                               style="margin-top: 25px; margin-bottom: 25px">
+                                              <img id="avatar"
+                                                   src="{{ review.author.avatar.url }}"
+                                                   class="circlehome-dp"
+                                                   style="border-radius: 100px; width:80%;" alt="signuplogo ">
+                                          </div>
+                                          <div class="col-7 align-self-center">
+                                              <div class="row">
+                                                  <div class="col-12">
+                                                      <h5 class="d-flex" style="color: #6c757d; padding-top: 25px">
+                                                          От пользователя:
+                                                          <span class="ps-1" style="color: #568be9">
+                                                              {{ review.author.first_name }}
+                                                              {{ review.author.last_name }}
+                                                          </span>
+                                                      </h5>
+                                                      <hr>
+                                                      <h5 style="color: #6c757d;">Отзыв: </h5>
+                                                      <div class="review-rate__box d-flex align-items-center justify-content-between">
+                                                          <span class="text-wrap info-item">
+                                                          <p class="review__text text-wrap mb-0">{{ review.text }}</p>
+                                                      </span>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="review__block col-2 d-flex align-items-center justify-content-end">
+                                              <div class="stars_rate d-flex">
+                                                  <i class="fa-solid fa-star"></i>
+                                                  <p class="rate__num ms-1 mb-0">
+                                                      {{ review.rate }}</p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              {% endfor %}
+                          </div>
+                      </div>
+                  </article>
+              </div>
+        {% else %}
+
+            <h2>Пользователи еще не оставляли отзывов о вас</h2>
+        {% endif %}
+    </div>
+
+
+{% endif %}
+
+{% endblock %}
