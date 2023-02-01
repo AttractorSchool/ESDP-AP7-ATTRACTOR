@@ -4746,7 +4746,7 @@ h6 {
     font-size: 30px;
 }
 
-.fa-solid.fa-star {
+.fa-solid.fa-star, .fa-regular.fa-star{
     font-size: 30px;
     color: #03c303;
 }
@@ -4812,7 +4812,7 @@ h6 {
 
 .tut__cost {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     align-items: center;
     color: #007380;
 }

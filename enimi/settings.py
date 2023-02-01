@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'cabinet_parents',
     'cabinet_tutors',
     'cabinet_student',
+    'board_tutors_students',
     'calendarapp.apps.CalendarappConfig',
     'verify_email.apps.VerifyEmailConfig',
     'responses',

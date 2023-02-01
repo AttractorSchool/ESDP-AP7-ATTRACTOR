@@ -19,7 +19,7 @@ from cabinet_student.forms import SurveyForm, StudentAreaForm, TutorAreaForm
 from cabinet_parents.models import Survey, TutorArea, Region, City, District, StudentArea
 from cabinet_tutors.models import TutorCabinets, MyStudent
 from responses.models import Response
-from reviews.models.reviews import Review
+from reviews.models import Review
 
 
 class StudentProfileView(LoginRequiredMixin, DetailView):

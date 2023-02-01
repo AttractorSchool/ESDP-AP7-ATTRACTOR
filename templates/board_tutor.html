@@ -45,6 +45,10 @@
                         </a>
                     </div>
                     {% endif %}
+                    <div class="tut__connection_btn_block text-center" style="margin-top: 20px">
+                        <a href="{% url 'tutor_board_detail_page' t.pk %}">Подробнее>></a>
+                    </div>
+
                 </div>
                 <div class="tut-info">
                     <div class="tut-info__experience">
@@ -71,8 +75,13 @@
                         {% endfor %}
 
                     </div>
+
                     <div class="tut-info__experience">
-                        <p class="tut-info__online" style="color: black;">✓ Возможны занятия онлайн</p>
+
+                            {% if t.study_formats.online.all %}
+                                <p class="tut-info__online" style="color: black;">✓ Возможны занятия онлайн</p>
+                            {% endif %}
+
                         <p class="tut-info__description">
                             {{ t.about }}
                         </p>
