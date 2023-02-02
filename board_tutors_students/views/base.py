@@ -98,7 +98,6 @@ class TutorBoardDetailPageView(DetailView):
         context['experience'] = experience
         context['reviews'] = reviews
 
-
         return context
 
 
@@ -110,12 +109,7 @@ class StudentBoardDetailPageView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         survey = Survey.objects.get(id=self.kwargs['pk'])
-        date_format = "%m/%Y"
-        # print(datetime.datetime.now())
         now = datetime.datetime.now().strftime("%Y-%m-%d")
-        print(survey.user.birthday)
-        print(now)
         delta = int(now[0:4]) - int(survey.user.birthday[0:4])
-        print(delta)
         context['age'] = delta
         return context
