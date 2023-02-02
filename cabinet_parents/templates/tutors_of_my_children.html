@@ -23,6 +23,16 @@
                                 <a href="#"><i class="ti-github"></i></a>
                                 <a href="#"><i class="ti-linkedin"></i></a>
                             </div>
+                            <p>
+                                <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
+                            </p>
+                            <div class="row justify-content-center" style="margin-top: 30px">
+                                <div class="col-12 text-center">
+                                    <button type="button" id="add-modal-register-answer-btn-left" class="blog_btn"
+                                            style="border-radius: 10px">Зарегистрировать ребёнка
+                                    </button>
+                                </div>
+                            </div>
                             <div class="br"></div>
                         </aside>
                         <aside class="single_sidebar_widget ads_widget">
@@ -70,9 +80,13 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                          href="{% url 'to_my_children_responses' request.user.pk %}">Мои Отклики</a>
                                     </li>
                                     <li class="nav-item">
-                                      <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                         href="#">Отзывы</a>
+                                        <a class="nav-link active" aria-current="page"
+                                           style="padding-right: 20px"
+                                           href="{% url 'from_parent_on_tutor_reviews' request.user.pk %}">Мои отзывы</a>
                                     </li>
+                                        <li class="nav-item" style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
                                             <a class="nav-link active" aria-current="page" style="padding-right: 20px"
                                                href="#">
                                                 <body onload="clockTimer();">

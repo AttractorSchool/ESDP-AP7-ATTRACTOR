@@ -342,6 +342,20 @@ class FromParentReviewCreateView(CreateView):
 
         return redirect('my_children_tutors', pk=user.pk)
 
+
+class FromParentReviewsView(ListView):
+    template_name = "parent_on_tutor_reviews.html"
+    model = Review
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(FromParentReviewsView, self).get_context_data(**kwargs)
+        parent = Account.objects.get(id=self.kwargs['pk'])
+        context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
+        context['my_reviews'] = Review.objects.filter(author_id=parent.pk)
+        return context
+
+
+
 # class GetDataForSurveysView(CreateView):
 #     model = Account
 #
