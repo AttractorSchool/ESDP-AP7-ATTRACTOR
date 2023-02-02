@@ -1,5 +1,8 @@
+import datetime
+
 from django.views.generic import ListView, DetailView, TemplateView
 from django.db.models import Q
+
 from cabinet_parents.models import Survey
 from cabinet_parents.models import Survey, City, StudentArea,TutorArea
 from cabinet_parents.models import Subject
@@ -202,7 +205,6 @@ class TutorBoardDetailPageView(DetailView):
         context['experience'] = experience
         context['reviews'] = reviews
 
-
         return context
 
 
@@ -210,3 +212,11 @@ class StudentBoardDetailPageView(DetailView):
     template_name = 'student_board_detail_page.html'
     model = Survey
     context_object_name = 'survey'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        survey = Survey.objects.get(id=self.kwargs['pk'])
+        now = datetime.datetime.now().strftime("%Y-%m-%d")
+        delta = int(now[0:4]) - int(survey.user.birthday[0:4])
+        context['age'] = delta
+        return context

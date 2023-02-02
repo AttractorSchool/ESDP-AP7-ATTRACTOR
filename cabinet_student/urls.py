@@ -21,7 +21,8 @@ urlpatterns = [
          name='student_on_tutor_responses'),
 
     path('my_tutors/<int:pk>/', MyTutorsView.as_view(), name='my_tutors'),
-    path('review_page/<int:pk>/', ReviewMakeView.as_view(), name='review_page'),
     path('my_reviews/<int:pk>/', ReviewListView.as_view(), name='my_reviews'),
+
+    path('review_page/<int:pk>/', ReviewMakeView.as_view(), name='review_page'),
     path('make_review/<int:pk>/', ReviewCreateView.as_view(), name='make_review')
 ]
