@@ -1,7 +1,7 @@
 from django.views.generic import ListView, DetailView, TemplateView
 from django.db.models import Q
 from cabinet_parents.models import Survey
-from cabinet_parents.models import Survey, City, StudentArea,TutorArea
+from cabinet_parents.models import Survey, City, StudentArea, TutorArea
 from cabinet_parents.models import Subject
 from cabinet_tutors.models import TutorCabinets, SubjectsAndCosts, Education
 from reviews.models import Review
@@ -32,7 +32,6 @@ class FilterStudentView(ListView):
         self.format = request.GET.get("format")
         self.order = request.GET.get("order")
         return super().get(request, *args, **kwargs)
-
 
     def get_context_data(self, *, object_list=None, **kwargs):
         surveys = Survey.objects.all()
@@ -71,6 +70,13 @@ class BoardTutorView(ListView):
     model = TutorCabinets
     context_object_name = 'tutors'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['subjects'] = Subject.objects.all()
+        context['cities'] = City.objects.all()
+        return context
+
+
 class FilterTutorView(ListView):
     template_name = 'board_tutor.html'
     model = TutorCabinets
@@ -84,7 +90,6 @@ class FilterTutorView(ListView):
         self.format = request.GET.get("format")
         self.order = request.GET.get("order")
         return super().get(request, *args, **kwargs)
-
 
     def get_context_data(self, *, object_list=None, **kwargs):
         tutors = TutorCabinets.objects.all()
@@ -111,7 +116,7 @@ class FilterTutorView(ListView):
                 subjects = SubjectsAndCosts.objects.filter(cost__lte=self.max_cost)
                 tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
             if self.min_cost:
-                subjects = Survey.objects.filter(cost__gte=self.min_cost)
+                subjects = SubjectsAndCosts.objects.filter(cost__gte=self.min_cost)
                 tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
 
         # if self.order == "by_cost":
@@ -201,7 +206,6 @@ class TutorBoardDetailPageView(DetailView):
         context['educations'] = educations
         context['experience'] = experience
         context['reviews'] = reviews
-
 
         return context
 
