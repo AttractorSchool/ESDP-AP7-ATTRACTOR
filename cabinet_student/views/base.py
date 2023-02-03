@@ -234,7 +234,7 @@ class MyTutorsView(ListView):
         context = super(MyTutorsView, self).get_context_data(object_list=object_list, **kwargs)
         student = Account.objects.get(id=self.kwargs['pk'])
         context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
-        context['my_tutors'] = MyStudent.objects.filter(student_id=student.pk)
+        context['my_tutors'] = MyStudent.objects.filter(student_id=student.pk).distinct('tutor')
         context['tutors_cabinets'] = TutorCabinets.objects.all()
         return context
 

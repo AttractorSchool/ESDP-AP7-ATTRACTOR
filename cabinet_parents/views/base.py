@@ -302,13 +302,15 @@ class TutorsOfMyChildrenView(ListView):
         context = super(TutorsOfMyChildrenView, self).get_context_data(object_list=object_list, **kwargs)
         parent = Account.objects.get(id=self.kwargs['pk'])
         children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
-        user_id_list = []
-        for child in children:
-            user_pk = child.get('id')
-            user_id_list.append(user_pk)
+        # user_id_list = []
+        # for child in children:
+        #     user_pk = child.get('id')
+        #     user_id_list.append(user_pk)
+
+        children_pk_list = [child.get('id') for child in children]
 
         context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
-        context['my_tutors'] = MyStudent.objects.filter(student_id__in=user_id_list)
+        context['my_tutors'] = MyStudent.objects.filter(student_id__in=children_pk_list).distinct('tutor')
         return context
 
 
