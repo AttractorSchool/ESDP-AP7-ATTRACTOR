@@ -40,7 +40,7 @@
                                 <p class="tut-info__edu">Дисциплины: </p>
                                 {% for c in tutor.subjects_and_costs.all %}
                                     <span class="tut__location"
-                                          style="margin-left: 15px; font-size: 15px">{{ c.subject }}
+                                          style="font-size: 15px">{{ c.subject }}
                                             {% if not forloop.last %}, {% endif %}</span>
                                 {% endfor %}
                             </div>
@@ -80,9 +80,14 @@
                             <div class="review__block col-6 d-flex align-items-center justify-content-end"
                                  style="margin-top: 20px; margin-left: 40px">
                                 <div class="stars_rate d-flex">
-                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star" style="color: orange;"></i>
                                     <span class="rate__num ms-1 mb-0">
-                                    {{ middle_rate }}</span>
+                                        {% if middle_rate %}
+                                        {{ middle_rate }}
+                                        {% else %}
+                                            0
+                                        {% endif %}
+                                    </span>
                                 </div>
                             </div>
                             <div class="review__block col-6 d-flex align-items-center justify-content-end"
@@ -206,7 +211,7 @@
                     <div class="review__block col-6 d-flex align-items-center justify-content-end"
                          style="margin-top: 20px; margin-left: 270px">
                         <div class="stars_rate d-flex">
-                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star" style="color: orange;"></i>
                             <span class="rate__num ms-1 mb-0">
                                     {{ middle_rate }}/5</span>
                         </div>
@@ -219,7 +224,7 @@
                 <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
                                     padding-right: 20px; display: flex; align-items: center; min-width: 38px;
                                     margin-right: 3px;">
-                    5<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
+                    5<i class="fa-solid fa-star" style="margin-left: 10px; color: orange"></i></p>
                 <div class="styles_progressBar__jWk0z"
                      style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
                     <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
@@ -238,7 +243,7 @@
                 <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
                                     padding-right: 20px; display: flex; align-items: center; min-width: 38px;
                                     margin-right: 3px;">
-                    4<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
+                    4<i class="fa-solid fa-star" style="margin-left: 10px; color: orange"></i></p>
                 <div class="styles_progressBar__jWk0z"
                      style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
                     <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
@@ -257,7 +262,7 @@
                 <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
                                     padding-right: 20px; display: flex; align-items: center; min-width: 38px;
                                     margin-right: 3px;">
-                    3<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
+                    3<i class="fa-solid fa-star" style="margin-left: 10px; color: orange"></i></p>
                 <div class="styles_progressBar__jWk0z"
                      style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
                     <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
@@ -276,7 +281,7 @@
                 <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
                                     padding-right: 20px; display: flex; align-items: center; min-width: 38px;
                                     margin-right: 3px;">
-                    2<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
+                    2<i class="fa-solid fa-star" style="margin-left: 10px; color: orange"></i></p>
                 <div class="styles_progressBar__jWk0z"
                      style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
                     <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
@@ -295,7 +300,7 @@
                 <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
                                     padding-right: 20px; display: flex; align-items: center; min-width: 38px;
                                     margin-right: 3px;">
-                    1<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
+                    1<i class="fa-solid fa-star" style="margin-left: 10px; color: orange"></i></p>
                 <div class="styles_progressBar__jWk0z"
                      style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
                     <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
@@ -329,55 +334,55 @@
             <p>{{ review.review_date|date:"d.m.Y" }}</p>
             {% if review.rate == 5 %}
                 <div class="stars_rate d-flex" style="margin-left: 20px">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star" style="color: orange;"></i>
+                <i class="fa-solid fa-star" style="color: orange;"></i>
+                <i class="fa-solid fa-star" style="color: orange;"></i>
+                <i class="fa-solid fa-star" style="color: orange;"></i>
+                <i class="fa-solid fa-star" style="color: orange;"></i>
                 <p class="rate__num ms-1 mb-0">
                     {{ review.rate }}</p>
             {% endif %}
 
         {% if review.rate == 4 %}
             <div class="stars_rate d-flex" style="margin-left: 20px">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-regular fa-star"></i>
+            <i class="fa-solid fa-star" style="color: orange;"></i>
+            <i class="fa-solid fa-star" style="color: orange;"></i>
+            <i class="fa-solid fa-star" style="color: orange;"></i>
+            <i class="fa-solid fa-star" style="color: orange;"></i>
+            <i class="fa-regular fa-star" style="color: orange;"></i>
             <p class="rate__num ms-1 mb-0">
                 {{ review.rate }}</p>
         {% endif %}
 
         {% if review.rate == 3 %}
             <div class="stars_rate d-flex" style="margin-left: 20px">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
+            <i class="fa-solid fa-star" style="color: orange;"></i>
+            <i class="fa-solid fa-star" style="color: orange;"></i>
+            <i class="fa-solid fa-star" style="color: orange;"></i>
+            <i class="fa-regular fa-star" style="color: orange;"></i>
+            <i class="fa-regular fa-star" style="color: orange;"></i>
             <p class="rate__num ms-1 mb-0">
                 {{ review.rate }}</p>
         {% endif %}
 
         {% if review.rate == 2 %}
             <div class="stars_rate d-flex" style="margin-left: 20px">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
+            <i class="fa-solid fa-star" style="color: orange;"></i>
+            <i class="fa-solid fa-star" style="color: orange;"></i>
+            <i class="fa-regular fa-star" style="color: orange;"></i>
+            <i class="fa-regular fa-star" style="color: orange;"></i>
+            <i class="fa-regular fa-star" style="color: orange;"></i>
             <p class="rate__num ms-1 mb-0">
                 {{ review.rate }}</p>
         {% endif %}
 
         {% if review.rate == 1 %}
             <div class="stars_rate d-flex" style="margin-left: 20px">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
+            <i class="fa-solid fa-star" style="color: orange;"></i>
+            <i class="fa-regular fa-star" style="color: orange;"></i>
+            <i class="fa-regular fa-star" style="color: orange;"></i>
+            <i class="fa-regular fa-star" style="color: orange;"></i>
+            <i class="fa-regular fa-star" style="color: orange;"></i>
             <p class="rate__num ms-1 mb-0">
                 {{ review.rate }}</p>
         {% endif %}

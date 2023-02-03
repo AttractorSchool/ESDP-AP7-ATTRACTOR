@@ -4692,7 +4692,6 @@ h6 {
 
 .tut__location-block {
     padding: 15px 15px 15px 0px;
-    margin-bottom: 15px;
     border-right: 2px solid #c5c9cb;
 }
 
@@ -4718,7 +4717,7 @@ h6 {
 .tut__name {
     font-size: 20px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    padding-right: 15px;
 }
 
 .tut__rate {
@@ -4818,14 +4817,14 @@ h6 {
 }
 
 .tut__cost {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .tut__cost .price {
     display: flex;
     flex-direction: column;
     color: #000000;
-    font-size: 23px;
+    font-size: 21px;
     text-align: center;
 }
 

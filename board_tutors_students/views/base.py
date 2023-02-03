@@ -1,7 +1,8 @@
 import datetime
 
+from django.db.models.functions import Cast, Coalesce, Round
 from django.views.generic import ListView, DetailView, TemplateView
-from django.db.models import Q
+from django.db.models import Q, Avg, Max, Count
 
 from cabinet_parents.models import Survey
 from cabinet_parents.models import Survey, City, StudentArea, TutorArea
@@ -79,6 +80,15 @@ class BoardTutorView(ListView):
         context['cities'] = City.objects.all()
         return context
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.annotate(
+            avg_rate=Round(Avg('user__reviews_to__rate'), 1),
+            reviews_count=Count('user__reviews_to__rate'),
+            max_experience=Max('subjects_and_costs__experience')
+        )
+        return queryset
+
 
 class FilterTutorView(ListView):
     template_name = 'board_tutor.html'
@@ -150,7 +160,8 @@ class TutorBoardDetailPageView(DetailView):
 
         cost_list = []
         costs = SubjectsAndCosts.objects.filter(tutors=self.object)
-        exp = SubjectsAndCosts.objects.first()
+        exp = SubjectsAndCosts.objects.filter(tutors=self.object).order_by('-experience').first()
+        print(exp)
         experience = exp.experience
         for cost in costs:
             cost_list.append(cost.cost)
