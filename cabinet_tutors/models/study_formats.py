@@ -15,6 +15,14 @@ class TutorStudyFormats(models.Model):
         blank=True,
         on_delete=models.SET_NULL
     )
+    student_area = models.ForeignKey(
+        to='cabinet_parents.StudentArea',
+        verbose_name='Район занятий у ученика',
+        related_name='tutors',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
+    )
     is_active = models.BooleanField(verbose_name='Активный', default=False, null=False)
     is_deleted = models.BooleanField(verbose_name='Удалено', default=False, null=False)
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
