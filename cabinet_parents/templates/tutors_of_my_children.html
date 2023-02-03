@@ -131,7 +131,9 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                 </span>
                                                             </h5>
                                                             <h5 style="color: #6c757d; padding-top: 10px">Предметы
-                                                                репетитора: </h5>
+                                                                репетитора: {% for s in my_tutor.tutor.tutor.subjects_and_costs.all %}
+                                                                {{ s.subject }}{% if not forloop.last %},{% endif %}
+                                                                    {% endfor %}</h5>
                                                             <span class="info-item"></span>
                                                             <h5 style="color: #6c757d; padding-top: 8px">Номер
                                                                 телефона: <span style="color: #568be9">
