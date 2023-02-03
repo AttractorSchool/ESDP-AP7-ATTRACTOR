@@ -13,10 +13,10 @@
                     <div class="blog_right_sidebar">
                         <aside class="single_sidebar_widget author_widget">
                             <img class="author_img rounded-circle" style="width: 60%; border-radius: 100px;"
-                                 src="{{ user_obj.avatar.url }}" alt="">
-                            <h4>{{ user_obj.first_name}}</h4>
-                            <h4 style="margin-top: 5px;">{{ user_obj.last_name}}</h4>
-                            <p>{{ user_obj.get_type_display}}</p>
+                                 src="{{ request.user.avatar.url }}" alt="">
+                            <h4>{{ request.user.first_name}}</h4>
+                            <h4 style="margin-top: 5px;">{{ request.user.last_name}}</h4>
+                            <p>{{ request.user.get_type_display}}</p>
                             <div class="social_icon">
                                 <a href="#"><i class="ti-facebook"></i></a>
                                 <a href="#"><i class="ti-twitter"></i></a>
@@ -111,7 +111,44 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                     <img src="#" alt="">
                                     <div class="blog_details">
                                         {% if request.user.with_survey %}
-                                          <h2>Расписание</h2>
+
+                                                {% if events_today %}
+                                                    <h3 class="mb-4">Занятия сегодня</h3>
+                                                           <table class="table table-bordered" style="border-radius: 10px">
+                                                              <thead>
+                                                                <tr style="color: #737678; background-color: #c3e9f7">
+                                                                  <th scope="col">#</th>
+                                                                  <th scope="col">Занятие</th>
+                                                                  <th scope="col">Начало</th>
+                                                                  <th scope="col">Окончание</th>
+                                                                  <th scope="col">Преподаватель</th>
+                                                                  <th scope="col">Форма</th>
+                                                                </tr>
+                                                              </thead>
+                                                              {% for event in events_today %}
+                                                              <tbody>
+
+                                                                <tr>
+                                                                  <th scope="row">{{ forloop.counter }}</th>
+                                                                  <td>{{ event.title }}</td>
+                                                                  <td>{{ event.start_time | date:"H:m"}}</td>
+                                                                  <td>{{ event.end_time | date:"H:m" }}</td>
+                                                                    <td>{{ event.user.first_name }} {{ event.user.last_name }}</td>
+
+
+                                                                </tr>
+
+                                                              </tbody>
+                                                              {% endfor%}
+                                                            </table>
+
+                                                     {% else %}
+                                                        <p>На сегодня нет запланированных занятий</p>
+                                                     {% endif %}
+                                                </div>
+
+
+
                                         {% else %}
                                           <h2>Здравствуй, дорогой пользователь!</h2>
                                           <span>Рады приветствовать тебя в лучшем приложении в мире

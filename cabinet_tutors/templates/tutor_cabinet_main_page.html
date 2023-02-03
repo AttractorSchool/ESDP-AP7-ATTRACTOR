@@ -1,0 +1,141 @@
+{% extends 'base_enimi.html' %}
+{% load static %}
+{% block extracss %}
+  <link href="{% static 'calender/main.css' %}" rel="stylesheet" />
+{% endblock extracss %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="d-flex pb-3" style="padding-top: 100px;">
+    <div class="d-flex flex-column" style="width: 25%">
+        <div class="rounded text-center">
+            <p>
+                <span class="fw-bold">{{ user.last_name }}</span>
+                <span class="fw-bold">{{ user.first_name }}<br></span>
+                {% if user.father_name %}
+                <span class="fw-bold">{{ user.father_name }}<br></span>
+                {% endif %}
+            </p>
+            <img src="{{ user.avatar.url }}" alt=""
+                 style="border-radius: 50%; width: 200px; height: 180px;">
+            <div>
+                <p class="pt-2">
+                    <span>{{ user.email }}</span>
+                    <br>
+                    <span>{{ user.phone }}</span>
+                </p>
+                <p>
+                    <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
+                </p>
+                <a href="{% url 'calendarapp:calendar' %}">Расписание</a>
+            </div>
+        </div>
+    </div>
+
+    <div style="width: 75%">
+
+        {% include 'partial/tutor_navbar.html' %}
+
+        {% if events_today %}
+        <h3 class="mb-4">События сегодня</h3>
+
+
+
+                   <table class="table table-bordered" style="border-radius: 10px">
+                      <thead>
+                        <tr style="color: #737678; background-color: #c3e9f7">
+                          <th scope="col">#</th>
+                          <th scope="col">Занятие</th>
+                          <th scope="col">Начало</th>
+                          <th scope="col">Окончание</th>
+                          <th scope="col">Ученик</th>
+                          <th scope="col">Форма</th>
+                        </tr>
+                      </thead>
+                      {% for event in events_today %}
+                      <tbody>
+
+                        <tr>
+                          <th scope="row">{{ forloop.counter }}</th>
+                          <td>{{ event.title }}</td>
+                          <td>{{ event.start_time | date:"H:m"}}</td>
+                          <td>{{ event.end_time | date:"H:m" }}</td>
+                          {% for member in eventmembers %}
+                            {% if event.pk == member.event_id%}
+                            <td>{{ member.user.first_name }}</td>
+                            {% endif %}
+                          {% endfor %}
+                        </tr>
+
+                      </tbody>
+                      {% endfor%}
+                    </table>
+
+         {% else %}
+            <p>Текущие события не найдены</p>
+         {% endif %}
+    </div>
+
+
+    </div>
+</div>
+
+{% endif %}
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+crossorigin="anonymous">
+</script>
+
+
+
+
+  <script src="{% static 'calender/main.js' %}"></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var today = new Date();
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialDate: today,
+          navLinks: true, // can click day/week names to navigate views
+          selectable: true,
+          selectMirror: true,
+          editable: true,
+          dayMaxEvents: true, // allow "more" link when too many events
+          events: {{ events|safe }},
+          // events: [
+          //   {
+          //     title: 'All Day Event',
+          //     start: '2021-06-26'
+          //   },
+          //   {
+          //     groupId: 999,
+          //     title: 'Repeating Event',
+          //     start: '2020-09-16T16:00:00'
+          //   },
+          //   {
+          //     title: 'Conference',
+          //     start: '2020-09-11',
+          //     end: '2020-09-13'
+          //   },
+          //   {
+          //     title: 'Click for Google',
+          //     url: 'http://google.com/',
+          //     start: '2020-09-28'
+          //   }
+          // ]
+        });
+
+        calendar.render();
+      });
+      const closeBtn1 = document.getElementById('modalClose1');
+      const closeBtn2 = document.getElementById('modalClose2');
+      closeBtn1.addEventListener('click',()=>{
+        const eventModal = document.getElementById('eventModal')
+        eventModal.style.display = 'none';
+      });
+      closeBtn2.addEventListener('click',()=>{
+        const eventModal = document.getElementById('eventModal')
+        eventModal.style.display = 'none';
+      });
+  </script>
+{% endblock %}

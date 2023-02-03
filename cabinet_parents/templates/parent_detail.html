@@ -132,8 +132,39 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                         <div class="blog_details">
 
                                             {% if children %}
+                                                     {% if events_today %}
+                                                    <h3 class="mb-4">Занятия сегодня</h3>
+                                                           <table class="table table-bordered" style="border-radius: 10px">
+                                                              <thead>
+                                                                <tr style="color: #737678; background-color: #c3e9f7">
+                                                                  <th scope="col">#</th>
+                                                                  <th scope="col">Занятие</th>
+                                                                  <th scope="col">Начало</th>
+                                                                  <th scope="col">Окончание</th>
+                                                                  <th scope="col">Преподаватель</th>
+                                                                  <th scope="col">Форма</th>
+                                                                </tr>
+                                                              </thead>
+                                                              {% for event in events_today %}
+                                                              <tbody>
 
-                                                <h2>Расписание</h2>
+                                                                <tr>
+                                                                  <th scope="row">{{ forloop.counter }}</th>
+                                                                  <td>{{ event.title }}</td>
+                                                                  <td>{{ event.start_time | date:"H:m"}}</td>
+                                                                  <td>{{ event.end_time | date:"H:m" }}</td>
+                                                                    <td>{{ event.user.first_name }} {{ event.user.last_name }}</td>
+
+
+                                                                </tr>
+
+                                                              </tbody>
+                                                              {% endfor%}
+                                                            </table>
+
+                                                     {% else %}
+                                                        <p>На сегодня у ваших детей нет запланированных занятий</p>
+                                                     {% endif %}
                                             {% else %}
 
                                                 <h2>Здравствуй, дорогой пользователь!</h2>
