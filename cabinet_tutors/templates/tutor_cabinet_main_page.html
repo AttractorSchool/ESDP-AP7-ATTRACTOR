@@ -26,7 +26,12 @@
                 <p>
                     <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
                 </p>
-                <a href="{% url 'calendarapp:calendar' %}">Расписание</a>
+                <div class="tut__connection_btn_block">
+                    <a href="{% url 'calendarapp:calendar' %}">
+                        <button class="tut__connection_btn">Расписание</button>
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>
