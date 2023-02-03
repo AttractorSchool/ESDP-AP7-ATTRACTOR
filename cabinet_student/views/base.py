@@ -35,12 +35,9 @@ class StudentProfileView(LoginRequiredMixin, DetailView):
     #
     #     return context
 
-
-
     def get(self, request,  **kwargs):
         events_month = Event.objects.get_running_events(user=request.user)
         events_today = Event.objects.filter(events__user=request.user, start_time__date=datetime.now().date())
-        print(events_today)
         event_list = []
         context = {}
         for event in events_today:
