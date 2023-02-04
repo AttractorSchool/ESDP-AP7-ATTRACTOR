@@ -4657,6 +4657,7 @@ h6 {
 .tutors__content {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 
 .tutors__title {
