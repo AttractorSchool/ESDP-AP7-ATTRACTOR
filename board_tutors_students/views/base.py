@@ -74,27 +74,6 @@ class BoardTutorView(ListView):
     model = TutorCabinets
     context_object_name = 'tutors'
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(object_list=object_list, **kwargs)
-        context['subjects'] = Subject.objects.all()
-        context['cities'] = City.objects.all()
-        return context
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        queryset = queryset.annotate(
-            avg_rate=Round(Avg('user__reviews_to__rate'), 1),
-            reviews_count=Count('user__reviews_to__rate'),
-            max_experience=Max('subjects_and_costs__experience')
-        )
-        return queryset
-
-
-class FilterTutorView(ListView):
-    template_name = 'board_tutor.html'
-    model = TutorCabinets
-    context_object_name = 'tutors'
-
     def get(self, request, *args, **kwargs):
         self.min_cost = request.GET.get("min_cost")
         self.max_cost = request.GET.get("max_cost")
@@ -105,10 +84,65 @@ class FilterTutorView(ListView):
         return super().get(request, *args, **kwargs)
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        tutors = TutorCabinets.objects.all()
-        print("KKKKKKK")
-        print(tutors)
-        context = super().get_context_data(object_list=None, **kwargs)
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['subjects'] = Subject.objects.all()
+        context['cities'] = City.objects.all()
+        return context
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.\
+            exclude(gender=None).exclude(languages=None).\
+            exclude(about=None).\
+            exclude(education=None). \
+            exclude(subjects_and_costs=None). \
+            exclude(study_formats=None)
+        if self.city and self.format == "student":
+            student_area = TutorArea.objects.filter(tutor_city_id=self.city)
+            queryset = queryset.filter(student_area__in=student_area)
+        if self.city and self.format == "tutor":
+            # tutor_area = TutorArea.objects.filter(tutor_city_id=self.city)
+            queryset = queryset.filter(study_formats__tutor_area__tutor_city__in=self.city)
+        if self.subject:
+            queryset = TutorCabinets.objects.filter(subjects_and_costs__subject__in=self.subject)
+        if self.min_cost and self.max_cost:
+            subjects = SubjectsAndCosts.objects.filter(
+                (Q(cost__gte=self.min_cost) & Q(cost__lte=self.max_cost)) |
+                (Q(cost__lte=self.max_cost) & Q(cost__gte=self.min_cost)))
+            queryset = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
+        else:
+            if self.max_cost:
+                subjects = SubjectsAndCosts.objects.filter(cost__lte=self.max_cost)
+                queryset = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
+            if self.min_cost:
+                subjects = SubjectsAndCosts.objects.filter(cost__gte=self.min_cost)
+                queryset = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
+        # if self.order == "by_cost":
+        #     surveys = Survey.objects.order_by('min_cost')
+        return queryset.annotate(
+            avg_rate=Round(Avg('user__reviews_to__rate'), 1),
+            reviews_count=Count('user__reviews_to__rate'),
+            max_experience=Max('subjects_and_costs__experience')
+        )
+
+
+# class FilterTutorView(ListView):
+#     template_name = 'board_tutor.html'
+#     model = TutorCabinets
+#     context_object_name = 'tutors'
+#
+#     def get(self, request, *args, **kwargs):
+#         self.min_cost = request.GET.get("min_cost")
+#         self.max_cost = request.GET.get("max_cost")
+#         self.subject = request.GET.get("subject")
+#         self.city = request.GET.get("city")
+#         self.format = request.GET.get("format")
+#         self.order = request.GET.get("order")
+#         return super().get(request, *args, **kwargs)
+#
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         tutors = TutorCabinets.objects.all()
+#         context = super().get_context_data(object_list=None, **kwargs)
         # if self.city and self.format == "student":
         #     tutorArea = TutorArea.objects.filter(tutor_city_id=self.city)
         #     surveys = Survey.objects.filter(student_area__in=tutorArea)
@@ -116,30 +150,30 @@ class FilterTutorView(ListView):
         #     tutorArea = TutorArea.objects.filter(tutor_city_id=self.city)
         #     surveys = Survey.objects.filter(tutor_area__in=tutorArea)
 
-        if self.subject:
-            subjects = SubjectsAndCosts.objects.filter(subject_id=self.subject)
-            tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
-        if self.min_cost and self.max_cost:
-            subjects = SubjectsAndCosts.objects.filter(
-                (Q(cost__gte=self.min_cost) & Q(cost__lte=self.max_cost)) |
-                (Q(cost__lte=self.max_cost) & Q(cost__gte=self.min_cost)))
-            tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
-        else:
-            if self.max_cost:
-                subjects = SubjectsAndCosts.objects.filter(cost__lte=self.max_cost)
-                tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
-            if self.min_cost:
-                subjects = SubjectsAndCosts.objects.filter(cost__gte=self.min_cost)
-                tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
+        # if self.subject:
+        #     subjects = SubjectsAndCosts.objects.filter(subject_id=self.subject)
+        #     tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
+        # if self.min_cost and self.max_cost:
+        #     subjects = SubjectsAndCosts.objects.filter(
+        #         (Q(cost__gte=self.min_cost) & Q(cost__lte=self.max_cost)) |
+        #         (Q(cost__lte=self.max_cost) & Q(cost__gte=self.min_cost)))
+        #     tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
+        # else:
+        #     if self.max_cost:
+        #         subjects = SubjectsAndCosts.objects.filter(cost__lte=self.max_cost)
+        #         tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
+        #     if self.min_cost:
+        #         subjects = SubjectsAndCosts.objects.filter(cost__gte=self.min_cost)
+        #         tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
 
         # if self.order == "by_cost":
         #     surveys = Survey.objects.order_by('min_cost')
         #     print("GGGGGGG")
         #     print(surveys)
-        context['tutors'] = tutors
-        context['subjects'] = Subject.objects.all()
-        context['cities'] = City.objects.all()
-        return context
+        # context['tutors'] = tutors
+        # context['subjects'] = Subject.objects.all()
+        # context['cities'] = City.objects.all()
+        # return context
 
 
 class TutorBoardDetailPageView(DetailView):
