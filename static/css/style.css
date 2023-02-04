@@ -4660,6 +4660,11 @@ h6 {
     flex-direction: column;
 }
 
+.tutors__content__filter {
+    display: flex;
+    justify-content: space-between;
+}
+
 .tutors__title {
     color: #7b838a;
     margin-bottom: 45px;
