@@ -33,21 +33,21 @@ class BoardStudentView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         if self.city and self.format == "student":
-            queryset = Survey.objects.filter(student_area__student_city__in=self.city)
+            queryset = queryset.filter(student_area__student_city__in=self.city)
         if self.city and self.format == "tutor":
-            queryset = Survey.objects.filter(tutor_area__tutor_city__in=self.city)
+            queryset = queryset.filter(tutor_area__tutor_city__in=self.city)
         if self.min_cost and self.max_cost:
-            queryset = Survey.objects.filter(
+            queryset = queryset.filter(
                 (Q(min_cost__gte=self.min_cost) & Q(max_cost__lte=self.max_cost)) |
                 (Q(min_cost__lte=self.max_cost) & Q(max_cost__gte=self.min_cost))
             )
         else:
             if self.max_cost:
-                queryset = Survey.objects.filter(Q(min_cost__lte=self.max_cost) | Q(max_cost__lte=self.max_cost))
+                queryset = queryset.filter(Q(min_cost__lte=self.max_cost) | Q(max_cost__lte=self.max_cost))
             if self.min_cost:
-                queryset = Survey.objects.filter(Q(min_cost__gte=self.min_cost) | Q(max_cost__gte=self.min_cost))
+                queryset = queryset.filter(Q(min_cost__gte=self.min_cost) | Q(max_cost__gte=self.min_cost))
         if self.subject:
-            queryset = Survey.objects.filter(subjects=self.subject)
+            queryset = queryset.filter(subjects=self.subject)
         if self.order == "by_cost_up":
             queryset = queryset.order_by('min_cost', 'max_cost')
         if self.order == "by_cost_down":
@@ -103,7 +103,7 @@ class BoardTutorView(ListView):
                 queryset = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
         queryset = queryset.annotate(
             avg_rate=Round(Avg('user__reviews_to__rate'), 1),
-            reviews_count=Count('user__reviews_to__rate'),
+            reviews_count=Count('user__reviews_to', distinct=True),
             max_experience=Max('subjects_and_costs__experience'),
             most_min_cost=(Min('subjects_and_costs__cost')),
             most_max_cost=(Max('subjects_and_costs__cost'))
