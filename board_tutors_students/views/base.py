@@ -2,7 +2,7 @@ import datetime
 
 from django.db.models.functions import Cast, Coalesce, Round
 from django.views.generic import ListView, DetailView, TemplateView
-from django.db.models import Q, Avg, Max, Count
+from django.db.models import Q, Avg, Max, Count, Min
 
 from cabinet_parents.models import Survey
 from cabinet_parents.models import Survey, City, StudentArea, TutorArea
@@ -98,10 +98,8 @@ class BoardTutorView(ListView):
             exclude(subjects_and_costs=None). \
             exclude(study_formats=None)
         if self.city and self.format == "student":
-            student_area = TutorArea.objects.filter(tutor_city_id=self.city)
-            queryset = queryset.filter(student_area__in=student_area)
+            queryset = queryset.filter(study_formats__student_area__student_city__in=self.city)
         if self.city and self.format == "tutor":
-            # tutor_area = TutorArea.objects.filter(tutor_city_id=self.city)
             queryset = queryset.filter(study_formats__tutor_area__tutor_city__in=self.city)
         if self.subject:
             queryset = TutorCabinets.objects.filter(subjects_and_costs__subject__in=self.subject)
@@ -117,13 +115,18 @@ class BoardTutorView(ListView):
             if self.min_cost:
                 subjects = SubjectsAndCosts.objects.filter(cost__gte=self.min_cost)
                 queryset = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
-        # if self.order == "by_cost":
-        #     surveys = Survey.objects.order_by('min_cost')
-        return queryset.annotate(
+        queryset = queryset.annotate(
             avg_rate=Round(Avg('user__reviews_to__rate'), 1),
             reviews_count=Count('user__reviews_to__rate'),
-            max_experience=Max('subjects_and_costs__experience')
+            max_experience=Max('subjects_and_costs__experience'),
+            most_min_cost=(Min('subjects_and_costs__cost')),
+            most_max_cost=(Max('subjects_and_costs__cost'))
         )
+        if self.order == "by_cost_up":
+            queryset = queryset.order_by('most_min_cost')
+        if self.order == "by_cost_down":
+            queryset = queryset.order_by('-most_max_cost')
+        return queryset
 
 
 # class FilterTutorView(ListView):
