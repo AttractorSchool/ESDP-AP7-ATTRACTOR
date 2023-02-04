@@ -4963,3 +4963,9 @@ h6 {
 .review__link {
 
 }
+
+.inner-navbar-clock {
+    position: absolute;
+    right: 15px;
+    top: 110px;
+}

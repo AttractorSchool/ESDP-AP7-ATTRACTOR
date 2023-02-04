@@ -1,4 +1,5 @@
-<div class="mini-navbar mb-5" style="-webkit-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
+<div class="col-md-12">
+    <div class="mini-navbar mb-4" style="-webkit-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
 -moz-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
 box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
     <nav class="ps-0 pe-0 navbar navbar-expand-lg bg-light" style="background-color: #f1f9ff">
@@ -32,7 +33,8 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                            href="{% url 'students_on_tutor_responses' user.tutor.pk %}">Отклики на меня</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-nowrap {% if on_tutor_reviews %} card-header disabled {% endif %}" aria-current="page" style="padding-right: 20px"
+                        <a class="nav-link active text-nowrap {% if on_tutor_reviews %} card-header disabled {% endif %}"
+                           aria-current="page" style="padding-right: 20px"
                            href="{% url 'on_tutor_reviews' user.tutor.pk %}">Отзывы обо мне</a>
                     </li>
                     <li class="nav-item" style="box-shadow: #0c5460">
@@ -44,4 +46,19 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
             </div>
         </div>
     </nav>
+    <div class="nav-item inner-navbar-clock" style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);">
+        <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+           href="#">
+            <body onload="clockTimer();">
+            <div class="clockpage">
+                                                    <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
+                                                          id="clock"></span>
+                <span style="display: block;" id="dayOfWeek"></span>
+            </div>
+            </body>
+        </a>
+    </div>
+</div>
 </div>

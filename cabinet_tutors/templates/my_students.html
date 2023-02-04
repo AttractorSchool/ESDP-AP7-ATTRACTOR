@@ -33,7 +33,7 @@
         {% include 'partial/tutor_navbar.html' %}
 
         {% for my_student in my_students.all %}
-        <div class="row justify-content-center" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
+        <div class="row justify-content-center col-md-9" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
                       -moz-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
                       box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2); ">
             <div class="col-12" style="border-radius: 20px">
@@ -93,7 +93,35 @@
             </div>
        </div>
 {% endif %}
+    <script>
+        function clockTimer() {
+            var date = new Date();
 
+            var time = [date.getHours(), date.getMinutes(), date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
+            var dayOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+            var days = date.getDay();
+
+            if (time[0] < 10) {
+                time[0] = "0" + time[0];
+            }
+            if (time[1] < 10) {
+                time[1] = "0" + time[1];
+            }
+            if (time[2] < 10) {
+                time[2] = "0" + time[2];
+            }
+
+            var current_time = [time[0], time[1], time[2]].join(':');
+            var clock = document.getElementById("clock");
+            var day = document.getElementById("dayOfWeek");
+
+            clock.innerHTML = current_time;
+            day.innerHTML = dayOfWeek[days];
+
+
+            setTimeout("clockTimer()", 1000);
+        }
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
     crossorigin="anonymous">
     </script>

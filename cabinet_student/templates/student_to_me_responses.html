@@ -3,7 +3,7 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
-<div class="box" style="width:auto; background-color:white; border-radius: 15px; margin: -30px; min-height: 300px">
+    <div class="box" style="width:auto; background-color:white; border-radius: 15px; margin: -30px; min-height: 300px">
         <section class="blog_area section_gap">
             <div class="container">
                 <div class="row">
@@ -12,10 +12,11 @@
                         <div class="blog_right_sidebar">
 
                             <aside class="single_sidebar_widget author_widget">
-                                <img class="author_img rounded-circle" style="width: 60%;" src="{{ request.user.avatar.url }}" alt="">
-                                <h4>{{ request.user.first_name}}</h4>
-                                <h4 style="margin-top: 5px;">{{ request.user.last_name}}</h4>
-                                <p>{{ request.user.get_type_display}}</p>
+                                <img class="author_img rounded-circle" style="width: 60%;"
+                                     src="{{ request.user.avatar.url }}" alt="">
+                                <h4>{{ request.user.first_name }}</h4>
+                                <h4 style="margin-top: 5px;">{{ request.user.last_name }}</h4>
+                                <p>{{ request.user.get_type_display }}</p>
                                 <div class="social_icon">
                                     <a href="#"><i class="ti-facebook"></i></a>
                                     <a href="#"><i class="ti-twitter"></i></a>
@@ -23,9 +24,9 @@
                                     <a href="#"><i class="ti-linkedin"></i></a>
                                 </div>
 
-<!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
-<!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
-<!--                                    ters andits detractors.</p>-->
+                                <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
+                                <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
+                                <!--                                    ters andits detractors.</p>-->
                                 <div class="br"></div>
                             </aside>
 
@@ -42,127 +43,145 @@
 -moz-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
 box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                             <nav class="navbar navbar-expand-lg bg-light" style="background-color: #f1f9ff">
-                              <div class="container-fluid">
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
-                                  <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li class="nav-item" style="box-shadow: #0c5460">
-                                        <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                           href="{% url 'student_cabinet_detail' request.user.pk %}">Главная</a>
-                                    </li>
-                                      <li class="nav-item" style="box-shadow: #0c5460">
-                                        <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                           href="{% url 'student_detail_survey' request.user.pk %}">Моя анкета</a>
-                                      </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                         href="#">Успеваемость</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link active {% if tutor_responses %} card-header disabled {% endif %}" aria-current="page" style="padding-right: 20px"
-                                         href="{% url 'to_me_student_responses' request.user.pk %}">Отклики на меня</a>
-                                    </li>
-                                      <li class="nav-item">
-                                      <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                         href="{% url 'student_on_tutor_responses' request.user.pk %}">Мои отклики</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                           href="{% url 'my_tutors' request.user.pk  %}">Мои учителя</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                           href="{% url 'my_reviews' request.user.pk %}">Отзывы</a>
-                                    </li>
-                                        <li class="nav-item" style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                <div class="container-fluid">
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#navbarSupportedContent"
+                                            aria-controls="navbarSupportedContent" aria-expanded="false"
+                                            aria-label="Переключатель навигации">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item" style="box-shadow: #0c5460">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'student_cabinet_detail' request.user.pk %}">Главная</a>
+                                            </li>
+                                            <li class="nav-item" style="box-shadow: #0c5460">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'student_detail_survey' request.user.pk %}">Моя
+                                                    анкета</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="#">Успеваемость</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active {% if tutor_responses %} card-header disabled {% endif %}"
+                                                   aria-current="page" style="padding-right: 20px"
+                                                   href="{% url 'to_me_student_responses' request.user.pk %}">Отклики на
+                                                    меня</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'student_on_tutor_responses' request.user.pk %}">Мои
+                                                    отклики</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'my_tutors' request.user.pk %}">Мои учителя</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'my_reviews' request.user.pk %}">Отзывы</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                            <div class="nav-item inner-navbar-clock" style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
-                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                               href="#">
-                                                <body onload="clockTimer();">
+                                <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                   href="#">
+                                    <body onload="clockTimer();">
 
-                                                <div class="clockpage">
+                                    <div class="clockpage">
                                                     <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
                                                           id="clock"></span>
-                                                    <span style="display: block;" id="dayOfWeek"></span>
-                                                </div>
-                                                </body>
-                                            </a>
-                                        </li>
-
-                                  </ul>
-
-                                </div>
-                              </div>
-                            </nav>
+                                        <span style="display: block;" id="dayOfWeek"></span>
+                                    </div>
+                                    </body>
+                                </a>
+                            </div>
                         </div>
 
 
                         <div class="blog_left_sidebar">
                             <article class="row blog_item">
 
-                                <div class="col-md-10">
+                                <div class="col-md-9">
                                     <div class="blog_post">
                                         <img src="#" alt="">
                                         <div class="blog_details">
 
                                             {% for response in responses.all %}
-                                            <div class="row justify-content-center" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
+                                                <div class="row justify-content-center" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
                                               -moz-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
-                                              box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2); " >
-                                                <div class="col-12" style="border-radius: 20px">
-                                                    <div class="row">
-                                                       <div class="col-3 text-center align-self-center" style="margin-top: 25px; margin-bottom: 25px">
-                                                            <img id="avatar" src="{{ response.author.avatar.url }}" class="circlehome-dp" style="border-radius: 100px; width:80%;" alt="signuplogo ">
-                                                        </div>
+                                              box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2); ">
+                                                    <div class="col-12" style="border-radius: 20px">
+                                                        <div class="row">
+                                                            <div class="col-3 text-center align-self-center"
+                                                                 style="margin-top: 25px; margin-bottom: 25px">
+                                                                <img id="avatar" src="{{ response.author.avatar.url }}"
+                                                                     class="circlehome-dp"
+                                                                     style="border-radius: 100px; width:80%;"
+                                                                     alt="signuplogo ">
+                                                            </div>
 
-                                                        <div class="col-9 align-self-center">
-                                                            <div class="row">
-                                                                <div class="col-8">
-                                                                    <h5 style="color: #6c757d; padding-top: 25px">Автор отклика: <span style="color: #568be9">{{ response.author.first_name }}</span>
-                                                                        <span style="color: #568be9">{{ response.author.last_name }}</span></h5>
-                                                                    <h5 style="color: #6c757d; padding-top: 10px">Вам предложили предметы: </h5>
-                                                                    {% for subject in responses.subjects.all %}
-                                                                        <span class="info-item">{{ subject }}{% if not forloop.last %}, {% endif %}</span>
-                                                                    {% endfor %}
-                                                                    {% if child.with_email == True %}
-                                                                        <h5 style="color: #6c757d; padding-top: 8px">Номер телефона: <span style="color: #568be9">{{ child.phone }}</span></h5>
-                                                                    {% endif %}
-                                                                    <hr>
-                                                                    <h5 style="color: #6c757d;">Вам отправили сообщение: </h5>
-                                                                    <span class="info-item" style="padding-bottom: 10px">{{ response.hello_message }}</span>
+                                                            <div class="col-9 align-self-center">
+                                                                <div class="row">
+                                                                    <div class="col-8">
+                                                                        <h5 style="color: #6c757d; padding-top: 25px">
+                                                                            Автор отклика: <span
+                                                                                style="color: #568be9">{{ response.author.first_name }}</span>
+                                                                            <span style="color: #568be9">{{ response.author.last_name }}</span>
+                                                                        </h5>
+                                                                        <h5 style="color: #6c757d; padding-top: 10px">
+                                                                            Вам предложили предметы: </h5>
+                                                                        {% for subject in responses.subjects.all %}
+                                                                            <span class="info-item">{{ subject }}
+                                                                                    {% if not forloop.last %}
+                                                                                        , {% endif %}</span>
+                                                                        {% endfor %}
+                                                                        {% if child.with_email == True %}
+                                                                            <h5 style="color: #6c757d; padding-top: 8px">
+                                                                                Номер телефона: <span
+                                                                                    style="color: #568be9">{{ child.phone }}</span>
+                                                                            </h5>
+                                                                        {% endif %}
+                                                                        <hr>
+                                                                        <h5 style="color: #6c757d;">Вам отправили
+                                                                            сообщение: </h5>
+                                                                        <span class="info-item"
+                                                                              style="padding-bottom: 10px">{{ response.hello_message }}</span>
+                                                                    </div>
+                                                                    <div class="col-4 text-center align-self-center">
+                                                                        <a href="{% url 'add_chat_message' response.pk %}"
+                                                                           class="btn btn-primary"
+                                                                           style="border-radius: 10px" id="btn">Открыть
+                                                                            чат</a>
+                                                                    </div>
+
                                                                 </div>
-                                                                <div class="col-4 text-center align-self-center">
-                                                                       <a href="{% url 'add_chat_message' response.pk %}" class="btn btn-primary" style="border-radius: 10px" id="btn" >Открыть чат</a>
-                                                                </div>
+
 
                                                             </div>
 
-
-
-
-
-
-
-
-                                                       </div>
-
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                             {% endfor %}
-
-
-
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
 
 
                                         </div>
                                     </div>
                                 </div>
-
-
 
 
                             </article>
@@ -175,77 +194,74 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
             </div>
 
 
-
-
-
-
-
-
         </section>
 
 
-
-                                </div>
-                            </div>
-
+    </div>
+    </div>
 
 
-                            </div>
-                        </div>
-                    </div>
 
+    </div>
+    </div>
+    </div>
 
 
 
 
 
-                    </div>
 
-                </div>
+    </div>
 
-
-
-        </div>
-<script>
-    function clockTimer()
-{
-  var date = new Date();
-
-  var time = [date.getHours(),date.getMinutes(),date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
-  var dayOfWeek = ["Воскресенье","Понедельник","Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
-  var days = date.getDay();
-
-  if(time[0] < 10){time[0] = "0"+ time[0];}
-  if(time[1] < 10){time[1] = "0"+ time[1];}
-  if(time[2] < 10){time[2] = "0"+ time[2];}
-
-  var current_time = [time[0],time[1],time[2]].join(':');
-  var clock = document.getElementById("clock");
-  var day = document.getElementById("dayOfWeek");
-
-  clock.innerHTML = current_time;
-  day.innerHTML = dayOfWeek[days];
+    </div>
 
 
 
-  setTimeout("clockTimer()", 1000);
-}
-</script>
+    </div>
+    <script>
+        function clockTimer() {
+            var date = new Date();
 
-<script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
-<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-<script src="{% static 'js/popper.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
-<script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
-<script src="{% static 'js/owl-carousel-thumb.min.js' %}"></script>
-<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
-<script src="{% static 'js/mail-script.js' %}"></script>
-<!--gmaps Js-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-<script src="{% static 'js/gmaps.min.js' %}"></script>
-<script src="{% static 'js/theme.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/clock.js' %}"></script>
+            var time = [date.getHours(), date.getMinutes(), date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
+            var dayOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+            var days = date.getDay();
+
+            if (time[0] < 10) {
+                time[0] = "0" + time[0];
+            }
+            if (time[1] < 10) {
+                time[1] = "0" + time[1];
+            }
+            if (time[2] < 10) {
+                time[2] = "0" + time[2];
+            }
+
+            var current_time = [time[0], time[1], time[2]].join(':');
+            var clock = document.getElementById("clock");
+            var day = document.getElementById("dayOfWeek");
+
+            clock.innerHTML = current_time;
+            day.innerHTML = dayOfWeek[days];
+
+
+            setTimeout("clockTimer()", 1000);
+        }
+    </script>
+
+    <script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/owl-carousel-thumb.min.js' %}"></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'js/mail-script.js' %}"></script>
+    <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+    <script src="{% static 'js/gmaps.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/clock.js' %}"></script>
 
 {% endblock %}

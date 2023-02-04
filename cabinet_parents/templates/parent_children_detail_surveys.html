@@ -73,8 +73,10 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                     детей</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                                   href="{% url 'my_children_tutors' request.user.pk  %}">Учителя детей</a>
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'my_children_tutors' request.user.pk %}">Учителя
+                                                    детей</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link active" aria-current="page"
@@ -96,37 +98,39 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                             <li class="nav-item">
                                                 <a class="nav-link active" aria-current="page"
                                                    style="padding-right: 20px"
-                                                   href="{% url 'from_parent_on_tutor_reviews' request.user.pk %}">Мои отзывы</a>
+                                                   href="{% url 'from_parent_on_tutor_reviews' request.user.pk %}">Мои
+                                                    отзывы</a>
                                             </li>
 
-                                            <li class="nav-item" style="margin-left: 30px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
-                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
-                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
-                                                <a class="nav-link active" aria-current="page"
-                                                   style="padding-right: 20px"
-                                                   href="#">
-                                                    <body onload="clockTimer();">
 
-                                                    <div class="clockpage">
-                                                        <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
-                                                              id="clock"></span>
-                                                        <span style="display: block;" id="dayOfWeek"></span>
-                                                    </div>
-                                                    </body>
-                                                </a>
-                                            </li>
                                         </ul>
 
                                     </div>
                                 </div>
                             </nav>
+                            <div class="nav-item inner-navbar-clock" style="margin-left: 30px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
+                                <a class="nav-link active" aria-current="page"
+                                   style="padding-right: 20px"
+                                   href="#">
+                                    <body onload="clockTimer();">
+
+                                    <div class="clockpage">
+                                                        <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
+                                                              id="clock"></span>
+                                        <span style="display: block;" id="dayOfWeek"></span>
+                                    </div>
+                                    </body>
+                                </a>
+                            </div>
                         </div>
 
 
                         <div class="blog_left_sidebar">
                             <article class="row blog_item">
 
-                                <div class="col-md-10">
+                                <div class="col-md-9">
                                     <div class="blog_post">
                                         <img src="#" alt="">
                                         <div class="blog_details">
@@ -348,7 +352,8 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                                     <span style="color: #568be9;"
                                                                                           class="info-item">{{ child.survey.student_area.student_region }}</span>
                                                                                 {% else %}
-                                                                                    <span style="color: #568be9;" class="info-item">Не указано</span>
+                                                                                    <span style="color: #568be9;"
+                                                                                          class="info-item">Не указано</span>
                                                                                 {% endif %}
                                                                             </p>
                                                                             <p style="margin-bottom: 10px">Город:
@@ -356,7 +361,8 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                                     <span style="color: #568be9;"
                                                                                           class="info-item">{{ child.survey.student_area.student_city }}</span>
                                                                                 {% else %}
-                                                                                    <span style="color: #568be9;" class="info-item">Не указано</span>
+                                                                                    <span style="color: #568be9;"
+                                                                                          class="info-item">Не указано</span>
                                                                                 {% endif %}
                                                                             </p>
                                                                             <p style="margin-bottom: 10px">Район:
@@ -364,7 +370,8 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                                     <span style="color: #568be9;"
                                                                                           class="info-item">{{ child.survey.student_area.student_region }}</span>
                                                                                 {% else %}
-                                                                                    <span style="color: #568be9;" class="info-item">Не указано</span>
+                                                                                    <span style="color: #568be9;"
+                                                                                          class="info-item">Не указано</span>
                                                                                 {% endif %}
                                                                             </p>
                                                                         {% endif %}

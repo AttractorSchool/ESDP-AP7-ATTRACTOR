@@ -34,7 +34,7 @@
 
         {% if reviews %}
 
-          <div class="row justify-content-center pb-3" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #ffffff; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
+          <div class="row justify-content-center pb-3 w-75" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #ffffff; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
 
               <div class="row justify-content-between" style="margin-bottom: 20px">
                     <div class="col-6" style="margin-bottom: 30px">
@@ -195,11 +195,39 @@
               </div>
         {% else %}
 
-            <h2>Пользователи еще не оставляли отзывов о вас</h2>
+            <h3 class="ms-3">Пользователи еще не оставляли отзывов о вас</h3>
         {% endif %}
     </div>
 
 
 {% endif %}
+<script>
+        function clockTimer() {
+            var date = new Date();
 
+            var time = [date.getHours(), date.getMinutes(), date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
+            var dayOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+            var days = date.getDay();
+
+            if (time[0] < 10) {
+                time[0] = "0" + time[0];
+            }
+            if (time[1] < 10) {
+                time[1] = "0" + time[1];
+            }
+            if (time[2] < 10) {
+                time[2] = "0" + time[2];
+            }
+
+            var current_time = [time[0], time[1], time[2]].join(':');
+            var clock = document.getElementById("clock");
+            var day = document.getElementById("dayOfWeek");
+
+            clock.innerHTML = current_time;
+            day.innerHTML = dayOfWeek[days];
+
+
+            setTimeout("clockTimer()", 1000);
+        }
+    </script>
 {% endblock %}
