@@ -7,10 +7,8 @@
         <section class="blog_area section_gap">
             <div class="container">
                 <div class="row">
-
                     <div class="col-lg-3">
                         <div class="blog_right_sidebar">
-
                             <aside class="single_sidebar_widget author_widget">
                                 <img class="author_img rounded-circle" style="width: 60%;"
                                      src="{{ request.user.avatar.url }}" alt="">
@@ -23,11 +21,24 @@
                                     <a href="#"><i class="ti-github"></i></a>
                                     <a href="#"><i class="ti-linkedin"></i></a>
                                 </div>
+                                <div class="br">
+                                    <div style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
+                                        <div class="nav-link" aria-current="page"
+                                             style="padding-right: 20px"
+                                             href="#">
+                                            <body onload="clockTimer();">
 
-                                <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
-                                <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
-                                <!--                                    ters andits detractors.</p>-->
-                                <div class="br"></div>
+                                            <div class="clockpage">
+                                                        <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
+                                                              id="clock"></span>
+                                                <span style="display: block;" id="dayOfWeek"></span>
+                                            </div>
+                                            </body>
+                                        </div>
+                                    </div>
+                                </div>
                             </aside>
 
                             <aside class="single_sidebar_widget ads_widget">
@@ -95,28 +106,11 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                     </div>
                                 </div>
                             </nav>
-                            <div class="nav-item inner-navbar-clock" style="margin-left: 60px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
-                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
-                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
-                                <a class="nav-link active" aria-current="page" style="padding-right: 20px"
-                                   href="#">
-                                    <body onload="clockTimer();">
-
-                                    <div class="clockpage">
-                                                    <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
-                                                          id="clock"></span>
-                                        <span style="display: block;" id="dayOfWeek"></span>
-                                    </div>
-                                    </body>
-                                </a>
-                            </div>
                         </div>
-
 
                         <div class="blog_left_sidebar">
                             <article class="row blog_item">
-
-                                <div class="col-md-9">
+                                <div class="col-md-10">
                                     <div class="blog_post">
                                         <img src="#" alt="">
                                         <div class="blog_details">
@@ -165,57 +159,28 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                               style="padding-bottom: 10px">{{ response.hello_message }}</span>
                                                                     </div>
                                                                     <div class="col-4 text-center align-self-center">
-
                                                                         <a href="{% url 'add_chat_message' response.pk %}"
                                                                            class="btn btn-primary"
                                                                            style="border-radius: 10px"
                                                                            id="btn">Открыть чат</a>
-
                                                                     </div>
                                                                 </div>
-
-
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
                                             {% endfor %}
-
-
                                         </div>
                                     </div>
                                 </div>
-
-
                             </article>
-
-
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
         </section>
-
-
-    </div>
     </div>
 
-
-    </div>
-    </div>
-    </div>
-
-
-    </div>
-
-    </div>
-
-
-    </div>
     <script>
         function clockTimer() {
             var date = new Date();
