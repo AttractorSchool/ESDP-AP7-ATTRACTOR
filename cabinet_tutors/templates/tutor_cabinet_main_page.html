@@ -52,7 +52,7 @@
                           <th scope="col">Занятие</th>
                           <th scope="col">Начало</th>
                           <th scope="col">Окончание</th>
-                          <th scope="col">Ученик</th>
+                          <th scope="col">Ученики</th>
                           <th scope="col">Форма</th>
                         </tr>
                       </thead>
@@ -64,11 +64,13 @@
                           <td>{{ event.title }}</td>
                           <td>{{ event.start_time | date:"H:m"}}</td>
                           <td>{{ event.end_time | date:"H:m" }}</td>
+                        <td>
                           {% for member in eventmembers %}
                             {% if event.pk == member.event_id%}
-                            <td>{{ member.user.first_name }}</td>
+                            {{ member.user.first_name }}
                             {% endif %}
                           {% endfor %}
+                        </td>
                         </tr>
 
                       </tbody>
