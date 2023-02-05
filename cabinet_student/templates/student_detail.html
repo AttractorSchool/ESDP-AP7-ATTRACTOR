@@ -5,6 +5,7 @@
 {% endblock %}
 {% block content %}
 
+
     <div class="box" style="width:auto; background-color:white; border-radius: 15px; margin: -30px; min-height: 300px">
         <section class="blog_area section_gap">
             <div class="container">
@@ -23,6 +24,7 @@
                                     <a href="#"><i class="ti-github"></i></a>
                                     <a href="#"><i class="ti-linkedin"></i></a>
                                 </div>
+
 
                                 <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
                                 <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
@@ -54,6 +56,54 @@
 
                         </div>
                     </div>
+                    <div class="blog_left_sidebar">
+                        <article class="row blog_item">
+                            <div class="col-md-9">
+                                <div class="blog_post">
+                                    <img src="#" alt="">
+                                    <div class="blog_details">
+                                        {% if request.user.with_survey %}
+
+                                                {% if events_today %}
+                                                    <h3 class="mb-4">Занятия сегодня</h3>
+                                                           <table class="table table-bordered" style="border-radius: 10px">
+                                                              <thead>
+                                                                <tr style="color: #737678; background-color: #c3e9f7">
+                                                                  <th scope="col">#</th>
+                                                                  <th scope="col">Занятие</th>
+                                                                  <th scope="col">Начало</th>
+                                                                  <th scope="col">Окончание</th>
+                                                                  <th scope="col">Преподаватель</th>
+                                                                  <th scope="col">Форма</th>
+                                                                </tr>
+                                                              </thead>
+                                                              {% for event in events_today %}
+                                                              <tbody>
+
+                                                                <tr>
+                                                                  <th scope="row">{{ forloop.counter }}</th>
+                                                                  <td>{{ event.title }}</td>
+                                                                  <td>{{ event.start_time | date:"H:m"}}</td>
+                                                                  <td>{{ event.end_time | date:"H:m" }}</td>
+                                                                    <td>{{ event.user.first_name }} {{ event.user.last_name }}</td>
+
+
+                                                                </tr>
+
+                                                              </tbody>
+                                                              {% endfor%}
+                                                            </table>
+
+                                                     {% else %}
+                                                        <p>На сегодня нет запланированных занятий</p>
+                                                     {% endif %}
+                                                </div>
+
+
+
+                                        {% else %}
+                                          <h2>Здравствуй, дорогой пользователь!</h2>
+                                          <span>Рады приветствовать тебя в лучшем приложении в мире
 
                     <div class="col-lg-9">
                         <div class="mini-navbar" style="-webkit-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);

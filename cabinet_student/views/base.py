@@ -2,13 +2,13 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.files.base import ContentFile
 from django.core.files.storage import FileSystemStorage
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404, render
 from django.urls import reverse
 from django.views.generic import DetailView, CreateView, UpdateView, ListView, FormView
 from django.http import HttpResponse
 from django.core import serializers
 import base64
-
+from datetime import datetime
 from accounts.forms import AccountForm, ChildrenForm
 from accounts.forms.accounts import AvatarForm
 from accounts.models import Account
@@ -18,21 +18,46 @@ from cabinet_student.forms import SurveyForm, StudentAreaForm, TutorAreaForm
 
 from cabinet_parents.models import Survey, TutorArea, Region, City, District, StudentArea
 from cabinet_tutors.models import TutorCabinets, MyStudent
+from calendarapp.forms import EventForm
+from calendarapp.models import Event, EventMember
 from responses.models import Response
 from reviews.models import Review
 
 
 class StudentProfileView(LoginRequiredMixin, DetailView):
-    model = get_user_model()
+    # model = get_user_model()
+    model = Event
     template_name = 'student_detail.html'
     context_object_name = 'user_obj'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #
+    #     return context
+
+    def get(self, request,  **kwargs):
+        events_month = Event.objects.get_running_events(user=request.user)
+        events_today = Event.objects.filter(events__user=request.user, start_time__date=datetime.now().date())
+        event_list = []
+        context = {}
+        for event in events_today:
+            event_list.append(
+                {
+                    "title": event.title,
+                    "start": event.start_time.strftime("%Y-%m-%dT%H:%M:%S"),
+                    "end": event.end_time.strftime("%Y-%m-%dT%H:%M:%S"),
+
+                }
+            )
+        context["events"] = event_list
+        context["events_month"] = events_month
+        context["events_today"] = events_today
         context['student_register_form'] = AccountForm()
         context['main_form'] = SurveyForm()
         context['main_page'] = '1'
-        return context
+        return render(request, self.template_name, context)
+
+
 
 
 class CreateStudentSurveyView(LoginRequiredMixin, CreateView):
@@ -284,4 +309,7 @@ class ReviewListView(ListView):
         context['my_reviews'] = Review.objects.filter(author_id=student.pk)
         context['my_reviews_page'] = '1'
         return context
+
+
+
 

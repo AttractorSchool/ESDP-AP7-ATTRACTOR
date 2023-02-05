@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
+from datetime import datetime
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404, render
 from django.urls import reverse
 from django.views.generic import DetailView, CreateView, UpdateView, ListView
 from verify_email import send_verification_email
@@ -9,24 +10,52 @@ from accounts.models import Account
 from cabinet_parents.forms import SurveyForm, TutorAreaForm, StudentAreaForm
 from cabinet_parents.models import Survey, TutorArea, Region, City, District, StudentArea
 from cabinet_tutors.models import MyStudent
+from calendarapp.models import Event, EventMember
 from responses.models import Response
 from reviews.models import Review
 
 
 class ParentProfileView(LoginRequiredMixin, DetailView):
-    model = get_user_model()
+    # model = get_user_model()
+    model = Event
     template_name = 'parent_detail.html'
     context_object_name = 'user_obj'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     children = Account.objects.filter(is_deleted=False, parent=self.request.user)
+    #     context['children'] = children
+    #     context['student_register_form'] = AccountForm()
+    #     context['student_without_email_register_form'] = ChildrenForm()
+    #     context['main_form'] = SurveyForm()
+    #     return context
+
+    def get(self, request,  **kwargs):
         children = Account.objects.filter(is_deleted=False, parent=self.request.user)
+        children_list = []
+        for child in children:
+            children_list.append(child)
+        eventmembers = EventMember.objects.all()
+        events_today = Event.objects.filter(events__user__in=children_list, start_time__date=datetime.now().date())
+        event_list = []
+        context = {}
+        for event in events_today:
+            event_list.append(
+                {
+                    "title": event.title,
+                    "start": event.start_time.strftime("%Y-%m-%dT%H:%M:%S"),
+                    "end": event.end_time.strftime("%Y-%m-%dT%H:%M:%S"),
+
+                }
+            )
+        context["events_today"] = events_today
         context['children'] = children
         context['student_register_form'] = AccountForm()
         context['student_without_email_register_form'] = ChildrenForm()
         context['main_form'] = SurveyForm()
-        context['main_page'] = '1'
-        return context
+        context['eventmembers'] = eventmembers
+        return render(request, self.template_name, context)
+
 
 
 class ParentCreateChildrenView(CreateView):

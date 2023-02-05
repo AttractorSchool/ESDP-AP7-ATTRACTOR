@@ -1,6 +1,7 @@
 from django.urls import path
 
 from cabinet_tutors.views.education import EducationCreateUpdateView, EducationDeleteView
+from cabinet_tutors.views.main_page_schedule import MainPageScheduleView
 from cabinet_tutors.views.students_of_tutor import ToMyStudentAddView, MyStudentsView
 from cabinet_tutors.views.study_formats import TutorStudyFormatsUpdateView, TutorStudyFormatsCreateView, \
     TutorStudyFormatsDeleteView
@@ -35,4 +36,5 @@ urlpatterns = [
                  name='my_students'),
     path('<int:pk>/reviews/', OnMeReviewsView.as_view(),
                      name='on_tutor_reviews'),
+    path("main_tab_schedule/", MainPageScheduleView.as_view(), name="main_tab_schedule"),
 ]
