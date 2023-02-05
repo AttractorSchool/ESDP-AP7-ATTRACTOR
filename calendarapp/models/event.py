@@ -24,12 +24,21 @@ class EventManager(models.Manager):
         ).order_by("start_time")
         return running_events
 
+    def get_today_events(self, user):
+        events_today = Event.objects.filter(
+            user=user,
+            is_active=True,
+            is_deleted=False,
+            start_time__date=datetime.now().date(),
+        ).order_by("start_time")
+        return events_today
+
 
 class Event(EventAbstract):
     """ Event model """
 
     user = models.ForeignKey(Account, on_delete=models.CASCADE, related_name="events")
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=200, unique=False)
     description = models.TextField()
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()

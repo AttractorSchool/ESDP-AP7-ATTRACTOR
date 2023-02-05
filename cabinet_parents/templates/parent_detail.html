@@ -13,10 +13,10 @@
                         <div class="blog_right_sidebar">
                             <aside class="single_sidebar_widget author_widget">
                                 <img class="author_img rounded-circle" style="width: 60%; border-radius: 100px;"
-                                     src="{{ user_obj.avatar.url }}" alt="">
-                                <h4>{{ user_obj.first_name }}</h4>
-                                <h4 style="margin-top: 5px;">{{ user_obj.last_name }}</h4>
-                                <p>{{ user_obj.get_type_display }}</p>
+                                     src="{{ request.user.avatar.url }}" alt="">
+                                <h4>{{ request.user.first_name }}</h4>
+                                <h4 style="margin-top: 5px;">{{ request.user.last_name }}</h4>
+                                <p>{{ request.user.get_type_display }}</p>
                                 <div class="social_icon">
                                     <a href="#"><i class="ti-facebook"></i></a>
                                     <a href="#"><i class="ti-twitter"></i></a>
@@ -132,8 +132,45 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                         <div class="blog_details">
 
                                             {% if children %}
+                                                     {% if events_today %}
+                                                    <h3 class="mb-4">Занятия сегодня</h3>
+                                                           <table class="table table-bordered" style="border-radius: 10px">
+                                                              <thead>
+                                                                <tr style="color: #737678; background-color: #c3e9f7">
+                                                                  <th scope="col">#</th>
+                                                                  <th scope="col">Занятие</th>
+                                                                  <th scope="col">Начало</th>
+                                                                  <th scope="col">Окончание</th>
+                                                                  <th scope="col">Преподаватель</th>
+                                                                  <th scope="col">Ученик</th>
+                                                                  <th scope="col">Форма</th>
+                                                                </tr>
+                                                              </thead>
+                                                              {% for event in events_today %}
+                                                              <tbody>
 
-                                                <h2>Расписание</h2>
+                                                                <tr>
+                                                                  <th scope="row">{{ forloop.counter }}</th>
+                                                                  <td>{{ event.title }}</td>
+                                                                  <td>{{ event.start_time | date:"H:m"}}</td>
+                                                                  <td>{{ event.end_time | date:"H:m" }}</td>
+                                                                    <td>{{ event.user.first_name }} {{ event.user.last_name }}</td>
+                                                                    {% for member in eventmembers %}
+                                                                        {% if event.pk == member.event_id%}
+                                                                        <td>{{ member.user.first_name }}</td>
+                                                                        {% endif %}
+                                                                      {% endfor %}
+
+
+                                                                </tr>
+
+                                                              </tbody>
+                                                              {% endfor%}
+                                                            </table>
+
+                                                     {% else %}
+                                                        <p>На сегодня у ваших детей нет запланированных занятий</p>
+                                                     {% endif %}
                                             {% else %}
 
                                                 <h2>Здравствуй, дорогой пользователь!</h2>
@@ -190,12 +227,12 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
 
                         <div class="row justify-content-center">
                             <div class="col-6 text-center">
-                                <a href="{% url 'parent_create_children' user_obj.pk %}">
+                                <a href="{% url 'parent_create_children' request.user.pk %}">
                                     <button type="button" class="btn btn-primary btn-block">Да</button>
                                 </a>
                             </div>
                             <div class="col-6 text-center">
-                                <a href="{% url 'parent_create_children_without_email' user_obj.pk %}">
+                                <a href="{% url 'parent_create_children_without_email' request.user.pk %}">
                                     <button type="button" class="btn btn-primary btn-block">Нет</button>
                                 </a>
                             </div>
@@ -212,7 +249,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                      style="background-color: white; margin: 10% auto; border-radius: 30px; padding: 20px; width: 30%">
                     <h2 style="margin: 30px auto">Регистрация ученика</h2>
                     <div>
-                        <form action="{% url 'parent_create_children' user_obj.pk %}" method="POST"
+                        <form action="{% url 'parent_create_children' request.user.pk %}" method="POST"
                               enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="form" id="form-student">
@@ -222,7 +259,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                         {% bootstrap_button button_type="submit" content='Сохранить' %}
                                     </div>
                                     <div class="col-6 text-center">
-                                        <a href="{% url 'parent_create_children_without_email' user_obj.pk %}">
+                                        <a href="{% url 'parent_create_children_without_email' request.user.pk %}">
                                             <button type="button" class="btn btn-primary btn-block">Нет</button>
                                         </a>
                                     </div>
@@ -242,7 +279,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                  style="background-color: white; margin: 10% auto; border-radius: 30px; padding: 20px; width: 30%"><h2
                     style="margin: 30px auto">Регистрация ученика</h2>
                 <div>
-                    <form action="{% url 'parent_create_children_without_email' user_obj.pk %}" method="POST"
+                    <form action="{% url 'parent_create_children_without_email' request.user.pk %}" method="POST"
                           enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="form" id="form-student-without-email">
