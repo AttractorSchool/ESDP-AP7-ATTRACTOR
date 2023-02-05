@@ -36,7 +36,7 @@ class MyStudentsView(ListView):
         context = super(MyStudentsView, self).get_context_data(object_list=object_list, **kwargs)
         tutor_cabinet = TutorCabinets.objects.get(id=self.kwargs['pk'])
         tutor = tutor_cabinet.user
-        my_students = MyStudent.objects.filter(tutor_id=tutor.pk)
+        my_students = MyStudent.objects.filter(tutor_id=tutor.pk).distinct('student')
         # responses = Response.objects.filter(cabinet_tutor_id=tutor_cabinet.pk)
         # context['responses'] = responses
         context['my_students'] = my_students

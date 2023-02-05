@@ -259,8 +259,9 @@ class MyTutorsView(ListView):
         context = super(MyTutorsView, self).get_context_data(object_list=object_list, **kwargs)
         student = Account.objects.get(id=self.kwargs['pk'])
         context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
-        context['my_tutors'] = MyStudent.objects.filter(student_id=student.pk)
+        context['my_tutors'] = MyStudent.objects.filter(student_id=student.pk).distinct('tutor')
         context['tutors_cabinets'] = TutorCabinets.objects.all()
+        context['my_tutors_page'] = '1'
         return context
 
 
@@ -306,6 +307,7 @@ class ReviewListView(ListView):
         context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
         context['my_tutors'] = MyStudent.objects.filter(student_id=student.pk)
         context['my_reviews'] = Review.objects.filter(author_id=student.pk)
+        context['my_reviews_page'] = '1'
         return context
 
 

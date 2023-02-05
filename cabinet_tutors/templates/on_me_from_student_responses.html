@@ -1,116 +1,173 @@
 {% extends 'base_enimi.html' %}
 {% load static %}
 {% block content %}
-{% if user.is_authenticated %}
-<div class="d-flex pb-3" style="padding-top: 100px;">
-    <div class="d-flex flex-column" style="width: 25%">
-        <div class="rounded text-center">
-            <p>
-                <span class="fw-bold">{{ user.last_name }}</span>
-                <span class="fw-bold">{{ user.first_name }}<br></span>
-                {% if user.father_name %}
-                <span class="fw-bold">{{ user.father_name }}<br></span>
-                {% endif %}
-            </p>
-            <img src="{{ user.avatar.url }}" alt=""
-                 style="border-radius: 50%; width: 200px; height: 180px;">
-            <div>
-                <p class="pt-2">
-                    <span>{{ user.email }}</span>
-                    <br>
-                    <span>{{ user.phone }}</span>
-                </p>
+    {% if user.is_authenticated %}
+        <div class="d-flex pb-3" style="padding-top: 100px;">
+        <div class="d-flex flex-column" style="width: 25%">
+            <div class="rounded text-center">
                 <p>
-                    <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
+                    <span class="fw-bold">{{ user.last_name }}</span>
+                    <span class="fw-bold">{{ user.first_name }}<br></span>
+                    {% if user.father_name %}
+                        <span class="fw-bold">{{ user.father_name }}<br></span>
+                    {% endif %}
                 </p>
-                <div class="tut__connection_btn_block">
-                    <a href="{% url 'calendarapp:calendar' %}">
-                        <button class="tut__connection_btn">Расписание</button>
-                    </a>
+                <img src="{{ user.avatar.url }}" alt=""
+                     style="border-radius: 50%; width: 200px; height: 180px;">
+                <div>
+                    <p class="pt-2">
+                        <span>{{ user.email }}</span>
+                        <br>
+                        <span>{{ user.phone }}</span>
+                    </p>
+                    <p>
+                        <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
+                    </p>
+                    <a href="{% url 'calendarapp:calendar' %}">Расписание</a>
+                </div>
+                <div class="w-75 mt-3" style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); margin-left: 35px;">
+                    <div class="nav-link" aria-current="page"
+                         style="padding-right: 20px">
+                        <body onload="clockTimer();">
+
+                        <div class="clockpage">
+                                                        <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
+                                                              id="clock"></span>
+                            <span style="display: block;" id="dayOfWeek"></span>
+                        </div>
+                        </body>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div style="width: 75%">
+        <div style="width: 75%">
 
-        {% include 'partial/tutor_navbar.html' %}
+            {% include 'partial/tutor_navbar.html' %}
 
-        {% for response in responses.all %}
-        <div class="row justify-content-center" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
+            {% for response in responses.all %}
+                <div class="row justify-content-center col-md-10" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
                       -moz-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
                       box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2); ">
-            <div class="col-12" style="border-radius: 20px">
-                <div class="row">
-                    <div class="col-3 text-center align-self-center" style="margin-top: 25px; margin-bottom: 25px">
-                        {% if response.author.parent %}
-                        <img id="avatar" src="{{ response.author.parent.avatar.url }}" class="circlehome-dp" style="border-radius: 100px; width:50%; margin-top: -20px; margin-bottom: 35px; -webkit-box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.86);
+                    <div class="col-12" style="border-radius: 20px">
+                        <div class="row">
+                            <div class="col-3 text-center align-self-center"
+                                 style="margin-top: 25px; margin-bottom: 25px">
+                                {% if response.author.parent %}
+                                    <img id="avatar" src="{{ response.author.parent.avatar.url }}" class="circlehome-dp"
+                                         style="border-radius: 100px; width:50%; margin-top: -20px; margin-bottom: 35px; -webkit-box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.86);
                                 -moz-box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.86);
                                 box-shadow: 0px 0px 0px 2px rgba(0, 123, 255, 0.86);" alt="signuplogo ">
-                        {% endif %}
-                        <img id="avatar" src="{{ response.author.avatar.url }}" class="circlehome-dp"
-                             style="border-radius: 100px; width:80%;" alt="signuplogo ">
-                    </div>
-
-                    <div class="col-9 align-self-center">
-                        <div class="row">
-                            <div class="col-8">
-                                {% if response.author.parent %}
-                                <h5 style="color: #6c757d; padding-top: 25px">Родитель: <span style="color: #568be9">{{ response.author.parent.first_name }}</span>
-                                    <span style="color: #568be9">{{ response.author.parent.last_name }}</span></h5>
-                                <hr style="margin-top: 30px">
                                 {% endif %}
-                                <h5 style="color: #6c757d; padding-top: 25px">Отклик от: <span style="color: #568be9">{{ response.author.first_name }}</span>
-                                    <span style="color: #568be9">{{ response.author.last_name }}</span></h5>
-                                <h5 style="color: #6c757d; padding-top: 10px">Интересны занятия по: </h5>
-                                {% for subject in response.subjects.all %}
-                                <span class="info-item">{{ subject }}{% if not forloop.last %}, {% endif %}</span>
-                                {% endfor %}
-                                <hr>
-                                <h5 style="color: #6c757d;">Вам отправлено сообщение: </h5>
-                                <span class="info-item">{{ response.hello_message }}</span>
-
+                                <img id="avatar" src="{{ response.author.avatar.url }}" class="circlehome-dp"
+                                     style="border-radius: 100px; width:80%;" alt="signuplogo ">
                             </div>
-                            <div class="col-4 text-center align-self-center">
 
-                              <a href="{% url 'add_chat_message' response.pk %}" class="btn btn-primary chat" style="border-radius: 10px" >
-                                  Открыть чат</a>
-                              <button class="btn-success" id="" data-id="{{ response.author.pk }}" style="margin-top: 20px; border-radius: 10px" >
-                                  В ученики <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
-  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-  <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
-</svg></button>
+                            <div class="col-9 align-self-center">
+                                <div class="row">
+                                    <div class="col-8">
+                                        {% if response.author.parent %}
+                                            <h5 style="color: #6c757d; padding-top: 25px">Родитель: <span
+                                                    style="color: #568be9">{{ response.author.parent.first_name }}</span>
+                                                <span style="color: #568be9">{{ response.author.parent.last_name }}</span>
+                                            </h5>
+                                            <hr style="margin-top: 30px">
+                                        {% endif %}
+                                        <h5 style="color: #6c757d; padding-top: 25px">Отклик от: <span
+                                                style="color: #568be9">{{ response.author.first_name }}</span>
+                                            <span style="color: #568be9">{{ response.author.last_name }}</span></h5>
+                                        <h5 style="color: #6c757d; padding-top: 10px">Интересны занятия по: </h5>
+                                        {% for subject in response.subjects.all %}
+                                            <span class="info-item">{{ subject }}{% if not forloop.last %}
+                                                , {% endif %}</span>
+                                        {% endfor %}
+                                        <hr>
+                                        <h5 style="color: #6c757d;">Вам отправлено сообщение: </h5>
+                                        <span class="info-item">{{ response.hello_message }}</span>
 
+                                    </div>
+                                    <div class="col-4 text-center align-self-center">
+
+                                        <a href="{% url 'add_chat_message' response.pk %}" class="btn btn-primary chat"
+                                           style="border-radius: 10px">
+                                            Открыть чат</a>
+                                        <button class="btn-success" id="" data-id="{{ response.author.pk }}"
+                                                style="margin-top: 20px; border-radius: 10px">
+                                            В ученики
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+                                                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                                <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
+                                            </svg>
+                                        </button>
+
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
+                </div>
+            {% endfor %}
+        </div>
 
+        <div id="addToStudentConfirmModal" class="modal"
+             style="display: none; width: 100%; height: 100%; border-radius: 30px; background-color: rgba(0,0,0, 0.3); z-index: 1; overflow: auto">
+            <div class="modal-content"
+                 style="background-color: white; margin: 10% auto; border-radius: 15px; padding: 20px; width: 30%">
+                <h2 style="margin: 20px auto; text-align:center; ">Вы уверены, что хотите добавить ученика?</h2>
+                <div class="row">
+                    <div class="col-6 text-center">
+                        <button class="btn btn-success chat" id="addStudentBtnConfirm" data-id=""
+                                style="margin-top: 20px; border-radius: 10px">
+                            Добавить
+                        </button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <button class="btn btn-success chat" id="addStudentBtnConfirmCancel" data-id=""
+                                style="margin-top: 20px; border-radius: 10px">
+                            Отмена
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
-    </div>
+    {% endif %}
+<script>
+    function clockTimer() {
+        var date = new Date();
 
-        <div id="addToStudentConfirmModal" class="modal" style="display: none; width: 100%; height: 100%; border-radius: 30px; background-color: rgba(0,0,0, 0.3); z-index: 1; overflow: auto">
-            <div class="modal-content" style="background-color: white; margin: 10% auto; border-radius: 15px; padding: 20px; width: 30%">
-                <h2 style="margin: 20px auto; text-align:center; ">Вы уверены, что хотите добавить ученика?</h2>
-                   <div class="row">
-                         <div class="col-6 text-center">
-                             <button class="btn btn-success chat" id="addStudentBtnConfirm" data-id="" style="margin-top: 20px; border-radius: 10px" >
-                                      Добавить </button>
-                         </div>
-                         <div class="col-6 text-center">
-                             <button class="btn btn-success chat" id="addStudentBtnConfirmCancel" data-id="" style="margin-top: 20px; border-radius: 10px" >
-                                      Отмена </button>
-                         </div>
-                    </div>
-            </div>
-       </div>
-{% endif %}
+        var time = [date.getHours(), date.getMinutes(), date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
+        var dayOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+        var days = date.getDay();
 
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-    crossorigin="anonymous">
-    </script>
-    <script src="{% static 'js/add-to-student-confirm.js' %}"></script>
+        if (time[0] < 10) {
+            time[0] = "0" + time[0];
+        }
+        if (time[1] < 10) {
+            time[1] = "0" + time[1];
+        }
+        if (time[2] < 10) {
+            time[2] = "0" + time[2];
+        }
+
+        var current_time = [time[0], time[1], time[2]].join(':');
+        var clock = document.getElementById("clock");
+        var day = document.getElementById("dayOfWeek");
+
+        clock.innerHTML = current_time;
+        day.innerHTML = dayOfWeek[days];
+
+
+        setTimeout("clockTimer()", 1000);
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous">
+</script>
+<script src="{% static 'js/add-to-student-confirm.js' %}"></script>
 
 {% endblock %}

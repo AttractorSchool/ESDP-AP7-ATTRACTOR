@@ -7,28 +7,38 @@
     <h2 class="tutors__title">
         Предложения репетиторов
     </h2>
-    <div class="tutors__content">
+    <div class="tutors__content__filter">
         <div class="tutors__blocks">
             {% for t in tutors %}
             <div class="tut__tutor">
                 <div class="tut__avatar">
                     <div class="tut_avatar-img-block"><img src="{{ t.user.avatar.url }}" alt=""
                                                            class="tut_avatar-img"></div>
-                    <p class="tut__name">
+                    <p class="tut__name text-center">
                         {{ t.user.first_name }} {{ t.user.last_name }}
                     </p>
                     <div class="tut__location-block">
                         <div class="tut__location">
 
-<!--                            <div class="tut__rate">-->
-<!--                                <p class="rate__num"><i class="fa-solid fa-star"></i> 4,9</p>-->
-<!--                                <p class="tut__rate-reviews">отзывы <span>15</span></p>-->
-<!--                            </div>-->
+                            <div class="tut__rate">
+                                <p class="rate__num">
+                                    <i class="fa-solid fa-star" style="color: orange;">
+                                    </i>
+                                    {% if t.avg_rate %}{{ t.avg_rate }}{% else %}0{% endif %}
+                                </p>
+                                <p class="tut__rate-reviews">отзывы <span>{{ t.reviews_count }}</span></p>
+                            </div>
                             <div class="tut__cost">
                                 <p class="cost">Средняя стоимость </p>
-                                {% for c in t.subjects_and_costs.all %}
-                                <p class="price">{{ c.cost }}{% if not forloop.last %}, {% endif %} <span>тнг/час</span></p>
+                            </div>
+                            <div class="tut__cost">
+                                {% for c in t.subjects_and_costs.all|dictsort:"cost" %}
+                                <p class="price">
+                                {% if forloop.first %}{{ c.cost }}{% endif %}
+                                {% if forloop.last %}-{{ c.cost }} {% endif %}
                                 {% endfor %}
+                                    </p>
+                                <span class="ms-1">тнг/час</span>
                             </div>
                         </div>
                     </div>
@@ -67,13 +77,13 @@
                         </p>
                     </div>
                     <div class="tut-info__experience">
-
-                        <p class="tut-info__edu " >Опыт работы более:
-                        {% for c in t.subjects_and_costs.all %}
-                         <span>{{ c.experience }}{% if not forloop.last %}, {% endif %}<span> лет</span></span>
+                        <p class="tut-info__edu" >Опыт работы более:
+                            {% if t.max_experience %}
+                            {{ t.max_experience }} лет
+                            {% else %}
+                                Опыта нет
+                            {% endif %}
                         </p>
-                        {% endfor %}
-
                     </div>
 
                     <div class="tut-info__experience">
@@ -93,7 +103,7 @@
         <div class="filter-tutor">
             <h3 class="filter-tutor__title">Фильтры</h3>
             <div class="filter-tutor__block">
-                <form action="{% url 'filter_tutors' %}" method="get">
+                <form action="{% url 'board_tutor' %}" method="get">
                     <div class="filter-tutor__item">
                         <p>Выберите дисциплину:</p>
                         <select name="subject" id="">
@@ -128,7 +138,8 @@
                         <select name="order" id="">
                             <option value="" selected disabled hidden>Способ сортировки</option>
                             <option value="by_rate">По рейтингу</option>
-                            <option value="by_cost">По цене</option>
+                            <option value="by_cost_up">По цене по возрастанию</option>
+                            <option value="by_cost_down">По цене по убыванию</option>
                         </select>
                     </div>
                 <button type="submit" class="btn btn-success mb-3">Искать</button>

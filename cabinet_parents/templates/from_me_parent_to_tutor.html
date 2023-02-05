@@ -35,7 +35,24 @@
 <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
 <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
 <!--                                    ters andits detractors.</p>-->
-                                <div class="br"></div>
+                                <div class="br">
+                                    <div style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
+                                        <div class="nav-link" aria-current="page"
+                                             style="padding-right: 20px"
+                                             href="#">
+                                            <body onload="clockTimer();">
+
+                                            <div class="clockpage">
+                                                        <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
+                                                              id="clock"></span>
+                                                <span style="display: block;" id="dayOfWeek"></span>
+                                            </div>
+                                            </body>
+                                        </div>
+                                    </div>
+                                </div>
                             </aside>
 
                             <aside class="single_sidebar_widget ads_widget">
@@ -79,7 +96,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                          href="{% url 'to_my_children_responses' request.user.pk %}">Отклики на детей</a>
                                     </li>
                                     <li class="nav-item">
-                                      <a class="nav-link active" aria-current="page" style="padding-right: 20px; text-align: center"
+                                      <a class="nav-link active{% if from_children_responses_page %} card-header disabled {% endif %}" aria-current="page" style="padding-right: 20px; text-align: center"
                                          href="{% url 'to_my_children_responses' request.user.pk %}">Мои Отклики</a>
                                     </li>
                                     <li class="nav-item">
@@ -87,7 +104,14 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                            style="padding-right: 20px"
                                            href="{% url 'from_parent_on_tutor_reviews' request.user.pk %}">Мои отзывы</a>
                                     </li>
-                                    <li class="nav-item" style="margin-left: 40px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+
+
+                                  </ul>
+
+                                </div>
+                              </div>
+                            </nav>
+                            <div class="nav-item inner-navbar-clock" style="margin-left: 40px; text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
                                       <a class="nav-link active" aria-current="page" style="padding-right: 20px"
@@ -98,13 +122,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                               <span style="display: block;" id="dayOfWeek"></span>
                                             </div>
                                           </body></a>
-                                    </li>
-
-                                  </ul>
-
-                                </div>
-                              </div>
-                            </nav>
+                                    </div>
                         </div>
 
 

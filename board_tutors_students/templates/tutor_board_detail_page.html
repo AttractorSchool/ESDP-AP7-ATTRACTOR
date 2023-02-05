@@ -2,376 +2,414 @@
 {% load static %}
 {% load django_bootstrap5 %}
 {% block content %}
-
-<section class="tutors">
-    <h2 class="tutors__title">
-        Подробная информация
-    </h2>
-    <div class="tutors__content">
-        <div class="blocks" style="width: 100%">
-            <div class="tutor-box" style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
-
-                <div class="row" style="width: 100%">
-                    <div class="col-3">
-                        <div class="tut__avatar">
-                            <div class="tut_avatar-img-block"><img src="{{ tutor.user.avatar.url }}" alt=""
-                                                                   class="tut_avatar-img">
+    <section class="tutors">
+        <h2 class="tutors__title">
+            Подробная информация
+        </h2>
+        <div class="tutors__content">
+            <div class="blocks" style="width: 100%">
+                <div class="tutor-box"
+                     style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
+                    <div class="row" style="width: 100%">
+                        <div class="col-3">
+                            <div class="tut__avatar">
+                                <div class="tut_avatar-img-block"><img src="{{ tutor.user.avatar.url }}" alt=""
+                                                                       class="tut_avatar-img">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-6">
-                        <p class="tut__name" style="font-size: 25px">
-                            {{ tutor.user.first_name }}
-                        </p>
-                        <p class="tut__name" style="font-size: 25px">
-                            {{ tutor.user.last_name }}
-                        </p>
-
-
-                        <hr>
-                        <div class="tut__cost">
-                            <p class="tut-info__edu">Стоимость занятия: </p>
-                            <p class="tut__location" style="margin-left: 15px">{{ middle_cost }} <span>тнг/час</span></p>
-
-                        </div>
-                        <div class="tut__cost">
-                            <p class="tut-info__edu">Дисциплины: </p>
-                            {% for c in tutor.subjects_and_costs.all %}
-                            <span class="tut__location" style="margin-left: 15px; font-size: 15px">{{ c.subject }}{% if not forloop.last %}, {% endif %}</span>
-                            {% endfor %}
-                        </div>
-                        <div class="tut__cost">
-                            <p class="tut-info__edu">Языки преподавания: </p>
-                                {% for language in tutor.languages.all %}
-                                    <span class="tut__location" style="margin-left: 15px; font-size: 15px">{{ language.name }} </span>
-                                {% endfor %}
-                        </div>
-                        <div class="tut__cost">
-                            <p class="tut-info__edu">Опыт работы: </p>
-
-                            <span class="tut__location" style="margin-left: 15px; font-size: 15px">{{ experience }}<span> лет</span></span>
-
-
-                        </div>
-
-                        <br>
-
-                    </div>
-                    <div class="col-3 text-center">
-                        {% if request.user.type == 'parents' %}
-                            <div class="tut__connection_btn_block">
-                                <a href="{% url 'response_by_parent_on_tutor' tutor.pk %}">
-                                    <button class="tut__connection_btn">Связаться с репетитором</button>
-                                </a>
-                            </div>
-                        {% else %}
-                            <div class="tut__connection_btn_block">
-                                <a href="{% url 'response_on_tutor' tutor.pk %}">
-                                    <button class="tut__connection_btn">Связаться с репетитором</button>
-                                </a>
-                            </div>
-                        {% endif %}
-                        <div class="review__block col-6 d-flex align-items-center justify-content-end" style="margin-top: 20px; margin-left: 40px">
-                            <div class="stars_rate d-flex">
-                                <i class="fa-solid fa-star"></i>
-                                    <span class="rate__num ms-1 mb-0">
-                                    {{ middle_rate }}</span>
-                            </div>
-                        </div>
-                        <div class="review__block col-6 d-flex align-items-center justify-content-end" style="margin-top: 15px; margin-left: 50px">
-                            <p>
-                                <span> Отзывов:</span>
-                                <span>{{ reviews_count }}</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
-                <div class="row">
-                    <p class="tut__name" style="font-size: 25px">
-                        Образование
-                    </p>
-                    {% for education in educations %}
-                    <div class="pb-2 d-flex">
-                        <div class="w-100 border-top">
-                            <span class="fw-bold">Учебное заведение: </span>
-                            <span>{% if education.institution %} {{ education.institution }} {% else %} - {% endif %}
-                                <br></span>
-
-                            <span class="fw-bold">Специальность: </span>
-                            <span>{% if education.speciality %} {{ education.speciality }} {% else %} - {% endif %}<br></span>
-
-                            <span class="fw-bold">Степень: </span>
-                            <span>{% if education.degree %} {{ education.degree }} {% else %} - {% endif %}<br></span>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-
-             <div style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
-                <div class="row">
-                    <p class="tut__name" style="font-size: 25px">
-                        О себе
-                    </p>
-                    {% if tutor.about %}
-                        <span class="text-break" style="font-style: italic">{{ tutor.about }}</span>
-                    {% else %} - {% endif %}
-                </div>
-            </div>
-
-            <div style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
-                <div class="row">
-                    <p class="tut__name" style="font-size: 25px">
-                        Формат обучения
-                    </p>
-
-                    <div class="row">
-                        {% if tutor.study_formats.online.all %}
-                            <div class="col-6">
-                                <span class="fw-bold">Онлайн </span>
-                        {% endif %}
-                             <div class="w-100">
-                                {% for online in tutor.study_formats.online.all %}
-                                    <span>{{ online }} </span>
-                                {% endfor %}
-                             </div>
-                        </div>
-
-                        {% if tutor.study_formats.tutor_area %}
                         <div class="col-6">
-                                <span class="fw-bold" style="margin-top: 20px">Оффлайн </span>
-                             {% endif %}
-                             <div class="w-100">
-                                <span style="font-style: italic">Область: </span>
-                                <span>{{tutor.study_formats.tutor_area.tutor_region}} </span>
-
-                                <span style="font-style: italic">Город: </span>
-                                <span>{{tutor.study_formats.tutor_area.tutor_city}} </span>
-
-                                <span style="font-style: italic">Район: </span>
-                                <span>{{tutor.study_formats.tutor_area.tutor_district}} </span>
-                             </div>
-                       </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-
-        {% if reviews %}
-        <div style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
-            <div class="row">
-                <div class="row" style="margin: 0 auto;">
-                    <div class="row justify-content-between">
-                        <div class="col-6" style="margin-bottom: 30px">
                             <p class="tut__name" style="font-size: 25px">
-                                Отзывы на {{ tutor.user.first_name}} {{ tutor.user.last_name}}:
+                                {{ tutor.user.first_name }}
                             </p>
-                            <p>
-                                Всего: {{ reviews_count}} отзывов
+                            <p class="tut__name" style="font-size: 25px">
+                                {{ tutor.user.last_name }}
                             </p>
+                            <hr>
+                            <div class="tut__cost">
+                                <p class="tut-info__edu">Стоимость занятия: </p>
+                                <p class="tut__location" style="margin-left: 15px">{{ middle_cost }}
+                                    <span>тнг/час</span></p>
+                            </div>
+                            <div class="tut__cost">
+                                <p class="tut-info__edu">Дисциплины: </p>
+                                {% for c in tutor.subjects_and_costs.all %}
+                                    <span class="tut__location"
+                                          style="font-size: 15px">{{ c.subject }}
+                                        {% if not forloop.last %}, {% endif %}</span>
+                                {% endfor %}
+                            </div>
+                            <div class="tut__cost">
+                                <p class="tut-info__edu">Языки преподавания: </p>
+                                {% for language in tutor.languages.all %}
+                                    <span class="tut__location"
+                                          style="margin-left: 15px; font-size: 15px">{{ language.name }} </span>
+                                {% endfor %}
+                            </div>
+                            <div class="tut__cost">
+                                <p class="tut-info__edu">Опыт работы: </p>
+                                <span class="tut__location"
+                                      style="margin-left: 15px; font-size: 15px">{{ experience }}<span> лет</span></span>
+                            </div>
+                            <br>
                         </div>
-                        <div class="col-6">
-                            <div class="review__block col-6 d-flex align-items-center justify-content-end" style="margin-top: 20px; margin-left: 270px">
-                            <div class="stars_rate d-flex">
-                                <i class="fa-solid fa-star"></i>
+                        <div class="col-3 text-center">
+                            {% if request.user.type == 'parents' %}
+                                <div class="tut__connection_btn_block">
+                                    <a href="{% url 'response_by_parent_on_tutor' tutor.pk %}">
+                                        <button class="tut__connection_btn">Связаться с репетитором</button>
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="tut__connection_btn_block">
+                                    <a href="{% url 'response_on_tutor' tutor.pk %}">
+                                        <button class="tut__connection_btn">Связаться с репетитором</button>
+                                    </a>
+                                </div>
+                            {% endif %}
+                            <div class="review__block col-6 d-flex align-items-center justify-content-end"
+                                 style="margin-top: 20px; margin-left: 40px">
+                                <div class="stars_rate d-flex">
+                                    <i class="fa-solid fa-star" style="color: orange;"></i>
                                     <span class="rate__num ms-1 mb-0">
-                                    {{ middle_rate }}/5</span>
+                                        {% if middle_rate %}
+                                            {{ middle_rate }}
+                                        {% else %}
+                                            0
+                                        {% endif %}
+                                    </span>
+                                </div>
                             </div>
-                        </div>
+                            <div class="review__block col-6 d-flex align-items-center justify-content-end"
+                                 style="margin-top: 15px; margin-left: 50px">
+                                <p>
+                                    <span> Отзывов:</span>
+                                    <span>{{ reviews_count }}</span>
+                                </p>
+                            </div>
                         </div>
                     </div>
-
-
-                    <div class="styles_item__a7-am" style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
-                        <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
-                                    padding-right: 20px; display: flex; align-items: center; min-width: 38px;
-                                    margin-right: 3px;">
-                            5<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
-                        <div class="styles_progressBar__jWk0z" style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
-                            <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
-                                <span class="styles_progress__3z4sU" style="border-radius: 7px;  display:block; width:{{ proportion_five_sum }}%;
-                                    background-color: #66b314;padding: 8px 0;">
-
-                                </span>
-                            </div>
-                        </div>
-                        <p class="styles_countValue__1Ebkt">{{ five_sum }}</p>
-                    </div>
-
-
-                    <div class="styles_item__a7-am" style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
-                        <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
-                                    padding-right: 20px; display: flex; align-items: center; min-width: 38px;
-                                    margin-right: 3px;">
-                            4<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
-                        <div class="styles_progressBar__jWk0z" style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
-                            <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
-                                <span class="styles_progress__3z4sU" style="border-radius: 7px;  display:block; width:{{ proportion_four_sum }}%;
-                                    background-color: #66b314;padding: 8px 0;">
-
-                                </span>
-                            </div>
-                        </div>
-                        <p class="styles_countValue__1Ebkt">{{ four_sum }}</p>
-                    </div>
-
-
-                    <div class="styles_item__a7-am" style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
-                        <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
-                                    padding-right: 20px; display: flex; align-items: center; min-width: 38px;
-                                    margin-right: 3px;">
-                            3<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
-                        <div class="styles_progressBar__jWk0z" style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
-                            <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
-                                <span class="styles_progress__3z4sU" style="border-radius: 7px;  display:block; width:{{ proportion_three_sum }}%;
-                                    background-color: #66b314;padding: 8px 0;">
-
-                                </span>
-                            </div>
-                        </div>
-                        <p class="styles_countValue__1Ebkt">{{ three_sum }}</p>
-                     </div>
-
-
-                    <div class="styles_item__a7-am" style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
-                        <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
-                                    padding-right: 20px; display: flex; align-items: center; min-width: 38px;
-                                    margin-right: 3px;">
-                            2<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
-                        <div class="styles_progressBar__jWk0z" style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
-                            <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
-                                <span class="styles_progress__3z4sU" style="border-radius: 7px;  display:block; width:{{ proportion_two_sum }}%;
-                                    background-color: #66b314;padding: 8px 0;">
-
-                                </span>
-                            </div>
-                        </div>
-                        <p class="styles_countValue__1Ebkt">{{ two_sum }}</p>
-                     </div>
-
-
-                    <div class="styles_item__a7-am" style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
-                        <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
-                                    padding-right: 20px; display: flex; align-items: center; min-width: 38px;
-                                    margin-right: 3px;">
-                            1<i class="fa-solid fa-star" style="margin-left: 10px"></i></p>
-                        <div class="styles_progressBar__jWk0z" style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
-                            <div class="styles_bar__2GSTm" style="border-radius: 7px; background-color: #d4d4d4; width:100%">
-                                <span class="styles_progress__3z4sU" style="border-radius: 7px;  display:block; width:{{ proportion_one_sum }}%;
-                                    background-color: #66b314;padding: 8px 0;">
-
-                                </span>
-                            </div>
-                        </div>
-                        <p class="styles_countValue__1Ebkt">{{ one_sum }}</p>
-                     </div>
-
-
                 </div>
 
+                <div style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
+                    <div class="row">
+                        <p class="tut__name" style="font-size: 25px">
+                            Образование
+                        </p>
+                        {% for education in educations %}
+                            <div class="pb-2 d-flex">
+                                <div class="w-100 border-top">
+                                    <span class="fw-bold">Учебное заведение: </span>
+                                    <span>{% if education.institution %} {{ education.institution }} {% else %}
+                                        - {% endif %}
+                                        <br></span>
+
+                                    <span class="fw-bold">Специальность: </span>
+                                    <span>{% if education.speciality %} {{ education.speciality }} {% else %}
+                                        - {% endif %}<br></span>
+
+                                    <span class="fw-bold">Степень: </span>
+                                    <span>{% if education.degree %} {{ education.degree }} {% else %} - {% endif %}
+                                        <br></span>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
+                    <div class="row">
+                        <p class="tut__name" style="font-size: 25px">
+                            О себе
+                        </p>
+                        {% if tutor.about %}
+                            <span class="text-break" style="font-style: italic">{{ tutor.about }}</span>
+                        {% else %} - {% endif %}
+                    </div>
+                </div>
+
+                <div style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px; margin-bottom: 20px;">
+                    <div class="row">
+                        <p class="tut__name" style="font-size: 25px">
+                            Формат обучения
+                        </p>
+
+                        <div class="row">
+                            {% if tutor.study_formats.online.all %}
+                                <div class="col-4">
+                                    <span class="fw-bold">Онлайн </span>
+                                    <div class="w-100">
+                                        {% for online in tutor.study_formats.online.all %}
+                                            <span>{{ online }} </span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if tutor.study_formats.tutor_area %}
+                                <div class="col-4">
+                                    <span class="fw-bold" style="margin-top: 20px">Территория преподавателя </span>
+                                    <div class="w-100">
+                                        <span style="font-style: italic">Область: </span>
+                                        <span>{{ tutor.study_formats.tutor_area.tutor_region }} </span>
+
+                                        <span style="font-style: italic">Город: </span>
+                                        <span>{{ tutor.study_formats.tutor_area.tutor_city }} </span>
+
+                                        <span style="font-style: italic">Район: </span>
+                                        <span>{{ tutor.study_formats.tutor_area.tutor_district }} </span>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if tutor.study_formats.student_area %}
+                                <div class="col-4">
+                                    <span class="fw-bold" style="margin-top: 20px">Территория выезда </span>
+                                    <div class="w-100">
+                                        <span style="font-style: italic">Область: </span>
+                                        <span>{{ tutor.study_formats.student_area.student_region }} </span>
+
+                                        <span style="font-style: italic">Город: </span>
+                                        <span>{{ tutor.study_formats.student_area.student_city }} </span>
+
+                                        <span style="font-style: italic">Район: </span>
+                                        <span>{{ tutor.study_formats.student_area.student_district }} </span>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-                <div class="blog_left_sidebar">
-                        <article class="row blog_item justify-content-center">
+            {% if reviews %}
+                <div style="display: flex; width: 100%; background: #ffffff; border-radius: 15px; padding: 25px 25px;
+                 margin-bottom: 20px; flex-direction: column">
+                    <div class="row">
+                        <div class="row" style="margin: 0 auto;">
+                            <div class="row justify-content-between">
+                                <div class="col-6" style="margin-bottom: 30px">
+                                    <p class="tut__name" style="font-size: 25px">
+                                        Отзывы на {{ tutor.user.first_name }} {{ tutor.user.last_name }}:
+                                    </p>
+                                    <p>
+                                        Всего: {{ reviews_count }} отзывов
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <div class="review__block col-6 d-flex align-items-center justify-content-end"
+                                         style="margin-top: 20px; margin-left: 270px">
+                                        <div class="stars_rate d-flex">
+                                            <i class="fa-solid fa-star" style="color: orange;"></i>
+                                            <span class="rate__num ms-1 mb-0">
+                                    {{ middle_rate }}/5,0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="styles_item__a7-am"
+                                 style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
+                                <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
+                                    padding-right: 20px; display: flex; align-items: center; min-width: 38px;
+                                    margin-right: 3px;">
+                                    5<i class="fa-solid fa-star" style="margin-left: 10px; color: orange"></i></p>
+                                <div class="styles_progressBar__jWk0z"
+                                     style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
+                                    <div class="styles_bar__2GSTm"
+                                         style="border-radius: 7px; background-color: #d4d4d4; width:100%">
+                                <span class="styles_progress__3z4sU"
+                                      style="border-radius: 7px;  display:block; width:{{ proportion_five_sum }}%;
+                                              background-color: #66b314;padding: 8px 0;">
+
+                                </span>
+                                    </div>
+                                </div>
+                                <p class="styles_countValue__1Ebkt">{{ five_sum }}</p>
+                            </div>
+                            <div class="styles_item__a7-am"
+                                 style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
+                                <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
+                                    padding-right: 20px; display: flex; align-items: center; min-width: 38px;
+                                    margin-right: 3px;">
+                                    4<i class="fa-solid fa-star" style="margin-left: 10px; color: orange"></i></p>
+                                <div class="styles_progressBar__jWk0z"
+                                     style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
+                                    <div class="styles_bar__2GSTm"
+                                         style="border-radius: 7px; background-color: #d4d4d4; width:100%">
+                                <span class="styles_progress__3z4sU"
+                                      style="border-radius: 7px;  display:block; width:{{ proportion_four_sum }}%;
+                                              background-color: #66b314;padding: 8px 0;">
+                                </span>
+                                    </div>
+                                </div>
+                                <p class="styles_countValue__1Ebkt">{{ four_sum }}</p>
+                            </div>
+                            <div class="styles_item__a7-am"
+                                 style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
+                                <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
+                                    padding-right: 20px; display: flex; align-items: center; min-width: 38px;
+                                    margin-right: 3px;">
+                                    3<i class="fa-solid fa-star" style="margin-left: 10px; color: orange"></i></p>
+                                <div class="styles_progressBar__jWk0z"
+                                     style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
+                                    <div class="styles_bar__2GSTm"
+                                         style="border-radius: 7px; background-color: #d4d4d4; width:100%">
+                                <span class="styles_progress__3z4sU"
+                                      style="border-radius: 7px;  display:block; width:{{ proportion_three_sum }}%;
+                                              background-color: #66b314;padding: 8px 0;">
+                                </span>
+                                    </div>
+                                </div>
+                                <p class="styles_countValue__1Ebkt">{{ three_sum }}</p>
+                            </div>
+                            <div class="styles_item__a7-am"
+                                 style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
+                                <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
+                                    padding-right: 20px; display: flex; align-items: center; min-width: 38px;
+                                    margin-right: 3px;">
+                                    2<i class="fa-solid fa-star" style="margin-left: 10px; color: orange"></i></p>
+                                <div class="styles_progressBar__jWk0z"
+                                     style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
+                                    <div class="styles_bar__2GSTm"
+                                         style="border-radius: 7px; background-color: #d4d4d4; width:100%">
+                                <span class="styles_progress__3z4sU"
+                                      style="border-radius: 7px;  display:block; width:{{ proportion_two_sum }}%;
+                                              background-color: #66b314;padding: 8px 0;">
+                                </span>
+                                    </div>
+                                </div>
+                                <p class="styles_countValue__1Ebkt">{{ two_sum }}</p>
+                            </div>
+                            <div class="styles_item__a7-am"
+                                 style="display: flex; margin: 0 auto; align-items: center; width: 100%;">
+                                <p class="styles_value__8Do-- " style="margin-left: 10px; font-size: 16px; line-height: 1.2; position: relative;
+                                    padding-right: 20px; display: flex; align-items: center; min-width: 38px;
+                                    margin-right: 3px;">
+                                    1<i class="fa-solid fa-star" style="margin-left: 10px; color: orange"></i></p>
+                                <div class="styles_progressBar__jWk0z"
+                                     style="overflow: hidden; width: 100%; flex: 1 1; padding: 0 7px;">
+                                    <div class="styles_bar__2GSTm"
+                                         style="border-radius: 7px; background-color: #d4d4d4; width:100%">
+                                <span class="styles_progress__3z4sU"
+                                      style="border-radius: 7px;  display:block; width:{{ proportion_one_sum }}%;
+                                              background-color: #66b314;padding: 8px 0;">
+                                </span>
+                                    </div>
+                                </div>
+                                <p class="styles_countValue__1Ebkt">{{ one_sum }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog_left_sidebar">
+                        <div class="row blog_item justify-content-center">
                             <div class="pt-2" style="width: 95%">
                                 <div class="blog_post">
                                     {% for review in reviews %}
-                                    <div class="row justify-content-center pb-3" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #ffffff; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
+                                        <div class="row justify-content-center pb-3" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #ffffff; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
                                               -moz-box-shadow: 1px 2px 5px 5px rgba(34, 60, 80, 0.2);
                                               box-shadow: 1px 2px 5px 5px rgba(34, 60, 80, 0.2); ">
-                                        <div class="col-12 pe-4" style="border-radius: 20px">
-                                            <div class="row">
-                                                <div class="col-3 text-center align-self-center"
-                                                     style="margin-top: 25px; margin-bottom: 25px">
-                                                    <p>{{ review.review_date|date:"d.m.Y" }}</p>
-                                                    {% if review.rate == 5 %}
-                                                     <div class="stars_rate d-flex" style="margin-left: 20px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-solid fa-star"></i>
-                                                        <p class="rate__num ms-1 mb-0">
-                                                            {{ review.rate }}</p>
-                                                     {% endif %}
+                                            <div class="col-12 pe-4" style="border-radius: 20px">
+                                                <div class="row">
+                                                    <div class="col-3 text-center align-self-center"
+                                                         style="margin-top: 25px; margin-bottom: 25px">
+                                                        <p>{{ review.review_date|date:"d.m.Y" }}</p>
+                                                        {% if review.rate == 5 %}
+                                                            <div class="stars_rate d-flex" style="margin-left: 20px">
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <p class="rate__num ms-1 mb-0">
+                                                                    {{ review.rate }}</p>
+                                                            </div>
+                                                        {% endif %}
 
-                                                     {% if review.rate == 4 %}
-                                                     <div class="stars_rate d-flex" style="margin-left: 20px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-regular fa-star"></i>
-                                                        <p class="rate__num ms-1 mb-0">
-                                                            {{ review.rate }}</p>
-                                                     {% endif %}
+                                                        {% if review.rate == 4 %}
+                                                            <div class="stars_rate d-flex" style="margin-left: 20px">
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-regular fa-star"
+                                                                   style="color: orange;"></i>
+                                                                <p class="rate__num ms-1 mb-0">
+                                                                    {{ review.rate }}</p>
+                                                            </div>
+                                                        {% endif %}
 
-                                                     {% if review.rate == 3 %}
-                                                     <div class="stars_rate d-flex" style="margin-left: 20px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-regular fa-star"></i>
-                                                         <i class="fa-regular fa-star"></i>
-                                                        <p class="rate__num ms-1 mb-0">
-                                                            {{ review.rate }}</p>
-                                                     {% endif %}
+                                                        {% if review.rate == 3 %}
+                                                            <div class="stars_rate d-flex" style="margin-left: 20px">
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-regular fa-star"
+                                                                   style="color: orange;"></i>
+                                                                <i class="fa-regular fa-star"
+                                                                   style="color: orange;"></i>
+                                                                <p class="rate__num ms-1 mb-0">
+                                                                    {{ review.rate }}</p>
+                                                            </div>
+                                                        {% endif %}
 
-                                                     {% if review.rate == 2 %}
-                                                     <div class="stars_rate d-flex" style="margin-left: 20px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-regular fa-star"></i>
-                                                         <i class="fa-regular fa-star"></i>
-                                                         <i class="fa-regular fa-star"></i>
-                                                        <p class="rate__num ms-1 mb-0">
-                                                            {{ review.rate }}</p>
-                                                     {% endif %}
+                                                        {% if review.rate == 2 %}
+                                                            <div class="stars_rate d-flex" style="margin-left: 20px">
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-regular fa-star"
+                                                                   style="color: orange;"></i>
+                                                                <i class="fa-regular fa-star"
+                                                                   style="color: orange;"></i>
+                                                                <i class="fa-regular fa-star"
+                                                                   style="color: orange;"></i>
+                                                                <p class="rate__num ms-1 mb-0">
+                                                                    {{ review.rate }}</p>
+                                                            </div>
+                                                        {% endif %}
 
-                                                     {% if review.rate == 1 %}
-                                                     <div class="stars_rate d-flex" style="margin-left: 20px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                         <i class="fa-regular fa-star"></i>
-                                                         <i class="fa-regular fa-star"></i>
-                                                         <i class="fa-regular fa-star"></i>
-                                                         <i class="fa-regular fa-star"></i>
-                                                        <p class="rate__num ms-1 mb-0">
-                                                            {{ review.rate }}</p>
-                                                     {% endif %}
+                                                        {% if review.rate == 1 %}
+                                                            <div class="stars_rate d-flex" style="margin-left: 20px">
+                                                                <i class="fa-solid fa-star" style="color: orange;"></i>
+                                                                <i class="fa-regular fa-star"
+                                                                   style="color: orange;"></i>
+                                                                <i class="fa-regular fa-star"
+                                                                   style="color: orange;"></i>
+                                                                <i class="fa-regular fa-star"
+                                                                   style="color: orange;"></i>
+                                                                <i class="fa-regular fa-star"
+                                                                   style="color: orange;"></i>
+                                                                <p class="rate__num ms-1 mb-0">
+                                                                    {{ review.rate }}</p>
+                                                            </div>
+                                                        {% endif %}
                                                     </div>
-                                                </div>
-                                                <div class="col-8 align-self-center" style="margin-left: 20px">
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <h5 style="color: #6c757d; margin-top: 15px">{{ review.author.first_name }}</h5>
-                                                            <hr>
-                                                            <h5 style="color: #6c757d;">Отзыв: </h5>
-                                                            <div class="review-rate__box d-flex align-items-center justify-content-between">
+                                                    <div class="col-8 align-self-center" style="margin-left: 20px">
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <h5 style="color: #6c757d; margin-top: 15px">{{ review.author.first_name }}</h5>
+                                                                <hr>
+                                                                <h5 style="color: #6c757d;">Отзыв: </h5>
+                                                                <div class="review-rate__box d-flex align-items-center justify-content-between">
                                                                 <span class="text-wrap info-item">
                                                                     <p class="review__text text-wrap mb-0">{{ review.text }}</p>
                                                                 </span>
+                                                                </div>
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     {% endfor %}
                                 </div>
                             </div>
+                        </div>
                     </div>
-            </div>
-        {% endif %}
+                </div>
+
+            {% endif %}
         </div>
-
-
+    </section>
 
 {% endblock %}

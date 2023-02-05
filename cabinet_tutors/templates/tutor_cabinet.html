@@ -29,6 +29,21 @@
                             </a>
                         </div>
                     </div>
+                    <div class="w-75 mt-3" style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); margin-left: 35px;">
+                        <div class="nav-link" aria-current="page"
+                             style="padding-right: 20px">
+                            <body onload="clockTimer();">
+
+                            <div class="clockpage">
+                                                        <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
+                                                              id="clock"></span>
+                                <span style="display: block;" id="dayOfWeek"></span>
+                            </div>
+                            </body>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -46,4 +61,33 @@
         </div>
     {% endif %}
 
+    <script>
+        function clockTimer() {
+            var date = new Date();
+
+            var time = [date.getHours(), date.getMinutes(), date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
+            var dayOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+            var days = date.getDay();
+
+            if (time[0] < 10) {
+                time[0] = "0" + time[0];
+            }
+            if (time[1] < 10) {
+                time[1] = "0" + time[1];
+            }
+            if (time[2] < 10) {
+                time[2] = "0" + time[2];
+            }
+
+            var current_time = [time[0], time[1], time[2]].join(':');
+            var clock = document.getElementById("clock");
+            var day = document.getElementById("dayOfWeek");
+
+            clock.innerHTML = current_time;
+            day.innerHTML = dayOfWeek[days];
+
+
+            setTimeout("clockTimer()", 1000);
+        }
+    </script>
 {% endblock %}

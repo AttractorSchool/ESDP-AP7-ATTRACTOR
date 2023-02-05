@@ -57,6 +57,7 @@ class ParentProfileView(LoginRequiredMixin, DetailView):
         return render(request, self.template_name, context)
 
 
+
 class ParentCreateChildrenView(CreateView):
     template_name = 'account_register.html'
     model = Account
@@ -114,6 +115,7 @@ class ParentChildrenSurveysView(LoginRequiredMixin, ListView):
         context['student_register_form'] = AccountForm()
         context['student_without_email_register_form'] = ChildrenForm()
         context['main_form'] = SurveyForm()
+        context['children_surveys_page'] = '1'
         return context
 
 
@@ -289,13 +291,14 @@ class ToMyChildrenResponsesView(LoginRequiredMixin, ListView):
             survey_pk = child.get('survey')
             # child_id_list.append(pk)
             survey_id_list.append(survey_pk)
-        print(survey_id_list)
         responses = Response.objects.filter(survey_id__in=survey_id_list)
         # , cabinet_tutor_id = None
         context['responses'] = responses
         context['student_register_form'] = AccountForm()
         context['student_without_email_register_form'] = ChildrenForm
+        context['to_children_responses_page'] = '1'
         return context
+
 
 class FromParentOnTutorResponsesView(LoginRequiredMixin, ListView):
     template_name = 'from_me_parent_to_tutor.html'
@@ -312,14 +315,12 @@ class FromParentOnTutorResponsesView(LoginRequiredMixin, ListView):
             user_pk = child.get('id')
             # child_id_list.append(pk)
             user_id_list.append(user_pk)
-        print(user_id_list)
-
         user = Account.objects.get(id=self.kwargs['pk'])
         responses = Response.objects.filter(author_id__in=user_id_list)
-        print(responses)
         context['responses'] = responses
         context['student_register_form'] = AccountForm()
         context['student_without_email_register_form'] = ChildrenForm
+        context['from_children_responses_page'] = '1'
         return context
 
 
@@ -331,26 +332,28 @@ class TutorsOfMyChildrenView(ListView):
         context = super(TutorsOfMyChildrenView, self).get_context_data(object_list=object_list, **kwargs)
         parent = Account.objects.get(id=self.kwargs['pk'])
         children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
-        user_id_list = []
-        for child in children:
-            user_pk = child.get('id')
-            user_id_list.append(user_pk)
-
+        # user_id_list = []
+        # for child in children:
+        #     user_pk = child.get('id')
+        #     user_id_list.append(user_pk)
+        children_pk_list = [child.get('id') for child in children]
         context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
-        context['my_tutors'] = MyStudent.objects.filter(student_id__in=user_id_list)
+        context['my_tutors'] = MyStudent.objects.filter(student_id__in=children_pk_list).distinct('tutor')
+        context['my_tutors_page'] = '1'
+
         return context
 
 
 class FromParentReviewMakeView(DetailView):
     template_name = "from_parent_review_create.html"
     model = Account
-
     context_object_name = "tutor"
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(FromParentReviewMakeView, self).get_context_data(object_list=object_list, **kwargs)
         context['tutors'] = Account.objects.all()
         return context
+
 
 class FromParentReviewCreateView(CreateView):
     template_name = "from_parent_review_create.html"
@@ -381,9 +384,8 @@ class FromParentReviewsView(ListView):
         parent = Account.objects.get(id=self.kwargs['pk'])
         context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
         context['my_reviews'] = Review.objects.filter(author_id=parent.pk)
+        context['my_reviews_page'] = '1'
         return context
-
-
 
 # class GetDataForSurveysView(CreateView):
 #     model = Account

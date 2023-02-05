@@ -40,10 +40,18 @@
                     </div>
                     <div class="d-flex">
                         <div class="col-4 pl-0">
-                            <span class="fw-bold">Оффлайн охват: </span>
+                            <span class="fw-bold">Территория преподавателя: </span>
                         </div>
                         <div class="col-7 text-break">
                             {{ user.tutor.study_formats.tutor_area }}
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-4 pl-0">
+                            <span class="fw-bold">Территория выезда: </span>
+                        </div>
+                        <div class="col-7 text-break">
+                            {{ user.tutor.study_formats.student_area }}
                         </div>
                     </div>
 
