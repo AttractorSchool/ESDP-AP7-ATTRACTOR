@@ -206,6 +206,9 @@ class StudentBoardDetailPageView(DetailView):
         context = super().get_context_data(**kwargs)
         survey = Survey.objects.get(id=self.kwargs['pk'])
         now = datetime.datetime.now().strftime("%Y-%m-%d")
-        delta = int(now[0:4]) - int(survey.user.birthday[0:4])
-        context['age'] = delta
+        if survey.user.birthday:
+            delta = int(now[0:4]) - int(survey.user.birthday[0:4])
+            context['age'] = delta
+        else:
+            context['age'] = ""
         return context
