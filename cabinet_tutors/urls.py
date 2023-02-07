@@ -4,7 +4,7 @@ from cabinet_tutors.views.education import EducationCreateUpdateView, EducationD
 from cabinet_tutors.views.main_page_schedule import MainPageScheduleView
 from cabinet_tutors.views.students_of_tutor import ToMyStudentAddView, MyStudentsView
 from cabinet_tutors.views.study_formats import TutorStudyFormatsUpdateView, TutorStudyFormatsCreateView, \
-    TutorStudyFormatsDeleteView
+    TutorStudyFormatsDeleteView, SecondTutorStudyFormatsCreateView
 from cabinet_tutors.views.subjects_and_costs import SubjectsAndCostCreateUpdateView, SubjectsAndCostDeleteView
 from cabinet_tutors.views.tutor_cabinets import TutorCabinetView, TutorCabinetUpdateView
 from cabinet_tutors.views.responses import OnStudentsFromTutorView, OnTutorFromStudentResponsesView
@@ -22,7 +22,7 @@ urlpatterns = [
     path('<int:tpk>/subjects-and-costs/<int:pk>/delete/', SubjectsAndCostDeleteView.as_view(),
          name='subjects_and_costs_delete'),
 
-    path('<int:tpk>/study-formats/create/', TutorStudyFormatsCreateView.as_view(), name='tutor_study_formats_create'),
+    path('<int:tpk>/study-formats/create/', SecondTutorStudyFormatsCreateView.as_view(), name='tutor_study_formats_create'),
     path('<int:tpk>/study-formats/<int:pk>/update/', TutorStudyFormatsUpdateView.as_view(),
          name='tutor_study_formats_update'),
     path('<int:tpk>/study-formats/<int:pk>/delete/', TutorStudyFormatsDeleteView.as_view(),

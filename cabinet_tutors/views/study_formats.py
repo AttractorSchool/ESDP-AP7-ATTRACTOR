@@ -94,3 +94,38 @@ class TutorStudyFormatsDeleteView(DeleteView):
     def get_success_url(self):
         self.request.user.tutor.study_formats.tutor_area.delete()
         return reverse('tutor_cabinet', kwargs={'pk': self.request.user.tutor.pk})
+
+
+class SecondTutorStudyFormatsCreateView(CreateView):
+    template_name = 'study_formats/study_formats_create_2.html'
+    model = TutorStudyFormats
+    form_class = TutorStudyFormatsForm
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(SecondTutorStudyFormatsCreateView, self).get_context_data(object_list=object_list, **kwargs)
+        context['tutor_address_form'] = TutorAreaForm()
+        context['student_address_form'] = StudentAreaForm()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        study_format_form = self.form_class(request.POST)
+        tutor_address_form = TutorAreaForm(request.POST)
+        student_address_form = StudentAreaForm(request.POST)
+        if study_format_form.is_valid() and tutor_address_form.is_valid() and student_address_form.is_valid():
+            study_format = study_format_form.save()
+            study_format.tutors.add(request.user.tutor)
+
+            tutor_address = tutor_address_form.save()
+            tutor_address.tutors.add(study_format)
+
+            student_address = student_address_form.save()
+            student_address.tutors.add(study_format)
+            print(student_address)
+
+            study_format.save()
+            return redirect('tutor_cabinet', pk=request.user.tutor.pk)
+        context = {}
+        context['tutor_address_form'] = tutor_address_form
+        context['student_address_form'] = student_address_form
+        context['form'] = study_format_form
+        return self.render_to_response(context)
