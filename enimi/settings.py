@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     'reviews',
     'rest_framework',
     'api',
-    'notifications'
+    'notifications',
+    'payments'
 ]
 
 MIDDLEWARE = [

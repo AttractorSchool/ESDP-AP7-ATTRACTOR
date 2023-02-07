@@ -1,0 +1,29 @@
+
+{% extends 'base_enimi.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; width: 50%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+    -moz-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+    box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
+        <h2 style="margin: 20px auto; text-align:center; ">Платные сервисы</h2><div>
+            {% for service in services %}
+                <a href="{% url 'service_detail' service.pk %}"><h3 style="text-align: center"><i class="fa-sharp fa-solid fa-arrow-up-wide-short" style="color: yellowgreen"></i> " {{ service.title}} "</h3></a>
+            {% endfor %}
+        </div>
+    </div>
+
+
+<!--<script type="text/javascript" src="{% static 'js/payment-widget.js' %}"></script>-->
+
+
+
+{% endblock %}

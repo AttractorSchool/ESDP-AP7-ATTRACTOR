@@ -1,0 +1,85 @@
+
+{% extends 'base_enimi.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; width: 50%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+    -moz-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+    box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
+        <h2 style="margin: 20px auto; text-align:center; ">Ваши заказы</h2>
+
+            {% if orders %}
+                    {% for order in orders %}
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <span>Услуга: <h3>"{{ order.service.title }}"</h3></span>
+                            </div>
+                            {% if order.status == 'Paid' %}
+                                <div class="col-6">
+                                    <span>Статус заказа: <h3 style="color: #49b00b">Оплачено</h3></span>
+                                </div>
+                            {% else %}
+                                <div class="col-6">
+                                    <span>Статус заказа: <h3 style="color: #49b00b">Не оплачено</h3></span>
+                                </div>
+                            {% endif %}
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <span>Стоимость: <h3>{{ order.service.price }}</h3></span>
+                            </div>
+                            <div class="col-6">
+                                <span>№Заказа: <h3 style="color: #49b00b">{{ order.pk }}</h3></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <span>Описание: <h4>{{ order.service.description }}</h4></span>
+                            </div>
+                            {% if order.status != 'Paid' %}
+                                <div class="col-6">
+                                    <input type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}' />
+                                    <div class="tut__connection_btn_block" style="margin-top: 30px">
+                                        <p id="user-email" style="display: none" data-email="{{ order.user.email }}"></p>
+                                        <p id="service-price" style="display: none" data-price="{{ order.service.price }}"></p>
+                                        <button id="payButton" data-id="{{ order.pk }}" class="tut__connection_btn">Оплатить</button>
+                                    </div>
+
+                                    <div class="methods">
+                                        <div id="element"></div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+
+
+
+
+                        {% for status in service_statuses %}
+                            {% if status.order.pk == order.pk %}
+                                <p>Ваша анкета будет находиться в топе до: <h3>{{ status.end_date|slice:10 }}</h3></p>
+                            {% endif %}
+                        {% endfor %}
+
+                    <hr>
+                    {% endfor %}
+            {% else%}
+                <p style="color: grey; text-align:center;">Список заказов пуст</p>
+            {% endif %}
+
+    </div>
+
+<script type="text/javascript" src="{% static 'js/payment-widget.js' %}"></script>
+
+{% endblock %}
