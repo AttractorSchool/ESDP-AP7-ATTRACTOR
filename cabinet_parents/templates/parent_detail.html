@@ -146,7 +146,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                   <th scope="col">Окончание</th>
                                                                   <th scope="col">Преподаватель</th>
                                                                   <th scope="col">Ученик</th>
-                                                                  <th scope="col">Форма</th>
+                                                                  <th scope="col">Формат</th>
                                                                 </tr>
                                                               </thead>
                                                               {% for event in events_today %}
@@ -163,7 +163,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                         <td>{{ member.user.first_name }}</td>
                                                                         {% endif %}
                                                                       {% endfor %}
-
+                                                                    <td>{{ event.event_format }}</td>
 
                                                                 </tr>
 
