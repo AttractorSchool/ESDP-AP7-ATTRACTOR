@@ -13,10 +13,10 @@ from cabinet_parents.models import Test
 
 
 class CityAdmin(admin.ModelAdmin):
-    list_display = ('id', 'city', 'created_at', 'updated_at')
-    list_filter = ('city', )
+    list_display = ('id', 'city', 'created_at', 'updated_at', 'region')
+    list_filter = ('city', 'region')
     search_fields = ('city',)
-    fields = ('id', 'city', 'created_at', 'updated_at')
+    fields = ('id', 'city', 'region', 'created_at', 'updated_at')
     readonly_fields = ('id', 'created_at', 'updated_at')
 
 admin.site.register(City, CityAdmin)

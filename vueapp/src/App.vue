@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <Regions v-bind:items="regions_items"/>
+    <Regions v-bind:regions="regions_items"/>
   </div>
 </template>
 
 
 <script>
 import Regions from "./components/Regions";
-
 export default {
   name: "App",
   components: {
@@ -19,11 +18,9 @@ export default {
     };
   },
 };
-
 window.regions = [
   { id: 1, name: "Алматинская область" },
-  { id: 2, name: "Джамбульская область" },
-  { id: 3, name: "Акмолинская область" },
+  { id: 2, name: "Акмолинская область" },
+  { id: 3, name: "Карагандинская область" },
 ];
-
 </script>

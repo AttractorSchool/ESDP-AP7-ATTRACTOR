@@ -16,6 +16,15 @@ class City(models.Model):
         verbose_name='Дата изменения',
         auto_now=True
     )
+    region = models.ForeignKey(
+        verbose_name='Области',
+        to='cabinet_parents.Region',
+        related_name='cities',
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+        default=1
+    )
 
     def __str__(self):
         return f'{self.city}'

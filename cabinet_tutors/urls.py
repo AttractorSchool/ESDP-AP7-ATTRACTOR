@@ -22,7 +22,7 @@ urlpatterns = [
     path('<int:tpk>/subjects-and-costs/<int:pk>/delete/', SubjectsAndCostDeleteView.as_view(),
          name='subjects_and_costs_delete'),
 
-    path('<int:tpk>/study-formats/create/', SecondTutorStudyFormatsCreateView.as_view(), name='tutor_study_formats_create'),
+    path('<int:tpk>/study-formats/create/', TutorStudyFormatsCreateView.as_view(), name='tutor_study_formats_create'),
     path('<int:tpk>/study-formats/<int:pk>/update/', TutorStudyFormatsUpdateView.as_view(),
          name='tutor_study_formats_update'),
     path('<int:tpk>/study-formats/<int:pk>/delete/', TutorStudyFormatsDeleteView.as_view(),

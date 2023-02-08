@@ -3,7 +3,7 @@ from django.db import models
 
 class District(models.Model):
     district = models.CharField(
-        verbose_name='Город',
+        verbose_name='Район',
         max_length=100,
         null=True,
         blank=True
