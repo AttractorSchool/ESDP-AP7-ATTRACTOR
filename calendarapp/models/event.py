@@ -6,6 +6,7 @@ from django.urls import reverse
 
 from calendarapp.models import EventAbstract
 from accounts.models import Account
+from calendarapp.models.event_format import EventFormat
 
 
 class EventManager(models.Manager):
@@ -40,6 +41,10 @@ class Event(EventAbstract):
     user = models.ForeignKey(Account, on_delete=models.CASCADE, related_name="events")
     title = models.CharField(max_length=200, unique=False)
     description = models.TextField()
+    event_format = models.ForeignKey( to='calendarapp.EventFormat',
+                                      null=True,
+                                      on_delete=models.CASCADE,
+                                      related_name="events")
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 

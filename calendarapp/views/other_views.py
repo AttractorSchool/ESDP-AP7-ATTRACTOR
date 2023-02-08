@@ -61,12 +61,14 @@ def create_event(request):
     if request.POST and form.is_valid():
         title = form.cleaned_data["title"]
         description = form.cleaned_data["description"]
+        event_form = form.cleaned_data["event_form"]
         start_time = form.cleaned_data["start_time"]
         end_time = form.cleaned_data["end_time"]
         Event.objects.get_or_create(
             user=request.user,
             title=title,
             description=description,
+            event_form=event_form,
             start_time=start_time,
             end_time=end_time,
         )

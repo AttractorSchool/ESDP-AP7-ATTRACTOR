@@ -73,7 +73,7 @@
                           <th scope="col">Начало</th>
                           <th scope="col">Окончание</th>
                           <th scope="col">Ученики</th>
-                          <th scope="col">Форма</th>
+                          <th scope="col">Формат</th>
                         </tr>
                       </thead>
                       {% for event in events_today %}
@@ -91,6 +91,7 @@
                             {% endif %}
                           {% endfor %}
                         </td>
+                        <td>{{ event.event_format }}</td>
                         </tr>
 
                       </tbody>
