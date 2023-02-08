@@ -1,19 +1,26 @@
 import datetime
-
 from django.db.models import Q, Avg, Max, Count, Min
 from django.db.models.functions import Round
 from django.views.generic import ListView, DetailView
-
 from cabinet_parents.models import Subject
 from cabinet_parents.models import Survey, City
 from cabinet_tutors.models import TutorCabinets, SubjectsAndCosts
 from reviews.models import Review
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
+from django.contrib.auth.models import Group
+
+# class GroupPermission(UserPassesTestMixin):
+#     groups = []
+#     def test_func(self):
+#         return self.request.user.groups.filter(name__in=self.groups).exists()
 
 
-class BoardStudentView(ListView):
+class BoardStudentView(LoginRequiredMixin,ListView):
     template_name = 'board_student.html'
     model = Survey
     context_object_name = 'surveys'
+
 
     def get(self, request, *args, **kwargs):
         self.min_cost = request.GET.get("min_cost")
@@ -53,6 +60,11 @@ class BoardStudentView(ListView):
         if self.order == "by_cost_down":
             queryset = queryset.order_by('-min_cost', '-max_cost')
         return queryset
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated or request.user.type == "student" or request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
 
 class BoardTutorView(ListView):
@@ -197,10 +209,11 @@ class TutorBoardDetailPageView(DetailView):
         return context
 
 
-class StudentBoardDetailPageView(DetailView):
+class StudentBoardDetailPageView(LoginRequiredMixin,DetailView):
     template_name = 'student_board_detail_page.html'
     model = Survey
     context_object_name = 'survey'
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -212,3 +225,9 @@ class StudentBoardDetailPageView(DetailView):
         else:
             context['age'] = ""
         return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated or request.user.type == "student" or request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
+

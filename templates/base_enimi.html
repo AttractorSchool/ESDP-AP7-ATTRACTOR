@@ -116,14 +116,16 @@
                             >Доска объявлений</a
                             >
                             <ul class="dropdown-menu">
+
                                 <li class="nav-item">
                                     <a class="text-nowrap nav-link text-nowrap" href="{% url 'board_tutor' %}">Репетиторы</a>
                                 </li>
+                                {% if request.user.is_authenticated and request.user.type == 'tutor' or request.user.is_superuser %}
                                 <li class="nav-item">
                                     <a class="text-nowrap nav-link text-nowrap" href="{% url 'board_student' %}"
-                                    >Ученики</a
-                                    >
+                                    >Ученики</a>
                                 </li>
+                                {% endif %}
                             </ul>
                         </li>
                         {% if user.is_authenticated %}

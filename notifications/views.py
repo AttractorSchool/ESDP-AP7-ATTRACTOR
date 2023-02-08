@@ -3,9 +3,10 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import ListView, UpdateView
 
 from notifications.models import Notifications
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 
-
-class NotificationsView(ListView):
+class NotificationsView(LoginRequiredMixin,ListView):
     template_name = 'notifications.html'
     model = Notifications
     context_object_name = 'notifications'
@@ -39,8 +40,14 @@ class NotificationsView(ListView):
         context['notifications_count'] = Notifications.objects.filter(to_whom=self.request.user).count()
         return context
 
+    def dispatch(self, request, *args, **kwargs):
+        notification = get_object_or_404(Notifications, pk=kwargs.get('pk'))
+        if request.user.pk != notification.to_whom.pk:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class NotificationsViewAsViewed(UpdateView):
+
+class NotificationsViewAsViewed(LoginRequiredMixin,UpdateView):
     template_name = 'notifications.html'
     model = Notifications
 
@@ -50,8 +57,14 @@ class NotificationsViewAsViewed(UpdateView):
         notification.save()
         return redirect('notifications', pk=request.user.pk)
 
+    def dispatch(self, request, *args, **kwargs):
+        notification = get_object_or_404(Notifications, pk=kwargs.get('pk'))
+        if request.user.pk != notification.to_whom.pk:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class NotificationsViewAsUnviewed(UpdateView):
+
+class NotificationsViewAsUnviewed(LoginRequiredMixin,UpdateView):
     template_name = 'notifications.html'
     model = Notifications
 
@@ -60,3 +73,9 @@ class NotificationsViewAsUnviewed(UpdateView):
         notification.viewed = False
         notification.save()
         return redirect('notifications', pk=request.user.pk)
+
+    def dispatch(self, request, *args, **kwargs):
+        notification = get_object_or_404(Notifications, pk=kwargs.get('pk'))
+        if request.user.pk != notification.to_whom.pk:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)

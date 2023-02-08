@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
 from datetime import datetime
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, get_object_or_404, render
 from django.urls import reverse
 from django.views.generic import DetailView, CreateView, UpdateView, ListView
@@ -13,6 +12,8 @@ from cabinet_tutors.models import MyStudent
 from calendarapp.models import Event, EventMember
 from responses.models import Response
 from reviews.models import Review
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 
 
 class ParentProfileView(LoginRequiredMixin, DetailView):
@@ -56,9 +57,16 @@ class ParentProfileView(LoginRequiredMixin, DetailView):
         context['eventmembers'] = eventmembers
         return render(request, self.template_name, context)
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
 
-class ParentCreateChildrenView(CreateView):
+
+
+
+class ParentCreateChildrenView(LoginRequiredMixin,CreateView):
     template_name = 'account_register.html'
     model = Account
     form_class = AccountForm
@@ -80,8 +88,13 @@ class ParentCreateChildrenView(CreateView):
         context['form'] = form
         return self.render_to_response(context)
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class ParentCreateChildrenWithoutEmailView(CreateView):
+
+class ParentCreateChildrenWithoutEmailView(LoginRequiredMixin,CreateView):
     template_name = 'account_without_email_register.html'
     model = Account
     form_class = ChildrenForm
@@ -101,6 +114,11 @@ class ParentCreateChildrenWithoutEmailView(CreateView):
         context = {}
         context['form'] = form
         return self.render_to_response(context)
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
 
 class ParentChildrenSurveysView(LoginRequiredMixin, ListView):
@@ -186,7 +204,7 @@ class CreateParentChildrenSurveyView(LoginRequiredMixin, CreateView):
         return redirect('parent_children_surveys', self.kwargs['pk'])
 
 
-class UpdateParentChildrenSurveyView(UpdateView):
+class UpdateParentChildrenSurveyView(LoginRequiredMixin,UpdateView):
     template_name = 'main_survey_update.html'
     form_class = SurveyForm
     model = Survey
@@ -202,8 +220,13 @@ class UpdateParentChildrenSurveyView(UpdateView):
         student = Account.objects.get(id=survey.user_id)
         return reverse('parent_children_surveys', kwargs={'pk': student.parent.pk})
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class UpdateParentChildrenOfflineStudyTutorAreaSurveyView(UpdateView):
+
+class UpdateParentChildrenOfflineStudyTutorAreaSurveyView(LoginRequiredMixin,UpdateView):
     template_name = 'offline_study_tutor_area_update.html'
     form_class = TutorAreaForm
     model = TutorArea
@@ -221,8 +244,13 @@ class UpdateParentChildrenOfflineStudyTutorAreaSurveyView(UpdateView):
         child = Account.objects.get(id=survey.user_id)
         return redirect('parent_children_surveys', pk=child.parent.pk)
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class UpdateParentChildrenOfflineStudyStudentAreaSurveyView(UpdateView):
+
+class UpdateParentChildrenOfflineStudyStudentAreaSurveyView(LoginRequiredMixin,UpdateView):
     template_name = 'offline_study_student_area_update.html'
     form_class = StudentAreaForm
     model = StudentArea
@@ -240,8 +268,13 @@ class UpdateParentChildrenOfflineStudyStudentAreaSurveyView(UpdateView):
         child = Account.objects.get(id=survey.user_id)
         return redirect('parent_children_surveys', pk=child.parent.pk)
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class ResetParentChildrenOfflineStudyTutorAreaSurveyView(UpdateView):
+
+class ResetParentChildrenOfflineStudyTutorAreaSurveyView(LoginRequiredMixin,UpdateView):
     model = TutorArea
     context_object_name = 'tutor_area'
 
@@ -257,8 +290,13 @@ class ResetParentChildrenOfflineStudyTutorAreaSurveyView(UpdateView):
         child = Account.objects.get(id=survey.user_id)
         return redirect('parent_children_surveys', pk=child.parent.pk)
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class ResetParentChildrenOfflineStudyStudentAreaSurveyView(UpdateView):
+
+class ResetParentChildrenOfflineStudyStudentAreaSurveyView(LoginRequiredMixin,UpdateView):
     model = StudentArea
     context_object_name = 'student_area'
 
@@ -273,6 +311,11 @@ class ResetParentChildrenOfflineStudyStudentAreaSurveyView(UpdateView):
         survey = Survey.objects.get(student_area_id=student_area.pk)
         child = Account.objects.get(id=survey.user_id)
         return redirect('parent_children_surveys', pk=child.parent.pk)
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
 
 class ToMyChildrenResponsesView(LoginRequiredMixin, ListView):
@@ -299,6 +342,11 @@ class ToMyChildrenResponsesView(LoginRequiredMixin, ListView):
         context['to_children_responses_page'] = '1'
         return context
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
+
 
 class FromParentOnTutorResponsesView(LoginRequiredMixin, ListView):
     template_name = 'from_me_parent_to_tutor.html'
@@ -323,8 +371,13 @@ class FromParentOnTutorResponsesView(LoginRequiredMixin, ListView):
         context['from_children_responses_page'] = '1'
         return context
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class TutorsOfMyChildrenView(ListView):
+
+class TutorsOfMyChildrenView(LoginRequiredMixin,ListView):
     template_name = "tutors_of_my_children.html"
     model = MyStudent
 
@@ -332,19 +385,19 @@ class TutorsOfMyChildrenView(ListView):
         context = super(TutorsOfMyChildrenView, self).get_context_data(object_list=object_list, **kwargs)
         parent = Account.objects.get(id=self.kwargs['pk'])
         children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
-        # user_id_list = []
-        # for child in children:
-        #     user_pk = child.get('id')
-        #     user_id_list.append(user_pk)
         children_pk_list = [child.get('id') for child in children]
         context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
         context['my_tutors'] = MyStudent.objects.filter(student_id__in=children_pk_list).distinct('tutor')
         context['my_tutors_page'] = '1'
-
         return context
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class FromParentReviewMakeView(DetailView):
+
+class FromParentReviewMakeView(LoginRequiredMixin,DetailView):
     template_name = "from_parent_review_create.html"
     model = Account
     context_object_name = "tutor"
@@ -354,8 +407,13 @@ class FromParentReviewMakeView(DetailView):
         context['tutors'] = Account.objects.all()
         return context
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class FromParentReviewCreateView(CreateView):
+
+class FromParentReviewCreateView(LoginRequiredMixin,CreateView):
     template_name = "from_parent_review_create.html"
     model = Review
 
@@ -369,13 +427,16 @@ class FromParentReviewCreateView(CreateView):
         user = request.user
         rate = request.POST.get('rate')
         text = request.POST.get('text')
-
         Review.objects.create(author=user, tutor=tutor, rate=rate, text=text)
-
         return redirect('my_children_tutors', pk=user.pk)
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class FromParentReviewsView(ListView):
+
+class FromParentReviewsView(LoginRequiredMixin,ListView):
     template_name = "parent_on_tutor_reviews.html"
     model = Review
 
@@ -387,25 +448,8 @@ class FromParentReviewsView(ListView):
         context['my_reviews_page'] = '1'
         return context
 
-# class GetDataForSurveysView(CreateView):
-#     model = Account
-#
-#     def get(self, request, *args, **kwargs):
-#         answer = {}
-#         children = Account.objects.filter(is_deleted=False, parent=request.user)
-#
-#         answer = serializers.serialize('json', children)
-#         return HttpResponse(answer, content_type='application/json')
-#
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-# def upload_file(request, pk):
-#     file = request.FILES.get("avatar")
-#     fss = FileSystemStorage()
-#     url = str(file)
-#     filename = fss.save(file.name, file)
-#     # url = fss.url(filename)
-#     account = Account.objects.get(id=pk)
-#     account.avatar = url
-#     account.save()
-#     return JsonResponse({"link": ('/uploads/' + url), "pk": pk})
-#

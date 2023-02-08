@@ -7,8 +7,19 @@ from accounts.forms.accounts import UserUpdateForm, UserWithoutEmailUpdateForm
 from accounts.models.accounts import Account
 from cabinet_tutors.models import TutorCabinets
 from verify_email import send_verification_email
-
 from notifications.messages import registration
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
+from django.contrib.auth.models import Group
+
+
+# class GroupPermission(UserPassesTestMixin):
+#     groups = []
+#     def test_func(self):
+#         return self.request.user.groups.filter(name__in=self.groups).exists()
+
+
+
 
 
 class AccountCreateView(CreateView):
@@ -30,15 +41,21 @@ class AccountCreateView(CreateView):
             registration(account)
             login(request, account)
             if account.type == 'parents':
+                # my_group = Group.objects.get(name='students')
+                # my_group.user_set.add(account)
                 return redirect('parents_cabinet_detail',
                                 pk=account.pk)
             if account.type == 'tutor':
                 tutor = TutorCabinets.objects.create(
                     user=account
                 )
+                # my_group = Group.objects.get(name='tutors')
+                # my_group.user_set.add(account)
                 return redirect('tutor_cabinet',
                                 pk=tutor.pk)
             if account.type == 'student':
+                # my_group = Group.objects.get(name='students')
+                # my_group.user_set.add(account)
                 return redirect('student_cabinet_detail',
                                 pk=account.pk)
             return redirect('index')

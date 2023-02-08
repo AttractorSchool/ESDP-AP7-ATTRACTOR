@@ -1,13 +1,13 @@
 from django.http import HttpResponse, JsonResponse
 from django.views.generic import CreateView, ListView
-
 from accounts.models import Account
 from cabinet_tutors.models import MyStudent, TutorCabinets
 from notifications.messages import student_added_message_to_tutor, student_added_message_to_student, \
     student_added_message_to_parent
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 
-
-class ToMyStudentAddView(CreateView):
+class ToMyStudentAddView(LoginRequiredMixin,CreateView):
     model = Account
 
     def get(self, request, *args, **kwargs):
@@ -27,8 +27,13 @@ class ToMyStudentAddView(CreateView):
             error['error'] = 'Ученик уже в списке ваших учеников'
             return JsonResponse(error, status=400)
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "tutor":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class MyStudentsView(ListView):
+
+class MyStudentsView(LoginRequiredMixin,ListView):
     template_name = 'my_students.html'
     model = MyStudent
 
@@ -42,3 +47,8 @@ class MyStudentsView(ListView):
         context['my_students'] = my_students
         context['my_students_page'] = '1'
         return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.type == "tutor":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)

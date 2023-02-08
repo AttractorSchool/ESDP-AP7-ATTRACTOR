@@ -4,9 +4,9 @@ from chat.forms import ChatForm
 from chat.models import Chat
 from notifications.models import Notifications
 from responses.models import Response
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 
-
-class ResponsesAddChatMessageView(UpdateView):
+class ResponsesAddChatMessageView(LoginRequiredMixin,UpdateView):
     model = Response
     template_name = 'response_chat.html'
     form_class = ChatForm
