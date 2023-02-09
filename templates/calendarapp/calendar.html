@@ -19,6 +19,10 @@
       <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><a style="color: #0d6efd" href="{% url 'student_cabinet_detail' request.user.pk %}">Личный кабинет</a></li>
       </ul>
+  {% elif request.user.type == 'parents' %}
+      <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><a style="color: #0d6efd" href="{% url 'parents_cabinet_detail' request.user.pk %}">Личный кабинет</a></li>
+      </ul>
   {% endif %}
 {% endblock breadcrumb %}
 

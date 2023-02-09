@@ -15,9 +15,18 @@ class EventManager(models.Manager):
     def get_all_events(self, user):
         if user.type == 'tutor':
             events = Event.objects.filter(user=user, is_active=True, is_deleted=False)
+
         if user.type == 'student':
             eventmembers = EventMember.objects.filter(user=user)
             events = Event.objects.filter(events__in=eventmembers)
+
+        if user.type == 'parents':
+            parent = Account.objects.get(id=user.pk)
+            children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
+            children_pk_list = [child.get('id') for child in children]
+            eventmembers = EventMember.objects.filter(user__in=children_pk_list)
+            events = Event.objects.filter(events__in=eventmembers)
+
         return events
 
     def get_running_events(self, user):
@@ -28,6 +37,7 @@ class EventManager(models.Manager):
                 is_deleted=False,
                 end_time__gte=datetime.now().date(),
             ).order_by("start_time")
+
         if user.type == 'student':
             eventmembers = EventMember.objects.filter(user=user)
             running_events = Event.objects.filter(
@@ -35,6 +45,18 @@ class EventManager(models.Manager):
                 is_deleted=False,
                 end_time__gte=datetime.now().date(),
             ).order_by("start_time")
+
+        if user.type == 'parents':
+            children = Account.objects.filter(is_deleted=False, parent_id=user.pk).values('id', 'survey')
+            children_pk_list = [child.get('id') for child in children]
+            eventmembers = EventMember.objects.filter(user__in=children_pk_list)
+
+            running_events = Event.objects.filter(
+                events__in=eventmembers, is_active=True,
+                is_deleted=False,
+                end_time__gte=datetime.now().date(),
+            ).order_by("start_time")
+
         return running_events
 
     def get_today_events(self, user):

@@ -155,39 +155,35 @@ class CalendarViewNew(LoginRequiredMixin, generic.View):
             events_month = Event.objects.get_running_events(user=request.user)
             event_list = []
             # start: '2020-09-16T16:00:00'
-            for event in events:
-                event_list.append(
-                    {
-                        "title": event.title,
-                        "start": event.start_time.strftime("%Y-%m-%dT%H:%M:%S"),
-                        "end": event.end_time.strftime("%Y-%m-%dT%H:%M:%S"),
-
-                    }
-                )
-            context = {"form": forms, "events": event_list,
-                       "events_month": events_month, "eventmembers": eventmembers}
-            return render(request, self.template_name, context)
 
         if request.user.type == 'student':
             user = Account.objects.get(id=request.user.pk)
             eventmembers = EventMember.objects.filter(user=user)
             events = Event.objects.filter(events__in=eventmembers)
-
             events_month = Event.objects.get_running_events(user=request.user)
             event_list = []
-            # start: '2020-09-16T16:00:00'
-            for event in events:
-                event_list.append(
-                    {
-                        "title": event.title,
-                        "start": event.start_time.strftime("%Y-%m-%dT%H:%M:%S"),
-                        "end": event.end_time.strftime("%Y-%m-%dT%H:%M:%S"),
 
-                    }
-                )
-            context = {"form": forms, "events": event_list,
-                       "events_month": events_month, "eventmembers": eventmembers}
-            return render(request, self.template_name, context)
+        if request.user.type == 'parents':
+            parent = Account.objects.get(id=request.user.pk)
+            children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
+            children_pk_list = [child.get('id') for child in children]
+            eventmembers = EventMember.objects.filter(user__in=children_pk_list)
+            events = Event.objects.filter(events__in=eventmembers)
+            events_month = Event.objects.get_running_events(user=request.user)
+            event_list = []
+
+        for event in events:
+            event_list.append(
+                {
+                    "title": event.title,
+                    "start": event.start_time.strftime("%Y-%m-%dT%H:%M:%S"),
+                    "end": event.end_time.strftime("%Y-%m-%dT%H:%M:%S"),
+
+                }
+            )
+        context = {"form": forms, "events": event_list,
+                   "events_month": events_month, "eventmembers": eventmembers}
+        return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
         forms = self.form_class(request.POST)
@@ -231,7 +227,15 @@ class ActualEventsListView(ListView):
         # print(datetime.now().date())
         if self.request.user.type == 'tutor':
             return Event.objects.filter(user=self.request.user, start_time__gte=datetime.now())
+
         if self.request.user.type == 'student':
             user = Account.objects.get(id=self.request.user.pk)
             eventmembers = EventMember.objects.filter(user=user)
+            return Event.objects.filter(events__in=eventmembers, start_time__gte=datetime.now())
+
+        if self.request.user.type == 'parents':
+            parent = Account.objects.get(id=self.request.user.pk)
+            children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
+            children_pk_list = [child.get('id') for child in children]
+            eventmembers = EventMember.objects.filter(user__in=children_pk_list)
             return Event.objects.filter(events__in=eventmembers, start_time__gte=datetime.now())
