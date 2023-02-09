@@ -72,7 +72,8 @@
                             <div class="w-100 border-top">
                                 <span class="fw-bold">Программа: </span>
                                 {% for program in survey.programs.all %}
-                                <span style="margin-left: 15px; font-size: 15px"><i class="fa-solid fa-check"></i> {{ program }}{% if not forloop.last %} {% endif %}</span>
+                                <span style="margin-left: 15px; font-size: 15px">
+                                    <i class="fa-solid fa-check"></i> {{ program }}{% if not forloop.last %} {% endif %}</span>
                                 </span>
                                 {% endfor %}
                             </div>

@@ -13,16 +13,28 @@ class EventManager(models.Manager):
     """ Event manager """
 
     def get_all_events(self, user):
-        events = Event.objects.filter(user=user, is_active=True, is_deleted=False)
+        if user.type == 'tutor':
+            events = Event.objects.filter(user=user, is_active=True, is_deleted=False)
+        if user.type == 'student':
+            eventmembers = EventMember.objects.filter(user=user)
+            events = Event.objects.filter(events__in=eventmembers)
         return events
 
     def get_running_events(self, user):
-        running_events = Event.objects.filter(
-            user=user,
-            is_active=True,
-            is_deleted=False,
-            end_time__gte=datetime.now().date(),
-        ).order_by("start_time")
+        if user.type == 'tutor':
+            running_events = Event.objects.filter(
+                user=user,
+                is_active=True,
+                is_deleted=False,
+                end_time__gte=datetime.now().date(),
+            ).order_by("start_time")
+        if user.type == 'student':
+            eventmembers = EventMember.objects.filter(user=user)
+            running_events = Event.objects.filter(
+                events__in=eventmembers, is_active=True,
+                is_deleted=False,
+                end_time__gte=datetime.now().date(),
+            ).order_by("start_time")
         return running_events
 
     def get_today_events(self, user):
@@ -61,3 +73,18 @@ class Event(EventAbstract):
     def get_html_url(self):
         url = reverse("calendarapp:event-detail", args=(self.id,))
         return f'<a href="{url}"> {self.title} </a>'
+
+
+class EventMember(EventAbstract):
+    """ Event member model """
+
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="events")
+    user = models.ForeignKey(
+        Account, on_delete=models.CASCADE, related_name="event_members"
+    )
+
+    class Meta:
+        unique_together = ["event", "user"]
+
+    def __str__(self):
+        return str(self.user)
