@@ -17,6 +17,8 @@ from calendarapp.models import Event, EventMember
 
 from calendarapp.utils import Calendar
 from calendarapp.forms import EventForm, AddMemberForm
+from ratings.forms import MemberEventRatingForm
+from ratings.models import MemberEventRating
 
 
 def get_date(req_day):
@@ -91,7 +93,9 @@ class EventEdit(generic.UpdateView):
 def event_details(request, event_id):
     event = Event.objects.get(id=event_id)
     eventmember = EventMember.objects.filter(event=event)
-    context = {"event": event, "eventmember": eventmember}
+    event_member_ratings = MemberEventRating.objects.filter(event=event)
+    context = {"event": event, "eventmember": eventmember,
+               "rate_form": MemberEventRatingForm, "event_member_ratings": event_member_ratings}
     return render(request, "event-details.html", context)
 
 

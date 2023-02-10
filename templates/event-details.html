@@ -1,7 +1,8 @@
 {% extends 'base_enimi.html' %}
-
+{% load django_bootstrap5 %}
+{% load static %}
 {% block title %}
-Event Details
+Подробности занятия
 {% endblock %}
 
 {% block content %}
@@ -10,7 +11,7 @@ Event Details
 <br>
 <br>
 <br>
-<div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; width: 90%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+<div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 35px; margin-top:-30px; width: 100%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
         -moz-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
         box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
             <h2 style="margin: 20px auto; text-align:center; ">Описание занятия</h2><div>
@@ -29,12 +30,14 @@ Event Details
     </div>
         <table class="table table-bordered">
             <thead>
-                <tr style="color: #007bff">
+                <tr style="color: #737678; background-color: #c3e9f7">
                   <th style="width: 10px">#</th>
                   <th>Имя</th>
                   <th>Телефон</th>
                   <th>Email</th>
                   <th>Формат</th>
+                  <th>Оценка</th>
+                  <th>#</th>
                   <th>#</th>
                 </tr>
               </thead>
@@ -45,9 +48,24 @@ Event Details
                     <td>{{ member.user.first_name }} {{ member.user.last_name }}</td>
                     <td>{{ member.user.phone }}</td>
                     <td>{{ member.user.email }}</td>
-                    <td>{{ event.event_format }}</td>
+                    <td data-id="{{ event.pk }}" id="{{ event.pk }}">{{ event.event_format }}</td>
+
+                    <td style="text-align: center;" data-id="{{ member.pk }}" id="{{ member.pk }}">
+                        {% for rate in event_member_ratings %}
+                            {% if member.pk == rate.event_member.pk %}
+                                {{ rate.score }}
+                            {% endif %}
+                      {% endfor %}
+                    </td>
+
                     <td>
-                        <a class="btn btn-danger" href="{% url 'calendarapp:remove_event' member.id %}">Удалить</a>
+                        <button class="btn btn-success" type="submit" id=""
+                                data-event_id="{{ event.pk }}" data-member_id="{{ member.pk }}">Оценить
+                        </button>
+                    </td>
+
+                    <td>
+                        <a class="btn btn-danger" href="{% url 'calendarapp:remove_event' member.id %}">Удалить ученика</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -68,7 +86,38 @@ Event Details
             </div>
         </div>
 
+
+    <div id="rateCreateModal" class="modal"
+         style="display: none; width: 100%; height: 100%; border-radius: 30px; z-index: 1; overflow: auto">
+        <div class="modal-content"
+             style="background-color: white; margin: 10% auto; border-radius: 15px; padding: 20px; width: 30%; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                    -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                    box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);">
+            <h2 style="margin: 20px auto; text-align:center; ">Оцените ученика</h2>
+                <form action="" method="POST" enctype="multipart/form-data">
+                 {% csrf_token %}
+                    <div class="form" >
+                        {% bootstrap_form rate_form %}
+                        <div class="row justify-content-between">
+                            <div class="col-6 text-center">
+                                 <button type="submit" id="btnRateCreate" data-event_id="" data-member_id="" class="btn btn-success">Оценить</button>
+                            </div>
+                            <div class="col-6 text-center">
+                                 <button id="btnClose" data-event_id="" data-member_id="" class="btn btn-success">Отмена</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+        </div>
+    </div>
+
     <div class="container">
 
     </div>
+
+<script src="{% static 'js/event_members_rates.js' %}"></script>
+
 {% endblock %}
