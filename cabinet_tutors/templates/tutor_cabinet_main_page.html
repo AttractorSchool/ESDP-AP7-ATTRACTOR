@@ -87,7 +87,7 @@
                         <td>
                           {% for member in eventmembers %}
                             {% if event.pk == member.event_id%}
-                            {{ member.user.first_name }}
+                            {{ member.user.first_name }} <br>
                             {% endif %}
                           {% endfor %}
                         </td>
@@ -99,7 +99,7 @@
                     </table>
 
          {% else %}
-            <p>Текущие события не найдены</p>
+            <p>На сегодня события не найдены</p>
          {% endif %}
     </div>
 

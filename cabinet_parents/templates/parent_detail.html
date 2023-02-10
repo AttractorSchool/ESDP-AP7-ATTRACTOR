@@ -27,11 +27,17 @@
                                     <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
                                 </p>
                                 <div class="row justify-content-center" style="margin-top: 30px">
+                                    <div class="schedule_btn" style="margin-bottom: 30px">
+                                        <a href="{% url 'calendarapp:calendar' %}">
+                                            <button class="tut__connection_btn">Расписание</button>
+                                        </a>
+                                    </div>
                                     <div class="col-12 text-center">
                                         <button type="button" id="add-modal-register-answer-btn-left" class="blog_btn"
                                                 style="border-radius: 10px">Зарегистрировать ребёнка
                                         </button>
                                     </div>
+
                                 </div>
                                 <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
                                 <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
@@ -127,10 +133,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
 
 
                         <div class="blog_left_sidebar">
-                            <article class="row blog_item">
 
-                                <div class="col-md-9">
-                                    <div class="blog_post">
                                         <img src="#" alt="">
                                         <div class="blog_details">
 
@@ -158,11 +161,13 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                   <td>{{ event.start_time | date:"H:m"}}</td>
                                                                   <td>{{ event.end_time | date:"H:m" }}</td>
                                                                     <td>{{ event.user.first_name }} {{ event.user.last_name }}</td>
-                                                                    {% for member in eventmembers %}
+                                                                    <td>{% for member in eventmembers %}
                                                                         {% if event.pk == member.event_id%}
-                                                                        <td>{{ member.user.first_name }}</td>
+                                                                            {% if member.user.parent == request.user %}
+                                                                                {{ member.user.first_name }}
+                                                                            {% endif %}
                                                                         {% endif %}
-                                                                      {% endfor %}
+                                                                      {% endfor %}</td>
                                                                     <td>{{ event.event_format }}</td>
 
                                                                 </tr>
@@ -211,11 +216,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                 <!--                                    </div>-->
                                 <!--                                </div>-->
 
-                            </article>
 
-
-                        </div>
-                    </div>
 
                 </div>
             </div>

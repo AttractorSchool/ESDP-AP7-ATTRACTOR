@@ -9,10 +9,12 @@ import calendar
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
+from django.views.generic import ListView
 
 from accounts.models import Account
 from cabinet_tutors.models import MyStudent
-from calendarapp.models import EventMember, Event
+from calendarapp.models import Event, EventMember
+
 from calendarapp.utils import Calendar
 from calendarapp.forms import EventForm, AddMemberForm
 
@@ -146,13 +148,30 @@ class CalendarViewNew(LoginRequiredMixin, generic.View):
 
     def get(self, request, *args, **kwargs):
         forms = self.form_class()
-        events = Event.objects.get_all_events(user=request.user)
+        if request.user.type == 'tutor':
+            user = Account.objects.get(id=request.user.pk)
+            events = Event.objects.get_all_events(user=user)
+            eventmembers = EventMember.objects.all()
+            events_month = Event.objects.get_running_events(user=request.user)
+            event_list = []
+            # start: '2020-09-16T16:00:00'
 
-        eventmembers = EventMember.objects.all()
+        if request.user.type == 'student':
+            user = Account.objects.get(id=request.user.pk)
+            eventmembers = EventMember.objects.filter(user=user)
+            events = Event.objects.filter(events__in=eventmembers)
+            events_month = Event.objects.get_running_events(user=request.user)
+            event_list = []
 
-        events_month = Event.objects.get_running_events(user=request.user)
-        event_list = []
-        # start: '2020-09-16T16:00:00'
+        if request.user.type == 'parents':
+            parent = Account.objects.get(id=request.user.pk)
+            children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
+            children_pk_list = [child.get('id') for child in children]
+            eventmembers = EventMember.objects.filter(user__in=children_pk_list)
+            events = Event.objects.filter(events__in=eventmembers)
+            events_month = Event.objects.get_running_events(user=request.user)
+            event_list = []
+
         for event in events:
             event_list.append(
                 {
@@ -175,3 +194,48 @@ class CalendarViewNew(LoginRequiredMixin, generic.View):
             return redirect("calendarapp:calendar")
         context = {"form": forms}
         return render(request, self.template_name, context)
+
+
+
+class AllEventsListView(ListView):
+    """ All event list views """
+
+    template_name = "calendarapp/events_list.html"
+    model = Event
+
+    def get_queryset(self):
+        return Event.objects.get_all_events(user=self.request.user)
+
+
+class RunningEventsListView(ListView):
+    """ Running events list view """
+
+    template_name = "calendarapp/events_list.html"
+    model = Event
+
+    def get_queryset(self):
+        return Event.objects.get_running_events(user=self.request.user)
+
+
+class ActualEventsListView(ListView):
+    """ Running events list view """
+
+    template_name = "calendarapp/events_list.html"
+    model = Event
+
+    def get_queryset(self):
+        # print(datetime.now().date())
+        if self.request.user.type == 'tutor':
+            return Event.objects.filter(user=self.request.user, start_time__gte=datetime.now())
+
+        if self.request.user.type == 'student':
+            user = Account.objects.get(id=self.request.user.pk)
+            eventmembers = EventMember.objects.filter(user=user)
+            return Event.objects.filter(events__in=eventmembers, start_time__gte=datetime.now())
+
+        if self.request.user.type == 'parents':
+            parent = Account.objects.get(id=self.request.user.pk)
+            children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
+            children_pk_list = [child.get('id') for child in children]
+            eventmembers = EventMember.objects.filter(user__in=children_pk_list)
+            return Event.objects.filter(events__in=eventmembers, start_time__gte=datetime.now())

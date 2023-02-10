@@ -888,7 +888,7 @@ A HORIZONTAL event
 
 }
 .fc-daygrid-dot-event .fc-event-title {
-    color: white;
+    color: #585252;
     flex-grow: 1;
     flex-shrink: 1;
     min-width: 0; /* important for allowing to shrink all the way */
@@ -917,7 +917,7 @@ A HORIZONTAL event
 }
 /* --- spacing between time and title --- */
 .fc-direction-ltr .fc-daygrid-event .fc-event-time {
-    color: yellow;
+    color: #9a9a2b;
     margin-right: 3px;
   }
 .fc-direction-rtl .fc-daygrid-event .fc-event-time {

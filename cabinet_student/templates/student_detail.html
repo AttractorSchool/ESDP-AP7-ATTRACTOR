@@ -27,6 +27,11 @@
                             <p>
                                 <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
                             </p>
+                            <div class="schedule-btn" style="margin-top: 25px">
+                                <a href="{% url 'calendarapp:calendar' %}">
+                                    <button class="tut__connection_btn">Расписание</button>
+                                </a>
+                            </div>
 
                             <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
                             <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
@@ -111,9 +116,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                         </nav>
                     </div>
                     <div class="blog_left_sidebar">
-                        <article class="row blog_item">
-                            <div class="col-md-9">
-                                <div class="blog_post">
+
                                     <img src="#" alt="">
                                     <div class="blog_details">
                                         {% if request.user.with_survey %}
@@ -173,8 +176,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                         </div>
 
                                     </div>
-                                </div>
-                            </div>
+
                             {% endif %}
 
                             <!--                                <div class="col-md-3">-->

@@ -36,7 +36,7 @@ class ParentProfileView(LoginRequiredMixin, DetailView):
         for child in children:
             children_list.append(child)
         eventmembers = EventMember.objects.all()
-        events_today = Event.objects.filter(events__user__in=children_list, start_time__date=datetime.now().date())
+        events_today = Event.objects.filter(events__user__in=children_list, start_time__date=datetime.now().date()).distinct()
         event_list = []
         context = {}
         for event in events_today:
@@ -48,6 +48,7 @@ class ParentProfileView(LoginRequiredMixin, DetailView):
 
                 }
             )
+        # .distinct('event')
         context["events_today"] = events_today
         context['children'] = children
         context['student_register_form'] = AccountForm()
