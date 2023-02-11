@@ -13,8 +13,10 @@ window.addEventListener('load', function() {
         console.log(event_id);
 
         rateCreateModal[0].style.display = "block";
-        $('.btn-success').attr('data-member_id', member_id);
-        $('.btn-success').attr('data-event_id', event_id);
+        $('#btnRateCreate').attr('data-member_id', member_id);
+        $('#btnRateCreate').attr('data-event_id', event_id);
+        $(".nice-select").attr('data-member_id', member_id);
+        $('textarea[name="comment"]').attr('data-member_id', member_id);
 
             $('#btnClose').on('click', function(evt) {
                 rateCreateModal[0].style.display = "none";
@@ -26,20 +28,41 @@ window.addEventListener('load', function() {
                         type: 'POST',
                         url : `http://localhost:8000/ratings/create/event_member/${member_id}/event/${event_id}`,
                         data: {
-                            score: $('.nice-select .list .selected').attr('data-value'),
-                            comment: $('textarea[name="comment"]').val(),
+                            score: $('.nice-select.form-select[data-member_id="' + member_id + '"] .list .selected').attr('data-value'),
+                            // score: $('.nice-select .list .selected').attr('data-value'),
+                            comment: $('textarea[data-member_id="' + member_id + '"]').val(),
+                            // comment: $('textarea[name="comment"]').val(),
                             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
                         },
 
                         error: function(data) {
                             rateCreateModal[0].style.display = "none";
-                            alert('Не получилось')
+                            // alert('Не получилось')
                     },
 
                     }).done(
                         function(data) {
+                            console.log('AAAAAAAAAAAAAAA');
+
+                            // const tdElements = document.querySelectorAll("td");
+                            //     tdElements.forEach((tdElement) => {
+                            //       if ($(tdElement).data("id") === member_id) {
+                            //         $(tdElement).html(data.rate);
+                            //         return;
+                            //       }
+                            //     });
+
+                            // const targetTdElement = $("td").filter(function() {
+                            //       if ($(this).data("id") == member_id) {
+                            //         $(this).text(data.rate);
+                            //       }
+                            //     });
+
+                            // $('td[data-id="+ member_id +"]').html(data.rate);
+                            $('#member_' + member_id).html(data.rate);
+                            // $('#member_' + member_id).text(data.rate)
                             rateCreateModal[0].style.display = "none";
-                            $("#td").val(data.result)
+
                         },
 
 

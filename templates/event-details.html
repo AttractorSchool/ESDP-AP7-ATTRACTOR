@@ -50,7 +50,7 @@
                     <td>{{ member.user.email }}</td>
                     <td data-id="{{ event.pk }}" id="{{ event.pk }}">{{ event.event_format }}</td>
 
-                    <td style="text-align: center;" data-id="{{ member.pk }}" id="{{ member.pk }}">
+                    <td style="text-align: center;" data-id="{{ member.pk }}" id="member_{{ member.pk }}">
                         {% for rate in event_member_ratings %}
                             {% if member.pk == rate.event_member.pk %}
                                 {{ rate.score }}
@@ -59,7 +59,7 @@
                     </td>
 
                     <td>
-                        <button class="btn btn-success" type="submit" id=""
+                        <button class="btn btn-success" type="button" id=""
                                 data-event_id="{{ event.pk }}" data-member_id="{{ member.pk }}">Оценить
                         </button>
                     </td>
@@ -100,11 +100,11 @@
                         {% bootstrap_form rate_form %}
                         <div class="row justify-content-between">
                             <div class="col-6 text-center">
-                                 <button type="submit" id="btnRateCreate" data-event_id="" data-member_id="" class="btn btn-success">Оценить</button>
+                                 <button type="button" id="btnRateCreate" data-event_id="" data-member_id="" class="btn btn-primary">Оценить</button>
                             </div>
+
                             <div class="col-6 text-center">
                                  <button id="btnClose" data-event_id="" data-member_id="" class="btn btn-success">Отмена</button>
-
                             </div>
                         </div>
 

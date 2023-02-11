@@ -10,9 +10,11 @@ class RateCreateView(CreateView):
     model = MemberEventRating
 
     def post(self, request, *args, **kwargs):
+        print(request.POST)
         event = Event.objects.get(id=kwargs.get('event_id'))
         event_member = EventMember.objects.get(id=kwargs.get('member_id'))
         in_table = MemberEventRating.objects.filter(event=event, event_member=event_member)
+
         if in_table:
             in_table = MemberEventRating.objects.get(event=event, event_member=event_member)
             in_table.score = request.POST['score']
