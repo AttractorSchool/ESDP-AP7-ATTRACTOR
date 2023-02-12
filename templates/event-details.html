@@ -45,7 +45,7 @@
                 {% for member in eventmember %}
                 <tr role="row">
                     <td>{{ forloop.counter }}</td>
-                    <td>{{ member.user.first_name }} {{ member.user.last_name }}</td>
+                    <td><a href="{% url 'student_board_detail_page' member.user.survey.pk %}">{{ member.user.first_name }} {{ member.user.last_name }}</a></td>
                     <td>{{ member.user.phone }}</td>
                     <td>{{ member.user.email }}</td>
                     <td data-id="{{ event.pk }}" id="{{ event.pk }}">{{ event.event_format }}</td>
