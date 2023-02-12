@@ -11,6 +11,7 @@ from cabinet_parents.forms import SurveyForm, TutorAreaForm, StudentAreaForm
 from cabinet_parents.models import Survey, TutorArea, Region, City, District, StudentArea
 from cabinet_tutors.models import MyStudent
 from calendarapp.models import Event, EventMember
+from notifications.messages import add_review, review_to_self
 from responses.models import Response
 from reviews.models import Review
 
@@ -371,6 +372,8 @@ class FromParentReviewCreateView(CreateView):
         text = request.POST.get('text')
 
         Review.objects.create(author=user, tutor=tutor, rate=rate, text=text)
+        add_review(tutor, user)
+        review_to_self(user, tutor)
 
         return redirect('my_children_tutors', pk=user.pk)
 

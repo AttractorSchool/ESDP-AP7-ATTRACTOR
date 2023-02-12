@@ -13,31 +13,19 @@ class NotificationsView(ListView):
     paginate_orphans = 0
 
     def get_queryset(self):
-        queryset = Notifications.objects.filter(to_whom=self.kwargs['pk']).values('type', 'viewed', 'message'). \
+        queryset = Notifications.objects.filter(to_whom=self.kwargs['pk']).values(
+            'to_whom',
+            'from_whom',
+            'type',
+            'viewed',
+            'message').\
             annotate(
             cnt=Count('viewed', filter=Q(viewed=False)),
             date=Max('created_at'),
             pk=Max('id'),
             response_pk=Max('response'),
-            response_author_pk=Q(response__author__pk=self.kwargs['pk']),
         ).order_by('-date')
-        contains_viewed = False
-        contains_unviewed = False
-        for obj in queryset:
-            if obj.get('type') == 'chat' and not obj.get('viewed'):
-                contains_unviewed = True
-            elif obj.get('type') == 'chat' and obj.get('viewed'):
-                contains_viewed = True
-        self.extra_context = {
-            'contains_viewed': contains_viewed,
-            'contains_unviewed': contains_unviewed,
-        }
         return queryset
-
-    def get_context_data(self, **kwargs):
-        context = super(NotificationsView, self).get_context_data(**kwargs)
-        context['notifications_count'] = Notifications.objects.filter(to_whom=self.request.user).count()
-        return context
 
 
 class NotificationsViewAsViewed(UpdateView):

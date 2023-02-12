@@ -20,3 +20,6 @@ class Chat(models.Model):
         verbose_name='Дата изменения',
         auto_now=True
     )
+
+    class Meta:
+        ordering = ('created_at',)

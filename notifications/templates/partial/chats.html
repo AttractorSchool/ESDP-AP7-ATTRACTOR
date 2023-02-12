@@ -1,55 +1,33 @@
 {% load django_bootstrap5 %}
 
-{% if contains_viewed and contains_unviewed %}
-    {% if not notification.viewed %}
-        <tr>
-            <td class="col-8 text-break">
-                <a class="list-unstyled text-dark btn p-0 fw-bold" >
-                    {{ notification.message }}:
-                    <span style="color: black; font-weight: bold">{{ notification.cnt }}</span>
-                </a>
-            </td>
-            <td class="col-3">{{ notification.date }}</td>
-            <td class="col-1">
-                <a href="{% url 'add_chat_message' notification.response_pk %}" class="list-unstyled fs-5">
-                    <i class="bi bi-chat"></i>
-                </a>
-            </td>
-        </tr>
-    {% endif %}
-
-{% elif contains_viewed and not contains_unviewed %}
-    {% if notification.viewed %}
-        <tr>
-            <td class="col-9 text-break">
-                <a class="list-unstyled text-dark btn p-0" >
-                    {{ notification.message }}
-                </a>
-            </td>
-            <td class="col-3">{{ notification.date }}</td>
-            <td class="col-1">
-                <a href="{% url 'add_chat_message' notification.response_pk %}" class="list-unstyled fs-5">
-                    <i class="bi bi-chat"></i>
-                </a>
-            </td>
-        </tr>
-    {% endif %}
-
-{% elif not contains_viewed and contains_unviewed %}
-    {% if not notification.viewed %}
-        <tr class="fw-bold">
-            <td class="col-9 text-break">
-                <a class="list-unstyled text-dark btn p-0 fw-bold">
-                    {{ notification.message }}:
-                    <span style="color: black; font-weight: bold">{{ notification.cnt }}</span>
-                </a>
-            </td>
-            <td class="col-3">{{ notification.date }}</td>
-            <td class="col-2">
-                <a href="{% url 'add_chat_message' notification.response_pk %}" class="list-unstyled fs-5">
-                    <i class="bi bi-chat"></i>
-                </a>
-            </td>
-        </tr>
-    {% endif %}
+{% if notification.cnt != 0 %}
+    <tr>
+        <td class="col-9 text-break">
+            <a class="list-unstyled text-dark p-0 fw-bold">
+                Новые {{ notification.message }}:
+                <span style="color: black; font-weight: bold">{{ notification.cnt }}</span>
+            </a>
+        </td>
+        <td class="col-3">{{ notification.date }}</td>
+        <td class="col-1">
+            <a href="{% url 'add_chat_message' notification.response_pk %}" class="list-unstyled fs-5">
+                <i class="bi bi-chat"></i>
+            </a>
+        </td>
+    </tr>
+{% else %}
+    <tr>
+        <td class="col-9 text-break">
+            <a class="list-unstyled text-dark p-0">
+                {{ notification.message }}:
+                <span style="color: black; font-weight: bold">{{ notification.cnt }}</span>
+            </a>
+        </td>
+        <td class="col-3">{{ notification.date }}</td>
+        <td class="col-1">
+            <a href="{% url 'add_chat_message' notification.response_pk %}" class="list-unstyled fs-5">
+                <i class="bi bi-chat"></i>
+            </a>
+        </td>
+    </tr>
 {% endif %}

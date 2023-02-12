@@ -151,10 +151,10 @@ def add_review(to_whom, from_whom):
 
 
 def review_to_self(to_whom, from_whom):
-    message = f'Вы оставили отзыв на: {to_whom.first_name} {to_whom.last_name}'
+    message = f'Вы оставили отзыв на: {from_whom.first_name} {from_whom.last_name}'
     Notifications.objects.create(
-        to_whom=from_whom,
-        from_whom=from_whom,
+        to_whom=to_whom,
+        from_whom=to_whom,
         type=TypeChoices.REVIEW,
         message=message,
     )
