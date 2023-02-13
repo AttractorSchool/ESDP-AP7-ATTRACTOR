@@ -13,15 +13,18 @@
   </div>
   {% if request.user.type == 'tutor' %}
       <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><a style="color: #0d6efd" href="{% url 'tutor_cabinet' user.tutor.pk %}">Личный кабинет</a></li>
+          <li class="breadcrumb-item">
+              <h1><a style="color: #0d6efd" href="{% url 'tutor_cabinet' user.tutor.pk %}">Личный кабинет</a></h1></li>
       </ul>
   {% elif request.user.type == 'student' %}
       <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><a style="color: #0d6efd" href="{% url 'student_cabinet_detail' request.user.pk %}">Личный кабинет</a></li>
+          <li class="breadcrumb-item">
+              <h1><a style="color: #0d6efd" href="{% url 'student_cabinet_detail' request.user.pk %}">Личный кабинет</a></h1></li>
       </ul>
   {% elif request.user.type == 'parents' %}
       <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><a style="color: #0d6efd" href="{% url 'parents_cabinet_detail' request.user.pk %}">Личный кабинет</a></li>
+          <li class="breadcrumb-item">
+              <h1><a style="color: #0d6efd" href="{% url 'parents_cabinet_detail' request.user.pk %}">Личный кабинет</a></h1></li>
       </ul>
   {% endif %}
 {% endblock breadcrumb %}
