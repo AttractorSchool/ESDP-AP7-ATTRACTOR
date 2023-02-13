@@ -33,7 +33,8 @@ class MainPageScheduleView(ListView):
 
                 }
             )
-        context = {"form": forms, "events": event_list,
+        counter = 1
+        context = {"form": forms, "events": event_list, "counter": counter,
                    "events_month": events_month, "eventmembers": eventmembers,
                    "events_today": events_today}
         return render(request, self.template_name, context)

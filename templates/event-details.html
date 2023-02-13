@@ -14,18 +14,51 @@
 <div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 35px; margin-top:-30px; width: 100%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
         -moz-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
         box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
-            <h2 style="margin: 20px auto; text-align:center; ">Описание занятия</h2><div>
-        <div class="clearfix">
-            <p>Название события:</p><h4> {{ event.title }}</h4>
-            <p>Начало: <span style="color: gray;"><h4>{{ event.start_time }}</h4></span>
-                Конец <span style="color: gray;"><h4>{{ event.end_time }}</h4></span></p>
+        <h2 style="margin: 20px auto; text-align:center; ">Описание занятия</h2><div>
+        {% if request.user.type == 'tutor' %}
             <hr>
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <p>Название события:</p><h4> {{ event.title }}</h4>
+                </div>
+                <div class="col-4">
+                    <p>Начало: <span style="color: gray;"><h4>{{ event.start_time }}</h4></span>
+                </div>
+                <div class="col-4">
+                    <p>Конец <span style="color: gray;"><h4>{{ event.end_time }}</h4></span></p>
+                </div>
+            </div>
+
             <p>Подробности:</p><h4>{{ event.description }}</h4>
-        </div>
         <hr>
+        {% endif %}
+        {% if request.user.type != 'tutor' %}
+        <div class="row justify-content-center" style="margin-top: 40px">
+            <div class="col-6">
+                <div class="clearfix">
+                    <p>Название события:</p><h4> {{ event.title }}</h4>
+                    <p>Начало: <span style="color: gray;"><h4>{{ event.start_time }}</h4></span>
+                    <p>Конец <span style="color: gray;"><h4>{{ event.end_time }}</h4></span></p>
+                    <p>Подробности:</p><h4>{{ event.description }}</h4>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <p>Преподаватель:</p><h4>{{ event.user.first_name }} {{event.user.last_name }}</h4>
+                <p>Телефон:</p><h4>{{ event.user.phone }}</h4>
+                <p>email:</p><h4>{{ event.user.email }}</h4>
+            </div>
+            <hr>
+        </div>
+        {% endif %}
+
+
+
+    {% if request.user.type == 'tutor' %}
+
         <div class="clearfix">
 
-            <h4 class="left" style="margin-top: 30px" > Ученики</h4>
+            <h3 class="left" style="margin-top: 30px; margin-bottom: 30px; text-align: center" > Ученики</h3>
         </div>
     </div>
         <table class="table table-bordered">
@@ -37,8 +70,10 @@
                   <th>Email</th>
                   <th>Формат</th>
                   <th>Оценка</th>
+                  {% if request.user.type == 'tutor' %}
                   <th>#</th>
                   <th>#</th>
+                  {% endif %}
                 </tr>
               </thead>
               <tbody>
@@ -47,7 +82,11 @@
                     <td>{{ forloop.counter }}</td>
                     <td><a href="{% url 'student_board_detail_page' member.user.survey.pk %}">{{ member.user.first_name }} {{ member.user.last_name }}</a></td>
                     <td>{{ member.user.phone }}</td>
-                    <td>{{ member.user.email }}</td>
+                    {% if event.user.with_email == False %}
+                        <td>{{ member.user.email }}</td>
+                    {% else %}
+                        <td>{{ member.user.email }}</td>
+                    {% endif %}
                     <td data-id="{{ event.pk }}" id="{{ event.pk }}">{{ event.event_format }}</td>
 
                     <td style="text-align: center;" data-id="{{ member.pk }}" id="member_{{ member.pk }}">
@@ -58,32 +97,42 @@
                       {% endfor %}
                     </td>
 
-                    <td>
-                        <button class="btn btn-success" type="button" id=""
-                                data-event_id="{{ event.pk }}" data-member_id="{{ member.pk }}">Оценить
-                        </button>
-                    </td>
+                    {% if request.user.type == 'tutor' %}
 
-                    <td>
-                        <a class="btn btn-danger" href="{% url 'calendarapp:remove_event' member.id %}">Удалить ученика</a>
-                    </td>
+                        <td>
+                            <button class="btn btn-success" type="button" id=""
+                                    data-event_id="{{ event.pk }}" data-member_id="{{ member.pk }}">Оценить
+                            </button>
+                        </td>
+
+                        <td>
+                            <a class="btn btn-danger" href="{% url 'calendarapp:remove_event' member.id %}">Удалить ученика</a>
+                        </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
               </tbody>
         </table>
 
-            <div class="row justify-content-between">
+
+
+            <div class="row justify-content-between" style="margin-top: 40px">
                 <div class="col-4">
                     <a class="btn btn-primary right" href="{% url 'calendarapp:add_eventmember' event.id %}"> Добавить участника </a>
                 </div>
-                <div class="col-4">
+                <div class="col-4 text-center">
                     <a class="btn btn-primary left" href="{% url 'calendarapp:calendar' %}"> Расписание </a>
                 </div>
-                <div class="col-4">
+                <div class="col-4 text-right">
                     <a class="btn btn-primary right mr-2" href="{% url 'calendarapp:event_edit' event.pk %}"> Редактировать событие </a>
 
                 </div>
             </div>
+        {% else %}
+            <a href="{{ back_page }}">
+                <button class="tut__connection_btn">Назад</button>
+            </a>
+        {% endif %}
         </div>
 
 

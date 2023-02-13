@@ -139,10 +139,10 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
 
                                                                 <tr>
                                                                   <th scope="row">{{ forloop.counter }}</th>
-                                                                  <td>{{ event.title }}</td>
+                                                                  <td><a href="{% url 'calendarapp:event-detail' event.pk %}">{{ event.title }}</a></td>
                                                                   <td>{{ event.start_time | date:"H:m"}}</td>
                                                                   <td>{{ event.end_time | date:"H:m" }}</td>
-                                                                  <td>{{ event.user.first_name }} {{ event.user.last_name }}</td>
+                                                                  <td><a href="{% url 'tutor_board_detail_page' event.user.tutor.pk %}">{{ event.user.first_name }} {{ event.user.last_name }}</a></td>
                                                                   <td>{{ event.event_format }}</td>
 
                                                                 </tr>

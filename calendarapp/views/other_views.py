@@ -94,7 +94,7 @@ def event_details(request, event_id):
     event = Event.objects.get(id=event_id)
     eventmember = EventMember.objects.filter(event=event)
     event_member_ratings = MemberEventRating.objects.filter(event=event)
-    context = {"event": event, "eventmember": eventmember,
+    context = {"event": event, "eventmember": eventmember, "back_page": request.META.get('HTTP_REFERER'),
                "rate_form": MemberEventRatingForm, "event_member_ratings": event_member_ratings}
     return render(request, "event-details.html", context)
 

@@ -81,13 +81,14 @@
 
                         <tr>
                           <th scope="row">{{ forloop.counter }}</th>
-                          <td>{{ event.title }}</td>
+                          <td><a href="{% url 'calendarapp:event-detail' event.pk %}">{{ event.title }}</a></td>
                           <td>{{ event.start_time | date:"H:m"}}</td>
                           <td>{{ event.end_time | date:"H:m" }}</td>
                         <td>
                           {% for member in eventmembers %}
-                            {% if event.pk == member.event_id%}
-                            {{ member.user.first_name }} <br>
+                            {% if event.pk == member.event_id %}
+                            <a href="{% url 'student_board_detail_page' member.user.survey.pk %}">
+                                {{ member.user.first_name }}{{ member.user.last_name }}</a><br>
                             {% endif %}
                           {% endfor %}
                         </td>
