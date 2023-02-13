@@ -74,6 +74,7 @@
                           <th scope="col">Окончание</th>
                           <th scope="col">Ученики</th>
                           <th scope="col">Формат</th>
+                          <th scope="col">Учеников</th>
                         </tr>
                       </thead>
                       {% for event in events_today %}
@@ -81,17 +82,19 @@
 
                         <tr>
                           <th scope="row">{{ forloop.counter }}</th>
-                          <td>{{ event.title }}</td>
-                          <td>{{ event.start_time | date:"H:m"}}</td>
-                          <td>{{ event.end_time | date:"H:m" }}</td>
+                          <td><a href="{% url 'calendarapp:event-detail' event.pk %}">{{ event.title }}</a></td>
+                          <td style="text-align: center">{{ event.start_time | date:"H:m"}}</td>
+                          <td style="text-align: center">{{ event.end_time | date:"H:m" }}</td>
                         <td>
                           {% for member in eventmembers %}
-                            {% if event.pk == member.event_id%}
-                            {{ member.user.first_name }} <br>
+                            {% if event.pk == member.event_id %}
+                            <a href="{% url 'student_board_detail_page' member.user.survey.pk %}">
+                                <i class="fa-solid fa-graduation-cap"></i> {{ member.user.last_name }}</a></span><br>
                             {% endif %}
                           {% endfor %}
                         </td>
-                        <td>{{ event.event_format }}</td>
+                        <td style="text-align: center">{{ event.event_format }}</td>
+                        <td style="text-align: center">{{ event.events.all|length }}</td>
                         </tr>
 
                       </tbody>

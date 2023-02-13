@@ -76,7 +76,7 @@ class BoardTutorView(ListView):
         return context
 
     def get_queryset(self):
-        queryset = super().get_queryset()
+        queryset = super().get_queryset().order_by("user__services__status", "-user__services__start_date")
         queryset = queryset. \
             exclude(gender=None).exclude(languages=None). \
             exclude(about=None). \

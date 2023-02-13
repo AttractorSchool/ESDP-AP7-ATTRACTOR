@@ -102,7 +102,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header bg-primary">
-                            <h5 class="modal-title text-white" id="exampleModalLongTitle">Добавить событие</h5>
+                            <h5 class="modal-title text-white" id="exampleModalLongTitle">Добавить занятие</h5>
                             <button id="modalClose1" type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -111,7 +111,7 @@
                             {% csrf_token %}
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Название события:</label>
+                                    <label for="recipient-name" class="col-form-label">Название занятия:</label>
                                     {{ form.title }}
                                 </div>
                                 <div class="form-group">

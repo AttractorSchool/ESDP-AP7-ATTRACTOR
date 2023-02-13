@@ -14,7 +14,7 @@ class EventManager(models.Manager):
 
     def get_all_events(self, user):
         if user.type == 'tutor':
-            events = Event.objects.filter(user=user, is_active=True, is_deleted=False)
+            events = Event.objects.filter(user=user, is_active=True, is_deleted=False).order_by("start_time")
 
         if user.type == 'student':
             eventmembers = EventMember.objects.filter(user=user)

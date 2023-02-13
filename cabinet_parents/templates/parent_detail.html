@@ -146,10 +146,11 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                   <th scope="col">#</th>
                                                                   <th scope="col">Занятие</th>
                                                                   <th scope="col">Начало</th>
-                                                                  <th scope="col">Окончание</th>
-                                                                  <th scope="col">Преподаватель</th>
+                                                                  <th scope="col">Конец</th>
+                                                                  <th scope="col">Учитель</th>
                                                                   <th scope="col">Ученик</th>
                                                                   <th scope="col">Формат</th>
+                                                                  <th scope="col">Всего</th>
                                                                 </tr>
                                                               </thead>
                                                               {% for event in events_today %}
@@ -157,18 +158,20 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
 
                                                                 <tr>
                                                                   <th scope="row">{{ forloop.counter }}</th>
-                                                                  <td>{{ event.title }}</td>
+                                                                  <td><a href="{% url 'calendarapp:event-detail' event.pk %}">{{ event.title }}</a></td>
                                                                   <td>{{ event.start_time | date:"H:m"}}</td>
                                                                   <td>{{ event.end_time | date:"H:m" }}</td>
-                                                                    <td>{{ event.user.first_name }} {{ event.user.last_name }}</td>
+                                                                  <td><a href="{% url 'tutor_board_detail_page' event.user.tutor.pk %}">{{ event.user.first_name }} {{ event.user.last_name }}</a></td>
                                                                     <td>{% for member in eventmembers %}
                                                                         {% if event.pk == member.event_id%}
                                                                             {% if member.user.parent == request.user %}
-                                                                                {{ member.user.first_name }}
+                                                                                 <a href="{% url 'student_board_detail_page' member.user.survey.pk %}">
+                                                                                     <i class="fa-solid fa-graduation-cap"></i> {{ member.user.first_name }}</a></span><br>
                                                                             {% endif %}
                                                                         {% endif %}
                                                                       {% endfor %}</td>
                                                                     <td>{{ event.event_format }}</td>
+                                                                    <td style="text-align: center">{{ event.events.all|length }}</td>
 
                                                                 </tr>
 

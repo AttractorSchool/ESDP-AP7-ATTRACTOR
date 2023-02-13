@@ -44,7 +44,7 @@ class Order(models.Model):
     )
     service = models.ForeignKey(
         to='payments.Service',
-        verbose_name='Пользователь сервиса',
+        verbose_name='Cервис',
         related_name='orders',
         null=True,
         blank=True,
