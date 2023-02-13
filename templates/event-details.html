@@ -127,11 +127,18 @@
                     <a class="btn btn-primary right mr-2" href="{% url 'calendarapp:event_edit' event.pk %}"> Редактировать событие </a>
 
                 </div>
+                <div style="margin-top: 30px">
+                    <a href="{{ back_page }}">
+                        <button class="tut__connection_btn">Назад</button>
+                    </a>
+                </div>
             </div>
         {% else %}
             <a href="{{ back_page }}">
                 <button class="tut__connection_btn">Назад</button>
             </a>
+
+
         {% endif %}
         </div>
 

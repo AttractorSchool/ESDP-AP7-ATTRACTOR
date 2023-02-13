@@ -17,7 +17,6 @@ class MainPageScheduleView(ListView):
     def get(self, request, *args, **kwargs):
         forms = self.form_class()
         events = Event.objects.get_all_events(user=request.user)
-
         eventmembers = EventMember.objects.all()
 
         events_month = Event.objects.get_running_events(user=request.user)

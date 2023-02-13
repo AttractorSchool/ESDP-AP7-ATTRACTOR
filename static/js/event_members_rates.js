@@ -9,8 +9,7 @@ window.addEventListener('load', function() {
         // здесь можно получить атрибут каждой кнопки
         const member_id = $(this).attr('data-member_id');
         const event_id = $(this).attr('data-event_id');
-        console.log(member_id);
-        console.log(event_id);
+        $("#id_comment").val("");
 
         rateCreateModal[0].style.display = "block";
         $('#btnRateCreate').attr('data-member_id', member_id);
@@ -42,7 +41,7 @@ window.addEventListener('load', function() {
 
                     }).done(
                         function(data) {
-                            console.log('AAAAAAAAAAAAAAA');
+                            $("#id_comment").val("");
 
                             // const tdElements = document.querySelectorAll("td");
                             //     tdElements.forEach((tdElement) => {
