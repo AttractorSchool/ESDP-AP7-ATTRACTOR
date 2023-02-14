@@ -24,5 +24,6 @@ urlpatterns = [
     path('my_reviews/<int:pk>/', ReviewListView.as_view(), name='my_reviews'),
 
     path('review_page/<int:pk>/', ReviewMakeView.as_view(), name='review_page'),
-    path('make_review/<int:pk>/', ReviewCreateView.as_view(), name='make_review')
+    path('make_review/<int:pk>/', ReviewCreateView.as_view(), name='make_review'),
+    path('<int:pk>/student_rates/', StudentRatesView.as_view(), name='student_rates')
 ]

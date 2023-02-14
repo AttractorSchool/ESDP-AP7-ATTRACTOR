@@ -20,6 +20,7 @@ from cabinet_parents.models import Survey, TutorArea, Region, City, District, St
 from cabinet_tutors.models import TutorCabinets, MyStudent
 from calendarapp.forms import EventForm
 from calendarapp.models import Event, EventMember
+from ratings.models import MemberEventRating
 from responses.models import Response
 from reviews.models import Review
 
@@ -311,5 +312,16 @@ class ReviewListView(ListView):
         return context
 
 
+class StudentRatesView(ListView):
+    template_name = 'student_rates.html'
+    model = Review
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        user = Account.objects.get(id=self.kwargs['pk'])
+        event_members = EventMember.objects.filter(user=user)
+        rates = MemberEventRating.objects.filter(event_member__in=event_members).order_by("-event__start_time")
+        context['rates'] = rates
+        context['my_reviews_page'] = '1'
+        return context
 

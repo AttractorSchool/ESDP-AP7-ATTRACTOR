@@ -90,6 +90,11 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                    href="{% url 'parents_cabinet_detail' request.user.pk %}">Главная</a>
                                             </li>
                                             <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'parent_children_rates' request.user.pk %}">Успеваемость</a>
+                                            </li>
+                                            <li class="nav-item">
                                                 <a class="nav-link active{% if children_surveys_page %} card-header disabled {% endif %}" aria-current="page"
                                                    style="padding-right: 20px"
                                                    href="{% url 'parent_children_surveys' request.user.pk %}">Анкеты
@@ -100,11 +105,6 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                    style="padding-right: 20px"
                                                    href="{% url 'my_children_tutors' request.user.pk %}">Учителя
                                                     детей</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page"
-                                                   style="padding-right: 20px"
-                                                   href="#">Успеваемость</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link active" aria-current="page"
