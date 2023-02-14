@@ -19,32 +19,39 @@ class CityAdmin(admin.ModelAdmin):
     fields = ('id', 'city', 'region', 'created_at', 'updated_at')
     readonly_fields = ('id', 'created_at', 'updated_at')
 
+
 admin.site.register(City, CityAdmin)
 
+
 class DistrictAdmin(admin.ModelAdmin):
-    list_display = ('id', 'district', 'created_at', 'updated_at')
-    list_filter = ('district', )
-    search_fields = ('district',)
-    fields = ('id', 'district', 'created_at', 'updated_at')
+    list_display = ('id', 'district', 'created_at', 'updated_at', 'city')
+    list_filter = ('district', 'city')
+    search_fields = ('district', 'city')
+    fields = ('id', 'district', 'created_at', 'updated_at', 'city')
     readonly_fields = ('id', 'created_at', 'updated_at')
+
 
 admin.site.register(District, DistrictAdmin)
 
+
 class ProgramAdmin(admin.ModelAdmin):
     list_display = ('id', 'program', 'created_at', 'updated_at')
-    list_filter = ('program', )
+    list_filter = ('program',)
     search_fields = ('program',)
     fields = ('id', 'program', 'created_at', 'updated_at')
     readonly_fields = ('id', 'created_at', 'updated_at')
 
+
 admin.site.register(Program, ProgramAdmin)
+
 
 class EducationTimeAdmin(admin.ModelAdmin):
     list_display = ('id', 'education_time', 'created_at', 'updated_at')
-    list_filter = ('education_time', )
+    list_filter = ('education_time',)
     search_fields = ('education_time',)
     fields = ('id', 'education_time', 'created_at', 'updated_at')
     readonly_fields = ('id', 'created_at', 'updated_at')
+
 
 admin.site.register(EducationTime, EducationTimeAdmin)
 
@@ -62,7 +69,7 @@ admin.site.register(OnlinePlatform, OnlinePlatformAdmin)
 
 class RegionAdmin(admin.ModelAdmin):
     list_display = ('id', 'region', 'created_at', 'updated_at')
-    list_filter = ('region', )
+    list_filter = ('region',)
     search_fields = ('region',)
     fields = ('id', 'region', 'created_at', 'updated_at')
     readonly_fields = ('id', 'created_at', 'updated_at')
@@ -94,10 +101,16 @@ admin.site.register(Subject, SubjectAdmin)
 
 
 class SurveyAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'education_time', 'min_cost','max_cost', 'tutor_area','student_area','is_active','is_deleted', 'created_at', 'changed_at')
-    list_filter = ('user', 'education_time', 'min_cost','max_cost', 'tutor_area','student_area','is_active',)
-    search_fields = ('user',  'education_time', 'min_cost','max_cost', 'tutor_area','student_area','is_active','is_deleted', 'created_at', 'changed_at')
-    fields = ('id', 'user', 'education_time', 'min_cost','max_cost', 'tutor_area','student_area','is_active','is_deleted', 'created_at', 'changed_at')
+    list_display = (
+    'id', 'user', 'education_time', 'min_cost', 'max_cost', 'tutor_area', 'student_area', 'is_active', 'is_deleted',
+    'created_at', 'changed_at')
+    list_filter = ('user', 'education_time', 'min_cost', 'max_cost', 'tutor_area', 'student_area', 'is_active',)
+    search_fields = (
+    'user', 'education_time', 'min_cost', 'max_cost', 'tutor_area', 'student_area', 'is_active', 'is_deleted',
+    'created_at', 'changed_at')
+    fields = (
+    'id', 'user', 'education_time', 'min_cost', 'max_cost', 'tutor_area', 'student_area', 'is_active', 'is_deleted',
+    'created_at', 'changed_at')
     readonly_fields = ('id', 'created_at', 'changed_at')
 
 
@@ -106,7 +119,7 @@ admin.site.register(Survey, SurveyAdmin)
 
 class TestAdmin(admin.ModelAdmin):
     list_display = ('id', 'test_name', 'created_at', 'updated_at')
-    list_filter = ('test_name', )
+    list_filter = ('test_name',)
     search_fields = ('test_name',)
     fields = ('id', 'test_name', 'created_at', 'updated_at')
     readonly_fields = ('id', 'created_at', 'updated_at')

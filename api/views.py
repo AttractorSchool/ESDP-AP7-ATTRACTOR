@@ -2,8 +2,8 @@ from django.http import JsonResponse
 from django.views import View
 from rest_framework.views import APIView
 
-from api.serializers import ChatSerializer, CitySerializer, RegionSerializer
-from cabinet_parents.models import City, Region
+from api.serializers import ChatSerializer, CitySerializer, RegionSerializer, DistrictSerializer
+from cabinet_parents.models import City, Region, District
 from chat.models import Chat
 from notifications.messages import chats
 from notifications.models import Notifications
@@ -73,3 +73,9 @@ class CitiesAPI(View):
         serializer = CitySerializer(objects, many=True)
         return JsonResponse(serializer.data, safe=False)
 
+
+class DistrictAPI(View):
+    def get(self, request, *args, **kwargs):
+        objects = District.objects.filter(city_id=kwargs.get('pk'))
+        serializer = DistrictSerializer(objects, many=True)
+        return JsonResponse(serializer.data, safe=False)
