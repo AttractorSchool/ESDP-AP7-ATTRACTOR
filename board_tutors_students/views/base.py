@@ -1,4 +1,5 @@
 import datetime
+from itertools import chain
 
 from django.db.models import Q, Avg, Max, Count, Min
 from django.db.models.functions import Round
@@ -71,12 +72,60 @@ class BoardTutorView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)
+        query = self.get_queryset()
+        print(query)
+        top_tutors = TutorCabinets.objects.filter(user__services__status=1).order_by("-user__services__start_date")
+        print(top_tutors)
+
+        top_tutors = top_tutors. \
+            exclude(gender=None).exclude(languages=None). \
+            exclude(about=None). \
+            exclude(education=None). \
+            exclude(subjects_and_costs=None). \
+            exclude(study_formats=None)
+        if self.city and self.format == "student":
+            top_tutors = top_tutors.filter(study_formats__student_area__student_city__in=self.city)
+        if self.city and self.format == "tutor":
+            top_tutors = top_tutors.filter(study_formats__tutor_area__tutor_city__in=self.city)
+        if self.subject:
+            top_tutors = TutorCabinets.objects.filter(subjects_and_costs__subject__in=self.subject)
+        if self.min_cost and self.max_cost:
+            subjects = SubjectsAndCosts.objects.filter(
+                (Q(cost__gte=self.min_cost) & Q(cost__lte=self.max_cost)) |
+                (Q(cost__lte=self.max_cost) & Q(cost__gte=self.min_cost)))
+            top_tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
+        else:
+            if self.max_cost:
+                subjects = SubjectsAndCosts.objects.filter(cost__lte=self.max_cost)
+                top_tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
+            if self.min_cost:
+                subjects = SubjectsAndCosts.objects.filter(cost__gte=self.min_cost)
+                top_tutors = TutorCabinets.objects.filter(subjects_and_costs__in=subjects)
+        top_tutors = top_tutors.annotate(
+            avg_rate=Round(Avg('user__reviews_to__rate'), 1),
+            reviews_count=Count('user__reviews_to', distinct=True),
+            max_experience=Max('subjects_and_costs__experience'),
+            most_min_cost=(Min('subjects_and_costs__cost')),
+            most_max_cost=(Max('subjects_and_costs__cost'))
+        )
+        if self.order == "by_cost_up":
+            top_tutors = top_tutors.order_by('most_min_cost')
+        if self.order == "by_cost_down":
+            top_tutors = top_tutors.order_by('-most_max_cost')
+
+        top_tutors = list(chain(top_tutors, query))
+        # tutors_without_duplicates = list(set(top_tutors))
+        tutors_without_duplicates = [item for i, item in enumerate(top_tutors) if item not in top_tutors[:i]]
+        print(tutors_without_duplicates)
+
+        context['top_tutors'] = tutors_without_duplicates
         context['subjects'] = Subject.objects.all()
         context['cities'] = City.objects.all()
         return context
 
     def get_queryset(self):
-        queryset = super().get_queryset().order_by("user__services__status", "-user__services__start_date")
+        queryset = super().get_queryset().order_by("-user__created_at").exclude(user__services__status=1)
+        # queryset = super().get_queryset().order_by("user__services__status", "-user__services__start_date")
         queryset = queryset. \
             exclude(gender=None).exclude(languages=None). \
             exclude(about=None). \
