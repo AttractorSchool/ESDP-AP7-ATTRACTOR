@@ -13,7 +13,18 @@
                                                     -moz-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
                                                     box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
                     <div class="pb-5">
-                        <div id="app"></div>
+                            <regions-component region_id="{{user.id}}" ></regions-component>
+
+<!--                        <script>-->
+<!--                            window.vue.component('button-counter', {-->
+<!--                              data: function () {-->
+<!--                                return {-->
+<!--                                  count: 0-->
+<!--                                }-->
+<!--                              },-->
+<!--                              template: '<button v-on:click="count++">Счётчик кликов — {{ count }}</button>'-->
+<!--                            })-->
+<!--                        </script>-->
                     </div>
                 </div>
                 <div class="d-flex justify-content-between mt-3">

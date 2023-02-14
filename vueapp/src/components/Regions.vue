@@ -1,8 +1,9 @@
 <template>
   <div>
+    {{ region_id }}
     <select class="form-select mb-3" v-model="current_id" @change="changeRegion">
-      <option v-for="region in regions" :key="region.id" v-bind:value="region.id">
-        {{ region.name }}
+      <option v-for="region in regions2" :key="region.id" v-bind:value="region.id">
+        {{ region.region }}
       </option>
     </select>
 
@@ -23,13 +24,23 @@
 <script>
 import axios from "axios";
 
+
 export default {
   name: "Regions",
   props: {
     regions: Array,
+    test: Array,
+    region_id: Number
+  },
+  mounted(){
+    this.displayRegions()
+    this.current_id = this.region_id
+    this.changeRegion()
+    this.changeCity()
   },
   data() {
     return {
+      regions2: null,
       current_id: null,
       current_city_id: null,
       cities: null,
@@ -37,11 +48,14 @@ export default {
     };
   },
   methods: {
+    async displayRegions(){
+      const response = await axios.get(`http://127.0.0.1:8000/api/regions/`)
+      this.regions2 = response.data
+    },
+
     async changeRegion() {
-      console.log('region_changed', this.current_id);
       const response = await axios.get(`http://localhost:8000/api/cities/region/${this.current_id}`);
       this.cities = response.data
-      console.log('city_id', this.current_city_id)
       console.log('url', JSON.stringify(response))
       console.log('res', response.data)
     },
@@ -57,6 +71,8 @@ export default {
       }
     },
     changeCityDistrict() {},
+
+
   }
 };
 </script>

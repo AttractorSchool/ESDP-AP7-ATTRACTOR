@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from cabinet_parents.models import City
+from cabinet_parents.models import City, Region
 from chat.models import Chat
 
 
@@ -13,6 +13,12 @@ class ChatSerializer(serializers.ModelSerializer):
             'message',
             'response',
         )
+
+
+class RegionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Region
+        fields = "__all__"
 
 
 class CitySerializer(serializers.ModelSerializer):

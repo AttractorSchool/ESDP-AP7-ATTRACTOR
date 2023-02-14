@@ -52,6 +52,7 @@
 
 </style>
 <body>
+<div id="app">
 {% block header %}{% endblock %}
 <!--================ Start Header Menu Area =================-->
 <header class="header_area">
@@ -383,7 +384,7 @@
     });
 </script>
 {% block script %}{% endblock %}
-
+</div>
 </body>
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'js/popper.js' %}"></script>

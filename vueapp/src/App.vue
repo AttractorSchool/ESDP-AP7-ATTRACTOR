@@ -8,6 +8,7 @@
 <script>
 import Regions from "./components/Regions";
 export default {
+  delimiters: ['[[', ']]'],
   name: "App",
   components: {
     Regions,

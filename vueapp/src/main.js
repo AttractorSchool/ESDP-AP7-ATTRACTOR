@@ -1,8 +1,12 @@
 import Vue from 'vue'
-import App from './App.vue'
+import Regions from "@/components/Regions.vue";
+import VueTheMask from 'vue-the-mask'
 
 Vue.config.productionTip = false
 
+
+Vue.component("regions-component", Regions);
+Vue.use(VueTheMask)
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+    el: "#app"
+});
