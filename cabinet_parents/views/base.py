@@ -11,6 +11,7 @@ from cabinet_parents.forms import SurveyForm, TutorAreaForm, StudentAreaForm
 from cabinet_parents.models import Survey, TutorArea, Region, City, District, StudentArea
 from cabinet_tutors.models import MyStudent
 from calendarapp.models import Event, EventMember
+from ratings.models import MemberEventRating
 from responses.models import Response
 from reviews.models import Review
 
@@ -387,6 +388,31 @@ class FromParentReviewsView(ListView):
         context['my_reviews'] = Review.objects.filter(author_id=parent.pk)
         context['my_reviews_page'] = '1'
         return context
+
+
+class ParentChildrenRatesView(ListView):
+    template_name = 'parent_children_rates.html'
+    model = Review
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        parent = Account.objects.get(id=self.kwargs['pk'])
+        children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
+        children_pk_list = [child.get('id') for child in children]
+        event_members = EventMember.objects.filter(user_id__in=children_pk_list)
+
+        rates = MemberEventRating.objects.filter(event_member__in=event_members).order_by("-event__start_time")
+        print(rates)
+        context['rates'] = rates
+        context['children'] = children
+        context['student_register_form'] = AccountForm()
+        context['student_without_email_register_form'] = ChildrenForm()
+        return context
+
+
+
+
+
 
 # class GetDataForSurveysView(CreateView):
 #     model = Account
