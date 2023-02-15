@@ -1,12 +1,10 @@
 from django.urls import reverse
 from django.views.generic import DetailView, UpdateView
-
 from cabinet_tutors.forms.tutor_cabinets import TutorCabinetForm
 from cabinet_tutors.models import TutorCabinets, Education, SubjectsAndCosts, TutorStudyFormats
-
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
-class TutorCabinetView(DetailView):
+class TutorCabinetView(LoginRequiredMixin,DetailView):
     template_name = 'tutor_cabinet.html'
     model = TutorCabinets
     context_object_name = 'tutor'
@@ -21,7 +19,7 @@ class TutorCabinetView(DetailView):
         return super(TutorCabinetView, self).get(request, *args, **kwargs)
 
 
-class TutorCabinetUpdateView(UpdateView):
+class TutorCabinetUpdateView(LoginRequiredMixin,UpdateView):
     template_name = 'tutor_about_update.html'
     model = TutorCabinets
     form_class = TutorCabinetForm

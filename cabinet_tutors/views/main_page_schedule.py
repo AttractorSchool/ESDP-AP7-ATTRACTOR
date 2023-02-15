@@ -2,14 +2,13 @@ from django.shortcuts import redirect, render
 from django.utils.safestring import mark_safe
 from datetime import timedelta, datetime, date
 import calendar
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
-
 from calendarapp.forms import EventForm
 from calendarapp.models import EventMember, Event
 from calendarapp.utils import Calendar
 
-class MainPageScheduleView(ListView):
+class MainPageScheduleView(LoginRequiredMixin, ListView):
     model = Event
     template_name = "tutor_cabinet_main_page.html"
     form_class = EventForm

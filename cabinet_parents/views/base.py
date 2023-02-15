@@ -14,22 +14,13 @@ from calendarapp.models import Event, EventMember
 from ratings.models import MemberEventRating
 from responses.models import Response
 from reviews.models import Review
-
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 
 class ParentProfileView(LoginRequiredMixin, DetailView):
-    # model = get_user_model()
     model = Event
     template_name = 'parent_detail.html'
     context_object_name = 'user_obj'
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     children = Account.objects.filter(is_deleted=False, parent=self.request.user)
-    #     context['children'] = children
-    #     context['student_register_form'] = AccountForm()
-    #     context['student_without_email_register_form'] = ChildrenForm()
-    #     context['main_form'] = SurveyForm()
-    #     return context
 
     def get(self, request,  **kwargs):
         children = Account.objects.filter(is_deleted=False, parent=self.request.user)
@@ -49,7 +40,6 @@ class ParentProfileView(LoginRequiredMixin, DetailView):
 
                 }
             )
-        # .distinct('event')
         context["events_today"] = events_today
         context['children'] = children
         context['student_register_form'] = AccountForm()
@@ -60,7 +50,7 @@ class ParentProfileView(LoginRequiredMixin, DetailView):
 
 
 
-class ParentCreateChildrenView(CreateView):
+class ParentCreateChildrenView(LoginRequiredMixin,CreateView):
     template_name = 'account_register.html'
     model = Account
     form_class = AccountForm
@@ -83,7 +73,7 @@ class ParentCreateChildrenView(CreateView):
         return self.render_to_response(context)
 
 
-class ParentCreateChildrenWithoutEmailView(CreateView):
+class ParentCreateChildrenWithoutEmailView(LoginRequiredMixin,CreateView):
     template_name = 'account_without_email_register.html'
     model = Account
     form_class = ChildrenForm
@@ -188,7 +178,7 @@ class CreateParentChildrenSurveyView(LoginRequiredMixin, CreateView):
         return redirect('parent_children_surveys', self.kwargs['pk'])
 
 
-class UpdateParentChildrenSurveyView(UpdateView):
+class UpdateParentChildrenSurveyView(LoginRequiredMixin,UpdateView):
     template_name = 'main_survey_update.html'
     form_class = SurveyForm
     model = Survey
@@ -205,7 +195,7 @@ class UpdateParentChildrenSurveyView(UpdateView):
         return reverse('parent_children_surveys', kwargs={'pk': student.parent.pk})
 
 
-class UpdateParentChildrenOfflineStudyTutorAreaSurveyView(UpdateView):
+class UpdateParentChildrenOfflineStudyTutorAreaSurveyView(LoginRequiredMixin,UpdateView):
     template_name = 'offline_study_tutor_area_update.html'
     form_class = TutorAreaForm
     model = TutorArea
@@ -224,7 +214,7 @@ class UpdateParentChildrenOfflineStudyTutorAreaSurveyView(UpdateView):
         return redirect('parent_children_surveys', pk=child.parent.pk)
 
 
-class UpdateParentChildrenOfflineStudyStudentAreaSurveyView(UpdateView):
+class UpdateParentChildrenOfflineStudyStudentAreaSurveyView(LoginRequiredMixin,UpdateView):
     template_name = 'offline_study_student_area_update.html'
     form_class = StudentAreaForm
     model = StudentArea
@@ -243,7 +233,7 @@ class UpdateParentChildrenOfflineStudyStudentAreaSurveyView(UpdateView):
         return redirect('parent_children_surveys', pk=child.parent.pk)
 
 
-class ResetParentChildrenOfflineStudyTutorAreaSurveyView(UpdateView):
+class ResetParentChildrenOfflineStudyTutorAreaSurveyView(LoginRequiredMixin,UpdateView):
     model = TutorArea
     context_object_name = 'tutor_area'
 
@@ -260,7 +250,7 @@ class ResetParentChildrenOfflineStudyTutorAreaSurveyView(UpdateView):
         return redirect('parent_children_surveys', pk=child.parent.pk)
 
 
-class ResetParentChildrenOfflineStudyStudentAreaSurveyView(UpdateView):
+class ResetParentChildrenOfflineStudyStudentAreaSurveyView(LoginRequiredMixin,UpdateView):
     model = StudentArea
     context_object_name = 'student_area'
 
@@ -326,7 +316,7 @@ class FromParentOnTutorResponsesView(LoginRequiredMixin, ListView):
         return context
 
 
-class TutorsOfMyChildrenView(ListView):
+class TutorsOfMyChildrenView(LoginRequiredMixin,ListView):
     template_name = "tutors_of_my_children.html"
     model = MyStudent
 
@@ -334,19 +324,14 @@ class TutorsOfMyChildrenView(ListView):
         context = super(TutorsOfMyChildrenView, self).get_context_data(object_list=object_list, **kwargs)
         parent = Account.objects.get(id=self.kwargs['pk'])
         children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
-        # user_id_list = []
-        # for child in children:
-        #     user_pk = child.get('id')
-        #     user_id_list.append(user_pk)
         children_pk_list = [child.get('id') for child in children]
         context['user_obj'] = Account.objects.get(id=self.kwargs['pk'])
         context['my_tutors'] = MyStudent.objects.filter(student_id__in=children_pk_list).distinct('tutor')
         context['my_tutors_page'] = '1'
-
         return context
 
 
-class FromParentReviewMakeView(DetailView):
+class FromParentReviewMakeView(LoginRequiredMixin,DetailView):
     template_name = "from_parent_review_create.html"
     model = Account
     context_object_name = "tutor"
@@ -357,7 +342,7 @@ class FromParentReviewMakeView(DetailView):
         return context
 
 
-class FromParentReviewCreateView(CreateView):
+class FromParentReviewCreateView(LoginRequiredMixin,CreateView):
     template_name = "from_parent_review_create.html"
     model = Review
 
@@ -371,13 +356,11 @@ class FromParentReviewCreateView(CreateView):
         user = request.user
         rate = request.POST.get('rate')
         text = request.POST.get('text')
-
         Review.objects.create(author=user, tutor=tutor, rate=rate, text=text)
-
         return redirect('my_children_tutors', pk=user.pk)
 
 
-class FromParentReviewsView(ListView):
+class FromParentReviewsView(LoginRequiredMixin,ListView):
     template_name = "parent_on_tutor_reviews.html"
     model = Review
 
@@ -390,7 +373,7 @@ class FromParentReviewsView(ListView):
         return context
 
 
-class ParentChildrenRatesView(ListView):
+class ParentChildrenRatesView(LoginRequiredMixin,ListView):
     template_name = 'parent_children_rates.html'
     model = Review
 
@@ -400,39 +383,10 @@ class ParentChildrenRatesView(ListView):
         children = Account.objects.filter(is_deleted=False, parent_id=parent.pk).values('id', 'survey')
         children_pk_list = [child.get('id') for child in children]
         event_members = EventMember.objects.filter(user_id__in=children_pk_list)
-
         rates = MemberEventRating.objects.filter(event_member__in=event_members).order_by("-event__start_time")
-        print(rates)
         context['rates'] = rates
         context['children'] = children
         context['student_register_form'] = AccountForm()
         context['student_without_email_register_form'] = ChildrenForm()
         return context
 
-
-
-
-
-
-# class GetDataForSurveysView(CreateView):
-#     model = Account
-#
-#     def get(self, request, *args, **kwargs):
-#         answer = {}
-#         children = Account.objects.filter(is_deleted=False, parent=request.user)
-#
-#         answer = serializers.serialize('json', children)
-#         return HttpResponse(answer, content_type='application/json')
-#
-
-# def upload_file(request, pk):
-#     file = request.FILES.get("avatar")
-#     fss = FileSystemStorage()
-#     url = str(file)
-#     filename = fss.save(file.name, file)
-#     # url = fss.url(filename)
-#     account = Account.objects.get(id=pk)
-#     account.avatar = url
-#     account.save()
-#     return JsonResponse({"link": ('/uploads/' + url), "pk": pk})
-#

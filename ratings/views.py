@@ -1,12 +1,11 @@
 from django.http import JsonResponse
 from django.views.generic import CreateView
-
 from accounts.models import Account
 from calendarapp.models import Event, EventMember
 from ratings.models import MemberEventRating
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 
-
-class RateCreateView(CreateView):
+class RateCreateView(LoginRequiredMixin,CreateView):
     model = MemberEventRating
 
     def post(self, request, *args, **kwargs):

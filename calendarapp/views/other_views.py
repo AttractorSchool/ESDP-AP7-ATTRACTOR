@@ -59,7 +59,7 @@ class CalendarView(LoginRequiredMixin, generic.ListView):
         return context
 
 
-# @login_required(login_url="signup")
+@login_required(login_url="signup")
 def create_event(request):
     form = EventForm(request.POST or None)
     if request.POST and form.is_valid():
@@ -80,7 +80,7 @@ def create_event(request):
     return render(request, "event.html", {"form": form})
 
 
-class EventEdit(generic.UpdateView):
+class EventEdit(LoginRequiredMixin,generic.UpdateView):
     model = Event
     # fields = ["title", "description", "start_time", "end_time"]
     template_name = "event.html"
@@ -89,7 +89,7 @@ class EventEdit(generic.UpdateView):
 
 
 
-# @login_required(login_url="signup")
+@login_required(login_url="signup")
 def event_details(request, event_id):
     event = Event.objects.get(id=event_id)
     eventmember = EventMember.objects.filter(event=event)
@@ -98,7 +98,7 @@ def event_details(request, event_id):
                "rate_form": MemberEventRatingForm, "event_member_ratings": event_member_ratings}
     return render(request, "event-details.html", context)
 
-
+@login_required(login_url="signup")
 def add_eventmember(request, event_id):
     print(request.user)
     context = {}
@@ -133,13 +133,13 @@ def add_eventmember(request, event_id):
     return render(request, "add_member.html", context)
 
 
-class EventMemberDeleteView(generic.DeleteView):
+class EventMemberDeleteView(LoginRequiredMixin,generic.DeleteView):
     model = EventMember
     template_name = "event_delete.html"
     success_url = reverse_lazy("calendarapp:calendar")
 
 
-class EventDeleteView(generic.DeleteView):
+class EventDeleteView(LoginRequiredMixin,generic.DeleteView):
     model = Event
     template_name = "event_delete.html"
     success_url = reverse_lazy("calendarapp:calendar")
@@ -201,7 +201,7 @@ class CalendarViewNew(LoginRequiredMixin, generic.View):
 
 
 
-class AllEventsListView(ListView):
+class AllEventsListView(LoginRequiredMixin,ListView):
     """ All event list views """
 
     template_name = "calendarapp/events_list.html"
@@ -211,7 +211,7 @@ class AllEventsListView(ListView):
         return Event.objects.get_all_events(user=self.request.user)
 
 
-class RunningEventsListView(ListView):
+class RunningEventsListView(LoginRequiredMixin,ListView):
     """ Running events list view """
 
     template_name = "calendarapp/events_list.html"
@@ -221,7 +221,7 @@ class RunningEventsListView(ListView):
         return Event.objects.get_running_events(user=self.request.user)
 
 
-class ActualEventsListView(ListView):
+class ActualEventsListView(LoginRequiredMixin,ListView):
     """ Running events list view """
 
     template_name = "calendarapp/events_list.html"

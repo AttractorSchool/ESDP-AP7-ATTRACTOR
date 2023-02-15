@@ -1,5 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.views.generic import CreateView, ListView
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 
 from accounts.models import Account
 from cabinet_tutors.models import MyStudent, TutorCabinets
@@ -7,7 +8,7 @@ from notifications.messages import student_added_message_to_tutor, student_added
     student_added_message_to_parent
 
 
-class ToMyStudentAddView(CreateView):
+class ToMyStudentAddView(LoginRequiredMixin, CreateView):
     model = Account
 
     def get(self, request, *args, **kwargs):
@@ -28,7 +29,7 @@ class ToMyStudentAddView(CreateView):
             return JsonResponse(error, status=400)
 
 
-class MyStudentsView(ListView):
+class MyStudentsView(LoginRequiredMixin,ListView):
     template_name = 'my_students.html'
     model = MyStudent
 

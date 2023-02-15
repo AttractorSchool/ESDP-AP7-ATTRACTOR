@@ -26,15 +26,9 @@ from reviews.models import Review
 
 
 class StudentProfileView(LoginRequiredMixin, DetailView):
-    # model = get_user_model()
     model = Event
     template_name = 'student_detail.html'
     context_object_name = 'user_obj'
-
-    # def get_context_data(self, *args, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #
-    #     return context
 
     def get(self, request,  **kwargs):
         events_month = Event.objects.get_running_events(user=request.user)
@@ -139,7 +133,7 @@ class StudentDetailSurveyView(LoginRequiredMixin, ListView):
         return context
 
 
-class UpdateStudentSurveyView(UpdateView):
+class UpdateStudentSurveyView(LoginRequiredMixin,UpdateView):
     template_name = 'student_survey_update.html'
     form_class = SurveyForm
     model = Survey
@@ -156,7 +150,7 @@ class UpdateStudentSurveyView(UpdateView):
         return reverse('student_detail_survey', kwargs={'pk': student.pk})
 
 
-class UpdateStudentOfflineStudyTutorAreaView(UpdateView):
+class UpdateStudentOfflineStudyTutorAreaView(LoginRequiredMixin,UpdateView):
     template_name = 'tutor_area_update.html'
     form_class = TutorAreaForm
     model = TutorArea
@@ -175,7 +169,7 @@ class UpdateStudentOfflineStudyTutorAreaView(UpdateView):
         return redirect('student_detail_survey', pk=student.pk)
 
 
-class UpdateStudentOfflineStudyStudentAreaView(UpdateView):
+class UpdateStudentOfflineStudyStudentAreaView(LoginRequiredMixin,UpdateView):
     template_name = 'student_area_update.html'
     form_class = StudentAreaForm
     model = StudentArea
@@ -194,7 +188,7 @@ class UpdateStudentOfflineStudyStudentAreaView(UpdateView):
         return redirect('student_detail_survey', pk=student.pk)
 
 
-class ResetStudentOfflineStudyTutorAreaView(UpdateView):
+class ResetStudentOfflineStudyTutorAreaView(LoginRequiredMixin,UpdateView):
     model = TutorArea
     context_object_name = 'tutor_area'
 
@@ -210,7 +204,7 @@ class ResetStudentOfflineStudyTutorAreaView(UpdateView):
         return redirect('student_detail_survey', pk=student.pk)
 
 
-class ResetStudentOfflineStudyStudentAreaView(UpdateView):
+class ResetStudentOfflineStudyStudentAreaView(LoginRequiredMixin,UpdateView):
     model = StudentArea
     context_object_name = 'student_area'
 
@@ -252,7 +246,7 @@ class StudentOnTutorResponsesView(LoginRequiredMixin, ListView):
         return context
 
 
-class MyTutorsView(ListView):
+class MyTutorsView(LoginRequiredMixin,ListView):
     template_name = "student_my_tutors.html"
     model = MyStudent
 
@@ -266,7 +260,7 @@ class MyTutorsView(ListView):
         return context
 
 
-class ReviewMakeView(DetailView):
+class ReviewMakeView(LoginRequiredMixin,DetailView):
     template_name = "make_review_on_tutor.html"
     model = Account
 
@@ -278,7 +272,7 @@ class ReviewMakeView(DetailView):
         return context
 
 
-class ReviewCreateView(CreateView):
+class ReviewCreateView(LoginRequiredMixin,CreateView):
     template_name = "make_review_on_tutor.html"
     model = Review
 
@@ -292,13 +286,11 @@ class ReviewCreateView(CreateView):
         user = request.user
         rate = request.POST.get('rate')
         text = request.POST.get('text')
-
         Review.objects.create(author=user, tutor=tutor, rate=rate, text=text)
-
         return redirect('my_reviews', pk=user.pk)
 
 
-class ReviewListView(ListView):
+class ReviewListView(LoginRequiredMixin,ListView):
     template_name = 'student_reviews_list.html'
     model = Review
 
@@ -312,7 +304,7 @@ class ReviewListView(ListView):
         return context
 
 
-class StudentRatesView(ListView):
+class StudentRatesView(LoginRequiredMixin,ListView):
     template_name = 'student_rates.html'
     model = Review
 
