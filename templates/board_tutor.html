@@ -51,7 +51,7 @@
                             <button class="tut__connection_btn">Связаться с репетитором</button>
                         </a>
                     </div>
-                    {% else %}
+                    {% elif request.user.type == 'student'  %}
                     <div class="tut__connection_btn_block">
                         <a href="{% url 'response_on_tutor' t.pk %}">
                             <button class="tut__connection_btn">Связаться с репетитором</button>

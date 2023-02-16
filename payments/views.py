@@ -3,13 +3,14 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect
 from django.views.generic import CreateView, DetailView, ListView, TemplateView, UpdateView
 from rest_framework.views import APIView
-
 from payments.models import Service, Order, ServiceStatus
 from payments.models.orders import OrderStatusChoices
 from payments.models.services_status import ServiceStatusChoices
+from django.core.exceptions import PermissionDenied
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 
 
-class SelectServiceView(ListView):
+class SelectServiceView(LoginRequiredMixin,ListView):
     model = Service
     template_name = 'service_selection_page.html'
 
@@ -19,7 +20,7 @@ class SelectServiceView(ListView):
         context['services'] = services
         return context
 
-class ServiceDetailView(DetailView):
+class ServiceDetailView(LoginRequiredMixin,DetailView):
     model = Service
     template_name = 'service_detail.html'
     context_object_name = 'service'
@@ -30,7 +31,12 @@ class ServiceDetailView(DetailView):
         }
         return super(ServiceDetailView, self).get(request, *args, **kwargs)
 
-class OrderOnServiceCreateView(CreateView):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_superuser or not request.user.type == "tutor":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
+
+class OrderOnServiceCreateView(LoginRequiredMixin,CreateView):
     model = Service
     template_name = 'order_to_pay.html'
 
@@ -43,8 +49,13 @@ class OrderOnServiceCreateView(CreateView):
         context['order'] = order
         return self.render_to_response(context)
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_superuser or not request.user.type == "tutor":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class OrderStatusUpdateView(UpdateView):
+
+class OrderStatusUpdateView(LoginRequiredMixin,UpdateView):
     model = Order
 
     def post(self, request, *args, **kwargs):
@@ -63,8 +74,13 @@ class OrderStatusUpdateView(UpdateView):
         return HttpResponse(status=200)
         # return redirect('orders_list')
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_superuser or not request.user.type == "tutor":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
-class OrdersListView(ListView):
+
+class OrdersListView(LoginRequiredMixin,ListView):
     model = Order
     template_name = 'orders_list.html'
 
@@ -76,5 +92,10 @@ class OrdersListView(ListView):
         context['orders'] = orders
         context['service_statuses'] = service_statuses
         return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_superuser or not request.user.type == "tutor":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
 

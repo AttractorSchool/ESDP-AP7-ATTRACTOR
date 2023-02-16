@@ -1,17 +1,17 @@
 import datetime
 from itertools import chain
-
 from django.db.models import Q, Avg, Max, Count, Min
 from django.db.models.functions import Round
 from django.views.generic import ListView, DetailView
-
 from cabinet_parents.models import Subject
 from cabinet_parents.models import Survey, City
 from cabinet_tutors.models import TutorCabinets, SubjectsAndCosts
 from reviews.models import Review
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 
 
-class BoardStudentView(ListView):
+class BoardStudentView(LoginRequiredMixin,ListView):
     template_name = 'board_student.html'
     model = Survey
     context_object_name = 'surveys'
@@ -54,6 +54,11 @@ class BoardStudentView(ListView):
         if self.order == "by_cost_down":
             queryset = queryset.order_by('-min_cost', '-max_cost')
         return queryset
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated or request.user.type == "student" or request.user.type == "parents":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
 
 class BoardTutorView(ListView):
@@ -164,6 +169,8 @@ class BoardTutorView(ListView):
         return queryset
 
 
+
+
 class TutorBoardDetailPageView(DetailView):
     template_name = 'tutor_board_detail_page.html'
     model = TutorCabinets
@@ -246,7 +253,7 @@ class TutorBoardDetailPageView(DetailView):
         return context
 
 
-class StudentBoardDetailPageView(DetailView):
+class StudentBoardDetailPageView(LoginRequiredMixin,DetailView):
     template_name = 'student_board_detail_page.html'
     model = Survey
     context_object_name = 'survey'
@@ -261,3 +268,8 @@ class StudentBoardDetailPageView(DetailView):
         else:
             context['age'] = ""
         return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated or not request.user.type == "tutor":
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)

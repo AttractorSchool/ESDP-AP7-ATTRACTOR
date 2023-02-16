@@ -7,7 +7,7 @@ from accounts.managers import UserManager
 
 
 class UserCategoryChoices(TextChoices):
-    STUDY_CENTER = 'study_center', 'Учебный центр'
+    # STUDY_CENTER = 'study_center', 'Учебный центр'
     STUDENT = 'student', 'Ученик'
     TUTOR = 'tutor', 'Репетитор'
     PARENTS = 'parents', 'Родители'

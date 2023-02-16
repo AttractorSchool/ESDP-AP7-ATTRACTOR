@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
 from django.views.generic import UpdateView, CreateView, DeleteView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from cabinet_parents.forms import TutorAreaForm, StudentAreaForm
 from cabinet_parents.models import TutorArea, StudentArea
 from cabinet_tutors.forms.study_formats import TutorStudyFormatsForm
