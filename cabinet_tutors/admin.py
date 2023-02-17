@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from cabinet_tutors.models import TutorCabinets, MyStudent
+from cabinet_tutors.models import TutorCabinets, MyStudent, Languages
 
 
 # Register your models here.
@@ -16,3 +16,10 @@ class MyStudentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(MyStudent, MyStudentAdmin)
+
+
+class LangAdmin(admin.ModelAdmin):
+    list_display = ['name', ]
+
+
+admin.site.register(Languages, LangAdmin)
