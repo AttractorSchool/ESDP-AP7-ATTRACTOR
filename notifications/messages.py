@@ -16,6 +16,7 @@ def response_from_tutor_to_student(response, student):
               f'Предлагаемые предметы: {subjects}'
     Notifications.objects.create(
         to_whom=student,
+        from_whom=response.author,
         type=TypeChoices.RESPONSE,
         message=message,
         response=response
@@ -29,6 +30,7 @@ def response_from_tutor_to_student_with_parent(response, student):
               f'Предлагаемые предметы: {subjects}'
     Notifications.objects.create(
         to_whom=student.parent,
+        from_whom=response.author,
         type=TypeChoices.RESPONSE,
         message=message,
         response=response
@@ -40,6 +42,7 @@ def response_from_tutor_to_self(response, student):
     message = f'Вы оставили отклик на: {student.first_name} {student.last_name}. Предлагаемые предметы: {subjects}'
     Notifications.objects.create(
         to_whom=response.author,
+        from_whom=response.author,
         type=TypeChoices.RESPONSE,
         message=message,
         response=response
@@ -52,6 +55,7 @@ def response_from_student_to_tutor(response, tutor):
               f'Интересующие предметы: {subjects}'
     Notifications.objects.create(
         to_whom=tutor,
+        from_whom=response.author,
         type=TypeChoices.RESPONSE,
         message=message,
         response=response
@@ -64,6 +68,7 @@ def response_from_student_to_self(response, tutor):
               f'Интересующие предметы: {subjects}'
     Notifications.objects.create(
         to_whom=response.author,
+        from_whom=response.author,
         type=TypeChoices.RESPONSE,
         message=message,
         response=response
@@ -77,6 +82,7 @@ def response_to_parent_from_self(response, child, tutor):
               f' {child.first_name} {child.last_name}. Интересующие предметы: {subjects}.'
     Notifications.objects.create(
         to_whom=response.author.parent,
+        from_whom=response.author.parent,
         type=TypeChoices.RESPONSE,
         message=message,
         response=response
@@ -107,6 +113,7 @@ def student_added_message_to_tutor(to_whom, student):
     message = f'Вы добавили в свои ученики: {student.first_name} {student.last_name}'
     Notifications.objects.create(
         to_whom=to_whom,
+        from_whom=student,
         type=TypeChoices.ADDING_STUDENT,
         message=message
     )
@@ -117,6 +124,7 @@ def student_added_message_to_parent(to_whom, tutor):
               f'{to_whom.first_name} {to_whom.last_name}'
     Notifications.objects.create(
         to_whom=to_whom.parent,
+        from_whom=tutor,
         type=TypeChoices.ADDING_STUDENT,
         message=message
     )
@@ -126,6 +134,27 @@ def student_added_message_to_student(to_whom, tutor):
     message = f'Вас добавил в свои ученики репетитор: {tutor.first_name} {tutor.last_name}'
     Notifications.objects.create(
         to_whom=to_whom,
+        from_whom=tutor,
         type=TypeChoices.ADDING_STUDENT,
         message=message
+    )
+
+
+def add_review(to_whom, from_whom):
+    message = f'На Вас оставил отзыв: {from_whom.first_name} {from_whom.last_name}'
+    Notifications.objects.create(
+        to_whom=to_whom,
+        from_whom=from_whom,
+        type=TypeChoices.REVIEW,
+        message=message,
+    )
+
+
+def review_to_self(to_whom, from_whom):
+    message = f'Вы оставили отзыв на: {from_whom.first_name} {from_whom.last_name}'
+    Notifications.objects.create(
+        to_whom=to_whom,
+        from_whom=to_whom,
+        type=TypeChoices.REVIEW,
+        message=message,
     )

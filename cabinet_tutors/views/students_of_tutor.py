@@ -19,7 +19,7 @@ class ToMyStudentAddView(LoginRequiredMixin, CreateView):
         if not in_table:
             my_student = MyStudent.objects.create(tutor=tutor, student=student)
             student_added_message_to_tutor(tutor, student)
-            if student.parent and student.with_email:
+            if student.parent and student.with_email or not student.parent:
                 student_added_message_to_student(student, tutor)
             if student.parent and not student.with_email:
                 student_added_message_to_parent(student, tutor)

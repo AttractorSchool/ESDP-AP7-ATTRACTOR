@@ -20,6 +20,7 @@ from cabinet_parents.models import Survey, TutorArea, Region, City, District, St
 from cabinet_tutors.models import TutorCabinets, MyStudent
 from calendarapp.forms import EventForm
 from calendarapp.models import Event, EventMember
+from notifications.messages import add_review, review_to_self
 from ratings.models import MemberEventRating
 from responses.models import Response
 from reviews.models import Review
@@ -287,6 +288,8 @@ class ReviewCreateView(LoginRequiredMixin,CreateView):
         rate = request.POST.get('rate')
         text = request.POST.get('text')
         Review.objects.create(author=user, tutor=tutor, rate=rate, text=text)
+        add_review(tutor, user)
+        review_to_self(user, tutor)
         return redirect('my_reviews', pk=user.pk)
 
 

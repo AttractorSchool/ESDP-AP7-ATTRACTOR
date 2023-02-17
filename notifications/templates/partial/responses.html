@@ -1,6 +1,6 @@
 {% load django_bootstrap5 %}
 
-{% if notification.viewed == False and notification.cnt != 0 %}
+{% if notification.viewed == False %}
     <tr class="fw-bold">
         <td class="col-9 text-break">
             <a class="list-unstyled text-dark" href="{% url 'notification_viewed' notification.pk %}">
@@ -9,34 +9,34 @@
         </td>
         <td class="col-3">{{ notification.date }}</td>
         <td class="col-1">
-            {% if notification.type == 'response' and user.type == 'tutor' and notification.response_author_pk %}
+            {% if notification.type == 'response' and user.type == 'tutor' and notification.from_whom == user.pk %}
                 <a class="list-unstyled fs-5"
                    href="{% url 'my_responses_on_students' user.tutor.pk %}">
                     <i class="bi bi-arrow-right-circle"></i>
                 </a>
-            {% elif notification.type == 'response' and user.type == 'tutor' and not notification.response_author_pk %}
+            {% elif notification.type == 'response' and user.type == 'tutor' and notification.to_whom == user.pk %}
                 <a class="list-unstyled fs-5"
                    href="{% url 'students_on_tutor_responses' user.tutor.pk %}">
                     <i class="bi bi-arrow-left-circle"></i>
                 </a>
             {% endif %}
-            {% if notification.type == 'response' and user.type == 'parents' and notification.response_author_pk %}
+            {% if notification.type == 'response' and user.type == 'parents' and notification.from_whom == user.pk %}
                 <a class="list-unstyled fs-5"
                    href="{% url 'from_me-parent_on_tutor_responses' user.pk %}">
                     <i class="bi bi-arrow-right-circle"></i>
                 </a>
-            {% elif notification.type == 'response' and user.type == 'parents' and not notification.response_author_pk %}
+            {% elif notification.type == 'response' and user.type == 'parents' and notification.to_whom == user.pk %}
                 <a class="list-unstyled fs-5"
                    href="{% url 'to_my_children_responses' user.pk %}">
                     <i class="bi bi-arrow-left-circle"></i>
                 </a>
             {% endif %}
-            {% if notification.type == 'response' and user.type == 'student' and notification.response_author_pk %}
+            {% if notification.type == 'response' and user.type == 'student' and notification.from_whom == user.pk %}
                 <a class="list-unstyled fs-5"
                    href="{% url 'student_on_tutor_responses' user.pk %}">
                     <i class="bi bi-arrow-right-circle"></i>
                 </a>
-            {% elif notification.type == 'response' and user.type == 'student' and not notification.response_author_pk %}
+            {% elif notification.type == 'response' and user.type == 'student' and notification.to_whom == user.pk %}
                 <a class="list-unstyled fs-5"
                    href="{% url 'to_me_student_responses' user.pk %}">
                     <i class="bi bi-arrow-left-circle"></i>
@@ -46,7 +46,21 @@
                 <a href="{% url 'my_students' user.tutor.pk %}" class="list-unstyled fs-5">
                     <i class="bi bi-people fs-5"></i>
                 </a>
+            {% elif notification.type == 'adding_student' and user.type == 'student' %}
+                <a href="{% url 'my_tutors' user.pk %}" class="list-unstyled fs-5">
+                    <i class="bi bi-people fs-5"></i>
+                </a>
             {% endif %}
+            {% if notification.type == 'review' and user.type == 'tutor' %}
+                <a href="{% url 'on_tutor_reviews' user.tutor.pk %}" class="list-unstyled fs-5">
+                    <i class="bi bi-star fs-5"></i>
+                </a>
+            {% elif notification.type == 'review' and user.type == 'student' %}
+                <a href="{% url 'my_reviews' user.pk %}" class="list-unstyled fs-5">
+                    <i class="bi bi-star fs-5"></i>
+                </a>
+            {% endif %}
+
         </td>
     </tr>
 {% else %}
@@ -58,34 +72,34 @@
         </td>
         <td class="col-3">{{ notification.date }}</td>
         <td class="col-1">
-            {% if notification.type == 'response' and user.type == 'tutor' and notification.response_author_pk %}
+            {% if notification.type == 'response' and user.type == 'tutor' and notification.from_whom == user.pk %}
                 <a class="list-unstyled fs-5"
                    href="{% url 'my_responses_on_students' user.tutor.pk %}">
                     <i class="bi bi-arrow-right-circle"></i>
                 </a>
-            {% elif notification.type == 'response' and user.type == 'tutor' and not notification.response_author_pk %}
+            {% elif notification.type == 'response' and user.type == 'tutor' and notification.to_whom == user.pk %}
                 <a class="list-unstyled fs-5"
                    href="{% url 'students_on_tutor_responses' user.tutor.pk %}">
                     <i class="bi bi-arrow-left-circle"></i>
                 </a>
             {% endif %}
-            {% if notification.type == 'response' and user.type == 'parents' and notification.response_author_pk %}
+            {% if notification.type == 'response' and user.type == 'parents' and notification.from_whom == user.pk %}
                 <a class="list-unstyled fs-5"
                    href="{% url 'from_me-parent_on_tutor_responses' user.pk %}">
                     <i class="bi bi-arrow-right-circle"></i>
                 </a>
-            {% elif notification.type == 'response' and user.type == 'parents' and not notification.response_author_pk %}
+            {% elif notification.type == 'response' and user.type == 'parents' and notification.to_whom == user.pk %}
                 <a class="list-unstyled fs-5"
                    href="{% url 'to_my_children_responses' user.pk %}">
                     <i class="bi bi-arrow-left-circle"></i>
                 </a>
             {% endif %}
-            {% if notification.type == 'response' and user.type == 'student' and notification.response_author_pk %}
+            {% if notification.type == 'response' and user.type == 'student' and notification.from_whom == user.pk %}
                 <a class="list-unstyled fs-5"
                    href="{% url 'student_on_tutor_responses' user.pk %}">
                     <i class="bi bi-arrow-right-circle"></i>
                 </a>
-            {% elif notification.type == 'response' and user.type == 'student' and not notification.response_author_pk %}
+            {% elif notification.type == 'response' and user.type == 'student' and notification.to_whom == user.pk %}
                 <a class="list-unstyled fs-5"
                    href="{% url 'to_me_student_responses' user.pk %}">
                     <i class="bi bi-arrow-left-circle"></i>
@@ -94,6 +108,19 @@
             {% if notification.type == 'adding_student' and user.type == 'tutor' %}
                 <a href="{% url 'my_students' user.tutor.pk %}">
                     <i class="bi bi-people fs-5"></i>
+                </a>
+            {% elif notification.type == 'adding_student' and user.type == 'student' %}
+                <a href="{% url 'my_tutors' user.pk %}">
+                    <i class="bi bi-people fs-5"></i>
+                </a>
+            {% endif %}
+            {% if notification.type == 'review' and user.type == 'tutor' %}
+                <a href="{% url 'on_tutor_reviews' user.tutor.pk %}" class="list-unstyled fs-5">
+                    <i class="bi bi-star fs-5"></i>
+                </a>
+            {% elif notification.type == 'review' and user.type == 'student' %}
+                <a href="{% url 'my_reviews' user.pk %}" class="list-unstyled fs-5">
+                    <i class="bi bi-star fs-5"></i>
                 </a>
             {% endif %}
         </td>
