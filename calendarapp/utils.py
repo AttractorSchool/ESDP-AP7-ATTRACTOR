@@ -3,6 +3,8 @@ from calendar import HTMLCalendar
 from .models import Event
 
 
+
+
 class Calendar(HTMLCalendar):
     def __init__(self, year=None, month=None):
         self.year = year

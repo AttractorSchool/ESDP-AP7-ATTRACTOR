@@ -27,6 +27,11 @@
                             <p>
                                 <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
                             </p>
+                            <div class="schedule-btn" style="margin-top: 25px">
+                                <a href="{% url 'calendarapp:calendar' %}">
+                                    <button class="tut__connection_btn">Расписание</button>
+                                </a>
+                            </div>
 
                             <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
                             <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
@@ -81,6 +86,10 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                         </li>
                                         <li class="nav-item" style="box-shadow: #0c5460">
                                             <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                               href="{% url 'student_rates' request.user.pk %}">Успеваемость</a>
+                                        </li>
+                                        <li class="nav-item" style="box-shadow: #0c5460">
+                                            <a class="nav-link active" aria-current="page" style="padding-right: 20px"
                                                href="{% url 'student_detail_survey' request.user.pk %}">Моя анкета</a>
                                         </li>
 
@@ -111,9 +120,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                         </nav>
                     </div>
                     <div class="blog_left_sidebar">
-                        <article class="row blog_item">
-                            <div class="col-md-9">
-                                <div class="blog_post">
+
                                     <img src="#" alt="">
                                     <div class="blog_details">
                                         {% if request.user.with_survey %}
@@ -128,7 +135,8 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                                   <th scope="col">Начало</th>
                                                                   <th scope="col">Окончание</th>
                                                                   <th scope="col">Преподаватель</th>
-                                                                  <th scope="col">Форма</th>
+                                                                  <th scope="col">Формат</th>
+                                                                  <th scope="col">Учеников</th>
                                                                 </tr>
                                                               </thead>
                                                               {% for event in events_today %}
@@ -136,11 +144,13 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
 
                                                                 <tr>
                                                                   <th scope="row">{{ forloop.counter }}</th>
-                                                                  <td>{{ event.title }}</td>
+                                                                  <td><a href="{% url 'calendarapp:event-detail' event.pk %}">{{ event.title }}</a></td>
                                                                   <td>{{ event.start_time | date:"H:m"}}</td>
                                                                   <td>{{ event.end_time | date:"H:m" }}</td>
-                                                                    <td>{{ event.user.first_name }} {{ event.user.last_name }}</td>
-
+                                                                  <td><a href="{% url 'tutor_board_detail_page' event.user.tutor.pk %}">
+                                                                      <i class="fa-sharp fa-solid fa-chalkboard-user"></i> {{ event.user.first_name }} {{ event.user.last_name }}</a></td>
+                                                                  <td>{{ event.event_format }}</td>
+                                                                  <td style="text-align: center">{{ event.events.all|length }}</td>
 
                                                                 </tr>
 
@@ -173,8 +183,7 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                         </div>
 
                                     </div>
-                                </div>
-                            </div>
+
                             {% endif %}
 
                             <!--                                <div class="col-md-3">-->

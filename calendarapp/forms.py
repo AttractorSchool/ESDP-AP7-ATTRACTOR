@@ -5,15 +5,22 @@ from cabinet_tutors.models import MyStudent
 from calendarapp.models import Event, EventMember
 from django import forms
 
+from calendarapp.models.event_format import EventFormat
+
 
 class EventForm(ModelForm):
+    event_format = forms.ModelChoiceField(
+        label='Формат занятия',
+        queryset=EventFormat.objects.all(),
+        widget=forms.RadioSelect
+    )
     class Meta:
         model = Event
-        fields = ["title", "description", "start_time", "end_time"]
+        fields = ["title", "description", "event_format", "start_time", "end_time"]
         # datetime-local is a HTML5 input type
-        labels = {'title': 'Название', 'description': 'Описание', 'start_time': 'Начало',
+        labels = {'title': 'Название', 'description': 'Описание', 'event_format':'Формат занятия', 'start_time': 'Начало',
 
-                  'end_time': 'Конец'}
+                  'end_time': 'Окончание'}
 
         widgets = {
             "title": forms.TextInput(
@@ -25,6 +32,7 @@ class EventForm(ModelForm):
                     "placeholder": "Описание события",
                 }
             ),
+
             "start_time": DateInput(
                 attrs={"type": "datetime-local", "class": "form-control"},
                 format="%Y-%m-%dT%H:%M",

@@ -21,6 +21,14 @@
                                     <a href="#"><i class="ti-github"></i></a>
                                     <a href="#"><i class="ti-linkedin"></i></a>
                                 </div>
+                                <p>
+                                    <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
+                                </p>
+                                <div class="schedule-btn" style="margin-top: 25px">
+                                    <a href="{% url 'calendarapp:calendar' %}">
+                                        <button class="tut__connection_btn">Расписание</button>
+                                    </a>
+                                </div>
                                 <div class="br">
                                     <div style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
 
@@ -71,12 +79,15 @@ box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
                                                    href="{% url 'student_cabinet_detail' request.user.pk %}">Главная</a>
                                             </li>
                                             <li class="nav-item" style="box-shadow: #0c5460">
+                                                <a class="nav-link active" aria-current="page" style="padding-right: 20px"
+                                                   href="{% url 'student_rates' request.user.pk %}">Успеваемость</a>
+                                            </li>
+                                            <li class="nav-item" style="box-shadow: #0c5460">
                                                 <a class="nav-link active" aria-current="page"
                                                    style="padding-right: 20px"
                                                    href="{% url 'student_detail_survey' request.user.pk %}">Моя
                                                     анкета</a>
                                             </li>
-
                                             <li class="nav-item">
                                                 <a class="nav-link active" aria-current="page"
                                                    style="padding-right: 20px"

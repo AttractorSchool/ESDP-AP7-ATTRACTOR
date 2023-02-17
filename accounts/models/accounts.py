@@ -7,7 +7,7 @@ from accounts.managers import UserManager
 
 
 class UserCategoryChoices(TextChoices):
-    STUDY_CENTER = 'study_center', 'Учебный центр'
+    # STUDY_CENTER = 'study_center', 'Учебный центр'
     STUDENT = 'student', 'Ученик'
     TUTOR = 'tutor', 'Репетитор'
     PARENTS = 'parents', 'Родители'
@@ -43,7 +43,7 @@ class Account(AbstractUser):
         verbose_name='Аватар',
         default='default_avatar/default-user.png'
     )
-    birthday = models.DateField(verbose_name='Дата рождения',null=False, blank=True, max_length=30)
+    birthday = models.CharField(verbose_name='Дата рождения',null=True, blank=True, max_length=30)
     parent = models.ForeignKey('accounts.Account',
                                verbose_name=('Родитель'),
                                on_delete=models.CASCADE,

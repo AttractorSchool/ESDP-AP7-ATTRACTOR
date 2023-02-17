@@ -31,6 +31,12 @@
                         <button class="tut__connection_btn">Расписание</button>
                     </a>
                 </div>
+                <div class="tut__connection_btn_block" style="margin-top: 30px">
+                    <a href="{% url 'service_select' %}">
+                        <button class="tut__connection_btn">Платные сервисы</button>
+                    </a>
+                </div>
+
                  <div class="w-75 mt-3" style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
                                         box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); margin-left: 35px;">
@@ -67,7 +73,8 @@
                           <th scope="col">Начало</th>
                           <th scope="col">Окончание</th>
                           <th scope="col">Ученики</th>
-                          <th scope="col">Форма</th>
+                          <th scope="col">Формат</th>
+                          <th scope="col">Учеников</th>
                         </tr>
                       </thead>
                       {% for event in events_today %}
@@ -75,16 +82,19 @@
 
                         <tr>
                           <th scope="row">{{ forloop.counter }}</th>
-                          <td>{{ event.title }}</td>
-                          <td>{{ event.start_time | date:"H:m"}}</td>
-                          <td>{{ event.end_time | date:"H:m" }}</td>
+                          <td><a href="{% url 'calendarapp:event-detail' event.pk %}">{{ event.title }}</a></td>
+                          <td style="text-align: center">{{ event.start_time | date:"H:m"}}</td>
+                          <td style="text-align: center">{{ event.end_time | date:"H:m" }}</td>
                         <td>
                           {% for member in eventmembers %}
-                            {% if event.pk == member.event_id%}
-                            {{ member.user.first_name }}
+                            {% if event.pk == member.event_id %}
+                            <a href="{% url 'student_board_detail_page' member.user.survey.pk %}">
+                                <i class="fa-solid fa-graduation-cap"></i> {{ member.user.last_name }}</a></span><br>
                             {% endif %}
                           {% endfor %}
                         </td>
+                        <td style="text-align: center">{{ event.event_format }}</td>
+                        <td style="text-align: center">{{ event.events.all|length }}</td>
                         </tr>
 
                       </tbody>
@@ -92,7 +102,7 @@
                     </table>
 
          {% else %}
-            <p>Текущие события не найдены</p>
+            <p>На сегодня события не найдены</p>
          {% endif %}
     </div>
 

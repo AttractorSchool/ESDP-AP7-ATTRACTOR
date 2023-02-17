@@ -11,9 +11,22 @@
       <h1><i class="fa fa-calendar"></i> Расписание</h1>
       <p>Календарь событий</p>
   </div>
-  <ul class="app-breadcrumb breadcrumb">
-      <li class="breadcrumb-item"><a style="color: #0d6efd" href="{% url 'tutor_cabinet' user.tutor.pk %}">Личный кабинет</a></li>
-  </ul>
+  {% if request.user.type == 'tutor' %}
+      <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item">
+              <h1><a style="color: #0d6efd" href="{% url 'tutor_cabinet' user.tutor.pk %}">Личный кабинет</a></h1></li>
+      </ul>
+  {% elif request.user.type == 'student' %}
+      <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item">
+              <h1><a style="color: #0d6efd" href="{% url 'student_cabinet_detail' request.user.pk %}">Личный кабинет</a></h1></li>
+      </ul>
+  {% elif request.user.type == 'parents' %}
+      <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item">
+              <h1><a style="color: #0d6efd" href="{% url 'parents_cabinet_detail' request.user.pk %}">Личный кабинет</a></h1></li>
+      </ul>
+  {% endif %}
 {% endblock breadcrumb %}
 
 {% block content %}
@@ -26,16 +39,23 @@
                     <h4 class="mb-4">Текущие события</h4>
                     {% for event in events_month %}
                       <div class="fc-event">
-                          <h3>{{ event.title }}</h3>
-                          <p>Начало: {{ event.start_time }}</p>
-                          <p>Конец: {{ event.end_time }}</p>
-                          <p>Участники:</p>
-                          {% for member in eventmembers %}
-                            {% if event.pk == member.event_id%}
-                            <p>{{ member.user.first_name }}</p>
-                            {% endif %}
-                          {% endfor %}
-                          <div class="row">
+                          <h3 style="color: #515868">{{ event.title }}</h3>
+                          <hr>
+                          <span>Начало:</span> <p style="margin-bottom: 3px; font-size: larger; font-weight: normal; color: #5680e9 ">{{ event.start_time }}</p>
+                          <span>Окончание:</span> <p style="margin-bottom: 3px; font-size: larger; font-weight: normal; color: #5680e9 ">{{ event.end_time }}</p>
+
+                          <span>Участники:</span>
+                              {% for member in eventmembers %}
+                                {% if event.pk == member.event_id%}
+                                <p style="margin-bottom: 3px; font-size: larger; font-weight: normal; color: #5680e9 ">{{ member.user.first_name }}</p>
+                                {% endif %}
+                              {% endfor %}
+                          {% if request.user.type != 'tutor' %}
+                              <span>Преподаватель: </span>
+                              <p style="margin-bottom: 3px; font-size: larger; font-weight: normal; color: #5680e9 ">{{ event.user }}</p>
+                          {% endif %}
+                          {% if request.user.type == 'tutor' %}
+                          <div class="row" style="margin-top: 20px">
                               <div class="col-3">
                                   <a href="{% url 'calendarapp:event_edit' event.pk %}">
                                       <button type="button" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -68,7 +88,8 @@
                               </div>
 
                           </div>
-
+                     {% else %}
+                     {% endif %}
 
                       </div>
                     {% empty %}
@@ -84,7 +105,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header bg-primary">
-                            <h5 class="modal-title text-white" id="exampleModalLongTitle">Добавить событие</h5>
+                            <h5 class="modal-title text-white" id="exampleModalLongTitle">Добавить занятие</h5>
                             <button id="modalClose1" type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -93,12 +114,16 @@
                             {% csrf_token %}
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Название события:</label>
+                                    <label for="recipient-name" class="col-form-label">Название занятия:</label>
                                     {{ form.title }}
                                 </div>
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Описание:</label>
                                     {{ form.description }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Формат занятия:</label>
+                                    {{ form.event_format }}
                                 </div>
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Начало:</label>

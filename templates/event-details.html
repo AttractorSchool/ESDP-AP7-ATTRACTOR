@@ -1,7 +1,8 @@
 {% extends 'base_enimi.html' %}
-
+{% load django_bootstrap5 %}
+{% load static %}
 {% block title %}
-Event Details
+Подробности занятия
 {% endblock %}
 
 {% block content %}
@@ -10,62 +11,169 @@ Event Details
 <br>
 <br>
 <br>
-<div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 65px; margin-top:-30px; width: 90%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
+<div class="content" style="background-color: white; border-radius: 10px; margin: 0 auto; padding: 35px; margin-top:-30px; width: 100%; -webkit-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
         -moz-box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);
         box-shadow: -1px 1px 14px 5px rgba(34, 60, 80, 0.16);">
-            <h2 style="margin: 20px auto; text-align:center; ">Описание события</h2><div>
-        <div class="clearfix">
-            <h3>Название события: {{ event.title }}</h3>
-            <p>Начало <span style="color: gray;">{{ event.start_time }}</span> Конец <span style="color: gray;">{{ event.end_time }}</span></p>
+        <h2 style="margin: 20px auto; text-align:center; ">Описание занятия</h2><div>
+        {% if request.user.type == 'tutor' %}
             <hr>
-            <p>{{ event.description }}</p>
-        </div>
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <p>Название события:</p><h4> {{ event.title }}</h4>
+                </div>
+                <div class="col-4">
+                    <p>Начало: <span style="color: gray;"><h4>{{ event.start_time }}</h4></span>
+                </div>
+                <div class="col-4">
+                    <p>Конец <span style="color: gray;"><h4>{{ event.end_time }}</h4></span></p>
+                </div>
+            </div>
+
+            <p>Подробности:</p><h4>{{ event.description }}</h4>
         <hr>
+        {% endif %}
+        {% if request.user.type != 'tutor' %}
+        <div class="row justify-content-center" style="margin-top: 40px">
+            <div class="col-6">
+                <div class="clearfix">
+                    <p>Название события:</p><h4> {{ event.title }}</h4>
+                    <p>Начало: <span style="color: gray;"><h4>{{ event.start_time }}</h4></span>
+                    <p>Конец <span style="color: gray;"><h4>{{ event.end_time }}</h4></span></p>
+                    <p>Подробности:</p><h4>{{ event.description }}</h4>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <p>Преподаватель:</p><h4>{{ event.user.first_name }} {{event.user.last_name }}</h4>
+                <p>Телефон:</p><h4>{{ event.user.phone }}</h4>
+                <p>email:</p><h4>{{ event.user.email }}</h4>
+            </div>
+            <hr>
+        </div>
+        {% endif %}
+
+
+
+    {% if request.user.type == 'tutor' %}
+
         <div class="clearfix">
 
-            <h4 class="left" > Участники мероприятия</h4>
+            <h3 class="left" style="margin-top: 30px; margin-bottom: 30px; text-align: center" > Ученики</h3>
         </div>
     </div>
         <table class="table table-bordered">
             <thead>
-                <tr style="color: #007bff">
+                <tr style="color: #737678; background-color: #c3e9f7">
                   <th style="width: 10px">#</th>
                   <th>Имя</th>
                   <th>Телефон</th>
                   <th>Email</th>
+                  <th>Формат</th>
+                  <th>Оценка</th>
+                  {% if request.user.type == 'tutor' %}
                   <th>#</th>
+                  <th>#</th>
+                  {% endif %}
                 </tr>
               </thead>
               <tbody>
                 {% for member in eventmember %}
                 <tr role="row">
                     <td>{{ forloop.counter }}</td>
-                    <td>{{ member.user.first_name }} {{ member.user.last_name }}</td>
+                    <td><a href="{% url 'student_board_detail_page' member.user.survey.pk %}">{{ member.user.first_name }} {{ member.user.last_name }}</a></td>
                     <td>{{ member.user.phone }}</td>
-                    <td>{{ member.user.email }}</td>
-                    <td>
-                        <a class="btn btn-danger" href="{% url 'calendarapp:remove_event' member.id %}">Удалить</a>
+                    {% if event.user.with_email == False %}
+                        <td>{{ member.user.email }}</td>
+                    {% else %}
+                        <td>{{ member.user.email }}</td>
+                    {% endif %}
+                    <td data-id="{{ event.pk }}" id="{{ event.pk }}">{{ event.event_format }}</td>
+
+                    <td style="text-align: center;" data-id="{{ member.pk }}" id="member_{{ member.pk }}">
+                        {% for rate in event_member_ratings %}
+                            {% if member.pk == rate.event_member.pk %}
+                                {{ rate.score }}
+                            {% endif %}
+                      {% endfor %}
                     </td>
+
+                    {% if request.user.type == 'tutor' %}
+
+                        <td>
+                            <button class="btn btn-success" type="button" id=""
+                                    data-event_id="{{ event.pk }}" data-member_id="{{ member.pk }}">Оценить
+                            </button>
+                        </td>
+
+                        <td>
+                            <a class="btn btn-danger" href="{% url 'calendarapp:remove_event' member.id %}">Удалить ученика</a>
+                        </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
               </tbody>
         </table>
 
-            <div class="row justify-content-between">
+
+
+            <div class="row justify-content-between" style="margin-top: 40px">
                 <div class="col-4">
                     <a class="btn btn-primary right" href="{% url 'calendarapp:add_eventmember' event.id %}"> Добавить участника </a>
                 </div>
-                <div class="col-4">
+                <div class="col-4 text-center">
                     <a class="btn btn-primary left" href="{% url 'calendarapp:calendar' %}"> Расписание </a>
                 </div>
-                <div class="col-4">
+                <div class="col-4 text-right">
                     <a class="btn btn-primary right mr-2" href="{% url 'calendarapp:event_edit' event.pk %}"> Редактировать событие </a>
 
                 </div>
+                <div style="margin-top: 30px">
+                    <a href="{{ back_page }}">
+                        <button class="tut__connection_btn">Назад</button>
+                    </a>
+                </div>
             </div>
+        {% else %}
+            <a href="{{ back_page }}">
+                <button class="tut__connection_btn">Назад</button>
+            </a>
+
+
+        {% endif %}
         </div>
+
+
+    <div id="rateCreateModal" class="modal"
+         style="display: none; width: 100%; height: 100%; border-radius: 30px; z-index: 1; overflow: auto">
+        <div class="modal-content"
+             style="background-color: white; margin: 10% auto; border-radius: 15px; padding: 20px; width: 30%; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                    -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                    box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);">
+            <h2 style="margin: 20px auto; text-align:center; ">Оцените ученика</h2>
+                <form action="" method="POST" enctype="multipart/form-data">
+                 {% csrf_token %}
+                    <div class="form" >
+                        {% bootstrap_form rate_form %}
+                        <div class="row justify-content-between">
+                            <div class="col-6 text-center">
+                                 <button type="button" id="btnRateCreate" data-event_id="" data-member_id="" class="btn btn-primary">Оценить</button>
+                            </div>
+
+                            <div class="col-6 text-center">
+                                 <button id="btnClose" data-event_id="" data-member_id="" class="btn btn-success">Отмена</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+        </div>
+    </div>
 
     <div class="container">
 
     </div>
+
+<script src="{% static 'js/event_members_rates.js' %}"></script>
+
 {% endblock %}

@@ -2,14 +2,13 @@ from django.shortcuts import redirect, render
 from django.utils.safestring import mark_safe
 from datetime import timedelta, datetime, date
 import calendar
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
-
 from calendarapp.forms import EventForm
 from calendarapp.models import EventMember, Event
 from calendarapp.utils import Calendar
 
-class MainPageScheduleView(ListView):
+class MainPageScheduleView(LoginRequiredMixin, ListView):
     model = Event
     template_name = "tutor_cabinet_main_page.html"
     form_class = EventForm
@@ -17,7 +16,6 @@ class MainPageScheduleView(ListView):
     def get(self, request, *args, **kwargs):
         forms = self.form_class()
         events = Event.objects.get_all_events(user=request.user)
-
         eventmembers = EventMember.objects.all()
 
         events_month = Event.objects.get_running_events(user=request.user)
@@ -33,7 +31,8 @@ class MainPageScheduleView(ListView):
 
                 }
             )
-        context = {"form": forms, "events": event_list,
+        counter = 1
+        context = {"form": forms, "events": event_list, "counter": counter,
                    "events_month": events_month, "eventmembers": eventmembers,
                    "events_today": events_today}
         return render(request, self.template_name, context)
