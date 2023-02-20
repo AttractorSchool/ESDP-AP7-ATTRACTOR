@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: >
+      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - web_volume:/home/app/web
+      - media:/home/app/web/media:rw
+      - static:/home/app/web/static
+      - logs:/home/app/web/logs:rw
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+    expose:
+      - 8000
+    env_file:
+      - ./.env
+    depends_on:
+      db:
+        condition: service_healthy
+  
+  db:
+    image: postgres:14.6
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data/
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'postgres']
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      
+  nginx:
+  build: ./nginx
+  ports:
+    - 1337:80
+  depends_on:
+    - web
+      
+volumes:
+  postgresql_data:
+  
