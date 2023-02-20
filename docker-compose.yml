@@ -4,21 +4,24 @@ services:
   web:
     build: .
     command: >
-      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+      sh -c "python manage.py migrate && gunicorn enimi.wsgi:application --bind 0.0.0.0:8000"
     volumes:
-      - web_volume:/home/app/web
-      - media:/home/app/web/media:rw
-      - static:/home/app/web/static
-      - logs:/home/app/web/logs:rw
+      - ./:/home/test/enimi
+      - ./static:/home/test/enimi/static
+      - ./logs:/home/test/enimi/logs:rw
+      - ./uploads:/home/test/enimi/uploads:rw
     environment:
-      - SECRET_KEY=${SECRET_KEY}
-      - DB_NAME=${DB_NAME}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_HOST=${DB_HOST}
-      - DB_PORT=${DB_PORT}
+      - SECRET_KEY=django-insecure-gr2ik%t(twxbx+97r=(@g9i$fd6+1aua95phyp(p71!p+w3rwg
+      - DB_NAME=enimi_db
+      - DB_USER=postgres
+      - DB_PASSWORD=root
+      - DB_HOST=db
+      - DB_PORT=5432
     expose:
-      - 8000
+      - "8000"
+      - "5432"
+    ports:
+      - '5432:5432'
     env_file:
       - ./.env
     depends_on:
@@ -28,9 +31,9 @@ services:
   db:
     image: postgres:14.6
     environment:
-      - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=enimi_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
     volumes:
       - postgresql_data:/var/lib/postgresql/data/
     healthcheck:
@@ -38,14 +41,21 @@ services:
       interval: 5s
       timeout: 10s
       retries: 5
+    env_file:
+      - ./.env
       
   nginx:
-  build: ./nginx
-  ports:
-    - 1337:80
-  depends_on:
-    - web
+    build: ./nginx
+    volumes:
+        - ./static:/home/test/enimi/static
+        - ./uploads:/home/test/enimi/uploads:rw
+    ports:
+      - 8000:80
+    depends_on:
+      - web
       
 volumes:
   postgresql_data:
+  static:
+  uploads:
   
