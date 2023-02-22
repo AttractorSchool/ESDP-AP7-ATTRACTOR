@@ -5,6 +5,11 @@ services:
     build: .
     command: >
       sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./:/home/test/enimi
+      - ./static:/home/enimi1602/enimi/static
+      - ./logs:/home/enimi1602/enimi/logs:rw
+      - ./uploads:/home/enimi1602/enimi/uploads:rw
     environment:
       - SECRET_KEY=django-insecure-&e#2d1u13xh^i1*d=&21jk591-c1a#=02(v4otxk-mnebr$a0^
       - DB_NAME=enimi_db
@@ -12,14 +17,44 @@ services:
       - DB_PASSWORD=root
       - DB_HOST=db
       - DB_PORT=5432
+    expose:
+      - "8000"
+      - "5432"
     ports:
-      - "8000:8000"
+      - '5432:5432'
+    env_file:
+      - ./.env
     depends_on:
       - db
+  
   db:
     image: postgres:14.6
     environment:
       - POSTGRES_DB=enimi_db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=root
-
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data/
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'postgres']
+      interval: 5s
+      timeout: 10s
+      retries: 5
+    env_file:
+      - ./.env
+      
+  nginx:
+    build: ./nginx
+    volumes:
+        - ./static:/home/enimi1602/enimi/static
+        - ./uploads:/home/enimi1602/enimi/uploads:rw
+    ports:
+      - 8000:80
+    depends_on:
+      - web
+      
+volumes:
+  postgresql_data:
+  static:
+  uploads:
+  
