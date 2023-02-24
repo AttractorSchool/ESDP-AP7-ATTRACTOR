@@ -48,7 +48,8 @@ class Account(AbstractUser):
                                verbose_name=('Родитель'),
                                on_delete=models.CASCADE,
                                related_name='children',
-                               null=True)
+                               null=True, blank=True
+                               )
     created_at = models.DateTimeField(
         verbose_name='Дата создания',
         auto_now_add=True
