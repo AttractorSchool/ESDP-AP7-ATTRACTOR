@@ -31,10 +31,10 @@ class ServiceDetailView(LoginRequiredMixin,DetailView):
         }
         return super(ServiceDetailView, self).get(request, *args, **kwargs)
 
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_superuser or not request.user.type == "tutor":
-            raise PermissionDenied
-        return super().dispatch(request, *args, **kwargs)
+    # def dispatch(self, request, *args, **kwargs):
+    #     if not request.user.is_superuser or not request.user.type == "tutor":
+    #         raise PermissionDenied
+    #     return super().dispatch(request, *args, **kwargs)
 
 class OrderOnServiceCreateView(LoginRequiredMixin,CreateView):
     model = Service
@@ -49,10 +49,10 @@ class OrderOnServiceCreateView(LoginRequiredMixin,CreateView):
         context['order'] = order
         return self.render_to_response(context)
 
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_superuser or not request.user.type == "tutor":
-            raise PermissionDenied
-        return super().dispatch(request, *args, **kwargs)
+    # def dispatch(self, request, *args, **kwargs):
+    #     if not request.user.is_superuser or not request.user.type == "tutor":
+    #         raise PermissionDenied
+    #     return super().dispatch(request, *args, **kwargs)
 
 
 class OrderStatusUpdateView(LoginRequiredMixin,UpdateView):
@@ -74,10 +74,10 @@ class OrderStatusUpdateView(LoginRequiredMixin,UpdateView):
         return HttpResponse(status=200)
         # return redirect('orders_list')
 
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_superuser or not request.user.type == "tutor":
-            raise PermissionDenied
-        return super().dispatch(request, *args, **kwargs)
+    # def dispatch(self, request, *args, **kwargs):
+    #     if not request.user.is_superuser or not request.user.type == "tutor":
+    #         raise PermissionDenied
+    #     return super().dispatch(request, *args, **kwargs)
 
 
 class OrdersListView(LoginRequiredMixin,ListView):
@@ -93,9 +93,9 @@ class OrdersListView(LoginRequiredMixin,ListView):
         context['service_statuses'] = service_statuses
         return context
 
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_superuser or not request.user.type == "tutor":
-            raise PermissionDenied
-        return super().dispatch(request, *args, **kwargs)
+    # def dispatch(self, request, *args, **kwargs):
+    #     if not request.user.is_superuser or not request.user.type == "tutor":
+    #         raise PermissionDenied
+    #     return super().dispatch(request, *args, **kwargs)
 
 
