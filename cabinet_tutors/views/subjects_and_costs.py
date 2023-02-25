@@ -20,6 +20,13 @@ class SubjectsAndCostCreateUpdateView(CreateView):
         formset = SubjectsAndCostsFormSet(request.POST)
         if formset.is_valid():
             return self.form_valid(formset)
+        else:
+            context = {}
+            context['errors'] = formset.errors
+            print(formset.errors)
+            context['formset'] = SubjectsAndCostsFormSet(
+                queryset=SubjectsAndCosts.objects.filter(tutors=self.request.user.tutor).order_by('id'))
+        return self.render_to_response(context)
 
     def form_valid(self, formset):
         subjects_and_costs = formset.save(commit=False)

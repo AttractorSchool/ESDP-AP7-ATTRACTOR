@@ -19,7 +19,8 @@ class SubjectsAndCosts(models.Model):
                                      blank=False,
                                      max_digits=3,
                                      decimal_places=1,
-                                     verbose_name='Опыт преподавания')
+                                     verbose_name='Опыт преподавания',
+                                     validators=[MinValueValidator(0), MaxValueValidator(499000)])
 
     class Meta:
         ordering = ['id']
