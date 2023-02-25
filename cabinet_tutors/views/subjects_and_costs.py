@@ -23,7 +23,6 @@ class SubjectsAndCostCreateUpdateView(CreateView):
         else:
             context = {}
             context['errors'] = formset.errors
-            print(formset.errors)
             context['formset'] = SubjectsAndCostsFormSet(
                 queryset=SubjectsAndCosts.objects.filter(tutors=self.request.user.tutor).order_by('id'))
         return self.render_to_response(context)
