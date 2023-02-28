@@ -18,6 +18,27 @@
                             </div>
                         </div>
                     {% endfor %}
+<!--                    {% if errors %}-->
+<!--                        <div class="alert alert-danger">-->
+<!--                            <ul>-->
+<!--                                Необходимо заполнить все поля:-->
+<!--                                "Предмет", "Стоимость", "Опыт работы"-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    {% endif %}-->
+
+                    {% if errors %}
+                        <div class="alert alert-danger">
+                            <ul>
+                                    Необходимо заполнить все поля:
+                                    "Предмет", "Стоимость", "Опыт работы"
+                            </ul>
+                            <br>
+                            <ul>
+                                    Значения не могут быть меньше 1
+                            </ul>
+                        </div>
+                    {% endif %}
                     <div class="d-flex justify-content-between mt-3">
                         <div class="ml-2">
                             <button type="submit" class="btn btn-primary">Сохранить</button>
