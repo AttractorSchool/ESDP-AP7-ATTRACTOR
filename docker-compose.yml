@@ -6,10 +6,9 @@ services:
     command: >
       sh -c "python manage.py migrate && gunicorn enimi.wsgi:application --bind 0.0.0.0:8000"
     volumes:
-      - ./:/home/test/enimi
-      - ./static:/home/test/enimi/static
-      - ./logs:/home/test/enimi/logs:rw
-      - ./uploads:/home/test/enimi/uploads:rw
+      - ./static:/enimi/static
+      - ./logs:/enimi/logs:rw
+      - ./uploads:/enimi/uploads:rw
     environment:
       - SECRET_KEY=django-insecure-gr2ik%t(twxbx+97r=(@g9i$fd6+1aua95phyp(p71!p+w3rwg
       - DB_NAME=enimi_db
