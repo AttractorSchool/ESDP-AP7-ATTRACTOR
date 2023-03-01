@@ -1,0 +1,8 @@
+SECRET_KEY=django-insecure-0sz(c0d4a8ilav_ln4x7o_w3d_77uq$91wpfn6&5amne8x&j
+DB_NAME=enimi_db
+DB_USER=postgres
+DB_PASSWORD=root
+DB_HOST=db
+DB_PORT=5432
+EMAIL_ID=saintnurila@gmail.com
+EMAIL_HOST_PASSWORD=foozvibuzdpalwol
