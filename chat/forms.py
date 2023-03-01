@@ -11,7 +11,7 @@ class ChatForm(forms.ModelForm):
         widgets = {
             'message': Textarea(attrs={
                 'rows': 4,
-                'cols': 45,
+                'cols': 40,
                 'placeholder': 'Добавьте сообщение',
                 'class': 'border-0 border-top rounded',
                 'style': 'outline:0px none transparent; overflow:auto; resize:none',

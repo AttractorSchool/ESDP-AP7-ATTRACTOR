@@ -35,20 +35,20 @@ window.addEventListener('load', function() {
                     //действие при успешной оплате
                     const id = $('#payButton').attr('data-id');
                     $.ajax({
-                        url: `http://localhost:8000/payments/order_status_update/${id}/`,
+                        url: `/payments/order_status_update/${id}/`,
                         data: {
                                 csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
                                 },
                         type: 'POST',
 
                     }).done(function(data) {
-                        window.location.href = 'http://localhost:8000/payments/orders_list/';
+                        window.location.href = '/payments/orders_list/';
                     })
 
                 },
                 onFail: function (reason, options) { // fail
                     //действие при неуспешной оплате
-                    window.location.href = 'http://localhost:8000/payments/orders_list/';
+                    window.location.href = '/payments/orders_list/';
                 },
                 onComplete: function (paymentResult, options) { //Вызывается как только виджет получает от api.cloudpayments ответ с результатом транзакции.
                     //например вызов вашей аналитики Facebook Pixel

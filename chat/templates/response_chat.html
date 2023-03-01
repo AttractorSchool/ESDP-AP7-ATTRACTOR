@@ -185,7 +185,7 @@
         function drawMessages() {
             let nested_to_delete = document.getElementById('nested_message_box');
             $.ajax({
-                url: 'http://localhost:8000/api/response/' + {{ response.pk }} +'/get-chat/',
+                url: '/api/response/' + {{ response.pk }} +'/get-chat/',
                 method: 'get'
             })
                 .done(function (data) {
@@ -239,7 +239,7 @@
             console.log(message)
             var $crf_token = $('[name="csrfmiddlewaretoken"]').attr('value');
             $.ajax({
-                url: 'http://localhost:8000/api/response/' + {{ response.pk }} +'/add-message/',
+                url: '/api/response/' + {{ response.pk }} +'/add-message/',
                 method: 'POST',
                 headers: {"X-CSRFToken": $crf_token},
                 data: JSON.stringify(message),

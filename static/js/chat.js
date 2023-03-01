@@ -7,7 +7,7 @@ $(document).ready(function() {
     console.log(pk_response)
          console.log("AAAAHHHHHHРРРРРРРРРРРРРРРРРРРРРРРРРРР")
 
-    fetch(`http://localhost:8000/cabinet_tutors/1/tutor-on-students-responses/chat_messages/${pk_response}/`)
+    fetch(`/cabinet_tutors/1/tutor-on-students-responses/chat_messages/${pk_response}/`)
     .then((response) => {
         return response.text();
 

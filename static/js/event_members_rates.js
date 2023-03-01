@@ -25,7 +25,7 @@ window.addEventListener('load', function() {
 
                     $.ajax({
                         type: 'POST',
-                        url : `http://localhost:8000/ratings/create/event_member/${member_id}/event/${event_id}`,
+                        url : `/ratings/create/event_member/${member_id}/event/${event_id}`,
                         data: {
                             score: $('.nice-select.form-select[data-member_id="' + member_id + '"] .list .selected').attr('data-value'),
                             // score: $('.nice-select .list .selected').attr('data-value'),

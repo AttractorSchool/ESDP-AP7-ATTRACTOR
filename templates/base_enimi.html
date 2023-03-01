@@ -367,7 +367,7 @@
         function getNotificationsCount() {
 
             $.ajax({
-                url: 'http://localhost:8000/api/get_notifications/user/' + {{ user.pk }},
+                url: '/api/get_notifications/user/' + {{ user.pk }},
                 method: 'get'
             })
                 .done(function (data) {

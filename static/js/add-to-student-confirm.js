@@ -22,7 +22,7 @@ window.addEventListener('load', function() {
             $('#addStudentBtnConfirm').on('click', function(evt) {
                     $.ajax({
                         type: 'GET',
-                        url : `http://localhost:8000/cabinet_tutors/add_user_to_my_students/${id}/`,
+                        url : `/cabinet_tutors/add_user_to_my_students/${id}/`,
                         data: {
                             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
                         },
