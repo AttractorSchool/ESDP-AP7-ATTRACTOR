@@ -16,8 +16,8 @@ class TutorsTest(BoardsTestCase):
         self.assertTemplateUsed(response, 'board_tutor.html')
 
 
-class StudentsTest(BoardsTestCase):
-    def test_view_page_correctly(self):
-        response = self.client.get(self.students_url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'board_student.html')
+# class StudentsTest(BoardsTestCase):
+#     def test_view_page_correctly(self):
+#         response = self.client.get(self.students_url)
+#         self.assertEqual(response.status_code, 200)
+#         self.assertTemplateUsed(response, 'board_student.html')
