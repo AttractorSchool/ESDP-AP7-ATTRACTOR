@@ -1,0 +1,262 @@
+{% extends 'base_enimi.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="d-flex justify-content-center">
+            <div class="row pb-5" style=" padding-top: 85px;">
+                <div class="bg-light p-3 rounded  border border-secondary" id="the_div_holder"
+                     style=" max-width: 450px;">
+                    <div class="d-flex align-content-lg-between mb-5">
+                        {# Автор - НЕсамостоятельный с родителем (на странице родителя)#}
+                        {% if response.author.parent == user and not response.author.with_email %}
+                            <div>
+                                <img class="rounded-circle"
+                                     src="{{ response.cabinet_tutor.user.avatar.url }}" alt=""
+                                     style="height: 50px; width: 50px;">
+                            </div>
+                            <div class="pt-3 ps-3">
+                                <h5>{{ response.cabinet_tutor.user.first_name }}
+                                    {{ response.cabinet_tutor.user.last_name }}
+                                </h5>
+                            </div>
+
+                            {# Автор - НЕсамостоятельный ученик с родителем (на странице репетитора)#}
+                        {% elif response.author != user and response.author.parent and not response.author.with_email %}
+                            <div>
+                                <img class="rounded-circle" src="{{ response.author.avatar.url }}" alt=""
+                                     style="height: 50px; width: 50px;">
+                            </div>
+                            <div class="ps-3">
+                                <h4>Родитель
+                                    {{ response.author.parent.first_name }}
+                                    {{ response.author.parent.last_name }}
+                                </h4>
+                                <h5>
+                                    от лица ученика
+                                    {{ response.author.first_name }}
+                                    {{ response.author.last_name }}
+                                </h5>
+                            </div>
+
+                            {# Автор - самостоятельный ученик (на странице ученика)#}
+                        {% elif response.author == user and user.type == 'student' and user.with_email %}
+                            <div>
+                                <img class="rounded-circle"
+                                     src="{{ response.cabinet_tutor.user.avatar.url }}" alt=""
+                                     style="height: 50px; width: 50px;">
+                            </div>
+                            <div class="pt-3 ps-3">
+                                <h5>{{ response.cabinet_tutor.user.first_name }}
+                                    {{ response.cabinet_tutor.user.last_name }}
+                                </h5>
+                            </div>
+
+                            {# Автор - самостоятельный ученик (на странице репетитора)#}
+                        {% elif response.author != user and response.author.type == 'student' and user.with_email %}
+                            <div>
+                                <img class="rounded-circle" src="{{ response.author.avatar.url }}" alt=""
+                                     style="height: 50px; width: 50px;">
+                            </div>
+                            <div class="pt-3 ps-3">
+                                <h5>{{ response.author.first_name }}
+                                    {{ response.author.last_name }}
+                                </h5>
+                            </div>
+
+                            {# Автор - репетитор, собеседник - самосоятельный ученик (на странице репетитора)#}
+                        {% elif response.author == user and response.survey and response.survey.user.with_email %}
+                            <div>
+                                <img class="rounded-circle" src="{{ response.survey.user.avatar.url }}" alt=""
+                                     style="height: 50px; width: 50px;">
+                            </div>
+                            <div class="pt-3 ps-3">
+                                <h5>{{ response.survey.user.first_name }}
+                                    {{ response.survey.user.last_name }}
+                                </h5>
+                            </div>
+
+                            {# Автор - репетитор, собеседник - самосоятельный ученик (на странице ученика)#}
+                        {% elif response.author != user and response.survey and response.survey.user.with_email %}
+                            <div>
+                                <img class="rounded-circle" src="{{ response.author.avatar.url }}" alt=""
+                                     style="height: 50px; width: 50px;">
+                            </div>
+                            <div class="pt-3 ps-3">
+                                <h5>{{ response.author.first_name }}
+                                    {{ response.author.last_name }}
+                                </h5>
+                            </div>
+
+                            {# Автор - репетитор, собеседник - НЕсамостоятельный ученик с родителем (на странице репетитора)#}
+                        {% elif response.author == user and response.survey and not response.survey.user.with_email %}
+                            <div>
+                                <img class="rounded-circle" src="{{ response.survey.user.parent.avatar.url }}" alt=""
+                                     style="height: 50px; width: 50px;">
+                            </div>
+                            <div class="ps-3">
+                                <h4>Родитель
+                                    {{ response.survey.user.parent.first_name }}
+                                    {{ response.survey.user.parent.last_name }}
+                                </h4>
+                                <h5>
+                                    от лица ученика
+                                    {{ response.survey.user.first_name }}
+                                    {{ response.survey.user.last_name }}
+                                </h5>
+                            </div>
+
+                            {# Автор - репетитор, собеседник - НЕсамостоятельный ученик - с родителем (на странице родителя)#}
+                        {% elif response.author != user and response.survey and response.survey.user.parent %}
+                            <div>
+                                <img class="rounded-circle" src="{{ response.author.avatar.url }}" alt=""
+                                     style="height: 50px; width: 50px;">
+                            </div>
+                            <div class="pt-3 ps-3">
+                                <h5>{{ response.author.first_name }}
+                                    {{ response.author.last_name }}
+                                </h5>
+                            </div>
+
+                        {% endif %}
+                    </div>
+                    <div style="height: 300px;">
+                        <div id="message_box"
+                             style="height: 90%; overflow-y: auto; display: flex; flex-direction: column-reverse;">
+                        </div>
+                    </div>
+                    <form action="" method="post" style="" class="pt-3">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            {{ field }}
+                        {% endfor %}
+                        <div class="row mt-3">
+                            <div class="col-6 text-left">
+                                <a href="{{ back_page }}"
+                                   class="btn btn-primary">Назад
+                                </a>
+                            </div>
+                            <div class="col-6 text-right pb-3 ">
+                                <input id="message_id" type="submit" value="Отправить"
+                                       class="btn btn-primary ps-2 me-2"
+                                       onclick="sendMessage(event)">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block script %}
+    <script>
+        let box = document.getElementById('message_box');
+        let nested_box = document.createElement('div');
+        nested_box.setAttribute('id', 'nested_message_box');
+        box.appendChild(nested_box);
+        nested_box.innerHTML = `{% for message in response.chats.all %}
+                                {% if  message.author == user %}
+                                    <div class="d-flex flex-row-reverse chata">
+                                        <div class="mb-1 rounded w-75 "
+                                             style="background-color: lightgrey; color: black;">
+                                            <div class="border-bottom text-right ">
+                                                <p class="m-0">
+                                                            <span
+                                                                    class="fw-bold"></span>{{ message.message }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="mb-1 rounded  w-75 chata"
+                                         style="background-color: dodgerblue; color: white; ">
+                                        <div class="border-bottom d-flex text-left ">
+                                            <p class="m-0">
+                                                <span class="fw-bold">
+                                                </span>{{ message.message }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}`;
+
+        function drawMessages() {
+            let nested_to_delete = document.getElementById('nested_message_box');
+            $.ajax({
+                url: '/api/response/' + {{ response.pk }} +'/get-chat/',
+                method: 'get'
+            })
+                .done(function (data) {
+                        let nested_box = document.createElement('div');
+                        nested_box.setAttribute('id', 'nested_message_box');
+                        nested_box.style.display = 'None';
+                        box.appendChild(nested_box);
+                        for (let message of data) {
+                            if (message.author === {{ user.id }}) {
+                                let textBox = document.createElement('div');
+                                textBox.innerHTML = `<div class="d-flex flex-row-reverse chata">
+                                        <div class="mb-1 rounded w-75 "
+                                             style="background-color: lightgrey; color: black;">
+                                            <div class="border-bottom text-right ">
+                                                <div class="m-0">
+                                                    <div class="fw-bold text-break"></div>` + message.message + `
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                                nested_box.appendChild(textBox);
+                            } else {
+                                let textBox2 = document.createElement('div');
+                                textBox2.innerHTML = `<div class="mb-1 rounded  w-75 chata"
+                                         style="background-color: dodgerblue; color: white; ">
+                                        <div class="border-bottom d-flex text-left ">
+                                            <p class="m-0">
+                                                <div class="fw-bold text-break color-5"></div>` + message.message + `
+                                            </p>
+                                        </div>
+                                    </div>`;
+                                nested_box.appendChild(textBox2);
+                            }
+                        }
+                        box.removeChild(nested_to_delete);
+                        nested_box.style.display = 'block';
+                    }
+                )
+                .fail(function (error) {
+                        console.log(error);
+                    }
+                );
+        }
+
+        function sendMessage(event) {
+            event.preventDefault();
+            let message = {
+                message_text: document.getElementById('id_message').value,
+                response_id: {{ response.pk }}
+            }
+            console.log(message)
+            var $crf_token = $('[name="csrfmiddlewaretoken"]').attr('value');
+            $.ajax({
+                url: '/api/response/' + {{ response.pk }} +'/add-message/',
+                method: 'POST',
+                headers: {"X-CSRFToken": $crf_token},
+                data: JSON.stringify(message),
+                dataType: "json",
+                contentType: "application/json",
+            })
+                .done(function (data) {
+                        console.log(data)
+                    }
+                )
+                .fail(function (error) {
+                        console.log(error)
+                    }
+                );
+            document.getElementById('id_message').value = '';
+        }
+
+        setInterval(drawMessages, 1000);
+    </script>
+{% endblock %}

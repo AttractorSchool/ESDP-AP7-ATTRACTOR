@@ -1,0 +1,541 @@
+{% extends 'base_enimi.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <div class="box" style="width:auto; background-color:white; border-radius: 15px; margin: -30px; min-height: 300px">
+        <section class="blog_area section_gap">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3">
+                        <div class="blog_right_sidebar">
+
+                            <aside class="single_sidebar_widget author_widget">
+                                <img class="author_img rounded-circle" style="width: 60%;"
+                                     src="{{ request.user.avatar.url }}" alt="">
+                                <h4>{{ request.user.first_name }}</h4>
+                                <h4 style="margin-top: 5px;">{{ request.user.last_name }}</h4>
+                                <p>{{ request.user.get_type_display }}</p>
+                                <div class="social_icon">
+                                    <a href="#"><i class="ti-facebook"></i></a>
+                                    <a href="#"><i class="ti-twitter"></i></a>
+                                    <a href="#"><i class="ti-github"></i></a>
+                                    <a href="#"><i class="ti-linkedin"></i></a>
+                                </div>
+                                <p>
+                                    <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
+                                </p>
+                                <div class="row justify-content-center" style="margin-top: 30px">
+                                    <div class="schedule_btn" style="margin-bottom: 30px">
+                                        <a href="{% url 'calendarapp:calendar' %}">
+                                            <button class="tut__connection_btn">Расписание</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="button" id="add-modal-register-answer-btn-left" class="blog_btn"
+                                                style="border-radius: 10px">Зарегистрировать ребёнка
+                                        </button>
+                                    </div>
+
+                                </div>
+                                <!--                                <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you-->
+                                <!--                                    should have to spend money on boot camp when you can get. Boot camps have itssuppor-->
+                                <!--                                    ters andits detractors.</p>-->
+                                <div class="br">
+                                    <div style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); ">
+                                        <div class="nav-link" aria-current="page"
+                                             style="padding-right: 20px"
+                                             href="#">
+                                            <body onload="clockTimer();">
+
+                                            <div class="clockpage">
+                                                        <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
+                                                              id="clock"></span>
+                                                <span style="display: block;" id="dayOfWeek"></span>
+                                            </div>
+                                            </body>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
+
+                            <aside class="single_sidebar_widget ads_widget">
+                                <a href="#"><img class="img-fluid" src="img/blog/add.jpg" alt=""></a>
+                                <div class="br"></div>
+                            </aside>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div class="mini-navbar" style="-webkit-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
+-moz-box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);
+box-shadow: -1px 1px 8px 2px rgba(34, 60, 80, 0.16);">
+                            <nav class="navbar navbar-expand-lg bg-light" style="background-color: #f1f9ff">
+                                <div class="container-fluid">
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#navbarSupportedContent"
+                                            aria-controls="navbarSupportedContent" aria-expanded="false"
+                                            aria-label="Переключатель навигации">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item" style="box-shadow: #0c5460">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'parents_cabinet_detail' request.user.pk %}">Главная</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'parent_children_rates' request.user.pk %}">Успеваемость</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active{% if children_surveys_page %} card-header disabled {% endif %}" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'parent_children_surveys' request.user.pk %}">Анкеты
+                                                    детей</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'my_children_tutors' request.user.pk %}">Учителя
+                                                    детей</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px; text-align: center"
+                                                   href="{% url 'to_my_children_responses' request.user.pk %}">Отклики
+                                                    на детей</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px; text-align: center"
+                                                   href="{% url 'from_me-parent_on_tutor_responses' request.user.pk %}">Мои
+                                                    Отклики</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page"
+                                                   style="padding-right: 20px"
+                                                   href="{% url 'from_parent_on_tutor_reviews' request.user.pk %}">Мои
+                                                    отзывы</a>
+                                            </li>
+
+
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+
+
+                        <div class="blog_left_sidebar">
+                            <article class="row blog_item">
+
+                                <div class="col-md-10">
+                                    <div class="blog_post">
+                                        <img src="#" alt="">
+                                        <div class="blog_details">
+
+                                            {% for child in children.all %}
+                                                <div class="row justify-content-center" style="margin-top: 20px; margin-left:10px; margin-bottom: 30px; border-radius: 20px; background-color: #e6e6ea; -webkit-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
+                                              -moz-box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2);
+                                              box-shadow: 4px 4px 3px 0px rgba(34, 60, 80, 0.2); ">
+                                                    <div class="col-12" style="border-radius: 20px">
+                                                        <div class="row">
+                                                            <div class="col-3 text-center align-self-center"
+                                                                 style="margin-top: 25px; margin-bottom: 25px">
+                                                                <img id="avatar" src="{{ child.avatar.url }}"
+                                                                     class="circlehome-dp"
+                                                                     style="border-radius: 100px; width:80%;"
+                                                                     alt="signuplogo ">
+                                                            </div>
+
+                                                            <div class="col-9 align-self-center">
+                                                                <div class="row">
+                                                                    <div class="col-8">
+                                                                        <h5 style="color: #6c757d; padding-top: 25px">
+                                                                            Имя ученика: <span
+                                                                                style="color: #568be9">{{ child.first_name }}</span>
+                                                                        </h5>
+                                                                        <h5 style="color: #6c757d; padding-top: 8px">
+                                                                            Фамилия ученика: <span
+                                                                                style="color: #568be9">{{ child.last_name }}</span>
+                                                                        </h5>
+                                                                        {% if child.with_email == True %}
+                                                                            <h5 style="color: #6c757d; padding-top: 8px">
+                                                                                Номер телефона: <span
+                                                                                    style="color: #568be9">{{ child.phone }}</span>
+                                                                            </h5>
+                                                                        {% endif %}
+                                                                        <hr>
+                                                                    </div>
+                                                                    <div class="col-4 text-center align-self-center">
+                                                                        {% if child.with_survey == False %}
+                                                                            <a href="{% url 'parent_children_create_surveys' child.pk %}"
+                                                                               class="btn btn-primary"
+                                                                               style="border-radius: 10px"
+                                                                               data-id="'+ data[i].pk +'" id="btn">Создать
+                                                                                анкету</a>
+                                                                        {% else %}
+                                                                            {% if child.with_email == True %}
+                                                                                <a href="{% url 'user_update' child.pk %}"
+                                                                                   class="btn btn-success"
+                                                                                   style="border-radius: 10px"
+                                                                                   data-id="'+ data[i].pk +'"
+                                                                                   id="btn-base-info-update">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                         width="16" height="16"
+                                                                                         fill="currentColor"
+                                                                                         class="bi bi-pencil-square"
+                                                                                         viewBox="0 0 16 16">
+                                                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                                        <path fill-rule="evenodd"
+                                                                                              d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                                                    </svg>
+                                                                                </a>
+                                                                            {% else %}
+                                                                                <a href="{% url 'user_update_without_email' child.pk %}"
+                                                                                   class="btn btn-success"
+                                                                                   style="border-radius: 10px"
+                                                                                   data-id="'+ data[i].pk +'"
+                                                                                   id="btn-base-info-update">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                         width="16" height="16"
+                                                                                         fill="currentColor"
+                                                                                         class="bi bi-pencil-square"
+                                                                                         viewBox="0 0 16 16">
+                                                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                                        <path fill-rule="evenodd"
+                                                                                              d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                                                    </svg>
+                                                                                </a>
+                                                                            {% endif %}
+                                                                        {% endif %}
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-8">
+                                                                        {% if child.with_survey == True %}
+                                                                            <p style="margin-bottom: 10px">Предметы:
+                                                                                <span style="color: #568be9">
+                                                                    {% for subject in child.survey.subjects.all %}
+                                                                        <span class="info-item">{{ subject }}
+                                                                            {% if not forloop.last %}
+                                                                                , {% endif %}</span>
+                                                                    {% endfor %}
+                                                                            </p>
+
+                                                                            <p style="margin-bottom: 10px">Стоимость:
+                                                                                <span style="color: #568be9;"><span
+                                                                                        class="info-item">{{ child.survey.min_cost }}тг. - {{ child.survey.max_cost }}тг.</span>
+                                                                            <p style="margin-bottom: 10px">Время
+                                                                                обучения: <span
+                                                                                        style="color: #568be9"><span
+                                                                                        class="info-item">{{ child.survey.education_time }}</span>
+
+                                                                            <p style="margin-bottom: 10px">Тесты: <span
+                                                                                    style="color: #568be9">
+                                                                    {% for test in child.survey.tests.all %}
+                                                                        <span class="info-item">{{ test }}
+                                                                            {% if not forloop.last %}
+                                                                                , {% endif %}</span>
+                                                                    {% endfor %}
+                                                                            </p>
+
+                                                                            <p style="margin-bottom: 10px">Программа:
+                                                                                <span style="color: #568be9">
+                                                                    {% for program in child.survey.programs.all %}
+                                                                        <span class="info-item">{{ program }}
+                                                                            {% if not forloop.last %}
+                                                                                , {% endif %}</span>
+                                                                    {% endfor %}
+                                                                            </p>
+
+
+                                                                            <p style="margin-bottom: 10px">Онлайн: <span
+                                                                                    style="color: #568be9">
+                                                                    {% for platform in child.survey.online.all %}
+                                                                        <span class="info-item">{{ platform }}
+                                                                            {% if not forloop.last %}
+                                                                                , {% endif %}</span>
+                                                                    {% endfor %}
+                                                                            </p>
+                                                                            <hr>
+                                                                        {% endif %}
+
+                                                                    </div>
+                                                                    {% if child.with_survey == True %}
+                                                                        <div class="col-4 text-center align-self-center">
+                                                                            <a href="{% url 'main_child_survey_update' child.survey.pk %}"
+                                                                               class="btn btn-success"
+                                                                               style="border-radius: 10px">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                     width="16" height="16"
+                                                                                     fill="currentColor"
+                                                                                     class="bi bi-pencil-square"
+                                                                                     viewBox="0 0 16 16">
+                                                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                                    <path fill-rule="evenodd"
+                                                                                          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                                                </svg>
+                                                                            </a>
+                                                                        </div>
+                                                                    {% endif %}
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-8">
+                                                                        {% if child.with_survey == True %}
+
+                                                                            <h5 style="margin-bottom: 10px; color: #6c757d;">
+                                                                                Оффлайн у преподавателя:</h5>
+
+                                                                            <p style="margin-bottom: 10px">Область:
+                                                                                {% if child.survey.tutor_area.tutor_region %}
+                                                                                    <span style="color: #568be9;">
+                                                                                    <span class="info-item">{{ child.survey.tutor_area.tutor_region }}</span></span>
+                                                                                {% else %}
+                                                                                    <span style="color: #568be9;">
+                                                                                    <span class="info-item">Не указано</span></span>
+                                                                                {% endif %}
+                                                                            </p>
+                                                                            <p style="margin-bottom: 10px">Город:
+                                                                                {% if child.survey.tutor_area.tutor_city %}
+                                                                                    <span style="color: #568be9;">
+                                                                                    <span class="info-item">{{ child.survey.tutor_area.tutor_city }}</span></span>
+                                                                                {% else %}
+                                                                                    <span style="color: #568be9;">
+                                                                                    <span class="info-item">Не указано</span></span>
+                                                                                {% endif %}
+                                                                            </p>
+                                                                            <p style="margin-bottom: 10px">Район:
+                                                                                {% if child.survey.tutor_area.tutor_district %}
+                                                                                    <span style="color: #568be9;">
+                                                                                    <span class="info-item">{{ child.survey.tutor_area.tutor_district }}</span></span>
+                                                                                {% else %}
+                                                                                    <span style="color: #568be9;"></span>
+                                                                                    <span class="info-item">Не указано</span>
+                                                                                {% endif %}
+                                                                            </p>
+                                                                            <hr>
+                                                                            </div>
+
+
+                                                                            {% if child.with_survey == True %}
+                                                                                <div class="col-4 text-center align-self-center">
+                                                                                    <a href="{% url 'offline_child_study_tutor_area_survey_update' child.survey.tutor_area.pk %}"
+                                                                                       class="btn btn-success"
+                                                                                       style="border-radius: 10px">
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                             width="16" height="16"
+                                                                                             fill="currentColor"
+                                                                                             class="bi bi-pencil-square"
+                                                                                             viewBox="0 0 16 16">
+                                                                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                                            <path fill-rule="evenodd"
+                                                                                                  d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                                                        </svg>
+                                                                                    </a>
+                                                                                </div>
+                                                                            {% endif %}
+                                                                            </div>
+
+                                                                            <div class="row">
+                                                                            <div class="col-8">
+                                                                            <h5 style="margin-bottom: 10px; color: #6c757d;">
+                                                                                Оффлайн у себя:</h5>
+                                                                            <p style="margin-bottom: 10px">Область:
+                                                                                {% if child.survey.student_area.student_region %}
+                                                                                    <span style="color: #568be9;"
+                                                                                          class="info-item">{{ child.survey.student_area.student_region }}</span>
+                                                                                {% else %}
+                                                                                    <span style="color: #568be9;"
+                                                                                          class="info-item">Не указано</span>
+                                                                                {% endif %}
+                                                                            </p>
+                                                                            <p style="margin-bottom: 10px">Город:
+                                                                                {% if child.survey.student_area.student_city %}
+                                                                                    <span style="color: #568be9;"
+                                                                                          class="info-item">{{ child.survey.student_area.student_city }}</span>
+                                                                                {% else %}
+                                                                                    <span style="color: #568be9;"
+                                                                                          class="info-item">Не указано</span>
+                                                                                {% endif %}
+                                                                            </p>
+                                                                            <p style="margin-bottom: 10px">Район:
+                                                                                {% if child.survey.student_area.student_district %}
+                                                                                    <span style="color: #568be9;"
+                                                                                          class="info-item">{{ child.survey.student_area.student_region }}</span>
+                                                                                {% else %}
+                                                                                    <span style="color: #568be9;"
+                                                                                          class="info-item">Не указано</span>
+                                                                                {% endif %}
+                                                                            </p>
+                                                                        {% endif %}
+                                                                        </div>
+
+                                                                        {% if child.with_survey == True %}
+                                                                            <div class="col-4 text-center align-self-center">
+                                                                                <a href="{% url 'offline_cheild_study_student_area_survey_update' child.survey.student_area.pk %}"
+                                                                                   class="btn btn-success"
+                                                                                   style="border-radius: 10px">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                         width="16" height="16"
+                                                                                         fill="currentColor"
+                                                                                         class="bi bi-pencil-square"
+                                                                                         viewBox="0 0 16 16">
+                                                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                                        <path fill-rule="evenodd"
+                                                                                              d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                                                    </svg>
+                                                                                </a>
+                                                                            </div>
+                                                                        {% endif %}
+                                                                        </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="registerModal" class="modal"
+                 style="display: none; width: 100%; height: 100%; border-radius: 30px; background-color: rgba(0,0,0, 0.3); z-index: 1; overflow: auto">
+                <div class="modal-content"
+                     style="background-color: white; margin: 10% auto; border-radius: 15px; padding: 20px; width: 30%">
+                    <h2 style="margin: 30px auto">У ребенка есть email?</h2>
+                    <div>
+                        <div class="row justify-content-center">
+                            <div class="col-6 text-center">
+                                <a href="{% url 'parent_create_children' request.user.pk %}">
+                                    <button type="button" class="btn btn-primary btn-block">Да</button>
+                                </a>
+                            </div>
+                            <div class="col-6 text-center">
+                                <a href="{% url 'parent_create_children_without_email' request.user.pk %}">
+                                    <button type="button" class="btn btn-primary btn-block">Нет</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="registerModalFormYes" class="modal"
+                 style="display: none; width: 100%; height: 100%; border-radius: 30px; background-color: rgba(0,0,0, 0.3); z-index: 1; overflow: auto">
+                <div class="modal-content"
+                     style="background-color: white; margin: 10% auto; border-radius: 30px; padding: 20px; width: 30%">
+                    <h2 style="margin: 30px auto">Регистрация ученика</h2>
+                    <div>
+                        <form action="{% url 'parent_create_children' request.user.pk %}" method="POST"
+                              enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form" id="form-student">
+                                {% bootstrap_form student_register_form %}
+                                <div class="row">
+                                    <div class="col-6 text-center">
+                                        {% bootstrap_button button_type="submit" content='Сохранить' %}
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <a href="{% url 'parent_create_children_without_email' request.user.pk %}">
+                                            <button type="button" class="btn btn-primary btn-block">Нет</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div id="registerModalFormNo" class="modal"
+             style="display: none; width: 100%; height: 100%; border-radius: 30px; background-color: rgba(0,0,0, 0.3); z-index: 1; overflow: auto">
+            <div class="modal-content"
+                 style="background-color: white; margin: 10% auto; border-radius: 30px; padding: 20px; width: 30%"><h2
+                    style="margin: 30px auto">Регистрация ученика</h2>
+                <div>
+                    <form action="{% url 'parent_create_children_without_email' request.user.pk %}" method="POST"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form" id="form-student-without-email">
+                            {% bootstrap_form student_without_email_register_form %}
+                            <div class="row">
+                                <div class="col-6 text-center">
+                                    {% bootstrap_button button_type="submit" content='Сохранить' %}
+                                </div>
+                                <div class="col-6 text-center">
+                                    <a id="btn-register-modal-without-email-close" class="btn btn-secondary">Закрыть</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function clockTimer() {
+            var date = new Date();
+
+            var time = [date.getHours(), date.getMinutes(), date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
+            var dayOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+            var days = date.getDay();
+
+            if (time[0] < 10) {
+                time[0] = "0" + time[0];
+            }
+            if (time[1] < 10) {
+                time[1] = "0" + time[1];
+            }
+            if (time[2] < 10) {
+                time[2] = "0" + time[2];
+            }
+
+            var current_time = [time[0], time[1], time[2]].join(':');
+            var clock = document.getElementById("clock");
+            var day = document.getElementById("dayOfWeek");
+
+            clock.innerHTML = current_time;
+            day.innerHTML = dayOfWeek[days];
+
+
+            setTimeout("clockTimer()", 1000);
+        }
+    </script>
+
+    <script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/add-modal-register-answer.js' %}"></script>
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/owl-carousel-thumb.min.js' %}"></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'js/mail-script.js' %}"></script>
+    <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+    <script src="{% static 'js/gmaps.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/clock.js' %}"></script>
+
+{% endblock %}

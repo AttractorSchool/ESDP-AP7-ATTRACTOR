@@ -1,0 +1,62 @@
+
+version: '3'
+
+services:
+  web:
+    build: .
+    command: >
+      sh -c "python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
+
+    volumes:
+      - ./://app/web
+      - ./static://app/static
+      - ./logs://app/logs:rw
+      - ./uploads:/app/uploads:rw
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+    ports:
+      - '8000:8000'
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: always
+
+  db:
+    image: postgres:14.6
+    environment:
+      - POSTGRES_DB=enimi_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data/
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'postgres']
+      interval: 5s
+      timeout: 10s
+      retries: 5
+    env_file:
+      - ./.env
+    restart: always
+
+  nginx:
+    image: nginx
+    volumes:
+        - ./nginx.conf:/etc/nginx/nginx.conf
+        - ./static:/home/enimi/static
+        - ./uploads:/home/enimi/uploads:rw
+        - /etc/letsencrypt:/etc/letsencrypt
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - web
+
+volumes:
+  postgresql_data:
+  static:
+  media:

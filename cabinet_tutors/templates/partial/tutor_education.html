@@ -1,0 +1,70 @@
+{% load django_bootstrap5 %}
+
+<div class="mt-2">
+
+    <div class="card bg-light mb-3 rounded">
+        <div class="card-header p-0 pl-3 rounded fw-bolder" style="height: 26px;">Образование и дипломы
+            <a href="{% url 'education_create_or_update' user.tutor.pk %}">
+                <i class="bi bi-pencil-square ml-3"></i>
+            </a>
+        </div>
+        <div class="card-body">
+            {% if user.tutor.education.all %}
+                {% for education in educations %}
+                    <div class="pb-2 d-flex">
+                        <div class="w-100 border-top">
+                            <span class="fw-bold">Учебное заведение: </span>
+                            <span>{% if education.institution %} {{ education.institution }} {% else %} - {% endif %}
+                                <br></span>
+
+                            <span class="fw-bold">Специальность: </span>
+                            <span>{% if education.speciality %} {{ education.speciality }} {% else %} - {% endif %}<br></span>
+
+                            <span class="fw-bold">Степень: </span>
+                            <span>{% if education.degree %} {{ education.degree }} {% else %} - {% endif %}<br></span>
+                        </div>
+                        <div class="d-flex flex-row-reverse border-top">
+                            <div class="d-flex">
+                                <div>
+                                    <!-- Button For Delete Modal -->
+                                    <button type="button" class="ml-2 text-danger border-0 bg-light rounded"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#deleteEducationModal">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delete Modal -->
+                    <div class="modal fade" id="deleteEducationModal" tabindex="-1"
+                         aria-labelledby="deleteEducationModalLabel"
+                         aria-hidden="true" style="margin-top: 200px;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="text-center text-danger col-12">Вы уверены, что хотите удалить?</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{% url 'education_delete' user.tutor.pk education.pk %}" method="post"
+                                          class="text-center">
+                                        {% csrf_token %}
+                                        <input class="btn btn-danger mx-1" type="submit" value="Да">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Нет
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            {% else %}
+                <span>Учебное заведение: </span><span>---</span><br>
+                <span>Специальность: </span><span>---</span><br>
+                <span>Степень: </span><span>---</span><br>
+            {% endif %}
+        </div>
+    </div>
+</div>

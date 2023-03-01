@@ -1,0 +1,200 @@
+{% extends 'base_enimi.html' %}
+{% load static %}
+{% block extracss %}
+  <link href="{% static 'calender/main.css' %}" rel="stylesheet" />
+{% endblock extracss %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="d-flex pb-3" style="padding-top: 100px;">
+    <div class="d-flex flex-column" style="width: 25%">
+        <div class="rounded text-center">
+            <p>
+                <span class="fw-bold">{{ user.last_name }}</span>
+                <span class="fw-bold">{{ user.first_name }}<br></span>
+                {% if user.father_name %}
+                <span class="fw-bold">{{ user.father_name }}<br></span>
+                {% endif %}
+            </p>
+            <img src="{{ user.avatar.url }}" alt=""
+                 style="border-radius: 50%; width: 200px; height: 180px;">
+            <div>
+                <p class="pt-2">
+                    <span>{{ user.email }}</span>
+                    <br>
+                    <span>{{ user.phone }}</span>
+                </p>
+                <p>
+                    <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
+                </p>
+                <div class="tut__connection_btn_block">
+                    <a href="{% url 'calendarapp:calendar' %}">
+                        <button class="tut__connection_btn">Расписание</button>
+                    </a>
+                </div>
+                <div class="tut__connection_btn_block" style="margin-top: 30px">
+                    <a href="{% url 'service_select' %}">
+                        <button class="tut__connection_btn">Платные сервисы</button>
+                    </a>
+                </div>
+
+                 <div class="w-75 mt-3" style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); margin-left: 35px;">
+                        <div class="nav-link" aria-current="page"
+                             style="padding-right: 20px">
+                            <body onload="clockTimer();">
+                            <div class="clockpage">
+                                <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
+                                      id="clock"></span>
+                                <span style="display: block;" id="dayOfWeek"></span>
+                            </div>
+                            </body>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div style="width: 75%">
+
+        {% include 'partial/tutor_navbar.html' %}
+
+        {% if events_today %}
+        <h3 class="mb-4">Занятия сегодня:</h3>
+
+
+
+                   <table class="table table-bordered" style="border-radius: 10px">
+                      <thead>
+                        <tr style="color: #737678; background-color: #c3e9f7">
+                          <th scope="col">#</th>
+                          <th scope="col">Занятие</th>
+                          <th scope="col">Начало</th>
+                          <th scope="col">Окончание</th>
+                          <th scope="col">Ученики</th>
+                          <th scope="col">Формат</th>
+                          <th scope="col">Учеников</th>
+                        </tr>
+                      </thead>
+                      {% for event in events_today %}
+                      <tbody>
+
+                        <tr>
+                          <th scope="row">{{ forloop.counter }}</th>
+                          <td><a href="{% url 'calendarapp:event-detail' event.pk %}">{{ event.title }}</a></td>
+                          <td style="text-align: center">{{ event.start_time | date:"H:m"}}</td>
+                          <td style="text-align: center">{{ event.end_time | date:"H:m" }}</td>
+                        <td>
+                          {% for member in eventmembers %}
+                            {% if event.pk == member.event_id %}
+                            <a href="{% url 'student_board_detail_page' member.user.survey.pk %}">
+                                <i class="fa-solid fa-graduation-cap"></i> {{ member.user.last_name }}</a></span><br>
+                            {% endif %}
+                          {% endfor %}
+                        </td>
+                        <td style="text-align: center">{{ event.event_format }}</td>
+                        <td style="text-align: center">{{ event.events.all|length }}</td>
+                        </tr>
+
+                      </tbody>
+                      {% endfor%}
+                    </table>
+
+         {% else %}
+            <p>На сегодня события не найдены</p>
+         {% endif %}
+    </div>
+
+
+    </div>
+</div>
+
+{% endif %}
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+crossorigin="anonymous">
+</script>
+ <script>
+        function clockTimer() {
+            var date = new Date();
+
+            var time = [date.getHours(), date.getMinutes(), date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
+            var dayOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+            var days = date.getDay();
+
+            if (time[0] < 10) {
+                time[0] = "0" + time[0];
+            }
+            if (time[1] < 10) {
+                time[1] = "0" + time[1];
+            }
+            if (time[2] < 10) {
+                time[2] = "0" + time[2];
+            }
+
+            var current_time = [time[0], time[1], time[2]].join(':');
+            var clock = document.getElementById("clock");
+            var day = document.getElementById("dayOfWeek");
+
+            clock.innerHTML = current_time;
+            day.innerHTML = dayOfWeek[days];
+
+
+            setTimeout("clockTimer()", 1000);
+        }
+    </script>
+
+
+
+  <script src="{% static 'calender/main.js' %}"></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var today = new Date();
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialDate: today,
+          navLinks: true, // can click day/week names to navigate views
+          selectable: true,
+          selectMirror: true,
+          editable: true,
+          dayMaxEvents: true, // allow "more" link when too many events
+          events: {{ events|safe }},
+          // events: [
+          //   {
+          //     title: 'All Day Event',
+          //     start: '2021-06-26'
+          //   },
+          //   {
+          //     groupId: 999,
+          //     title: 'Repeating Event',
+          //     start: '2020-09-16T16:00:00'
+          //   },
+          //   {
+          //     title: 'Conference',
+          //     start: '2020-09-11',
+          //     end: '2020-09-13'
+          //   },
+          //   {
+          //     title: 'Click for Google',
+          //     url: 'http://google.com/',
+          //     start: '2020-09-28'
+          //   }
+          // ]
+        });
+
+        calendar.render();
+      });
+      const closeBtn1 = document.getElementById('modalClose1');
+      const closeBtn2 = document.getElementById('modalClose2');
+      closeBtn1.addEventListener('click',()=>{
+        const eventModal = document.getElementById('eventModal')
+        eventModal.style.display = 'none';
+      });
+      closeBtn2.addEventListener('click',()=>{
+        const eventModal = document.getElementById('eventModal')
+        eventModal.style.display = 'none';
+      });
+  </script>
+{% endblock %}

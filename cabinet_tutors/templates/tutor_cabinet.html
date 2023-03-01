@@ -1,0 +1,92 @@
+{% extends 'base_enimi.html' %}
+{% load static %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="tutor__block d-flex" style="padding-top: 100px;">
+            <div class="tutor__block-personal d-flex flex-column pb-3 mb-1" style="width: 25%">
+                <div class="rounded text-center">
+                    <p>
+                        <span class="fw-bold">{{ user.last_name }}</span>
+                        <span class="fw-bold">{{ user.first_name }}<br></span>
+                        {% if user.father_name %}
+                            <span class="fw-bold">{{ user.father_name }}<br></span>
+                        {% endif %}
+                    </p>
+                    <img src="{{ user.avatar.url }}" alt=""
+                         style="border-radius: 50%; width: 200px; height: 180px;">
+                    <div>
+                        <p class="pt-2">
+                            <span>{{ user.email }}</span>
+                            <br>
+                            <span>{{ user.phone }}</span>
+                        </p>
+                        <p>
+                            <a href="{% url 'change_password' user.pk %}">Смена пароля</a>
+                        </p>
+                        <div class="tut__connection_btn_block">
+                            <a href="{% url 'calendarapp:calendar' %}">
+                                <button class="tut__connection_btn">Расписание</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-75 mt-3" style="text-align: center; background-color: #f1f9ff; border-radius: 10px; -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+                                        box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2); margin-left: 35px;">
+                        <div class="nav-link" aria-current="page"
+                             style="padding-right: 20px">
+                            <body onload="clockTimer();">
+                            <div class="clockpage">
+                                <span style="font-size: 25px; font-family: 'Titillium Web', sans-serif; color: #7b838a; font-weight: bold"
+                                      id="clock"></span>
+                                <span style="display: block;" id="dayOfWeek"></span>
+                            </div>
+                            </body>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tutor__info-main" style="width: 75%">
+
+                {% if tutor.user == user %}
+                    {% include 'partial/tutor_navbar.html' %}
+                    {% include 'partial/tutor_info.html' %}
+                    {% include 'partial/tutor_education.html' %}
+                    {% include 'partial/tutor_subjects_and_costs.html' %}
+                    {% include 'partial/tutor_study_formats.html' %}
+                {% endif %}
+            </div>
+
+        </div>
+    {% endif %}
+
+    <script>
+        function clockTimer() {
+            var date = new Date();
+
+            var time = [date.getHours(), date.getMinutes(), date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
+            var dayOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+            var days = date.getDay();
+
+            if (time[0] < 10) {
+                time[0] = "0" + time[0];
+            }
+            if (time[1] < 10) {
+                time[1] = "0" + time[1];
+            }
+            if (time[2] < 10) {
+                time[2] = "0" + time[2];
+            }
+
+            var current_time = [time[0], time[1], time[2]].join(':');
+            var clock = document.getElementById("clock");
+            var day = document.getElementById("dayOfWeek");
+
+            clock.innerHTML = current_time;
+            day.innerHTML = dayOfWeek[days];
+
+
+            setTimeout("clockTimer()", 1000);
+        }
+    </script>
+{% endblock %}
