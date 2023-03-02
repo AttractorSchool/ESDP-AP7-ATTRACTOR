@@ -1,1 +1,1742 @@
 
+2023-03-01 19:02:32,222 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-01 19:02:33,648 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-01 19:02:34,125 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-01 19:02:34,499 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-01 19:02:34,512 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-01 19:04:18,109 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-01 19:04:18,109 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-01 19:42:52,496 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-01 19:42:52,496 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-01 19:42:52,903 django.request WARNING  Not Found: /img/favicon.png
+2023-03-01 19:42:52,903 django.request WARNING  Not Found: /img/favicon.png
+2023-03-01 19:42:54,994 django.request WARNING  Not Found: /cabinet_student/2/student/img/blog/add.jpg
+2023-03-01 19:42:54,994 django.request WARNING  Not Found: /cabinet_student/2/student/img/blog/add.jpg
+2023-03-01 19:42:57,439 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-01 19:42:57,439 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-01 19:43:01,575 django.request WARNING  Not Found: /favicon.ico
+2023-03-01 19:43:01,575 django.request WARNING  Not Found: /favicon.ico
+2023-03-01 19:43:09,329 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-01 19:43:09,329 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-01 20:59:48,459 django.request WARNING  Not Found: /img/favicon.png
+2023-03-01 20:59:48,459 django.request WARNING  Not Found: /img/favicon.png
+2023-03-01 20:59:48,541 django.request WARNING  Not Found: /img/favicon.png
+2023-03-01 20:59:48,541 django.request WARNING  Not Found: /img/favicon.png
+2023-03-01 20:59:48,619 django.request WARNING  Not Found: /favicon.ico
+2023-03-01 20:59:48,619 django.request WARNING  Not Found: /favicon.ico
+2023-03-01 21:07:01,456 django.request WARNING  Not Found: /cL7xswOHAa6JjmzEWChoVUTMBea
+2023-03-01 21:07:01,456 django.request WARNING  Not Found: /cL7xswOHAa6JjmzEWChoVUTMBea
+2023-03-01 21:18:36,634 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+2023-03-01 21:18:36,681 django.request WARNING  Bad Request: /.well-known/acme-challenge/muWcuJ9pDkLBJUF4Cm9MMriwBlhURtqrdmVG821NIj0
+2023-03-01 21:18:36,681 django.request WARNING  Bad Request: /.well-known/acme-challenge/muWcuJ9pDkLBJUF4Cm9MMriwBlhURtqrdmVG821NIj0
+2023-03-01 21:18:36,958 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+2023-03-01 21:18:36,995 django.request WARNING  Bad Request: /.well-known/acme-challenge/muWcuJ9pDkLBJUF4Cm9MMriwBlhURtqrdmVG821NIj0
+2023-03-01 21:18:36,995 django.request WARNING  Bad Request: /.well-known/acme-challenge/muWcuJ9pDkLBJUF4Cm9MMriwBlhURtqrdmVG821NIj0
+2023-03-01 21:22:38,651 django.request WARNING  Not Found: /img/favicon.png
+2023-03-01 21:22:38,651 django.request WARNING  Not Found: /img/favicon.png
+2023-03-01 21:22:38,746 django.request WARNING  Not Found: /img/favicon.png
+2023-03-01 21:22:38,746 django.request WARNING  Not Found: /img/favicon.png
+2023-03-01 21:22:38,847 django.request WARNING  Not Found: /favicon.ico
+2023-03-01 21:22:38,847 django.request WARNING  Not Found: /favicon.ico
+2023-03-01 23:37:23,832 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+2023-03-01 23:37:23,850 django.request WARNING  Bad Request: /.well-known/acme-challenge/iDrb2fKKM9kjh7OYFM9ojOoaT3IJkbO7CF-MEqOxBAI
+2023-03-01 23:37:23,850 django.request WARNING  Bad Request: /.well-known/acme-challenge/iDrb2fKKM9kjh7OYFM9ojOoaT3IJkbO7CF-MEqOxBAI
+2023-03-01 23:37:24,276 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+2023-03-01 23:37:24,290 django.request WARNING  Bad Request: /.well-known/acme-challenge/iDrb2fKKM9kjh7OYFM9ojOoaT3IJkbO7CF-MEqOxBAI
+2023-03-01 23:37:24,290 django.request WARNING  Bad Request: /.well-known/acme-challenge/iDrb2fKKM9kjh7OYFM9ojOoaT3IJkbO7CF-MEqOxBAI
+2023-03-01 23:37:24,318 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+2023-03-01 23:37:24,330 django.request WARNING  Bad Request: /.well-known/acme-challenge/iDrb2fKKM9kjh7OYFM9ojOoaT3IJkbO7CF-MEqOxBAI
+2023-03-01 23:37:24,330 django.request WARNING  Bad Request: /.well-known/acme-challenge/iDrb2fKKM9kjh7OYFM9ojOoaT3IJkbO7CF-MEqOxBAI
+2023-03-02 00:02:17,551 django.request WARNING  Not Found: /apis/apps/v1/namespaces/kube-system/daemonsets
+2023-03-02 00:02:17,551 django.request WARNING  Not Found: /apis/apps/v1/namespaces/kube-system/daemonsets
+2023-03-02 01:24:24,351 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+2023-03-02 01:24:24,366 django.request WARNING  Bad Request: /.well-known/acme-challenge/SorfV07pb8SDR5qpBVva-Vz-xX91WaeeUBASwQ7Un9w
+2023-03-02 01:24:24,366 django.request WARNING  Bad Request: /.well-known/acme-challenge/SorfV07pb8SDR5qpBVva-Vz-xX91WaeeUBASwQ7Un9w
+2023-03-02 01:24:24,624 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+2023-03-02 01:24:24,641 django.request WARNING  Bad Request: /.well-known/acme-challenge/SorfV07pb8SDR5qpBVva-Vz-xX91WaeeUBASwQ7Un9w
+2023-03-02 01:24:24,641 django.request WARNING  Bad Request: /.well-known/acme-challenge/SorfV07pb8SDR5qpBVva-Vz-xX91WaeeUBASwQ7Un9w
+2023-03-02 01:46:19,534 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+2023-03-02 01:46:19,551 django.request WARNING  Bad Request: /.well-known/acme-challenge/VZsxmBhgKKzfQJSfO0JIT-TNjU0w0zjLaqYxSbtNYr8
+2023-03-02 01:46:19,551 django.request WARNING  Bad Request: /.well-known/acme-challenge/VZsxmBhgKKzfQJSfO0JIT-TNjU0w0zjLaqYxSbtNYr8
+2023-03-02 01:46:19,602 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mplusfunds.gfolkdev.net'. You may need to add 'mplusfunds.gfolkdev.net' to ALLOWED_HOSTS.
+2023-03-02 01:46:19,614 django.request WARNING  Bad Request: /.well-known/acme-challenge/VZsxmBhgKKzfQJSfO0JIT-TNjU0w0zjLaqYxSbtNYr8
+2023-03-02 01:46:19,614 django.request WARNING  Bad Request: /.well-known/acme-challenge/VZsxmBhgKKzfQJSfO0JIT-TNjU0w0zjLaqYxSbtNYr8
+2023-03-02 02:23:29,271 django.request WARNING  Not Found: /.DS_Store
+2023-03-02 02:23:29,271 django.request WARNING  Not Found: /.DS_Store
+2023-03-02 02:23:29,278 django.request WARNING  Not Found: /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application
+2023-03-02 02:23:29,278 django.request WARNING  Not Found: /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application
+2023-03-02 02:23:29,285 django.request WARNING  Not Found: /.vscode/sftp.json
+2023-03-02 02:23:29,285 django.request WARNING  Not Found: /.vscode/sftp.json
+2023-03-02 02:23:29,296 django.request WARNING  Not Found: /s/0333e2735313e2134323e2239313/_/;/META-INF/maven/com.atlassian.jira/jira-webapp-dist/pom.properties
+2023-03-02 02:23:29,296 django.request WARNING  Not Found: /s/0333e2735313e2134323e2239313/_/;/META-INF/maven/com.atlassian.jira/jira-webapp-dist/pom.properties
+2023-03-02 02:23:29,290 django.request WARNING  Not Found: /.env
+2023-03-02 02:23:29,290 django.request WARNING  Not Found: /.env
+2023-03-02 02:23:29,301 django.request WARNING  Not Found: /debug/default/view
+2023-03-02 02:23:29,301 django.request WARNING  Not Found: /debug/default/view
+2023-03-02 02:23:29,315 django.request WARNING  Not Found: /telescope/requests
+2023-03-02 02:23:29,315 django.request WARNING  Not Found: /telescope/requests
+2023-03-02 02:23:29,310 django.request WARNING  Not Found: /info.php
+2023-03-02 02:23:29,310 django.request WARNING  Not Found: /info.php
+2023-03-02 02:23:29,334 django.request WARNING  Not Found: /server-status
+2023-03-02 02:23:29,334 django.request WARNING  Not Found: /server-status
+2023-03-02 02:23:29,341 django.request WARNING  Not Found: /.git/config
+2023-03-02 02:23:29,341 django.request WARNING  Not Found: /.git/config
+2023-03-02 02:23:29,762 django.request WARNING  Not Found: /config.json
+2023-03-02 02:23:29,762 django.request WARNING  Not Found: /config.json
+2023-03-02 02:23:29,769 django.request WARNING  Not Found: /v2/_catalog
+2023-03-02 02:23:29,769 django.request WARNING  Not Found: /v2/_catalog
+2023-03-02 02:23:29,776 django.request WARNING  Not Found: /about
+2023-03-02 02:23:29,776 django.request WARNING  Not Found: /about
+2023-03-02 02:23:29,779 django.request WARNING  Not Found: /api/search
+2023-03-02 02:23:29,779 django.request WARNING  Not Found: /api/search
+2023-03-02 02:23:29,783 django.request WARNING  Not Found: /login.action
+2023-03-02 02:23:29,783 django.request WARNING  Not Found: /login.action
+2023-03-02 02:27:29,261 django.request WARNING  Not Found: /.env
+2023-03-02 02:27:29,261 django.request WARNING  Not Found: /.env
+2023-03-02 02:56:29,344 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'api.ipify.org'. You may need to add 'api.ipify.org' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'api.ipify.org'. You may need to add 'api.ipify.org' to ALLOWED_HOSTS.
+2023-03-02 02:56:29,360 django.request WARNING  Bad Request: /http:/api.ipify.org/
+2023-03-02 02:56:29,360 django.request WARNING  Bad Request: /http:/api.ipify.org/
+2023-03-02 02:56:52,384 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'www.shadowserver.org'. You may need to add 'www.shadowserver.org' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'www.shadowserver.org'. You may need to add 'www.shadowserver.org' to ALLOWED_HOSTS.
+2023-03-02 02:56:52,397 django.request WARNING  Bad Request: /www.shadowserver.org:443
+2023-03-02 02:56:52,397 django.request WARNING  Bad Request: /www.shadowserver.org:443
+2023-03-02 03:44:24,290 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: 'c8174d47f064:8000'. You may need to add 'c8174d47f064' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c8174d47f064:8000'. You may need to add 'c8174d47f064' to ALLOWED_HOSTS.
+2023-03-02 03:44:24,302 django.request WARNING  Bad Request: /
+2023-03-02 03:44:24,302 django.request WARNING  Bad Request: /
+2023-03-02 03:47:42,461 django.request WARNING  Not Found: /img/favicon.png
+2023-03-02 03:47:42,461 django.request WARNING  Not Found: /img/favicon.png
+2023-03-02 03:55:29,505 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-02 03:55:29,505 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-02 03:55:36,585 django.request WARNING  Not Found: /img/favicon.png
+2023-03-02 03:55:36,585 django.request WARNING  Not Found: /img/favicon.png
+2023-03-02 03:55:37,810 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-02 03:55:37,810 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-02 03:58:14,971 django.request WARNING  Not Found: /img/favicon.png
+2023-03-02 03:58:14,971 django.request WARNING  Not Found: /img/favicon.png
+2023-03-02 04:00:58,966 django.request WARNING  Not Found: /7Hit
+2023-03-02 04:00:58,966 django.request WARNING  Not Found: /7Hit
+2023-03-02 04:00:59,941 django.request WARNING  Not Found: /YS9x
+2023-03-02 04:00:59,941 django.request WARNING  Not Found: /YS9x
+2023-03-02 04:23:41,614 django.request WARNING  Not Found: /.env
+2023-03-02 04:23:41,614 django.request WARNING  Not Found: /.env
+2023-03-02 05:44:27,550 django.request WARNING  Not Found: /favicon.ico
+2023-03-02 05:44:27,550 django.request WARNING  Not Found: /favicon.ico
+2023-03-02 05:59:11,673 django.request WARNING  Not Found: /.env
+2023-03-02 05:59:11,673 django.request WARNING  Not Found: /.env
+2023-03-02 05:59:11,756 django.security.csrf WARNING  Forbidden (CSRF cookie not set.): /
+2023-03-02 06:07:29,263 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-02 06:07:29,263 django.request WARNING  Not Found: /cabinet_student/2/img/blog/add.jpg
+2023-03-02 06:07:34,969 django.request WARNING  Not Found: /cabinet_student/2/student/img/blog/add.jpg
+2023-03-02 06:07:34,969 django.request WARNING  Not Found: /cabinet_student/2/student/img/blog/add.jpg
+2023-03-02 06:07:38,353 django.request ERROR    Internal Server Error: /cabinet_student/2/to_me_student_responses
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/app/cabinet_student/views/base.py", line 230, in get_context_data
+    survey_pk = user.survey.pk
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 463, in __get__
+    raise self.RelatedObjectDoesNotExist(
+accounts.models.accounts.Account.survey.RelatedObjectDoesNotExist: Account has no survey.
+2023-03-02 06:07:38,353 django.request ERROR    Internal Server Error: /cabinet_student/2/to_me_student_responses
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/app/cabinet_student/views/base.py", line 230, in get_context_data
+    survey_pk = user.survey.pk
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 463, in __get__
+    raise self.RelatedObjectDoesNotExist(
+accounts.models.accounts.Account.survey.RelatedObjectDoesNotExist: Account has no survey.
+2023-03-02 06:08:51,239 django.request WARNING  Not Found: /cabinet_student/2/student/img/blog/add.jpg
+2023-03-02 06:08:51,239 django.request WARNING  Not Found: /cabinet_student/2/student/img/blog/add.jpg
+2023-03-02 06:10:27,913 django.request WARNING  Not Found: /cabinet_student/3/img/blog/add.jpg
+2023-03-02 06:10:27,913 django.request WARNING  Not Found: /cabinet_student/3/img/blog/add.jpg
+2023-03-02 06:11:14,140 django.request WARNING  Not Found: /cabinet_student/3/student/img/blog/add.jpg
+2023-03-02 06:11:14,140 django.request WARNING  Not Found: /cabinet_student/3/student/img/blog/add.jpg
+2023-03-02 06:23:10,558 django.request WARNING  Not Found: /cabinet_student/4/img/blog/add.jpg
+2023-03-02 06:23:10,558 django.request WARNING  Not Found: /cabinet_student/4/img/blog/add.jpg
+2023-03-02 06:23:47,970 django.request WARNING  Not Found: /cabinet_student/4/student/img/blog/add.jpg
+2023-03-02 06:23:47,970 django.request WARNING  Not Found: /cabinet_student/4/student/img/blog/add.jpg
+2023-03-02 06:25:49,735 django.request WARNING  Not Found: /cabinet_student/5/img/blog/add.jpg
+2023-03-02 06:25:49,735 django.request WARNING  Not Found: /cabinet_student/5/img/blog/add.jpg
+2023-03-02 06:26:32,985 django.request WARNING  Not Found: /cabinet_student/5/student/img/blog/add.jpg
+2023-03-02 06:26:32,985 django.request WARNING  Not Found: /cabinet_student/5/student/img/blog/add.jpg
+2023-03-02 06:27:08,327 django.request WARNING  Not Found: /cabinet_student/5/student_rates/img/blog/add.jpg
+2023-03-02 06:27:08,327 django.request WARNING  Not Found: /cabinet_student/5/student_rates/img/blog/add.jpg
+2023-03-02 06:27:13,007 django.request WARNING  Not Found: /cabinet_student/5/img/blog/add.jpg
+2023-03-02 06:27:13,007 django.request WARNING  Not Found: /cabinet_student/5/img/blog/add.jpg
+2023-03-02 06:27:18,452 django.request WARNING  Not Found: /cabinet_student/5/img/blog/add.jpg
+2023-03-02 06:27:18,452 django.request WARNING  Not Found: /cabinet_student/5/img/blog/add.jpg
+2023-03-02 06:27:21,928 django.request WARNING  Not Found: /cabinet_student/5/student/img/blog/add.jpg
+2023-03-02 06:27:21,928 django.request WARNING  Not Found: /cabinet_student/5/student/img/blog/add.jpg
+2023-03-02 06:27:26,126 django.request WARNING  Not Found: /cabinet_student/my_tutors/5/img/blog/add.jpg
+2023-03-02 06:27:26,126 django.request WARNING  Not Found: /cabinet_student/my_tutors/5/img/blog/add.jpg
+2023-03-02 06:27:28,280 django.request WARNING  Not Found: /cabinet_student/5/img/blog/add.jpg
+2023-03-02 06:27:28,280 django.request WARNING  Not Found: /cabinet_student/5/img/blog/add.jpg
+2023-03-02 06:28:41,461 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 06:28:41,461 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 06:30:53,619 django.request ERROR    Internal Server Error: /cabinet_parents/6/create/children/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/app/cabinet_parents/views/base.py", line 69, in post
+    inactive_user = send_verification_email(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 94, in send_verification_email
+    return _VerifyEmail().send_verification_link(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 52, in send_verification_link
+    self.__send_email(msg, useremail)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 24, in __send_email
+    send_mail(
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/local/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (530, b'5.7.0 Authentication Required. Learn more at\n5.7.0  https://support.google.com/mail/?p=WantAuthError q18-20020ac87352000000b003bfaff2a6b9sm9743827qtp.10 - gsmtp', 'enemi <no_reply@domain.com>')
+2023-03-02 06:30:53,619 django.request ERROR    Internal Server Error: /cabinet_parents/6/create/children/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/app/cabinet_parents/views/base.py", line 69, in post
+    inactive_user = send_verification_email(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 94, in send_verification_email
+    return _VerifyEmail().send_verification_link(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 52, in send_verification_link
+    self.__send_email(msg, useremail)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 24, in __send_email
+    send_mail(
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/local/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (530, b'5.7.0 Authentication Required. Learn more at\n5.7.0  https://support.google.com/mail/?p=WantAuthError q18-20020ac87352000000b003bfaff2a6b9sm9743827qtp.10 - gsmtp', 'enemi <no_reply@domain.com>')
+2023-03-02 06:31:08,702 django.request ERROR    Internal Server Error: /cabinet_parents/6/create/children/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/app/cabinet_parents/views/base.py", line 69, in post
+    inactive_user = send_verification_email(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 94, in send_verification_email
+    return _VerifyEmail().send_verification_link(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 52, in send_verification_link
+    self.__send_email(msg, useremail)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 24, in __send_email
+    send_mail(
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/local/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (530, b'5.7.0 Authentication Required. Learn more at\n5.7.0  https://support.google.com/mail/?p=WantAuthError f16-20020ac86ed0000000b003bfa66b7484sm9726466qtv.35 - gsmtp', 'enemi <no_reply@domain.com>')
+2023-03-02 06:31:08,702 django.request ERROR    Internal Server Error: /cabinet_parents/6/create/children/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/app/cabinet_parents/views/base.py", line 69, in post
+    inactive_user = send_verification_email(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 94, in send_verification_email
+    return _VerifyEmail().send_verification_link(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 52, in send_verification_link
+    self.__send_email(msg, useremail)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 24, in __send_email
+    send_mail(
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/local/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (530, b'5.7.0 Authentication Required. Learn more at\n5.7.0  https://support.google.com/mail/?p=WantAuthError f16-20020ac86ed0000000b003bfa66b7484sm9726466qtv.35 - gsmtp', 'enemi <no_reply@domain.com>')
+2023-03-02 06:31:57,405 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 06:31:57,405 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 06:32:36,905 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 06:32:36,905 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 06:32:45,081 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 06:32:45,081 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 06:33:26,683 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 06:33:26,683 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 06:38:16,738 django.request ERROR    Internal Server Error: /cabinet_parents/6/create/children/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/app/cabinet_parents/views/base.py", line 69, in post
+    inactive_user = send_verification_email(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 94, in send_verification_email
+    return _VerifyEmail().send_verification_link(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 52, in send_verification_link
+    self.__send_email(msg, useremail)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 24, in __send_email
+    send_mail(
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/local/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (530, b'5.7.0 Authentication Required. Learn more at\n5.7.0  https://support.google.com/mail/?p=WantAuthError a12-20020ae9e80c000000b007423843d879sm10371518qkg.93 - gsmtp', 'enemi <no_reply@domain.com>')
+2023-03-02 06:38:16,738 django.request ERROR    Internal Server Error: /cabinet_parents/6/create/children/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/app/cabinet_parents/views/base.py", line 69, in post
+    inactive_user = send_verification_email(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 94, in send_verification_email
+    return _VerifyEmail().send_verification_link(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 52, in send_verification_link
+    self.__send_email(msg, useremail)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 24, in __send_email
+    send_mail(
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/local/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (530, b'5.7.0 Authentication Required. Learn more at\n5.7.0  https://support.google.com/mail/?p=WantAuthError a12-20020ae9e80c000000b007423843d879sm10371518qkg.93 - gsmtp', 'enemi <no_reply@domain.com>')
+2023-03-02 06:44:57,690 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 06:44:57,690 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 06:51:55,462 django.request ERROR    Internal Server Error: /cabinet_parents/6/create/children/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/app/cabinet_parents/views/base.py", line 69, in post
+    inactive_user = send_verification_email(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 94, in send_verification_email
+    return _VerifyEmail().send_verification_link(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 52, in send_verification_link
+    self.__send_email(msg, useremail)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 24, in __send_email
+    send_mail(
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/local/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (530, b'5.7.0 Authentication Required. Learn more at\n5.7.0  https://support.google.com/mail/?p=WantAuthError g2-20020ac870c2000000b003b868cdc689sm9849654qtp.5 - gsmtp', 'enemi <no_reply@domain.com>')
+2023-03-02 06:51:55,462 django.request ERROR    Internal Server Error: /cabinet_parents/6/create/children/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/app/cabinet_parents/views/base.py", line 69, in post
+    inactive_user = send_verification_email(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 94, in send_verification_email
+    return _VerifyEmail().send_verification_link(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 52, in send_verification_link
+    self.__send_email(msg, useremail)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 24, in __send_email
+    send_mail(
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/local/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (530, b'5.7.0 Authentication Required. Learn more at\n5.7.0  https://support.google.com/mail/?p=WantAuthError g2-20020ac870c2000000b003b868cdc689sm9849654qtp.5 - gsmtp', 'enemi <no_reply@domain.com>')
+2023-03-02 07:28:15,540 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 07:28:17,024 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 07:28:17,559 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 07:28:17,932 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 07:28:17,945 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-02 07:28:42,813 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:28:42,813 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:29:55,885 django.request ERROR    Internal Server Error: /cabinet_parents/6/create/children/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/app/cabinet_parents/views/base.py", line 69, in post
+    inactive_user = send_verification_email(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 94, in send_verification_email
+    return _VerifyEmail().send_verification_link(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 52, in send_verification_link
+    self.__send_email(msg, useremail)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 24, in __send_email
+    send_mail(
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/local/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (530, b'5.7.0 Authentication Required. Learn more at\n5.7.0  https://support.google.com/mail/?p=WantAuthError 81-20020a370c54000000b007423ccd892csm10524821qkm.47 - gsmtp', 'enemi <no_reply@domain.com>')
+2023-03-02 07:29:55,885 django.request ERROR    Internal Server Error: /cabinet_parents/6/create/children/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/app/cabinet_parents/views/base.py", line 69, in post
+    inactive_user = send_verification_email(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 94, in send_verification_email
+    return _VerifyEmail().send_verification_link(request, form)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 52, in send_verification_link
+    self.__send_email(msg, useremail)
+  File "/usr/local/lib/python3.10/site-packages/verify_email/email_handler.py", line 24, in __send_email
+    send_mail(
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/usr/local/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/local/lib/python3.10/smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (530, b'5.7.0 Authentication Required. Learn more at\n5.7.0  https://support.google.com/mail/?p=WantAuthError 81-20020a370c54000000b007423ccd892csm10524821qkm.47 - gsmtp', 'enemi <no_reply@domain.com>')
+2023-03-02 07:36:17,262 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 07:36:19,285 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 07:36:20,024 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 07:36:20,455 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 07:36:20,470 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-02 07:37:02,963 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:37:02,963 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:37:43,096 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:37:43,096 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:37:49,959 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:37:49,959 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:37:58,324 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:37:58,324 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:38:01,819 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:38:01,819 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:40:06,069 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:40:06,069 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:40:29,987 django.request WARNING  Not Found: /api/islogged
+2023-03-02 07:40:29,987 django.request WARNING  Not Found: /api/islogged
+2023-03-02 07:40:38,359 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:40:38,359 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:40:49,241 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:40:49,241 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:48:56,489 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 07:48:57,956 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 07:48:58,554 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 07:48:58,925 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 07:48:58,941 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-02 07:48:59,743 django.request WARNING  Not Found: /auth/
+2023-03-02 07:48:59,743 django.request WARNING  Not Found: /auth/
+2023-03-02 07:49:35,240 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:49:35,240 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:50:00,208 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:50:00,208 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:50:03,305 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 07:50:03,305 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 08:01:39,110 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:01:40,755 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:01:41,445 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:01:41,937 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:01:41,951 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-02 08:01:58,071 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 08:01:58,071 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 08:01:59,487 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 08:01:59,487 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 08:03:07,617 django.request ERROR    Internal Server Error: /cabinet_parents/6/create/children/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/app/cabinet_parents/views/base.py", line 72, in post
+    registration(account)
+NameError: name 'registration' is not defined
+2023-03-02 08:03:07,617 django.request ERROR    Internal Server Error: /cabinet_parents/6/create/children/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/app/cabinet_parents/views/base.py", line 72, in post
+    registration(account)
+NameError: name 'registration' is not defined
+2023-03-02 08:05:17,713 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 08:05:17,713 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 08:05:19,877 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 08:05:19,877 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 08:39:12,294 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:39:14,006 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:39:15,662 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:39:17,354 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:39:19,486 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:39:22,305 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:39:26,709 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:39:34,379 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:39:48,475 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:40:15,290 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:41:08,099 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:50:46,638 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:50:48,126 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:50:48,721 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:50:49,108 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 08:50:49,123 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-02 08:55:07,906 django.request WARNING  Not Found: /cabinet_student/15/img/blog/add.jpg
+2023-03-02 08:55:07,906 django.request WARNING  Not Found: /cabinet_student/15/img/blog/add.jpg
+2023-03-02 08:56:23,889 django.request WARNING  Not Found: /.env
+2023-03-02 08:56:23,889 django.request WARNING  Not Found: /.env
+2023-03-02 08:56:23,964 django.security.csrf WARNING  Forbidden (CSRF cookie not set.): /
+2023-03-02 09:04:53,885 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:04:53,885 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:05:14,617 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:05:14,617 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:10:18,096 django.request WARNING  Not Found: /cabinet_student/16/img/blog/add.jpg
+2023-03-02 09:10:18,096 django.request WARNING  Not Found: /cabinet_student/16/img/blog/add.jpg
+2023-03-02 09:10:47,962 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:10:47,962 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:10:52,238 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:10:52,238 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:17:40,650 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 09:17:42,206 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 09:17:42,828 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 09:17:43,222 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 09:17:43,235 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-02 09:19:38,823 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:19:38,823 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:19:52,164 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:19:52,164 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:22:10,485 django.request WARNING  Not Found: /actuator/gateway/routes
+2023-03-02 09:22:10,485 django.request WARNING  Not Found: /actuator/gateway/routes
+2023-03-02 09:22:17,208 django.request WARNING  Not Found: /cabinet_student/17/img/blog/add.jpg
+2023-03-02 09:22:17,208 django.request WARNING  Not Found: /cabinet_student/17/img/blog/add.jpg
+2023-03-02 09:23:09,941 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:23:09,941 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:23:14,101 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:23:14,101 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:24:15,881 django.security.DisallowedHost ERROR    Invalid HTTP_HOST header: '0ebc0353f9ec:8000'. You may need to add '0ebc0353f9ec' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '0ebc0353f9ec:8000'. You may need to add '0ebc0353f9ec' to ALLOWED_HOSTS.
+2023-03-02 09:24:15,902 django.request WARNING  Bad Request: /
+2023-03-02 09:24:15,902 django.request WARNING  Bad Request: /
+2023-03-02 09:24:16,577 django.request WARNING  Not Found: /system_api.php
+2023-03-02 09:24:16,577 django.request WARNING  Not Found: /system_api.php
+2023-03-02 09:24:16,957 django.request WARNING  Not Found: /system_api.php
+2023-03-02 09:24:16,957 django.request WARNING  Not Found: /system_api.php
+2023-03-02 09:24:17,475 django.request WARNING  Not Found: /c/version.js
+2023-03-02 09:24:17,475 django.request WARNING  Not Found: /c/version.js
+2023-03-02 09:24:17,854 django.request WARNING  Not Found: /c/version.js
+2023-03-02 09:24:17,854 django.request WARNING  Not Found: /c/version.js
+2023-03-02 09:24:18,385 django.request WARNING  Not Found: /streaming/clients_live.php
+2023-03-02 09:24:18,385 django.request WARNING  Not Found: /streaming/clients_live.php
+2023-03-02 09:24:18,744 django.request WARNING  Not Found: /streaming/clients_live.php
+2023-03-02 09:24:18,744 django.request WARNING  Not Found: /streaming/clients_live.php
+2023-03-02 09:24:19,270 django.request WARNING  Not Found: /stalker_portal/c/version.js
+2023-03-02 09:24:19,270 django.request WARNING  Not Found: /stalker_portal/c/version.js
+2023-03-02 09:24:19,646 django.request WARNING  Not Found: /stalker_portal/c/version.js
+2023-03-02 09:24:19,646 django.request WARNING  Not Found: /stalker_portal/c/version.js
+2023-03-02 09:24:20,179 django.request WARNING  Not Found: /stream/live.php
+2023-03-02 09:24:20,179 django.request WARNING  Not Found: /stream/live.php
+2023-03-02 09:24:20,539 django.request WARNING  Not Found: /stream/live.php
+2023-03-02 09:24:20,539 django.request WARNING  Not Found: /stream/live.php
+2023-03-02 09:24:21,065 django.request WARNING  Not Found: /flu/403.html
+2023-03-02 09:24:21,065 django.request WARNING  Not Found: /flu/403.html
+2023-03-02 09:24:21,428 django.request WARNING  Not Found: /flu/403.html
+2023-03-02 09:24:21,428 django.request WARNING  Not Found: /flu/403.html
+2023-03-02 09:26:06,156 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:26:06,156 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:26:10,610 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:26:10,610 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:26:45,788 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:26:45,788 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:26:49,880 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:26:49,880 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:27:20,199 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 09:27:21,385 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 09:27:21,858 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 09:27:22,232 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 09:27:22,247 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-02 09:27:25,369 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:27:25,369 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:27:26,873 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:27:26,873 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:28:23,240 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:28:23,240 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:28:56,466 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:28:56,466 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:29:06,414 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:29:06,414 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:33:13,330 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 09:33:14,701 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 09:33:15,180 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 09:33:15,548 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-02 09:33:15,562 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-02 09:33:49,961 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:33:49,961 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tutor_board_detail_page' with arguments '('',)' not found. 1 pattern(s) tried: ['board_tutors_students/board_tutor/(?P<pk>[0-9]+)/detail\\Z']
+2023-03-02 09:35:49,903 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:35:49,903 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:35:56,337 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:35:56,337 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:44:24,713 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg
+2023-03-02 09:44:24,713 django.request WARNING  Not Found: /cabinet_parents/6/img/blog/add.jpg

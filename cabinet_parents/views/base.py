@@ -67,8 +67,14 @@ class ParentCreateChildrenView(LoginRequiredMixin,CreateView):
             account.type = 'student'
             account.parent = user
             inactive_user = send_verification_email(request, form)
+            account.parent = request.user
             # children = Account.objects.filter(is_deleted=False, parent=request.user)
-            return redirect('parents_cabinet_detail', pk=user.pk)
+           # account.save()		
+           # registration(account)
+           # login(request, account)
+            account.save()
+            return redirect('password_reset_done')  
+           # return redirect('parents_cabinet_detail', pk=user.pk)
         context = {}
         context['form'] = form
         return self.render_to_response(context)
