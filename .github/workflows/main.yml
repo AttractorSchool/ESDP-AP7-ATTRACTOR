@@ -68,6 +68,6 @@ jobs:
           echo "${{ secrets.SSH_TOKEN }}" > ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
       - name: connect and pull
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd enimi_prod && git checkout main && git pull && docker-compose down && docker-compose up -d --force-recreate --build web && docker ps &&  exit"
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd enimi_prod && git checkout main && git pull && docker-compose up -d --force-recreate --build web && docker ps &&  exit"
       - name: cleanup
         run: rm -rf ~/.ssh
