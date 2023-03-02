@@ -39,13 +39,13 @@ LOGIN_URL = 'login_page'
 DEFAULT_FROM_EMAIL = 'enemi<no_reply@domain.com>'
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:8000'
+    'http://localhost:8000', 'http://138.197.181.237:8000'
 ]
 
 ALLOWED_HOSTS = ['*']
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8000',
+    'http://localhost:8000', 'http://138.197.181.237:8000'
 ]
 
 # Application definition

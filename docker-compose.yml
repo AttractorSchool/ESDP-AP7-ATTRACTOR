@@ -46,8 +46,8 @@ services:
   nginx:
     build: ./nginx
     volumes:
-        - ./static:/home/test/enimi/static
-        - ./uploads:/home/test/enimi/uploads:rw
+        - ./static:/home/user/enimi/static
+        - ./uploads:/home/user/enimi/uploads:rw
     ports:
       - 8000:80
     depends_on:
