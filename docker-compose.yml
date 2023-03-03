@@ -48,8 +48,11 @@ services:
     volumes:
         - ./static:/home/user/enimi/static
         - ./uploads:/home/user/enimi/uploads:rw
+        - /etc/letsencrypt/live/enimi-edu.hopto.org/fullchain.pem:/etc/letsencrypt/live/enimi-edu.hopto.org/fullchain.pem
+        - /etc/letsencrypt/live/enimi-edu.hopto.org/privkey.pem:/etc/letsencrypt/live/enimi-edu.hopto.org/privkey.pem
     ports:
       - 8000:80
+      - 443:443
     depends_on:
       - web
       
