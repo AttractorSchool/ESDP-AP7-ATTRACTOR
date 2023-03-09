@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models import TextChoices
-
+from django.utils import timezone
 
 class ServiceStatusChoices(TextChoices):
     ACTIVE = '1'
@@ -24,17 +24,14 @@ class ServiceStatus(models.Model):
         blank=True,
         on_delete=models.CASCADE
     )
-    start_date = models.CharField(
+    start_date = models.DateTimeField(
         verbose_name='Дата начала',
-        null=True,
-        blank=False,
-        max_length=30
+        default=timezone.now
     )
-    end_date = models.CharField(
+    end_date = models.DateTimeField(
         verbose_name='Дата окончания',
         null=True,
-        blank=False,
-        max_length=30
+        blank=True,
     )
     status = models.CharField(
         verbose_name='Статус услуги',
