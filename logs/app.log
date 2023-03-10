@@ -6733,3 +6733,1627 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'mplusfunds.gfo
 2023-03-10 09:23:13,194 django.request WARNING  Not Found: /showLogin.cc
 2023-03-10 09:34:17,351 django.request WARNING  Not Found: /img/favicon.png
 2023-03-10 09:34:17,351 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:22:20,766 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:22:21,199 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:22:21,209 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 19:22:36,481 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:22:36,481 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:22:36,496 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:22:36,498 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:22:36,500 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:22:36,502 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:22:36,504 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:22:36,496 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:22:36,507 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:22:36,498 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:22:36,500 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:22:36,502 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:22:36,504 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:22:36,507 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:22:36,523 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:22:36,525 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:22:36,526 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:22:36,527 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:22:36,528 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:22:36,523 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:22:36,525 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:22:36,526 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:22:36,527 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:22:36,528 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:22:36,561 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:22:36,561 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:22:36,587 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:22:36,589 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:22:36,587 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:22:36,591 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:22:36,593 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:22:36,594 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:22:36,589 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:22:36,591 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:22:36,593 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:22:36,594 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:22:36,613 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:22:36,613 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:22:36,645 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:22:36,645 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:22:36,653 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:22:36,656 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:22:36,657 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:22:36,653 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:22:36,659 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:22:36,656 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:22:36,657 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:22:36,659 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:22:36,668 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:22:36,668 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:22:36,697 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:22:36,697 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:22:36,711 django.request WARNING  Not Found: /favicon.ico
+2023-03-10 19:22:36,711 django.request WARNING  Not Found: /favicon.ico
+2023-03-10 19:22:37,069 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:22:37,072 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:22:37,069 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:22:37,072 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:22:37,166 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:22:37,168 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:22:37,169 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:22:37,170 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:22:37,172 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:22:37,166 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:22:37,168 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:22:37,169 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:22:37,170 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:22:37,172 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:22:37,187 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:22:37,187 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:22:37,192 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:22:37,192 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:22:37,214 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:22:37,214 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:22:37,216 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:22:37,216 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:22:37,436 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:22:37,436 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:22:51,691 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:22:51,692 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:22:51,694 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:22:51,695 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:22:51,697 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:22:51,698 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:22:51,691 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:22:51,692 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:22:51,694 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:22:51,695 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:22:51,697 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:22:51,698 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:22:51,850 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:22:51,851 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:22:51,850 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:22:51,851 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:22:51,859 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:22:51,861 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:22:51,863 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:22:51,864 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:22:51,865 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:22:51,859 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:22:51,861 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:22:51,863 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:22:51,864 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:22:51,865 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:22:51,918 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:22:51,919 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:22:51,918 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:22:51,919 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:22:51,940 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:22:51,940 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:22:51,944 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:22:51,945 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:22:51,946 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:22:51,947 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:22:51,944 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:22:51,945 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:22:51,946 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:22:51,947 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:22:51,956 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:22:51,958 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:22:51,956 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:22:51,960 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:22:51,958 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:22:51,960 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:22:51,967 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:22:51,967 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:22:51,968 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:22:51,968 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:22:51,994 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:22:51,994 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:22:52,009 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:22:52,011 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:22:52,009 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:22:52,011 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:22:52,018 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:22:52,019 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:22:52,020 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:22:52,018 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:22:52,019 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:22:52,020 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:22:52,043 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:22:52,043 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:22:52,126 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:22:52,126 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:23:28,707 django.utils.autoreload INFO     /home/anton/Рабочий стол/10_03/ESDP-AP7-ATTRACTOR/enimi/settings.py changed, reloading.
+2023-03-10 19:23:30,532 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:23:31,099 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:23:31,110 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 19:23:34,060 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:23:34,062 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:23:34,064 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:23:34,064 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:23:34,066 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:23:34,060 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:23:34,062 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:23:34,067 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:23:34,065 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:23:34,066 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:23:34,067 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:23:34,065 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:23:34,124 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:23:34,124 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:23:34,173 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:23:34,173 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:23:34,220 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:23:34,220 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:23:34,269 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:23:34,269 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:23:34,319 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:23:34,319 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:23:34,324 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:23:34,324 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:23:34,332 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:23:34,333 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:23:34,335 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:23:34,336 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:23:34,337 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:23:34,337 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:23:34,333 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:23:34,335 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:23:34,336 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:23:34,332 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:23:34,373 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:23:34,373 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:23:34,390 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:23:34,390 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:23:34,412 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:23:34,414 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:23:34,415 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:23:34,417 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:23:34,412 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:23:34,414 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:23:34,415 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:23:34,417 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:23:34,422 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:23:34,422 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:23:34,429 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:23:34,431 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:23:34,433 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:23:34,434 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:23:34,429 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:23:34,431 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:23:34,433 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:23:34,434 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:23:34,443 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:23:34,443 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:23:34,475 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:23:34,475 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:23:34,489 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:23:34,490 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:23:34,489 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:23:34,490 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:23:51,537 django.utils.autoreload INFO     /home/anton/Рабочий стол/10_03/ESDP-AP7-ATTRACTOR/enimi/settings.py changed, reloading.
+2023-03-10 19:23:54,605 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:23:55,166 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:23:55,177 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 19:23:59,521 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:23:59,523 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:23:59,524 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:23:59,527 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:23:59,527 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:23:59,521 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:23:59,531 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:23:59,523 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:23:59,524 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:23:59,529 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:23:59,531 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:23:59,529 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:23:59,587 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:23:59,587 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:23:59,642 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:23:59,642 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:23:59,694 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:23:59,694 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:23:59,721 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:23:59,721 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:23:59,731 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:23:59,732 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:23:59,734 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:23:59,736 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:23:59,737 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:23:59,731 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:23:59,732 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:23:59,734 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:23:59,736 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:23:59,737 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:23:59,749 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:23:59,749 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:23:59,788 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:23:59,788 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:23:59,806 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:23:59,808 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:23:59,809 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:23:59,811 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:23:59,812 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:23:59,806 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:23:59,808 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:23:59,809 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:23:59,811 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:23:59,812 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:23:59,823 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:23:59,824 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:23:59,825 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:23:59,826 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:23:59,823 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:23:59,824 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:23:59,825 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:23:59,826 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:23:59,839 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:23:59,839 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:23:59,864 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:23:59,864 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:23:59,878 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:23:59,879 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:23:59,882 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:23:59,883 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:23:59,878 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:23:59,879 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:23:59,882 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:23:59,883 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:24:59,434 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:24:59,989 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:25:00,000 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 19:25:06,639 django.utils.autoreload INFO     /home/anton/Рабочий стол/10_03/ESDP-AP7-ATTRACTOR/enimi/settings.py changed, reloading.
+2023-03-10 19:25:07,934 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:25:08,487 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:25:08,498 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 19:25:12,403 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:12,405 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:12,406 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:12,408 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:12,408 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:12,410 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:12,403 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:12,405 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:12,406 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:12,408 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:12,408 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:12,410 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:12,464 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:25:12,464 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:25:12,512 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:25:12,512 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:25:12,562 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:25:12,562 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:25:12,613 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:25:12,613 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:25:12,671 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:25:12,671 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:25:12,722 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:25:12,722 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:25:12,774 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:25:12,774 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:25:12,830 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:25:12,830 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:25:12,883 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:25:12,883 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:25:12,934 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:25:12,934 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:25:12,988 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:25:12,988 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:25:13,043 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:25:13,043 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:25:13,096 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:13,096 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:13,147 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:25:13,147 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:25:13,203 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:25:13,203 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:25:13,218 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:25:13,218 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:25:13,239 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:13,242 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:13,243 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:13,245 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:13,248 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:13,239 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:13,242 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:13,243 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:13,245 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:13,248 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:13,268 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:25:13,268 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:25:13,303 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:25:13,303 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:25:13,327 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:13,329 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:25:13,329 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:25:13,327 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:13,332 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:25:13,332 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:25:13,341 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:13,343 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:25:13,341 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:13,343 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:25:45,488 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:25:46,084 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:25:46,096 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 19:25:50,025 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:50,027 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:50,030 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:50,031 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:50,031 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:50,025 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:50,034 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:50,027 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:50,030 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:50,033 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:50,034 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:50,033 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:50,267 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:50,269 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:50,271 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:50,274 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:50,274 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:50,267 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:50,269 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:50,271 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:50,275 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:50,275 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:50,364 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:25:50,364 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:25:50,375 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:25:50,375 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:25:50,426 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:25:50,426 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:25:50,482 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:25:50,482 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:25:50,534 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:25:50,534 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:25:50,586 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:25:50,586 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:25:50,638 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:25:50,638 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:25:50,659 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:25:50,659 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:25:50,678 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:50,680 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:25:50,681 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:25:50,681 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:25:50,678 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:50,685 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:25:50,680 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:25:50,683 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:25:50,685 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:25:50,683 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:25:50,702 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:50,703 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:25:50,705 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:25:50,707 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:25:50,708 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:25:50,702 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:50,703 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:25:50,705 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:25:50,707 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:25:50,708 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:25:50,736 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:25:50,736 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:25:50,767 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:25:50,768 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:25:50,767 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:25:50,768 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:25:50,894 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:25:50,894 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:25:51,578 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:51,580 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:51,583 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:51,587 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:51,588 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:51,592 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:51,578 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:51,580 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:51,583 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:51,587 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:51,588 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:51,592 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:51,786 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:25:51,786 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:25:51,794 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:25:51,794 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:25:51,806 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:51,808 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:51,810 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:51,812 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:51,813 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:51,806 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:51,808 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:51,810 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:51,812 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:51,813 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:51,831 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:25:51,831 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:25:51,854 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:51,854 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:51,858 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:25:51,860 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:25:51,862 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:25:51,864 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:25:51,858 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:25:51,860 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:25:51,862 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:25:51,864 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:25:51,875 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:25:51,877 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:25:51,879 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:25:51,880 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:25:51,875 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:25:51,877 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:25:51,879 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:25:51,880 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:25:51,908 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:25:51,908 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:25:51,914 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:51,914 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:51,927 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:25:51,927 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:25:51,932 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:25:51,934 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:25:51,932 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:25:51,936 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:25:51,934 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:25:51,936 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:25:51,957 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:25:51,957 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:25:51,963 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:25:51,963 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:25:51,979 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:25:51,979 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:25:52,038 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:25:52,038 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:25:52,344 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:52,345 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:52,346 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:52,349 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:52,349 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:52,352 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:52,344 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:52,345 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:52,346 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:52,350 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:52,352 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:52,350 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:52,481 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:25:52,481 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:25:52,491 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:25:52,492 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:25:52,491 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:25:52,492 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:25:52,502 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:52,504 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:52,506 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:52,507 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:52,508 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:52,502 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:52,504 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:52,506 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:52,507 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:52,508 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:52,540 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:25:52,540 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:25:52,557 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:25:52,557 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:25:52,575 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:52,576 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:25:52,577 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:25:52,578 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:25:52,575 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:52,576 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:25:52,577 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:25:52,578 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:25:52,588 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:25:52,588 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:25:52,592 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:25:52,593 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:25:52,594 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:25:52,595 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:52,592 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:25:52,593 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:25:52,594 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:25:52,595 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:52,602 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:25:52,602 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:25:52,636 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:25:52,636 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:25:52,644 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:25:52,644 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:25:52,657 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:25:52,658 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:25:52,659 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:25:52,661 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:25:52,657 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:25:52,658 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:25:52,659 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:25:52,661 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:25:52,727 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:25:52,727 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:25:53,030 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:53,032 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:53,035 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:53,036 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:53,038 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:53,039 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:53,030 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:53,032 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:53,035 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:53,036 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:53,038 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:53,039 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:53,070 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:25:53,070 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:25:53,121 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:25:53,121 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:25:53,169 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:25:53,169 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:25:53,179 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:53,181 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:53,184 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:53,186 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:53,187 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:53,179 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:53,181 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:53,184 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:53,186 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:53,187 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:53,242 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:25:53,244 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:25:53,242 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:25:53,244 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:25:53,271 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:53,274 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:25:53,275 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:25:53,277 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:25:53,271 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:53,274 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:25:53,275 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:25:53,277 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:25:53,286 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:25:53,286 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:25:53,294 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:25:53,294 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:25:53,297 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:53,297 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:54,579 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:54,581 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:54,583 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:54,584 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:54,586 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:54,587 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:54,579 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:54,581 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:54,583 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:54,584 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:54,586 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:54,587 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:54,637 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:25:54,637 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:25:54,691 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:25:54,691 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:25:54,746 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:25:54,746 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:25:54,802 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:25:54,802 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:25:54,854 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:25:54,854 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:25:54,858 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:25:54,858 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:25:54,867 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:54,869 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:54,871 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:54,873 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:54,875 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:54,867 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:25:54,869 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:25:54,871 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:25:54,873 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:25:54,875 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:25:54,909 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:25:54,909 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:25:54,925 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:25:54,925 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:25:54,943 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:54,946 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:25:54,947 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:25:54,949 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:25:54,943 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:25:54,946 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:25:54,947 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:25:54,949 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:25:54,960 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:25:54,962 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:54,960 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:25:54,962 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:25:54,968 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:25:54,970 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:25:54,972 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:25:54,975 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:25:54,968 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:25:54,970 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:25:54,972 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:25:54,975 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:25:55,014 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:25:55,016 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:25:55,014 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:25:55,016 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:25:55,024 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:25:55,024 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:34:32,598 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:34:33,199 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:34:33,209 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 19:34:58,567 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:34:58,568 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:34:58,570 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:34:58,571 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:34:58,573 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:34:58,567 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:34:58,574 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:34:58,568 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:34:58,570 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:34:58,571 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:34:58,573 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:34:58,574 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:34:58,627 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:34:58,627 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:34:58,681 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:34:58,681 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:34:58,737 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:34:58,737 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:34:58,793 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:34:58,793 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:34:58,848 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:34:58,848 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:34:58,897 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:34:58,897 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:34:58,949 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:34:58,949 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:34:58,982 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:34:58,982 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:34:58,994 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:34:58,994 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:34:59,004 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:34:59,007 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:34:59,008 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:34:59,010 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:34:59,012 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:34:59,004 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:34:59,007 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:34:59,008 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:34:59,010 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:34:59,012 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:34:59,046 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:34:59,046 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:34:59,061 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:34:59,061 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:34:59,129 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:34:59,130 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:34:59,129 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:34:59,134 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:34:59,136 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:34:59,137 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:34:59,132 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:34:59,130 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:34:59,134 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:34:59,136 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:34:59,137 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:34:59,132 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:34:59,152 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:34:59,154 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:34:59,152 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:34:59,158 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:34:59,156 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:34:59,156 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:34:59,158 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:34:59,154 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:34:59,193 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:34:59,193 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:35:00,670 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:35:00,672 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:35:00,673 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:35:00,675 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:35:00,676 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:35:00,678 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:35:00,670 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:35:00,672 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:35:00,673 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:35:00,675 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:35:00,676 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:35:00,678 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:35:01,176 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:35:01,176 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 19:35:01,192 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:35:01,194 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:35:01,192 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 19:35:01,197 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:35:01,199 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:35:01,195 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:35:01,194 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 19:35:01,197 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 19:35:01,199 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 19:35:01,195 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 19:35:01,213 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:35:01,213 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 19:35:01,252 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:35:01,252 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 19:35:01,277 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:35:01,279 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:35:01,281 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:35:01,285 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:35:01,286 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:35:01,277 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 19:35:01,279 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 19:35:01,281 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 19:35:01,285 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 19:35:01,286 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 19:35:01,300 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:35:01,302 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:35:01,305 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:35:01,307 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:35:01,308 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:35:01,300 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 19:35:01,302 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 19:35:01,305 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 19:35:01,307 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:35:01,308 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:35:01,336 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:35:01,336 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 19:35:01,357 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:35:01,357 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:35:01,368 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:35:01,370 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:35:01,372 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:35:01,374 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:35:01,368 django.request WARNING  Not Found: /static/img/trainer/t1.jpg
+2023-03-10 19:35:01,370 django.request WARNING  Not Found: /static/img/trainer/t2.jpg
+2023-03-10 19:35:01,372 django.request WARNING  Not Found: /static/img/trainer/t3.jpg
+2023-03-10 19:35:01,374 django.request WARNING  Not Found: /static/img/trainer/t4.jpg
+2023-03-10 19:35:01,385 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:35:01,385 django.request WARNING  Not Found: /static/img/event/e1.jpg
+2023-03-10 19:35:01,416 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:35:01,416 django.request WARNING  Not Found: /static/img/event/e2.jpg
+2023-03-10 19:35:01,664 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:35:01,664 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 19:35:20,500 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:35:21,076 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 19:35:21,087 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 19:35:28,475 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:35:28,478 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:35:28,481 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:35:28,475 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:35:28,478 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:35:28,481 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:35:28,653 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:35:28,653 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 19:35:28,663 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:35:28,663 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 19:35:28,666 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 19:35:28,666 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:10:00,142 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 20:10:00,559 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 20:10:00,567 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 20:10:06,372 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:10:06,374 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:10:06,375 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:10:06,372 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:10:06,374 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:10:06,375 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:10:16,802 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:10:16,802 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:10:16,858 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:10:16,858 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:10:16,914 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:10:16,914 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:11:46,213 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:11:46,213 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:11:46,252 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:11:46,252 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:11:46,308 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:11:46,308 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:12:06,958 django.request WARNING  Not Found: /favicon.ico
+2023-03-10 20:12:06,958 django.request WARNING  Not Found: /favicon.ico
+2023-03-10 20:13:23,975 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:13:23,975 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:13:23,997 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:13:23,997 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:13:24,055 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:13:24,055 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:13:24,287 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:13:24,287 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:13:24,408 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:13:24,411 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:13:24,408 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:13:24,411 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:13:30,369 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:13:30,369 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:13:30,384 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:13:30,384 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:13:30,441 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:13:30,441 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:13:30,691 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:13:30,691 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:13:30,799 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:13:30,799 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:13:30,812 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:13:30,815 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:13:30,812 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:13:30,815 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:13:45,717 django.request WARNING  Not Found: /uploads/avatars/student1.jpg
+2023-03-10 20:13:45,717 django.request WARNING  Not Found: /uploads/avatars/student1.jpg
+2023-03-10 20:13:48,350 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:13:48,350 django.request WARNING  Not Found: /uploads/avatars/tutor5_8SCNnOu.jpg
+2023-03-10 20:13:48,363 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:13:48,363 django.request WARNING  Not Found: /uploads/avatars/tutor6_.jpg
+2023-03-10 20:13:48,421 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:13:48,421 django.request WARNING  Not Found: /uploads/avatars/tutor3_.jpg
+2023-03-10 20:13:53,313 django.request WARNING  Not Found: /uploads/avatars/student1.jpg
+2023-03-10 20:13:53,313 django.request WARNING  Not Found: /uploads/avatars/student1.jpg
+2023-03-10 20:13:59,201 django.request WARNING  Not Found: /uploads/avatars/student1.jpg
+2023-03-10 20:13:59,201 django.request WARNING  Not Found: /uploads/avatars/student1.jpg
+2023-03-10 20:24:21,075 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 20:24:21,075 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 21:25:30,025 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 21:25:30,025 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 21:41:17,260 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:41:18,196 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:41:18,201 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:41:19,297 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:41:21,121 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:41:23,090 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:41:25,425 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:41:28,572 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:41:33,309 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:41:41,284 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:41:55,669 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:42:23,082 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:43:15,957 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:44:17,735 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:45:19,584 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:46:21,433 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:47:23,278 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:48:24,898 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:49:26,571 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:50:28,290 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:51:30,027 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:52:31,730 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:53:33,492 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:54:35,328 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:55:37,038 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:56:38,736 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:57:41,041 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:58:42,736 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 21:59:44,572 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:00:46,293 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:01:48,106 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:02:49,892 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:03:51,753 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:04:53,598 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:05:55,337 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:06:57,015 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:07:58,857 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:09:00,591 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:10:02,403 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:11:04,059 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:12:05,572 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:13:07,122 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:14:08,675 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:15:10,254 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:16:11,749 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:17:13,322 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:18:14,920 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:19:16,540 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:20:18,111 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:21:19,617 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:22:21,165 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:23:22,767 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:24:24,510 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:25:26,209 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:26:27,898 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:27:29,685 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:28:31,426 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:29:33,294 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:30:35,086 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:31:36,832 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:32:38,556 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:33:40,334 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:34:41,978 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:35:43,713 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:36:45,432 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:38:49,469 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:39:50,484 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:00,434 django.utils.autoreload INFO     /home/anton/Рабочий стол/10_03/ESDP-AP7-ATTRACTOR/enimi/settings.py changed, reloading.
+2023-03-10 22:40:00,957 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:00,964 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 22:40:19,721 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:20,367 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:20,380 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:21,435 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:22,760 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:24,187 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:25,968 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:28,579 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:32,784 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:40,161 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:54,000 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:56,909 django.utils.autoreload INFO     /home/anton/Рабочий стол/10_03/ESDP-AP7-ATTRACTOR/enimi/settings.py changed, reloading.
+2023-03-10 22:40:57,415 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:40:57,421 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 22:41:20,684 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:42:12,894 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:42:37,901 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:42:38,424 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:42:38,646 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:42:42,428 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:42:42,958 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:42:43,333 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:42:43,341 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 22:44:20,969 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:44:20,970 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:44:20,971 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:44:20,971 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:44:20,972 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:44:20,969 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:44:20,972 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:44:20,970 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:44:20,971 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:44:20,971 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:44:20,972 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:44:20,972 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:44:21,037 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:44:21,037 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:44:21,085 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:44:21,085 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:44:21,133 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:44:21,133 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:44:21,181 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:44:21,181 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:44:21,227 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:44:21,227 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:44:21,277 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:44:21,277 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:44:21,323 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:44:21,323 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:44:21,373 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:44:21,373 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:44:21,599 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:44:21,599 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:44:21,612 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:44:21,613 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:44:21,614 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:44:21,615 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:44:21,615 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:44:21,612 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:44:21,613 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:44:21,614 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:44:21,616 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:44:21,616 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:44:21,670 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:44:21,670 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:44:21,688 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:44:21,690 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 22:44:21,688 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:44:21,690 django.request WARNING  Not Found: /uploads/avatars/tutor4.jpg
+2023-03-10 22:44:21,695 django.request WARNING  Not Found: /uploads/avatars/uchenik3.png
+2023-03-10 22:44:21,695 django.request WARNING  Not Found: /uploads/avatars/uchenik3.png
+2023-03-10 22:44:35,231 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:44:35,231 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:44:35,232 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:44:35,232 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:44:35,234 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:44:35,231 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:44:35,231 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:44:35,235 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:44:35,232 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:44:35,232 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:44:35,234 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:44:35,235 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:44:35,254 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:44:35,255 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:44:35,257 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:44:35,258 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:44:35,259 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:44:35,254 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:44:35,255 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:44:35,257 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:44:35,258 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:44:35,259 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:44:35,281 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:44:35,281 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:44:35,308 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:44:35,309 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:44:35,310 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:44:35,311 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:44:35,308 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:44:35,309 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:44:35,310 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:44:35,311 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:44:35,476 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:44:35,477 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:44:35,478 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:44:35,479 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:44:35,480 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:44:35,476 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:44:35,477 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:44:35,478 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:44:35,479 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:44:35,480 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:44:35,503 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:44:35,503 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:44:35,591 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:44:35,591 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:44:52,659 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:44:52,661 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:44:52,661 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:44:52,664 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:44:52,665 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:44:52,667 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:44:52,659 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:44:52,661 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:44:52,661 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:44:52,664 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:44:52,665 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:44:52,667 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:44:52,674 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:44:52,674 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:44:52,675 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:44:52,677 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:44:52,675 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:44:52,677 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:44:52,680 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:44:52,682 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:44:52,680 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:44:52,682 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:44:52,717 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:44:52,717 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:44:52,723 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:44:52,724 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:44:52,723 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:44:52,724 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:44:52,726 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:44:52,726 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:44:52,731 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:44:52,731 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:44:52,838 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:44:52,839 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:44:52,840 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:44:52,842 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:44:52,843 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:44:52,838 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:44:52,839 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:44:52,840 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:44:52,842 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:44:52,843 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:44:52,868 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:44:52,868 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:48:14,487 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:48:26,576 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:48:26,577 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:48:26,578 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:48:26,580 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:48:26,581 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:48:26,583 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:48:26,576 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:48:26,577 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:48:26,578 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:48:26,580 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:48:26,581 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:48:26,583 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:48:26,591 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:48:26,592 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:48:26,594 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:48:26,595 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:48:26,596 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:48:26,591 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:48:26,592 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:48:26,594 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:48:26,595 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:48:26,596 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:48:26,630 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:48:26,630 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:48:26,643 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:48:26,646 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:48:26,647 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:48:26,643 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:48:26,646 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:48:26,647 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:48:26,652 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:48:26,652 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:48:27,221 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:48:27,222 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:48:27,224 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:48:27,225 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:48:27,227 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:48:27,227 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:48:27,222 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:48:27,224 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:48:27,225 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:48:27,221 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:48:27,248 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:48:27,248 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:48:50,129 django.utils.autoreload INFO     /home/anton/Рабочий стол/10_03/ESDP-AP7-ATTRACTOR/enimi/settings.py changed, reloading.
+2023-03-10 22:48:50,638 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:48:50,645 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 22:49:03,228 django.utils.autoreload INFO     /home/anton/Рабочий стол/10_03/ESDP-AP7-ATTRACTOR/enimi/settings.py changed, reloading.
+2023-03-10 22:49:03,676 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:49:03,683 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 22:49:15,880 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:15,882 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:15,883 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:15,884 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:15,886 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:15,888 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:15,880 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:15,882 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:15,883 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:15,884 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:15,886 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:15,888 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:15,906 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:49:15,908 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:49:15,909 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:49:15,911 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:49:15,912 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:49:15,906 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:49:15,908 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:49:15,909 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:49:15,911 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:49:15,912 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:49:15,939 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:49:15,939 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:49:15,963 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:49:15,963 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:49:15,968 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:49:15,968 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:49:15,970 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:49:15,968 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:49:15,968 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:49:15,970 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:49:16,169 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:16,170 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:16,171 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:16,172 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:16,173 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:16,169 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:16,170 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:16,171 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:16,172 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:16,173 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:16,204 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:16,204 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:21,591 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:21,592 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:21,594 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:21,595 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:21,596 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:21,597 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:21,591 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:21,592 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:21,594 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:21,595 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:21,596 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:21,597 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:21,611 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:49:21,612 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:49:21,613 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:49:21,614 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:49:21,616 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:49:21,611 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:49:21,612 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:49:21,613 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:49:21,614 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:49:21,616 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:49:21,643 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:49:21,643 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:49:21,662 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:49:21,662 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:49:21,672 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:49:21,673 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:49:21,674 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:49:21,672 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:49:21,673 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:49:21,674 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:49:24,033 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:24,033 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:24,035 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:24,036 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:24,037 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:24,033 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:24,033 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:24,035 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:24,036 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:24,037 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:24,744 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:24,744 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:24,804 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:49:24,804 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:49:28,097 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:28,099 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:28,100 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:28,101 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:28,103 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:28,104 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:28,097 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:28,099 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:28,100 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:28,101 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:28,103 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:28,104 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:28,111 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:49:28,111 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:49:28,119 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:49:28,119 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:49:28,123 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:49:28,124 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:49:28,126 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:49:28,127 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:49:28,123 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:49:28,124 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:49:28,126 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:49:28,127 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:49:28,159 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:49:28,159 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:49:28,171 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:49:28,171 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:49:28,174 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:49:28,174 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:49:28,181 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:49:28,181 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:49:28,857 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:28,858 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:28,858 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:28,858 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:28,860 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:28,857 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:28,858 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:28,859 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:28,860 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:28,859 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:28,891 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:28,891 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:29,002 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:49:29,002 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:49:30,035 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:30,036 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:30,038 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:30,039 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:30,040 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:30,042 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:30,035 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:30,036 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:30,038 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:30,039 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:30,040 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:30,042 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:41,102 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:41,103 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:41,104 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:41,105 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:41,107 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:41,108 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:41,102 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:41,103 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:41,104 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:41,105 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:41,107 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:41,108 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:41,116 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:49:41,116 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:49:41,120 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:49:41,121 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:49:41,123 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:49:41,125 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:49:41,127 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:49:41,120 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:49:41,121 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:49:41,123 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:49:41,125 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:49:41,127 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:49:41,162 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:49:41,162 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:49:41,177 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:49:41,179 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:49:41,177 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:49:41,179 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:49:41,182 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:49:41,182 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:49:41,458 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:41,459 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:41,459 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:49:41,461 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:41,458 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:49:41,462 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:41,460 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:41,461 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:49:41,462 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:49:41,460 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:49:41,520 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:41,520 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:49:41,590 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:49:41,590 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:50:17,945 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:50:17,946 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:50:17,947 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:50:17,948 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:50:17,949 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:50:17,951 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:50:17,945 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:50:17,946 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:50:17,947 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:50:17,948 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:50:17,949 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:50:17,951 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:50:17,960 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:50:17,963 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:50:17,960 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:50:17,963 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:50:17,969 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:50:17,969 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:50:17,972 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:50:17,974 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:50:17,975 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:50:17,972 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:50:17,974 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:50:17,975 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:50:18,012 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:50:18,012 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:50:18,012 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:50:18,012 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:50:18,014 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:50:18,014 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:50:18,026 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:50:18,026 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:50:18,209 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:50:18,211 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:50:18,213 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:50:18,215 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:50:18,217 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:50:18,209 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:50:18,211 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:50:18,213 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:50:18,215 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:50:18,217 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:50:18,283 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:50:18,283 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:50:18,333 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:50:18,333 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:52:16,357 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:52:17,269 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:52:17,382 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:52:17,410 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:52:17,746 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:52:18,125 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:52:18,133 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 22:52:29,516 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:52:29,517 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:52:29,516 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:52:29,520 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:52:29,517 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:52:29,523 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:52:29,525 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:52:29,526 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:52:29,520 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:52:29,523 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:52:29,525 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:52:29,526 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:52:29,540 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:52:29,541 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:52:29,542 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:52:29,543 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:52:29,544 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:52:29,540 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:52:29,541 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:52:29,542 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:52:29,543 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:52:29,544 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:52:29,574 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:52:29,574 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:52:29,594 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:52:29,595 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:52:29,595 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:52:29,596 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:52:29,594 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:52:29,595 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:52:29,595 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:52:29,596 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:52:29,893 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:52:29,895 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:52:29,895 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:52:29,897 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:52:29,893 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:52:29,899 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:52:29,895 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:52:29,895 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:52:29,897 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:52:29,899 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:52:29,976 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:52:29,976 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:52:33,611 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:52:33,613 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:52:33,615 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:52:33,617 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:52:33,619 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:52:33,620 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:52:33,611 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:52:33,613 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:52:33,615 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:52:33,617 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:52:33,619 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:52:33,620 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:52:33,637 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:52:33,637 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:52:33,642 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:52:33,643 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:52:33,645 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:52:33,647 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:52:33,648 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:52:33,642 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:52:33,643 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:52:33,645 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:52:33,647 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:52:33,648 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:52:33,687 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:52:33,687 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:52:33,698 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:52:33,699 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:52:33,698 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:52:33,699 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:52:33,705 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:52:33,705 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:52:33,799 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:52:33,801 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:52:33,801 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:52:33,803 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:52:33,804 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:52:33,799 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:52:33,801 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:52:33,801 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:52:33,803 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:52:33,804 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:52:34,078 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:52:34,078 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:52:34,137 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:52:34,137 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:54:45,554 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:54:45,556 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:54:45,558 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:54:45,560 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:54:45,562 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:54:45,564 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:54:45,554 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:54:45,556 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:54:45,558 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:54:45,560 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:54:45,562 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:54:45,564 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:54:45,574 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:54:45,575 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:54:45,577 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:54:45,578 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:54:45,580 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:54:45,581 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:54:45,574 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:54:45,575 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:54:45,577 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:54:45,578 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:54:45,580 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:54:45,581 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:54:45,631 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:54:45,632 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:54:45,631 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:54:45,632 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:54:45,637 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:54:45,637 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:54:45,637 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:54:45,637 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:54:46,002 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:54:46,003 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:54:46,005 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:54:46,006 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:54:46,007 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:54:46,002 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:54:46,003 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:54:46,005 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:54:46,006 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:54:46,007 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:54:46,269 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:54:46,269 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:54:46,374 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:54:46,374 django.request WARNING  Not Found: /img/favicon.png
+2023-03-10 22:55:41,066 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:55:41,068 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:55:41,069 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:55:41,070 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:55:41,071 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:55:41,073 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:55:41,066 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:55:41,068 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:55:41,069 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:55:41,070 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:55:41,071 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:55:41,073 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:55:41,083 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:55:41,083 django.request WARNING  Not Found: /static/js/jquery-3.2.1.min.js
+2023-03-10 22:55:41,087 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:55:41,088 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:55:41,089 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:55:41,090 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:55:41,087 django.request WARNING  Not Found: /static/js/popper.js
+2023-03-10 22:55:41,088 django.request WARNING  Not Found: /static/js/bootstrap.min.js
+2023-03-10 22:55:41,089 django.request WARNING  Not Found: /static/vendors/nice-select/js/jquery.nice-select.min.js
+2023-03-10 22:55:41,090 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.js
+2023-03-10 22:55:41,122 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:55:41,122 django.request WARNING  Not Found: /static/js/owl-carousel-thumb.min.js
+2023-03-10 22:55:41,130 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:55:41,130 django.request WARNING  Not Found: /static/js/jquery.ajaxchimp.min.js
+2023-03-10 22:55:41,142 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:55:41,142 django.request WARNING  Not Found: /static/js/mail-script.js
+2023-03-10 22:55:41,144 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:55:41,145 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:55:41,144 django.request WARNING  Not Found: /static/js/gmaps.min.js
+2023-03-10 22:55:41,145 django.request WARNING  Not Found: /static/js/theme.js
+2023-03-10 22:55:41,241 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:55:41,243 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:55:41,244 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:55:41,245 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:55:41,246 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:55:41,241 django.request WARNING  Not Found: /static/css/bootstrap.css
+2023-03-10 22:55:41,243 django.request WARNING  Not Found: /static/css/themify-icons.css
+2023-03-10 22:55:41,244 django.request WARNING  Not Found: /static/vendors/nice-select/css/nice-select.css
+2023-03-10 22:55:41,245 django.request WARNING  Not Found: /static/vendors/owl-carousel/owl.carousel.min.css
+2023-03-10 22:55:41,246 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:55:41,323 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:55:41,323 django.request WARNING  Not Found: /static/css/style.css
+2023-03-10 22:55:48,194 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:55:48,194 django.request WARNING  Not Found: /static/css/flaticon.css
+2023-03-10 22:55:48,269 django.request WARNING  Not Found: /favicon.ico
+2023-03-10 22:55:48,269 django.request WARNING  Not Found: /favicon.ico
+2023-03-10 22:59:16,106 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:16,608 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:16,806 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:16,996 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:18,173 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:19,006 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:20,126 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:20,995 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:22,251 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:23,091 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:24,707 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:25,534 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:27,935 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:28,761 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:32,769 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:33,634 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:40,855 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 22:59:41,657 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 23:00:11,444 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 23:00:11,948 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 23:00:12,245 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 23:00:12,428 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 23:00:12,900 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 23:00:13,255 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 23:00:13,262 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-03-10 23:07:53,891 verify_email.apps INFO     [Email Verification] : importing signals    - OK.
+2023-03-10 23:07:54,130 verify_email.apps INFO     [Email Verification] : importing signals    - OK.

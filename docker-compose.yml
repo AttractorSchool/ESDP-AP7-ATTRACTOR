@@ -6,10 +6,7 @@ services:
     command: >
       sh -c "python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - ./://app/web
-      - ./static://app/static
-      - ./logs://app/logs:rw
-      - ./uploads:/app/uploads:rw
+      - ./:/app/web
     environment:
       - SECRET_KEY=${SECRET_KEY}
       - DB_NAME=${DB_NAME}
@@ -18,7 +15,7 @@ services:
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
     ports:
-      - '8000:8000'
+      - '8005:8000'
     depends_on:
       db:
         condition: service_healthy
@@ -38,7 +35,7 @@ services:
       timeout: 10s
       retries: 5
     env_file:
-      - ./.env
+      - enimi/.env
     restart: always
   
 
@@ -85,8 +82,8 @@ services:
         - ./uploads:/home/enimi/uploads:rw
         - /etc/letsencrypt:/etc/letsencrypt
     ports:
-      - 80:80
-      - 443:443
+      - "81:80"
+      - "444:443"
     depends_on:
       - web
       
