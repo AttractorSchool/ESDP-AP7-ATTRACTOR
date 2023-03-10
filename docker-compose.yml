@@ -1,4 +1,3 @@
-
 version: '3'
 
 services:
@@ -6,7 +5,6 @@ services:
     build: .
     command: >
       sh -c "python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
-
     volumes:
       - ./://app/web
       - ./static://app/static
@@ -25,7 +23,7 @@ services:
       db:
         condition: service_healthy
     restart: always
-
+  
   db:
     image: postgres:14.6
     environment:
@@ -42,7 +40,43 @@ services:
     env_file:
       - ./.env
     restart: always
+  
 
+  redis:
+    image: redis
+    restart: always
+
+  celery:
+    build: .
+    command: celery -A enimi worker --loglevel=info
+    volumes:
+      - ./://app/web
+      - ./logs://app/logs:rw
+    environment:
+      - DJANGO_SETTINGS_MODULE=enimi.settings
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    depends_on:
+      - web
+      - redis
+    restart: always
+
+  celery-beat:
+    build: .
+    command: celery -A enimi beat -l INFO
+    volumes:
+      - ./://app/web
+      - ./logs://app/logs:rw
+    environment:
+      - DJANGO_SETTINGS_MODULE=enimi.settings
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    depends_on:
+      - web
+      - redis
+    restart: always   
+
+    
   nginx:
     image: nginx
     volumes:
@@ -55,7 +89,7 @@ services:
       - 443:443
     depends_on:
       - web
-
+      
 volumes:
   postgresql_data:
   static:

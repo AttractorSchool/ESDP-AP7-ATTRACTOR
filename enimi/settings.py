@@ -67,7 +67,10 @@ INSTALLED_APPS = [
     'api',
     'notifications',
     'payments',
-    'ratings'
+    'ratings',
+    'django_celery_results',
+    'celery',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -137,7 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Almaty'
 
 USE_I18N = True
 
@@ -145,6 +148,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+# REDIS_DB = 0
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'
+
 
 
 STATIC_URL = "static/"
