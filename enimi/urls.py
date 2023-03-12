@@ -1,5 +1,4 @@
 """enimi URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
 Examples:
@@ -19,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from board_tutors_students.views.base import BoardTutorView, BoardStudentView
-from enimi.views import IndexView
+from enimi.views import IndexView, WorksView
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
@@ -37,4 +36,6 @@ urlpatterns = [
                   path('notifications/', include("notifications.urls")),
                   path('payments/', include("payments.urls")),
                   path('ratings/', include("ratings.urls")),
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+		  path('about/', WorksView.as_view(), name='about-us'),
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+              + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

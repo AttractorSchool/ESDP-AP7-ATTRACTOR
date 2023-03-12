@@ -11,6 +11,7 @@ COPY . /app
 WORKDIR /app
 
 # экспортируем порт 8000, который будет слушать gunicorn
+EXPOSE 8000
 
 # команда запуска gunicorn
-#CMD ["gunicorn", "--bind", "0.0.0.0:8000", "config.wsgi"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "config.wsgi"]

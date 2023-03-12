@@ -23,3 +23,6 @@ class IndexView(TemplateView):
         context['types'] = UserCategoryChoices.choices
         return context
 
+
+class WorksView(TemplateView):
+    template_name = 'about-us.html'

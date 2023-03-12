@@ -6,7 +6,10 @@ services:
     command: >
       sh -c "python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - ./:/app/web
+      - ./://app/web
+      - ./static://app/static
+      - ./logs://app/logs:rw
+      - ./uploads:/app/uploads:rw
     environment:
       - SECRET_KEY=${SECRET_KEY}
       - DB_NAME=${DB_NAME}
@@ -15,7 +18,7 @@ services:
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
     ports:
-      - '8005:8000'
+      - '8000:8000'
     depends_on:
       db:
         condition: service_healthy
@@ -40,7 +43,14 @@ services:
   
 
   redis:
-    image: redis
+    image: redis:6.2.6-alpine
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+    ports:
+      - '6379:6379'
     restart: always
 
   celery:
@@ -51,8 +61,9 @@ services:
       - ./logs://app/logs:rw
     environment:
       - DJANGO_SETTINGS_MODULE=enimi.settings
-      - CELERY_BROKER_URL=redis://redis:6379/0
-      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      #- CELERY_BROKER_URL=redis://redis:6379/0
+      #- CELERY_RESULT_BACKEND=redis://redis:6379/0
+
     depends_on:
       - web
       - redis
@@ -66,8 +77,9 @@ services:
       - ./logs://app/logs:rw
     environment:
       - DJANGO_SETTINGS_MODULE=enimi.settings
-      - CELERY_BROKER_URL=redis://redis:6379/0
-      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      #- CELERY_BROKER_URL=redis://redis:6379/0
+      #- CELERY_RESULT_BACKEND=redis://redis:6379/0
+
     depends_on:
       - web
       - redis
@@ -82,8 +94,8 @@ services:
         - ./uploads:/home/enimi/uploads:rw
         - /etc/letsencrypt:/etc/letsencrypt
     ports:
-      - "81:80"
-      - "444:443"
+      - "80:80"
+      - "443:443"
     depends_on:
       - web
       
@@ -91,3 +103,4 @@ volumes:
   postgresql_data:
   static:
   media:
+  redis_data:
